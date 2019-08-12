@@ -21,7 +21,6 @@ export default {
   name: 'DashHeader',
   components: {
   },
-  props: ['user'],
   computed: {
     ...mapState([
       'userInfo'

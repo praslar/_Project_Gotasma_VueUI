@@ -1,6 +1,6 @@
 <template>
   <footer class="main-footer">
-    <strong> {{ year }}
+    <strong>	&copy; {{ year }}
     <span>TMA solution  </span>DC-14</strong>
   </footer>
 </template>

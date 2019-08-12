@@ -15,7 +15,6 @@ import SidebarMenu from './SidebarMenu'
 
 export default {
   name: 'Sidebar',
-  props: ['user'],
   components: { SidebarMenu },
   mounted: function() {
     window
