@@ -44,4 +44,7 @@ export default {
 #search-btn {
   width: 20%;
 }
+.main-sidebar{
+  height: 100%;
+}
 </style>

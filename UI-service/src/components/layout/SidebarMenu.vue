@@ -10,9 +10,9 @@
     </router-link>
 
     <li class="header">Team and Resource</li>
-    <router-link tag="li" class="pageLink" to="/tasks">
+    <router-link tag="li" class="pageLink" to="/member">
       <a>
-        <i class="fa fa-tasks"></i>
+        <i class="fa fa-users"></i>
         <span class="page">View all member</span>
       </a>
     </router-link>
