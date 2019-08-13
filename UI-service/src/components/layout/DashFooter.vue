@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <style>
-span {
+strong span {
 color: lightskyblue;
 }
 </style>
