@@ -15,8 +15,10 @@ export default {
   }
 }
 </script>
-<style>
-strong span {
-color: lightskyblue;
+
+<style scoped>
+span {
+color: midnightblue;
+
 }
 </style>

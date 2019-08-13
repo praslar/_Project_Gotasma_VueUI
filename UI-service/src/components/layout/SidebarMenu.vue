@@ -1,28 +1,28 @@
 <template>
- <ul class="sidebar-menu">
-    <li class="header">Projects Management
-    </li>
-    <router-link tag="li" class="pageLink" to="/">
+  <ul class="sidebar-menu">
+    <li class="header">Projects managment</li>
+    <router-link tag="li" class="pageLink" to="/Projects">
       <a>
-        <i class="fa fa-desktop"></i>
-        <span class="page">View All Project</span>
+        <i class="fa fa-tasks"></i>
+        <span class="page">View all project</span>
       </a>
     </router-link>
-
-    <li class="header">Team and Resource</li>
+     <li class="header">Team and Resource</li>
     <router-link tag="li" class="pageLink" to="/member">
       <a>
         <i class="fa fa-users"></i>
         <span class="page">View all member</span>
       </a>
     </router-link>
- </ul>
+  </ul>
 </template>
+
 <script>
 export default {
   name: 'SidebarMenu'
 }
 </script>
+
 <style>
 span {
   color: #EEEEE7;
@@ -51,5 +51,9 @@ span {
   100% {
     transform: rotate(-90deg);
   }
+}
+
+span {
+  color: #eeeee7
 }
 </style>
