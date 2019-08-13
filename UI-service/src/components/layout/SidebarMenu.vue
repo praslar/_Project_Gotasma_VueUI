@@ -1,9 +1,19 @@
 <template>
+  <ul class="sidebar-menu">
+    <li class="header">Projects managment</li>
+    <router-link tag="li" class="pageLink" to="/Projects">
+      <a>
+        <i class="fa fa-tasks"></i>
+        <span class="page">View all project</span>
+      </a>
+    </router-link>
+  </ul>
 </template>
+
 <script>
-export default {
-}
+export default {}
 </script>
+
 <style>
 /* override default */
 .sidebar-menu > li > a {
@@ -29,5 +39,9 @@ export default {
   100% {
     transform: rotate(-90deg);
   }
+}
+
+span {
+  color: #eeeee7
 }
 </style>

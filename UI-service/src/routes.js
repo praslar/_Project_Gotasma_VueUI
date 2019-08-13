@@ -1,24 +1,20 @@
 import DashView from './components/Dash.vue'
 // Import Views - Dash
-import DashboardView from './components/views/Dashboard.vue'
+import ProjectsView from './components/views/Projects.vue'
 // Routes
-const routes = [
-  {
-    path: '/',
-    component: DashView,
-    children: [
-      {
-        path: 'dashboard',
-        alias: '',
-        component: DashboardView,
-        name: 'Dashboard',
-        meta: {description: 'Overview of environment'}
-      }
-    ]
-  }, {
+const routes = [{
+  path: '/',
+  component: DashView,
+  children: [{
+    path: 'Projects',
+    alias: '',
+    component: ProjectsView,
+    name: 'Projects',
+    meta: { description: 'View all projects' }
+  }]
+}, {
     // not found handler
-    path: '*'
-  }
-]
+  path: '*'
+}]
 
 export default routes

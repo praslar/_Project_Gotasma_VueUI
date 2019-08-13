@@ -1,7 +1,7 @@
 <template>
   <footer class="main-footer">
     <strong> {{ year }}
-    <span>TMA solution  </span>DC-14</strong>
+    <span>TMA solution </span>DC-14</strong>
   </footer>
 </template>
 
@@ -15,8 +15,8 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 span {
-color: lightskyblue;
+color: midnightblue;
 }
 </style>
