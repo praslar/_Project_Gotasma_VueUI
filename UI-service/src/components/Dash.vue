@@ -9,10 +9,6 @@
       <!-- Content Header (Page header) -->
 
       <section class="content-header" id="head-spacing">
-        <h1>
-          {{$route.name.toUpperCase() }}
-          <small>{{ $route.meta.description }}</small>
-        </h1>
         <ol class="breadcrumb">
           <li>
             <a href="javascript:;">
@@ -21,7 +17,6 @@
           <li class="active">{{$route.name.toUpperCase()}}</li>
         </ol>
       </section>
-
       <router-view></router-view>
     </div>
     <!-- /.content-wrapper -->
@@ -51,12 +46,6 @@ export default {
       classes: {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile
-      }
-    }
-  },
-  computed: {
-    user() {
-      return {
       }
     }
   }

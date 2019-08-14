@@ -102,12 +102,12 @@ body {
 .content-wrapper,
 .right-side {
     min-height: 100%;
-    background-color: #f5fafa;
+    background-color: #fff;
     z-index: 800
 }
 
 .main-footer {
-    background: #f5fafa;
+    background: #fff;
     color: #444;
     border-top: 1px solid #c0c0c0;
     height: 20px;

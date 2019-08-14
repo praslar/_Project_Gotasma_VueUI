@@ -9,22 +9,16 @@
       <a href="javascript:;" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
     </nav>
   </header>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'DashHeader',
   components: {
   },
   computed: {
-    ...mapState([
-      'userInfo'
-    ])
   }
 }
 </script>

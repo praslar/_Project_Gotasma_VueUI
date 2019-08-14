@@ -22,7 +22,7 @@
                       aria-controls="example1"
                       tabindex="0"
                       class="sorting_asc"
-                    >Avatar</th>
+                    >User</th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
                       style="width: 207px;"
@@ -104,3 +104,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+table{
+  color: #242E35;
+}
+img{
+  width: 80px;
+}
+</style>
