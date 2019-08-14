@@ -14,7 +14,7 @@ import { domain, count, prettyDate, pluralize } from './filters'
 
 // Import Views - Top level
 import AppView from './components/App.vue'
-
+import VModal from 'vue-js-modal'
 // Import Install and register helper items
 Vue.filter('count', count)
 Vue.filter('domain', domain)
@@ -22,8 +22,8 @@ Vue.filter('prettyDate', prettyDate)
 Vue.filter('pluralize', pluralize)
 
 Vue.use(VueRouter)
-
-// Routing logic
+Vue.use(VModal)
+    // Routing logic
 var router = new VueRouter({
   routes: routes,
   mode: 'history',

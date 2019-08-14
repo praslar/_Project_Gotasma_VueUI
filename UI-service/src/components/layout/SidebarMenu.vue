@@ -1,7 +1,7 @@
 <template>
   <ul class="sidebar-menu">
     <li class="header">Projects managment</li>
-    <router-link tag="li" class="pageLink" to="/Projects">
+    <router-link tag="li" class="pageLink" to="/ProjectsManagement">
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">View all project</span>

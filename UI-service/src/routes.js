@@ -1,17 +1,17 @@
 import DashView from './components/Dash.vue'
 // Import Views - Dash
 import MemberView from './components/views/Member.vue'
-import ProjectsView from './components/views/Projects.vue'
+import ProjectsManagementView from './components/views/ProjectsManagement.vue'
 
 // Routes
 const routes = [{
   path: '/',
   component: DashView,
   children: [{
-    path: 'Projects',
+    path: 'projectsManagement',
     alias: '',
-    component: ProjectsView,
-    name: 'Projects',
+    component: ProjectsManagementView,
+    name: 'Projects Management',
     meta: { description: 'View all projects' }
   },
   {
@@ -22,9 +22,6 @@ const routes = [{
   }
   ]
 }, {
-    // not found handler
-
-    // not found handler
   path: '*'
 }]
 
