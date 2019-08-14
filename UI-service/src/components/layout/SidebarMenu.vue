@@ -1,13 +1,40 @@
 <template>
   <ul class="sidebar-menu">
     <li class="header">Projects managment</li>
-    <router-link tag="li" class="pageLink" to="/Projects">
+     <router-link tag="li" class="pageLink" to="/projectmanagement">
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">View all project</span>
       </a>
     </router-link>
-     <li class="header">Team and Resource</li>
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-folder-o"></i>
+        <span class="treeview-title">Recent Projects</span>
+        <span class="pull-right-container pull-right">
+          <i class="fa fa-angle-left fa-fw"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li>
+          <a href="/project">
+            <i class="fa fa-file-word-o"></i> Project No.1
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-file-picture-o"></i> Item 2
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-file-pdf-o"></i> Item 3
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="header">Team and Resource</li>
     <router-link tag="li" class="pageLink" to="/member">
       <a>
         <i class="fa fa-users"></i>
@@ -25,7 +52,7 @@ export default {
 
 <style>
 span {
-  color: #EEEEE7;
+  color: #eeeee7
 }
 /* override default */
 .sidebar-menu > li > a {
@@ -54,6 +81,6 @@ span {
 }
 
 span {
-  color: #eeeee7
+  color: #eeeee7;
 }
 </style>

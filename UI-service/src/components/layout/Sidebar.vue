@@ -1,6 +1,5 @@
 <template>
   <aside class="main-sidebar">
-
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar Menu -->
@@ -38,7 +37,7 @@ export default {
 }
 #search {
   width: 80%;
-  float: right;
+  float: right
 }
 
 #search-btn {

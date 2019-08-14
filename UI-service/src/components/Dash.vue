@@ -58,7 +58,7 @@ export default {
   width: 100%;
 }
 .wrapper.fixed_layout .content-wrapper {
-  padding-top: 50px;
+  padding-top: 10px;
 }
 .wrapper.fixed_layout .main-sidebar {
   position: fixed;

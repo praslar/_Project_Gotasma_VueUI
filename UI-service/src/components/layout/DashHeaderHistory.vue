@@ -10,16 +10,7 @@
       </a>
     </span>
     <nav class="navbar navbar-static-top" role="navigation">
-      <div class="input-group">
-        <input
-          type="text"
-          class="col-md-12 form-control"
-          placeholder="Enter an email address of a person you want to invite"
-        />
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-info btn-flat">Invite by email</button>
-        </span>
-      </div>
+        
     </nav>
   </header>
 </template>

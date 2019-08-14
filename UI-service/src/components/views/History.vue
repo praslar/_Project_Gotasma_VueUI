@@ -2,7 +2,6 @@
   <div :class="['wrapper', classes]">
     <dash-header-history></dash-header-history>
     <sidebar-history/>
-    
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">

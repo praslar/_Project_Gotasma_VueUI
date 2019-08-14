@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'Projects',
+  name: 'ProjectManagement',
   components: {},
   data() {
     return {}

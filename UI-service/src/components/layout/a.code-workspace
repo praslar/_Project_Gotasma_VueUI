@@ -7,7 +7,10 @@
             "path": "D:\\template\\CoPilot"
         },
         {
-            "path": "D:\\template\\examle"
+            "path": "D:\\template\\gantt-elastic"
         }
-    ]
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "gantt-elastic"
+    }
 }
