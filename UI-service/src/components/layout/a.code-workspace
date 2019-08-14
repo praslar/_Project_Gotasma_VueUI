@@ -4,10 +4,16 @@
             "path": "D:\\template\\projectTask\\projects-management\\UI-service"
         },
         {
-            "path": "D:\\template\\CoPilot"
+            "path": "D:\\template\\gantt-elastic"
         },
         {
-            "path": "D:\\template\\gantt-elastic"
+            "path": "D:\\template\\vue-gantt-elastic"
+        },
+        {
+            "path": "D:\\template\\testing"
+        },
+        {
+            "path": "D:\\template\\CoPilot"
         }
     ],
     "settings": {

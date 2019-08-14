@@ -1727,6 +1727,11 @@ dateformat@^1.0.6:
     get-stdin "^4.0.1"
     meow "^3.3.0"
 
+dayjs@^1.8.15:
+  version "1.8.15"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.15.tgz#7121bc04e6a7f2621ed6db566be4a8aaf8c3913e"
+  integrity sha512-HYHCI1nohG52B45vCQg8Re3hNDZbMroWPkhz50yaX7Lu0ATyjGsTdoYZBpjED9ar6chqTx2dmSmM8A51mojnAg==
+
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
@@ -2669,6 +2674,24 @@ ftp@~0.3.5:
 function-bind@^1.0.2, function-bind@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
+
+gantt-elastic-header@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/gantt-elastic-header/-/gantt-elastic-header-0.1.11.tgz#8b9fec8e51709b82ff59a0386f066850ae69c6d1"
+  integrity sha512-mDzraF/ZxrY9Pmp2Kjb1Hm8pFSeH2Ze5S0Lw/qiW63qyYxj0uLMp8w6xJq4rt2aB0lcHhonf0YMOjCjAk1WZfQ==
+  dependencies:
+    vue "^2.6.10"
+    vue-slider-component "^3.0.31"
+    vue-switches "^2.0.1"
+
+gantt-elastic@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/gantt-elastic/-/gantt-elastic-1.0.5.tgz#3bea082d6dcd5b5db695ac2c344fb9baa1d12bce"
+  integrity sha512-e1HJROnXitL6Jwab3elJcee6MgYrF3IKS7XxSxgLzU+Pfo9Pj+Ytdtr0xy42zA+Y793G9hPaCIMhbW0HcmM4lA==
+  dependencies:
+    dayjs "^1.8.15"
+    resize-observer-polyfill "^1.5.1"
+    vue "^2.6.10"
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -5258,6 +5281,11 @@ requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
 
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
+
 resolve-from@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
@@ -6060,6 +6088,11 @@ void-elements@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
+vue-class-component@^7.0.1:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.1.0.tgz#b33efcb10e17236d684f70b1e96f1946ec793e87"
+  integrity sha512-G9152NzUkz0i0xTfhk0Afc8vzdXxDR1pfN4dTwE72cskkgJtdXfrKBkMfGvDuxUh35U500g5Ve4xL8PEGdWeHg==
+
 vue-date-picker@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vue-date-picker/-/vue-date-picker-1.0.2.tgz#d8243dde3d3c37b550cbe4f88c8d4b0803128471"
@@ -6085,6 +6118,14 @@ vue-loader@^11.1.4:
     vue-style-loader "^2.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
+vue-property-decorator@^8.0.0:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-8.2.1.tgz#3791662033b20d20d098cb20e86fd23842982508"
+  integrity sha512-zgtcvzGB2JpDqnIxVhTK+6m+dv3uyhYs+tL8elL+DWiXj9kDonKcPY7f1DHYX1NlnWPCj7ht0nL/i8+S1gg76Q==
+  dependencies:
+    vue "^2.6.10"
+    vue-class-component "^7.0.1"
+
 vue-resource@^1.0.3:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/vue-resource/-/vue-resource-1.3.1.tgz#bf2f7b70bfe21b397c9d7607878f776a3acea2cf"
@@ -6095,12 +6136,26 @@ vue-router@^2.2.0:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.5.3.tgz#073783f564b6aece6c8a59c63e298dc2aabfb51b"
 
+vue-slider-component@^3.0.31:
+  version "3.0.38"
+  resolved "https://registry.yarnpkg.com/vue-slider-component/-/vue-slider-component-3.0.38.tgz#dce3473ff97b51a094069b2f505132d059e18f32"
+  integrity sha512-7iuN4jtH1ceUzjTr4CUI3FbnONOUPxFdW79HuUwdbTfuJgh/806Xkuc2runAS0Z3UsCY+DuNnKifb9ip1rz8GQ==
+  dependencies:
+    vue-property-decorator "^8.0.0"
+
 vue-style-loader@^2.0.0, vue-style-loader@^2.0.4:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-2.0.5.tgz#f0efac992febe3f12e493e334edb13cd235a3d22"
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
+
+vue-switches@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vue-switches/-/vue-switches-2.0.1.tgz#f23436259c7fe4ffca9c4a6df49ac78941e20a20"
+  integrity sha512-rDqBtK3TKy1pEvyZeWmnSHVeXqAcn+ozch7LiNThBzr1QMjg5rhvqBY7uWeli/baDDslf6CXmBJbHPwASJLqoA==
+  dependencies:
+    vue "^2.2.6"
 
 vue-template-compiler@^2.2.4:
   version "2.3.3"
@@ -6116,6 +6171,11 @@ vue-template-es2015-compiler@^1.2.2:
 vue@^2.2.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
+
+vue@^2.2.6, vue@^2.6.10:
+  version "2.6.10"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
+  integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
 vuetify@^2.0.5:
   version "2.0.5"

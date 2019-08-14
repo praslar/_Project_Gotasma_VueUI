@@ -1,10 +1,13 @@
 <template>
-
+  <gantt></gantt>
 </template>
 <script>
-// Require needed datatables modules
+import Gantt from './Gantt'
 export default {
-  name: 'Project'
-};
+  name: 'Project',
+  components: {
+    Gantt
+  }
+}
 </script>
 
