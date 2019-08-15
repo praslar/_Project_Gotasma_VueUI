@@ -10,7 +10,7 @@
       <gantt-header slot="header"></gantt-header>
     </gantt-elastic>
     <div class="q-mt-md" />
-    <button @click="addTask" type="button" class="btn btn-info btn-sm">Add Task</button>
+    <button @click="addTask" type="button" class="btn btn-info btn-lg" style="margin:20px">Add Task</button>
   </div>
 </template>
 

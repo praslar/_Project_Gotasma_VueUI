@@ -11,7 +11,7 @@
       <section class="content-header" id="head-spacing">
         <ol class="breadcrumb">
           <li>
-            <a href="javascript:;">
+            <a href="/">
               <i class="fa fa-home"></i>Home</a>
           </li>
           <li class="active">{{$route.name.toUpperCase()}}</li>
@@ -79,14 +79,9 @@ export default {
 .logo-lg img {
   padding: 0.4em !important;
 }
-
 .logo-lg img {
   display: -webkit-inline-box;
   width: 25%;
-}
-
-.user-panel {
-  height: 4em;
 }
 
 hr.visible-xs-block {

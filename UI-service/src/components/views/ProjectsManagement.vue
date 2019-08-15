@@ -3,7 +3,7 @@
   <section class="content">
     <div class="col-xs-12">
       <div id="btn-spacing">
-        <button type="submit" v-bind:class="'btn btn-primary btn-lg'">Create New Project</button>
+        <button type="submit" v-bind:class="'btn btn-primary btn-lg'" id="myBtn">Create New Project</button>
       </div>
       <div class="box">
         <div class="box-header with-border">
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'ProjectManagement',
+  name: 'projectsManagement',
   components: {},
   data() {
     return {}
@@ -44,12 +44,11 @@ export default {
   vertical-align: middle;
   display: inherit;
 }
-.fullCanvas {
-  width: 100%;
-}
 #btn-spacing {
   margin-bottom: 20px;
-  vertical-align: middle
+  vertical-align: middle;
 }
-
+#myBtn {
+  position: relative;
+}
 </style>
