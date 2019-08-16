@@ -17,19 +17,19 @@
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <projectNameHeader class="header-name"></projectNameHeader>
+          
           <buttonFilter></buttonFilter>
           <buttonHistory></buttonHistory>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
         </ul>
       </div>
+      <v-dialog/>
     </nav>
   </header>
 </template>
 
 <script>
-import ProjectNameHeader from './ProjectNameHeader'
 import ButtonHistory from './ButtonHistory'
 import ButtonSave from './ButtonSave'
 import ButtonSetting from './ButtonSetting'
@@ -38,13 +38,12 @@ import ButtonFilter from './ButtonFilter'
 export default {
   name: 'DashHeader',
   components: {
-    ProjectNameHeader,
     ButtonHistory,
     ButtonSave,
     ButtonSetting,
     ButtonFilter
   },
-  computed: {
+  methods: {
   }
 }
 </script>

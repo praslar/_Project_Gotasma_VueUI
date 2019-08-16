@@ -96,7 +96,6 @@ export default {
     users: []
   }),
   name: 'table-member',
-
   created() {
     Services.getUsers()
       .then((response) => {

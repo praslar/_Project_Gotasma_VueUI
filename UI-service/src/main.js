@@ -5,6 +5,7 @@ import 'es6-promise/auto'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueDateNow from 'vue-date-now'
+import VModal from 'vue-js-modal'
 
 import { sync } from 'vuex-router-sync'
 import routes from './routes'
@@ -26,7 +27,8 @@ Vue.use(VueRouter)
 Vue.use(VueSplit)
 Vue.use(VueDateNow)
 
-// Routing logic
+Vue.use(VModal, { dialog: true })
+    // Routing logic
 var router = new VueRouter({
     routes: routes,
     mode: 'history',
