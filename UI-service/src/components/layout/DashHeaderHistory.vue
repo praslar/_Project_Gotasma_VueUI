@@ -10,7 +10,6 @@
       </a>
     </span>
     <nav class="navbar navbar-static-top" role="navigation">
-        
     </nav>
   </header>
 </template>

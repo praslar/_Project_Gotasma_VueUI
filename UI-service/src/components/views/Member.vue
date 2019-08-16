@@ -1,40 +1,73 @@
 <template>
-  <section class="content">
-    <div class="row center-block">
-      <div class="header col-md-12">
-        <span>Team and resources</span>
-        <p>Here you manage people from all your projects. You can also invite new members by email. Depending on the rights granted, members can get different roles (work only on personal assigned tasks, edit projects, see costs and work with them).</p>
-      </div>
-      <div class="col-md-12" id="add-member">
-        <div class="input-group">
-        <input type="text" class=" col-md-12 form-control"  placeholder="Enter an email address of a person you want to invite"/>
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-info btn-sm">Invite by email</button>
-        </span>
-       </div>
-      </div>
+  <div :class="['wrapper', classes]">
+    <dash-header-history></dash-header-history>
+    <sidebar />
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{$route.name.toUpperCase() }}
+          <small>{{ $route.meta.description }}</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li>
+            <a href="javascript:;">
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="active">{{$route.name.toUpperCase()}}</li>
+        </ol>
+      </section>
+      <section class="content">
+        <div class="row center-block">
+          <div class="header col-md-12">
+            <span>Team and resources</span>
+            <p>Here you manage people from all your projects. You can also invite new members by email. Depending on the rights granted, members can get different roles (work only on personal assigned tasks, edit projects, see costs and work with them).</p>
+          </div>
+          <div class="col-md-12" id="add-member">
+            <div class="input-group">
+              <input
+                type="text"
+                class="col-md-12 form-control"
+                placeholder="Enter an email address of a person you want to invite"
+              />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-info btn-sm">Invite by email</button>
+              </span>
+            </div>
+          </div>
 
-      <table-member :user="user"></table-member>
+          <table-member ></table-member>
+        </div>
+      </section>
     </div>
-  </section>
+    <dash-footer></dash-footer>
+  </div>
 </template>
 
 <script>
-import faker from 'faker'
+
 import TableMember from './TableMember'
+import config from '../../config'
+import Sidebar from '../layout/Sidebar'
+import DashFooter from '../layout/DashFooter'
+import DashHeaderHistory from '../layout/DashHeaderHistory'
 // Require needed datatables modules
 
 export default {
   name: 'Member',
   components: {
-    TableMember
+    TableMember,
+    Sidebar,
+    DashFooter,
+    DashHeaderHistory
   },
-  computed: {
-    user() {
-      return {
-        displayName: faker.name.findName(),
-        avatar: faker.image.avatar(),
-        roles: [faker.name.jobTitle(), faker.name.jobTitle()]
+  data: function() {
+    return {
+      // section: 'Dash',
+      classes: {
+        fixed_layout: config.fixedLayout,
+        hide_logo: config.hideLogoOnMobile
       }
     }
   }
@@ -52,16 +85,19 @@ export default {
 */
 
 @import url("/static/js/plugins/datatables/dataTables.bootstrap.css");
+.content{
+  padding: 60px;
+}
 .header span {
-  font-size: 18px;
-  color: #242E35;
+  font-size: 24px;
+  color: #242e35;
   font-weight: bold;
 }
-.header p{
- font-size:14px;
- font-style: italic;
- color: #242E35;
- margin-bottom: 20px;
+.header p {
+  font-size: 14px;
+  font-style: italic;
+  color: #242e35;
+  margin-bottom: 20px;
 }
 #add-member {
   margin-bottom: 20px;

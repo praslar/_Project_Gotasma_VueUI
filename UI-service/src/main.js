@@ -4,11 +4,12 @@ import 'es6-promise/auto'
 // Import System requirements
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueDateNow from 'vue-date-now'
 
 import { sync } from 'vuex-router-sync'
 import routes from './routes'
 import store from './store'
-
+import VueSplit from 'vue-split-panel'
 // Import Helpers for filters
 import { domain, count, prettyDate, pluralize } from './filters'
 
@@ -22,6 +23,8 @@ Vue.filter('prettyDate', prettyDate)
 Vue.filter('pluralize', pluralize)
 
 Vue.use(VueRouter)
+Vue.use(VueSplit)
+Vue.use(VueDateNow)
 
 // Routing logic
 var router = new VueRouter({

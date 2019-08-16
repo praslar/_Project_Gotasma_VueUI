@@ -1,34 +1,17 @@
 <template>
   <div class="main">
-        <button @click="addTask" type="button" class="btn btn-info" id="btn-add-task" >Add Task</button>
-    <Split style="height: auto;" direction="vertical">
-    <SplitArea>
-            <gantt-elastic
+    
+      <gantt-elastic
       :options="options"
       :tasks="tasks"
-      @tasks-changed="tasksUpdate"
-      @options-changed="optionsUpdate"
-      @dynamic-style-changed="styleUpdate"
-    >
-      <gantt-header slot="header"></gantt-header>
-    </gantt-elastic>
-    </SplitArea>
-    <SplitArea>
-         <gantt-elastic
-      :options="optionsWorkLoad"
-      :tasks="tasksWorkload"
     >
     </gantt-elastic>
-    </SplitArea>
-   </Split>
 
   </div>
 </template>
 <script>
 import GanttElastic from 'gantt-elastic'
-import GanttHeader from 'gantt-elastic-header'
 import dayjs from 'dayjs'
-
 // just helper to get current dates
 function getDate(hours) {
   const currentDate = new Date()
@@ -336,105 +319,15 @@ let options = {
     'Display task list': 'Task list'
   }
 }
-let optionsWorkLoad = {
-  taskMapping: {
-    title: {
-      label: 'Why',
-      html: false
-    },
-    progress: 'percent'
-  },
-  maxRows: 1000,
-  maxHeight: 1000,
-  row: {
-    height: 20
-  },
-  calendar: {
-    hour: {
-      display: false
-    }
-  },
-  chart: {
-    progress: {
-      bar: false
-    },
-    expander: {
-      display: false
-    }
-  },
-  taskList: {
-    expander: {
-      straight: true
-    },
-    columns: [
-      {
-        id: 1,
-        label: 'ID',
-        value: 'id',
-        width: 40
-      },
-      {
-        id: 2,
-        label: 'Name',
-        value: 'user',
-        width: 580,
-        expander: false,
-        html: true
-      }
-    ],
-    locale: {
-      name: 'en',
-      Now: 'Now',
-      'X-Scale': 'Zoom-X',
-      'Y-Scale': 'Zoom-Y',
-      'Task list width': 'Task list',
-      'Before/After': 'Expand',
-      'Display task list': 'Task list'
-    }
-  }
-}
-let tasksWorkload = [
-   {
-    id: 1,
-    label: '1',
-    user:
-    '<a>John Doe</a>',
-    start: getDate(-24 * 5),
-    duration: 1 * 24 * 60 * 60 * 1000,
-    type: 'task',
-        style: {
-      base: {
-        fill: 'red'
-      }
-    }
-  },
-  {
-    id: 2,
-    label: '2',
-    user:
-      '<a>Peter Parker</a>',
-    start: getDate(-24 * 4),
-    duration: 1 * 24 * 60 * 60 * 1000,
-    type: 'task',
-        style: {
-      base: {
-        fill: '#1ebc61'
-      }
-    }
-  }
-]
 export default {
-  name: 'Gantt',
+  name: 'Gantt-History',
   components: {
-    GanttElastic,
-    GanttHeader
+    GanttElastic
   },
   data() {
     return {
       tasks,
       options,
-      optionsWorkLoad,
-      tasksWorkload,
       dynamicStyle: {},
       lastId: 16
     }

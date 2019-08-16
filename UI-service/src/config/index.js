@@ -1,5 +1,5 @@
 export default {
-  serverURI: '',
-  fixedLayout: false,
-  hideLogoOnMobile: false
+    serverURI: '/static/dummyData',
+    fixedLayout: false,
+    hideLogoOnMobile: false
 }

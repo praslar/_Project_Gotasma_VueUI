@@ -31,7 +31,7 @@
                       aria-controls="example1"
                       tabindex="0"
                       class="sorting"
-                    >Name</th>
+                    >Full Name</th>
                     <th
                       aria-label="Platform(s): activate to sort column ascending"
                       style="width: 182px;"
@@ -49,7 +49,7 @@
                       aria-controls="example1"
                       tabindex="0"
                       class="sorting"
-                    >Assigned Task</th>
+                    >Project</th>
                     <th
                       aria-label="CSS grade: activate to sort column ascending"
                       style="width: 101px;"
@@ -62,42 +62,51 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="index in 20" :key="index">
+                  <tr class="even" role="row" v-for="user of users" :key="user">
                     <td class="sorting_1">
                       <img :src="user.avatar" class="user-image" alt="User Image" />
                     </td>
-                    <td>{{user.displayName}}</td>
-                    <td>{{user.displayName}}</td>
-                    <td>{{user.roles}}</td>
-                    <td></td>
+                    <td>{{user.fullName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                    <div class="external-event bg-red">{{user.country}}</div>
+                    <div class="external-event bg-light-blue">{{user.graphColor}}</div>
+                    </td>
+                    <td><a class="btn btn-app"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-app"><i class="fa fa-remove"></i></a>
+                    </td>
                   </tr>
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <th colspan="1" rowspan="1">Member</th>
-                    <th colspan="1" rowspan="1">Name</th>
-                    <th colspan="1" rowspan="1">Email</th>
-                    <th colspan="1" rowspan="1">Assigned Task</th>
-                    <th colspan="1" rowspan="1"></th>
-                  </tr>
-                </tfoot>
               </table>
             </div>
           </div>
         </div>
-        <!-- /.box-body -->
       </div>
     </div>
-  </div>
-</template>
+  </div> 
+  </template>
 <script>
 import $ from 'jquery'
+import * as Services from '../../services'
+
 require('datatables.net-bs')
-require('datatables.net')
+
 export default {
+  data: () => ({
+    users: []
+  }),
   name: 'table-member',
-  props: ['user'],
-  mounted() {
+
+  created() {
+    Services.getUsers()
+      .then((response) => {
+        this.users = response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+    mounted() {
     this.$nextTick(() => {
       $('#example1').DataTable()
     })
@@ -109,6 +118,15 @@ table{
   color: #242E35;
 }
 img{
-  width: 80px;
+  width: 40px;
+}
+td a {
+  min-width: 30px !important;
+  width: 30px;
+  height: 40px
+}
+td a i{
+  padding: 0px;
+  margin-bottom: 10px;
 }
 </style>
