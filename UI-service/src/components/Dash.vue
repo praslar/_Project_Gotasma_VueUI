@@ -1,9 +1,9 @@
 <template>
   <div :class="['wrapper', classes]">
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <dash-header ></dash-header>
+    <main-header ></main-header>
     <!-- Left side column. contains the logo and sidebar -->
-    <sidebar/>
+    <main-sidebar/>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -22,23 +22,23 @@
     <!-- /.content-wrapper -->
 
     <!-- Horizontal bar at bottom. Contains copy right -->
-    <dash-footer></dash-footer>
+    <main-footer></main-footer>
   </div>
 </template>
 
 <script>
 import config from '../config'
-import DashFooter from './layout/DashFooter'
-import DashHeader from './layout/DashHeader'
-import Sidebar from './layout/Sidebar'
+import MainFooter from './layout/Footers/MainFooter'
+import MainHeader from './layout/Headers/MainHeader'
+import MainSidebar from './layout/Sidebars/MainSidebar'
 import 'hideseek'
 
 export default {
   name: 'Dash',
   components: {
-    DashFooter,
-    DashHeader,
-    Sidebar
+    MainFooter,
+    MainHeader,
+    MainSidebar
   },
   data: function() {
     return {

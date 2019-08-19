@@ -16,23 +16,25 @@ const routes = [{
                 meta: { description: 'View all projects' }
             },
             {
-                path: 'project',
-                component: ProjectsView,
-                name: 'Project',
-                meta: { description: 'View project detail' }
+                path: 'member',
+                component: MemberView,
+                name: 'Member',
+                meta: { description: 'View all member' }
+            },
+            {
+                path: 'history',
+                component: HistoryView,
+                name: 'History',
+                meta: { description: 'View project history' }
             }
         ]
     },
+
     {
-        path: '/history',
-        component: HistoryView,
-        name: 'History'
-    },
-    {
-        path: '/member',
-        component: MemberView,
-        name: 'Member',
-        meta: { description: 'View all member' }
+        path: '/project',
+        component: ProjectsView,
+        name: 'Project',
+        meta: { description: 'View project detail' }
     }
 ]
 export default routes

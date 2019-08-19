@@ -1,30 +1,6 @@
 <template>
-  <div class="">
-    <dash-header-history></dash-header-history>
-    <sidebar/>
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          {{$route.name.toUpperCase() }}
-          <small>{{ $route.meta.description }}</small>
-        </h1>
-        <ol class="breadcrumb">
-          <li>
-            <a href="javascript:;">
-              <i class="fa fa-home"></i>Home
-            </a>
-          </li>
-          <li class="active">{{$route.name.toUpperCase()}}</li>
-        </ol>
-
-            <a href="#" class="toggle-aside-bar" data-toggle="control-sidebar">
-              <i class="fa fa-outdent"></i>
-              </a>
-
-      </section>
-      <gantt-history></gantt-history>
-
+<section class="content">
+  <gantt-history></gantt-history>
   <aside class="control-sidebar control-sidebar-light ">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -104,23 +80,15 @@
     </div>
   </aside>
   <div class="control-sidebar-bg"></div>
-  </div>
-    <dash-footer></dash-footer>
-  </div>
+</section>
 </template>
 
 <script>
-import DashFooter from '../layout/DashFooter'
-import DashHeaderHistory from '../layout/DashHeaderHistory'
-import Sidebar from '../layout/Sidebar'
 import GanttHistory from './Gantt-history'
 
 export default {
-  name: 'History',
+  name: 'history',
   components: {
-    DashFooter,
-    DashHeaderHistory,
-    Sidebar,
     GanttHistory,
     day: new Date(),
     date: new Date()
