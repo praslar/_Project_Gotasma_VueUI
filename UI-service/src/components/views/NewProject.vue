@@ -1,20 +1,18 @@
 <template>
-  <modal name="createNewProj" transition="pop-out" :width="modalWidth" :height="auto">
+  <modal name="createNewProj" transition="pop-out" :width="modalWidth" :scrollable="true" height="auto">
     <div class="modal-box">
         <div class="partition" id="partition-register">
           <div class="partition-title">CREATE NEW PROJECT</div>
           <div class="partition-form">
             <form>
-              <input id="n-email" type="text" placeholder="Name project" />
-              <input id="n-username" type="text" placeholder="Start date" />
-              <input id="n-password2" type="text" placeholder="End date" />
+              <input id="" type="text" placeholder="Name project" />
+              <input id="" type="text" placeholder="Start date" />
+              <input id="" type="text" placeholder="Effort" />
             </form>
-
             <div style="margin-top: 42px"></div>
-
             <div class="button-set">
               <button id="create-btn" @click="createAlert">Create</button>
-              <button id="cancel-btn" @click="cancelCreate">Cancel</button>
+              <button id="cancel-btn" class="pull-right" @click="cancelCreate">Cancel</button>
             </div>
           </div>
         </div>
@@ -52,12 +50,10 @@ export default {
 .modal-box {
   background: white;
   overflow: hidden;
-  width: 656px;
-  height: 400px;
   border-radius: 2px;
   box-sizing: border-box;
   box-shadow: 0 0 40px black;
-  color: #8b8c8d;
+  color: black;
   font-size: 0;
 }
 
@@ -72,7 +68,7 @@ export default {
       width: 100%;
       text-align: center;
       letter-spacing: 1px;
-      font-size: 20px;
+      font-size: 23px;
       font-weight: 300;
 }
 .modal-box .partition .partition-form{
@@ -85,7 +81,7 @@ export default {
     box-sizing: border-box;
     margin-bottom: 4px;
     width: 100%;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 2;
     border: 0;
     border-bottom: 1px solid #DDDEDF;
@@ -105,12 +101,12 @@ export default {
     font-weight: 400;
     min-width: 140px;
     margin-top: 8px;
-    color: #8b8c8d;
+    color: #313233;
     cursor: pointer;
-    border: 1px solid #DDDEDF;
+    border: 1px solid #bbbbbb;
     text-transform: uppercase;
     transition: 0.1s all;
-    font-size: 10px;
+    font-size: 13px;
     outline: none;
   }
   .modal-box button :hover {
@@ -122,7 +118,7 @@ export default {
     margin-left: 8px;
   }
   .modal-box .button-set {
-    margin-bottom: 8px;
+    margin-bottom: 20px;
   }
 
 

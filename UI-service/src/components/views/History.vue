@@ -21,7 +21,6 @@
             <a href="#" class="toggle-aside-bar" data-toggle="control-sidebar">
               <i class="fa fa-outdent"></i>
               </a>
-
       </section>
       <gantt-history></gantt-history>
 

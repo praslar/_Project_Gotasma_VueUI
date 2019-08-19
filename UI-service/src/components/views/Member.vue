@@ -3,7 +3,6 @@
     <dash-header-history></dash-header-history>
     <sidebar />
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
           {{$route.name.toUpperCase() }}
