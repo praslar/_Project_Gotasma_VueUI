@@ -1,7 +1,7 @@
 <template>
-  <li class="dropdown notifications-menu">
+  <li>
     <a href="javascript:;" >
-      <span class="fa fa-filter" id="myIcon"></span>
+      <span class="fa fa-sliders" id="myIcon"></span>
     </a>
   </li>
 </template>

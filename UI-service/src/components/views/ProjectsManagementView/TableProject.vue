@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="col-md-12"> -->
     <div class="box">
       <div class="box-body">
         <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
@@ -64,7 +63,7 @@
                           aria-valuenow= "40"
                           aria-valuemin="0"
                           aria-valuemax="100"
-                          style="width: 40%"
+                          style="width: 45%"
                         ></div>
                       </div>
                     </td>
@@ -79,7 +78,6 @@
                     <th colspan="1" rowspan="1">Number of members</th>
                     <th colspan="1" rowspan="1">Progress</th>
                     <th colspan="1" rowspan="1">Last change</th>
-                    <!-- <th colspan="1" rowspan="1"></th> -->
                   </tr>
                 </tfoot>
               </table>
@@ -88,7 +86,6 @@
         </div>
       </div>
     </div>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -109,14 +106,12 @@ export default {
     Services.getProj()
     .then((response) => {
       this.projects = response.data
+      this.$nextTick(() => {
+      $('#example1').DataTable()
+  })
     })
     .catch(error => {
       console.log(error)
-    })
-  },
-  mounted() {
-    this.$nextTick(() => {
-      $('#example1').DataTable()
     })
   },
    data: () => ({
