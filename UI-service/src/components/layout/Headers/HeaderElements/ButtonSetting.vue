@@ -1,5 +1,5 @@
 <template>
-  <li class="dropdown notifications-menu">
+  <li>
     <a href="javascript:;" class="dropdown-toggle"  @click="showCreateProj">
       <span class="fa fa-gears" id="myIcon"></span>
     </a>

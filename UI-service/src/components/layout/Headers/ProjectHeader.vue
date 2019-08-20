@@ -17,9 +17,8 @@
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          
-          <buttonFilter></buttonFilter>
           <buttonHistory></buttonHistory>
+          <buttonFilter></buttonFilter>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
         </ul>
