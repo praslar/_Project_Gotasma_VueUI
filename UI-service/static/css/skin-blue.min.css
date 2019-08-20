@@ -3,8 +3,10 @@ body {
 }
 
 .skin-blue .main-header .navbar {
-    background-color: #82b4b2;
-    border-bottom: solid 1px #c0c0c0;
+    background-color: #95a5a6;
+    -moz-box-shadow: 2px 4px 5px -5px #555;
+    -webkit-box-shadow: 2px 4px 5px -5px #555;
+    box-shadow: 2px 4px 5px -5px #555;
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {
@@ -12,7 +14,7 @@ body {
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
-    color: #3f3f3f;
+    color: #000;
     background: rgba(0, 0, 0, 0.1)
 }
 
@@ -26,7 +28,7 @@ body {
         background-color: rgba(255, 255, 255, 0.1)
     }
     .skin-blue .main-header .navbar .dropdown-menu li a {
-        color: #3f3f3f
+        color: #fff
     }
     .skin-blue .main-header .navbar .dropdown-menu li a:hover {
         background: #fff
@@ -151,3 +153,5 @@ body {
 .skin-blue.layout-top-nav .main-header>.logo:hover {
     background-color: #3f3f3f
 }
+
+52852977-5-3-1254

@@ -8,16 +8,6 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-
-      <section class="content-header" id="head-spacing">
-        <ol class="breadcrumb">
-          <li>
-            <a href="/">
-              <i class="fa fa-home"></i>Home</a>
-          </li>
-          <li class="active">{{$route.name.toUpperCase()}}</li>
-        </ol>
-      </section>
          <gantt></gantt> 
     </div>
     <!-- /.content-wrapper -->

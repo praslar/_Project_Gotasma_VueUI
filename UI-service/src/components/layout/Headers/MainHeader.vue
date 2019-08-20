@@ -10,6 +10,9 @@
       </a>
     </span>
     <nav class="navbar navbar-static-top" role="navigation">
+            <a href="javascript:;" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
     </nav>
   </header>
 </template>
