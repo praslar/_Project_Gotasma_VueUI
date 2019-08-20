@@ -30,10 +30,10 @@
 </template>
 <script>
 import Gantt from './Gantt'
-import config from '../../config'
-import MainFooter from '../layout/Footers/MainFooter'
-import ProjectHeader from '../layout/Headers/ProjectHeader'
-import MainSidebar from '../layout/Sidebars/MainSidebar'
+import config from '../../../config'
+import MainFooter from '../../layout/Footers/MainFooter'
+import ProjectHeader from '../../layout/Headers/ProjectHeader'
+import MainSidebar from '../../layout/Sidebars/MainSidebar'
 
 export default {
   name: 'Project',

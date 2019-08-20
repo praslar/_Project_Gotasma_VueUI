@@ -22,8 +22,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.main-header nav {
-  background-color: #242e35 !important;
-}
-</style>

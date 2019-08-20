@@ -63,7 +63,7 @@ body {
     -o-transition: -o-transform .3s ease-in-out, margin .3s ease-in-out;
     transition: transform .3s ease-in-out, margin .3s ease-in-out;
     margin-left: 230px;
-    z-index: 820
+    z-index: 820;
 }
 
 .layout-top-nav .content-wrapper,
@@ -369,7 +369,7 @@ a:focus {
     position: absolute;
     top: 15px;
     right: 10px;
-    border-radius: 2px
+    border-radius: 2px;
 }
 
 .content-header>.breadcrumb>li>a {
@@ -395,11 +395,10 @@ a:focus {
         top: 0;
         right: 0;
         float: none;
-        background: #d2d6de;
         padding-left: 10px
     }
     .content-header>.breadcrumb li:before {
-        color: #97a0b3
+        color: #d8d3c0
     }
 }
 
@@ -2765,7 +2764,7 @@ a:focus {
 .nav>li>a:active,
 .nav>li>a:focus {
     color: #444;
-    background: #f7f7f7
+    background: #fff
 }
 
 .nav-pills>li>a {

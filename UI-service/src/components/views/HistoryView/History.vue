@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import GanttHistory from './Gantt-history'
+import GanttHistory from './GanttHistory'
 
 export default {
   name: 'history',

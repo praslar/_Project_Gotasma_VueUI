@@ -1,5 +1,5 @@
 <template>
-  <aside class="main-sidebar">
+  <aside class="main-sidebar" >
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar Menu -->
@@ -44,6 +44,9 @@ export default {
   width: 20%;
 }
 .main-sidebar{
-  height: 100%;
+  height: 100%; 
+   -moz-box-shadow:    0px 0 5px 0 #555;
+  -webkit-box-shadow:  0px 0 5px 0 #555;
+  box-shadow:          0px 0 5px 0 #555;
 }
 </style>

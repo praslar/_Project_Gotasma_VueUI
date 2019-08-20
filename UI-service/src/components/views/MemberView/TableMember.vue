@@ -87,7 +87,7 @@
   </template>
 <script>
 import $ from 'jquery'
-import * as Services from '../../services'
+import * as Services from '../../../services'
 
 require('datatables.net-bs')
 
@@ -100,16 +100,14 @@ export default {
     Services.getUsers()
       .then((response) => {
         this.users = response.data
+        this.$nextTick(() => {
+      $('#example1').DataTable()
+    })
       })
       .catch(error => {
         console.log(error)
       })
-  },
-    mounted() {
-    this.$nextTick(() => {
-      $('#example1').DataTable()
-    })
-  }
+    }
 }
 </script>
 <style scoped>

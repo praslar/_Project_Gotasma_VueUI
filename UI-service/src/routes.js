@@ -1,9 +1,9 @@
 import DashView from './components/Dash.vue'
 // Import Views - Dash
-import MemberView from './components/views/Member.vue'
-import ProjectsManagementView from './components/views/ProjectsManagement.vue'
-import HistoryView from './components/views/History.vue'
-import ProjectsView from './components/views/Project.vue'
+import MemberView from './components/views/MemberView/Member.vue'
+import ProjectsManagementView from './components/views/ProjectsManagementView/ManageProject.vue'
+import HistoryView from './components/views/HistoryView/History.vue'
+import ProjectDetailView from './components/views/ProjectDetailView/Project.vue'
 // Routes
 const routes = [{
         path: '/',
@@ -29,10 +29,9 @@ const routes = [{
             }
         ]
     },
-
     {
         path: '/project',
-        component: ProjectsView,
+        component: ProjectDetailView,
         name: 'Project',
         meta: { description: 'View project detail' }
     }

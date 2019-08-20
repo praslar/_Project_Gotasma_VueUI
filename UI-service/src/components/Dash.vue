@@ -7,7 +7,6 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-
       <section class="content-header" id="head-spacing">
         <ol class="breadcrumb">
           <li>
@@ -42,7 +41,6 @@ export default {
   },
   data: function() {
     return {
-      // section: 'Dash',
       classes: {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile
