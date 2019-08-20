@@ -1,12 +1,14 @@
 <template>
-  <div :class="['wrapper', classes]">
+<div>
+   <div :class="['wrapper', classes]">
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <main-header ></main-header>
+    <project-header ></project-header>
     <!-- Left side column. contains the logo and sidebar -->
     <main-sidebar/>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
+
       <section class="content-header" id="head-spacing">
         <ol class="breadcrumb">
           <li>
@@ -16,31 +18,34 @@
           <li class="active">{{$route.name.toUpperCase()}}</li>
         </ol>
       </section>
-      <router-view></router-view>
+         <gantt></gantt> 
     </div>
     <!-- /.content-wrapper -->
 
     <!-- Horizontal bar at bottom. Contains copy right -->
     <main-footer></main-footer>
   </div>
-</template>
 
+</div>
+</template>
 <script>
-import config from '../config'
-import MainFooter from './layout/Footers/MainFooter'
-import MainHeader from './layout/Headers/MainHeader'
-import MainSidebar from './layout/Sidebars/MainSidebar'
-import 'hideseek'
+import Gantt from './Gantt'
+import config from '../../../config'
+import MainFooter from '../../layout/Footers/MainFooter'
+import ProjectHeader from '../../layout/Headers/ProjectHeader'
+import MainSidebar from '../../layout/Sidebars/MainSidebar'
 
 export default {
-  name: 'Dash',
+  name: 'Project',
   components: {
+    Gantt,
     MainFooter,
-    MainHeader,
+    ProjectHeader,
     MainSidebar
   },
   data: function() {
     return {
+      // section: 'Dash',
       classes: {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile

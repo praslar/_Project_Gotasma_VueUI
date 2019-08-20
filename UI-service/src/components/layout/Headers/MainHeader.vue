@@ -18,13 +18,7 @@ export default {
   name: 'dash-header-history',
   data() {
     return {
-      snapshotNames: [{ snap1: 'Changing the timeline' }]
     }
   }
 }
 </script>
-<style scoped>
-.main-header nav {
-  background-color: #242e35 !important;
-}
-</style>

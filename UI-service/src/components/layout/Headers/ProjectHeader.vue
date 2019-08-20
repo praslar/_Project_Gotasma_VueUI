@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import ButtonHistory from './ButtonHistory'
-import ButtonSave from './ButtonSave'
-import ButtonSetting from './ButtonSetting'
-import ButtonFilter from './ButtonFilter'
+import ButtonHistory from './HeaderElements/ButtonHistory'
+import ButtonSave from './HeaderElements/ButtonSave'
+import ButtonSetting from './HeaderElements/ButtonSetting'
+import ButtonFilter from './HeaderElements/ButtonFilter'
 
 export default {
   name: 'DashHeader',

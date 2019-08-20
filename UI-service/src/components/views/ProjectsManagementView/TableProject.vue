@@ -93,7 +93,7 @@
 
 <script>
 import $ from 'jquery'
-import * as Services from '../../services'
+import * as Services from '../../../services'
 
 require('datatables.net-bs')
 require('datatables.net')
