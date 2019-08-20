@@ -109,14 +109,12 @@ export default {
     Services.getProj()
     .then((response) => {
       this.projects = response.data
+      this.$nextTick(() => {
+      $('#example1').DataTable()
+  })
     })
     .catch(error => {
       console.log(error)
-    })
-  },
-  mounted() {
-    this.$nextTick(() => {
-      $('#example1').DataTable()
     })
   },
    data: () => ({
