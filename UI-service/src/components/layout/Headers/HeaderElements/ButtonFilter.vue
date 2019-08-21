@@ -1,7 +1,7 @@
 <template>
   <li>
     <a href="javascript:;" >
-      <span class="fa fa-sliders" id="myIcon"></span>
+      <span class="fa fa-sort-amount-asc" id="myIcon"></span>
     </a>
   </li>
 </template>
@@ -14,7 +14,8 @@ export default {
 
 <style scoped>
 #myIcon {
-  color: black
+  color: rgb(43, 42, 42);
+  margin: 0 5px 0 5px
 }
 </style>
 

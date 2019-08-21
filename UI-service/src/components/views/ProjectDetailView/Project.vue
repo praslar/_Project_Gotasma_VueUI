@@ -9,6 +9,8 @@
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
          <gantt></gantt> 
+         <setting-modal></setting-modal>
+         
     </div>
     <!-- /.content-wrapper -->
 
@@ -25,6 +27,7 @@ import MainFooter from '../../layout/Footers/MainFooter'
 import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import MainSidebar from '../../layout/Sidebars/MainSidebar'
 import * as Services from '../../../services'
+import SettingModal from '../../layout/Headers/HeaderElements/SettingModal'
 
 export default {
   name: 'Project',
@@ -32,7 +35,8 @@ export default {
     Gantt,
     MainFooter,
     ProjectHeader,
-    MainSidebar
+    MainSidebar,
+    SettingModal
   },
   data: function() {
     return {

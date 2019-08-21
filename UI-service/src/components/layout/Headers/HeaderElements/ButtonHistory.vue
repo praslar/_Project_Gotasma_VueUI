@@ -1,6 +1,6 @@
 <template>
-  <li class="dropdown notifications-menu">
-    <a href="/history" class="dropdown-toggle">
+  <li>
+    <a href="/history">
       <span class="fa fa-history" id="myIcon"></span>
     </a>
   </li>
@@ -14,7 +14,8 @@ export default {
 
 <style scoped>
 #myIcon {
-  color: black
+  color: rgb(43, 42, 42);
+  margin: 0 5px 0 5px
 }
 </style>
 
