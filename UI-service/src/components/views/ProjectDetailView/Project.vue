@@ -9,7 +9,7 @@
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
 
-      <section class="content-header" id="head-spacing">
+      <!-- <section class="content-header" id="head-spacing">
         <ol class="breadcrumb">
           <li>
             <a href="/">
@@ -17,8 +17,10 @@
           </li>
           <li class="active">{{$route.name.toUpperCase()}}</li>
         </ol>
-      </section>
+      </section> -->
          <gantt></gantt> 
+         <setting-modal></setting-modal>
+         
     </div>
     <!-- /.content-wrapper -->
 
@@ -34,6 +36,7 @@ import config from '../../../config'
 import MainFooter from '../../layout/Footers/MainFooter'
 import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import MainSidebar from '../../layout/Sidebars/MainSidebar'
+import SettingModal from '../../layout/Headers/HeaderElements/SettingModal'
 
 export default {
   name: 'Project',
@@ -41,7 +44,8 @@ export default {
     Gantt,
     MainFooter,
     ProjectHeader,
-    MainSidebar
+    MainSidebar,
+    SettingModal
   },
   data: function() {
     return {

@@ -32,10 +32,8 @@
           <li>
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-clock-o bg-green"></i>
-
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">The <b>'Test'</b> task have been added to the project</h4>
-
                 <p>{{time}}</p>
               </div>
             </a>
@@ -43,11 +41,8 @@
           <li>
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-clock-o bg-red"></i>
-
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Member <i>Johnken DamanaTut</i> have been remove from the project</h4>
-
-         
+                <h4 class="control-sidebar-subheading">Member <i>Johnken DamanaTut</i> have been remove from the project</h4>         
                 <p>{{time}}</p>
               </div>
             </a>
@@ -55,11 +50,8 @@
           <li>
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-clock-o bg-green"></i>
-
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-          
+                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>          
                 <p>{{time}}</p>
               </div>
             </a>
@@ -67,10 +59,8 @@
           <li>
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                 <p>{{time}}</p>
               </div>
             </a>

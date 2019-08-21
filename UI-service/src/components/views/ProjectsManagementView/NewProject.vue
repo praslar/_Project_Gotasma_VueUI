@@ -1,37 +1,52 @@
 <template>
-  <modal name="createNewProj" transition="pop-out" :width="modalWidth" :scrollable="true" height="auto">
+  <modal name="createNewProj" transition="pop-out" :height=600 :width=500 :draggable="true" :clickToClose="false">
     <div class="modal-box">
-        <div class="partition" id="partition-register">
-          <div class="partition-title">CREATE NEW PROJECT</div>
-          <div class="partition-form">
-            <form>
-              <input id="" type="text" placeholder="Name project" />
-              <input id="" type="text" placeholder="Start date" />
-              <input id="" type="text" placeholder="Effort" />
-            </form>
-            <div style="margin-top: 42px"></div>
-            <div class="button-set">
-              <button id="create-btn" @click="createAlert">Create</button>
-              <button id="cancel-btn" class="pull-right" @click="cancelCreate">Cancel</button>
+      <div class="partition">
+        <div class="partition-title">CREATE NEW PROJECT</div>
+        <div class="partition-form">
+          <label>Name: </label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-fw fa-check"></i></span>
+              <input id="myInput" class="form-control" placeholder="Name of project" type="text">      
             </div>
+          <label>Start date:</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-fw fa-calendar"></i>
+            </span>
+            <datepicker format="MMM/DD/YYYY" id="dateInput"></datepicker>
+          </div>
+          <label>Effort: </label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-fw fa-calendar-check-o"></i>
+            </span>
+            <select class="form-control" id="myInput">
+              <option>40 hours/week</option>
+              <option>38 hours/week</option>
+              <option>36 hours/week</option>
+              </select>
+          </div>
+          <div class="button-set">
+            <button class="create-btn" @click="createAlert">Create</button>
+            <button class="cancel-btn pull-right" @click="cancelCreate">Cancel</button>
           </div>
         </div>
       </div>
+    </div>
   </modal>
 </template>
 <script>
-const MODAL_WIDTH = 656
+import datepicker from 'vue-date-picker'
 
 export default {
   name: 'NewProject',
+  components: {
+    datepicker
+  },
   data() {
     return {
-      modalWidth: MODAL_WIDTH
     }
-  },
-  created() {
-    this.modalWidth =
-      window.innerWidth < MODAL_WIDTH ? MODAL_WIDTH / 2 : MODAL_WIDTH
   },
   methods: {
     createAlert() {
@@ -45,21 +60,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
 .modal-box {
   background: white;
-  overflow: hidden;
-  border-radius: 2px;
-  box-sizing: border-box;
-  box-shadow: 0 0 40px black;
   color: black;
   font-size: 0;
-}
-
-.modal-box .partition {
-    width: 100%;
-    height: 100%;
 }
 
 .modal-box .partition .partition-title {
@@ -73,22 +78,6 @@ export default {
 }
 .modal-box .partition .partition-form{
       padding: 0 20px;
-      box-sizing: border-box;
-}
-
-.modal-box input[type=text]{
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 4px;
-    width: 100%;
-    font-size: 15px;
-    line-height: 2;
-    border: 0;
-    border-bottom: 1px solid #DDDEDF;
-    padding: 4px 8px;
-    font-family: inherit;
-    transition: 0.5s all;
-    outline: none;
 }
 
 .modal-box button {
@@ -109,27 +98,15 @@ export default {
     font-size: 13px;
     outline: none;
   }
-  .modal-box button :hover {
-      border-color: mix(#DDDEDF, black, 90%);
-      color: mix(#8b8c8d, black, 80%);
+  .modal-box .partition-form .button-set :hover {
+      border-color: rgb(0, 128, 255);
+      color: #0080ff;
   }
-
-  .modal-box #create-btn, #cancel-btn {
-    margin-left: 8px;
+  .modal-box .partition-form .button-set .cancel-btn:hover {
+      border-color: rgb(255, 0, 0);
+      color: #ff0000;
   }
   .modal-box .button-set {
-    margin-bottom: 20px;
+    margin-top: 30px;
   }
-
-
-.pop-out-enter-active,
-.pop-out-leave-active {
-  transition: all 0.5s;
-}
-
-.pop-out-enter,
-.pop-out-leave-active {
-  opacity: 0;
-  transform: translateY(24px);
-}
 </style>

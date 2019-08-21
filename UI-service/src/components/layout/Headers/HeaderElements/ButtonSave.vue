@@ -1,7 +1,7 @@
 <template>
-  <li class="dropdown notifications-menu">
-    <a href="javascript:;" class="dropdown-toggle" @click="showDialog">
-      <span class="fa fa-save" id="myIcon" />
+  <li>
+    <a href="javascript:;" @click="showDialog">
+      <span class="fa fa-download" id="myIcon" />
       <span class="hidden-xs" id="myIcon">{{ "SAVE" }}</span>
     </a>
   </li>
@@ -39,7 +39,8 @@ export default {
 
 <style scoped>
 #myIcon {
-  color: black;
+  color: rgb(43, 42, 42);
+  margin: 0 5px 0 5px
 }
 </style>
 

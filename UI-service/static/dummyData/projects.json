@@ -1,93 +1,106 @@
 [
     {
-    "proj_id": 9801529263,
-    "proj_members": 5,
-    "proj_name": "coca cola",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-07-16"
+    "projectID": 9801529263, 
+    "name": "coca cola",
+    "effort": 40,
+    "startDate": "2016-01-10T23:28:56.782Z",
+    "updateDate": "2016-02-10T23:28:56.782Z",    
+    "numberOfMembers": 5
 },
     {
-    "proj_id": 9661379305,
-    "proj_members": 3,
-    "proj_name": "pepsi",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-01-06"
+    "projectID": 9661379305,
+    "name": "pepsi",
+    "effort": 40,
+    "startDate": "2018-04-01T23:28:56.782Z",
+    "updateDate": "2018-05-01T23:28:56.782Z",    
+    "numberOfMembers": 8
 },
     {
-    "proj_id": 6386353753,
-    "proj_members": 1,
-    "proj_name": "moutain dew",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-07-16"
+    "projectID": 6386353753,
+    "name": "moutain dew",
+    "effort": 40,
+    "startDate": "2019-06-07T23:28:56.782Z",
+    "updateDate": "2019-07-07T23:28:56.782Z",    
+    "numberOfMembers": 2
 },
     {
-    "proj_id": 2910844816,
-    "proj_members": 5,
-    "proj_name": "heniken",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2018-11-16"
+    "projectID": 2910844816,
+    "name": "heineken",
+    "effort": 40,
+    "startDate": "2016-09-29T23:28:56.782Z",
+    "updateDate": "2016-10-29T23:28:56.782Z",    
+    "numberOfMembers": 12
 },
     {
-    "proj_id": 1601950666,
-    "proj_members": 7,
-    "proj_name": "sting",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2018-12-11"
+    "projectID": 1601950666,
+    "name": "sting",
+    "effort": 40,
+    "startDate": "2018-08-09T23:28:56.782Z",
+    "updateDate": "2018-09-09T23:28:56.782Z",    
+    "numberOfMembers": 1
 },
     {
-    "proj_id": 5239464227,
-    "proj_members": 2,
-    "proj_name": "oolong",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-02-06"
+    "projectID": 5239464227,
+    "name": "oolong",
+    "effort": 36,
+    "startDate": "2017-05-09T23:28:56.782Z",
+    "updateDate": "2017-06-09T23:28:56.782Z",    
+    "numberOfMembers": 3
 },
     {
-    "proj_id": 2508234356,
-    "proj_members": 8,
-    "proj_name": "coffee S",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-05-12"
+    "projectID": 2508234356,
+    "name": "coffee S",
+    "effort": 40,
+    "startDate": "2019-02-12T23:28:56.782Z",
+    "updateDate": "2019-03-12T23:28:56.782Z",    
+    "numberOfMembers": 6
 },
     {
-    "proj_id": 5904128078,
-    "proj_members": 7,
-    "proj_name": "white coke",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-03-11"
+    "projectID": 5904128078,
+    "name": "white coke",
+    "effort": 40,
+    "startDate": "2018-06-26T23:28:56.782Z",
+    "updateDate": "2018-07-26T23:28:56.782Z",    
+    "numberOfMembers": 10
 },
     {
-    "proj_id": 4518400738,
-    "proj_members": 5,
-    "proj_name": "aquafina",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2018-07-01"
+    "projectID": 4518400738,
+    "name": "aquafina",
+    "effort": 36,
+    "startDate": "2019-12-23T23:28:56.782Z",
+    "updateDate": "2019-12-30T23:28:56.782Z",    
+    "numberOfMembers": 6
 },
     {
-    "proj_id": 3453776024,
-    "proj_members": 10,
-    "proj_name": "japanese tea",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-06-16"
+    "projectID": 3453776024,
+    "name": "japanese tea",
+    "effort": 40,
+    "startDate": "2019-02-03T23:28:56.782Z",
+    "updateDate": "2019-03-03T23:28:56.782Z",    
+    "numberOfMembers": 3
 },
     {
-    "proj_id": 9515689237,
-    "proj_members": 4,
-    "proj_name": "milk tea",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-08-10"
+    "projectID": 9515689237,
+    "name": "milk tea",
+    "effort": 36,
+    "startDate": "2019-02-01T23:28:56.782Z",
+    "updateDate": "2019-02-27T23:28:56.782Z",    
+    "numberOfMembers": 7
 },
     {
-    "proj_id": 6686360693,
-    "proj_members": 5,
-    "proj_name": "coca cola",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-07-16"
+    "projectID": 6686360693,
+    "name": "coca cola light",
+    "effort": 40,
+    "startDate": "2019-11-20T23:28:56.782Z",
+    "updateDate": "2019-12-20T23:28:56.782Z",    
+    "numberOfMembers": 9
 },
     {
-    "proj_id": 1781018047,
-    "proj_members": 5,
-    "proj_name": "pure water",
-    "proj_effort": "40hrs/week",
-    "proj_startDate": "2019-03-01"
+    "projectID": 1781018047,
+    "name": "pure water",
+    "effort": 36,
+    "startDate": "2018-02-09T23:28:56.782Z",
+    "updateDate": "2018-03-20T23:28:56.782Z",    
+    "numberOfMembers": 8
 }
 ]

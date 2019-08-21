@@ -17,7 +17,7 @@ import AppView from './components/App.vue'
 Vue.use(VueRouter)
 Vue.use(VueSplit)
 Vue.use(VueDateNow)
-Vue.use(VModal, { dialog: true })
+Vue.use(VModal, { dialog: true, dynamic: true })
     // Routing logic
 var router = new VueRouter({
     routes: routes,
