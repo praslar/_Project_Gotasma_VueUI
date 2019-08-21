@@ -4,7 +4,7 @@
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
     <project-header ></project-header>
     <!-- Left side column. contains the logo and sidebar -->
-    <main-sidebar/>
+    <main-sidebar :admin='admin'/>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -24,6 +24,7 @@ import config from '../../../config'
 import MainFooter from '../../layout/Footers/MainFooter'
 import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import MainSidebar from '../../layout/Sidebars/MainSidebar'
+import * as Services from '../../../services'
 
 export default {
   name: 'Project',
@@ -39,9 +40,19 @@ export default {
       classes: {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile
-      }
+      },
+      admin: ''
     }
-  }
+  },
+    created() {
+    Services.getAdmin()
+      .then((response) => {
+        this.admin = response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
 }
 </script>
 

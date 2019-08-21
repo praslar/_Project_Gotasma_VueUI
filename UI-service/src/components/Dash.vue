@@ -1,9 +1,9 @@
 <template>
   <div :class="['wrapper', classes]">
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <main-header ></main-header>
+    <main-header :admin="admin"></main-header>
     <!-- Left side column. contains the logo and sidebar -->
-    <main-sidebar/>
+    <main-sidebar :admin="admin" />
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -15,17 +15,15 @@
         <ol class="breadcrumb">
           <li>
             <a href="/">
-              <i class="fa fa-home"></i>Home</a>
+              <i class="fa fa-home"></i>Home
+            </a>
           </li>
           <li class="active">{{$route.name.toUpperCase()}}</li>
         </ol>
       </section>
       <router-view></router-view>
     </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Horizontal bar at bottom. Contains copy right -->
-    <main-footer></main-footer>
+    <main-footer :admin="admin"></main-footer>
   </div>
 </template>
 
@@ -35,6 +33,7 @@ import MainFooter from './layout/Footers/MainFooter'
 import MainHeader from './layout/Headers/MainHeader'
 import MainSidebar from './layout/Sidebars/MainSidebar'
 import 'hideseek'
+import * as Services from '../services'
 
 export default {
   name: 'Dash',
@@ -48,7 +47,31 @@ export default {
       classes: {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile
-      }
+      },
+      admin: [
+        {
+          id: null,
+          fullName: '',
+          email: '',
+          country: '',
+          avatar: ''
+        }
+      ]
+    }
+  },
+  mounted() {
+    this.fetchAdmin()
+  },
+  methods: {
+    fetchAdmin: function() {
+      let self = this
+      Services.getAdmin()
+        .then(response => {
+          self.admin = response.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }

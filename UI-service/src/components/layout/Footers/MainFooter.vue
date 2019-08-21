@@ -2,12 +2,20 @@
   <footer class="main-footer">
     <strong>	&copy; {{ year }}
     <span>TMA solution  </span>DC-14</strong>
+    <span class="right-align">Version 1.0.0 || <a @click="$modal.show('about')"><i class="fa fa-fw fa-gg"></i>About Us</a></span>
+    <about :admin="admin"></about>
   </footer>
 </template>
 
 <script>
+import About from './About'
+
 export default {
   name: 'DashFooter',
+  props: ['admin'],
+  components: {
+    About
+  },
   data: function () {
     return {
       year: new Date().getFullYear()
@@ -19,6 +27,9 @@ export default {
 <style scoped>
 span {
 color: midnightblue;
-
+}
+.right-align{
+  position: absolute;
+  right: 0;
 }
 </style>

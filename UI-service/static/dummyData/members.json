@@ -1,0 +1,83 @@
+[{
+        "memberID": 1510251,
+        "badgeID": "batch-27",
+        "name": "Thang Pham",
+        "email": "praslar@gmail.com",
+        "avatar": "/static/img/stock/meo.jpeg",
+        "projects": [{
+                "projectID": 1,
+                "name": "Project Management",
+                "effort": 20
+            },
+            {
+                "projectID": 2,
+                "name": "Coffee Cat",
+                "effort": 20
+            }
+        ]
+    },
+    {
+        "memberID": 1510238,
+        "badgeID": "batch-27",
+        "name": "Quan Vo",
+        "email": "vnmquan@gmail.com",
+        "avatar": "/static/img/stock/user4.jpg",
+        "projects": [{
+                "projectID": 1,
+                "name": "Project Management",
+                "effort": 20
+            },
+            {
+                "projectID": 3,
+                "name": "Smart DLU",
+                "effort": 20
+            }
+        ]
+    },
+    {
+        "memberID": 1002401,
+        "badgeID": "939145",
+        "name": "Nhanh Dinh",
+        "email": "ndinh@gmail.com",
+        "avatar": "/static/img/stock/user5.jpg",
+        "projects": [{
+                "projectID": 1,
+                "name": "Project Management",
+                "effort": 20
+            },
+            {
+                "projectID": 4,
+                "name": "Vitalsuite",
+                "effort": 20
+            }
+        ]
+    },
+    {
+        "memberID": 103211,
+        "badgeID": "132145",
+        "name": "Trung Huynh",
+        "email": "httrung@gmail.com",
+        "avatar": "/static/img/stock/user6.jpg",
+        "projects": [{
+                "projectID": 1,
+                "name": "Project Management",
+                "effort": 10
+            },
+            {
+                "projectID": 3,
+                "name": "Smart DLU",
+                "effort": 10
+            },
+            {
+                "projectID": 2,
+                "name": "Coffee Cat",
+                "effort": 10
+            },
+            {
+                "projectID": 4,
+                "name": "Vitalsuite",
+                "effort": 10
+            }
+        ]
+    }
+]

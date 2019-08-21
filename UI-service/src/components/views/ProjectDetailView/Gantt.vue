@@ -339,7 +339,7 @@ let options = {
 let optionsWorkLoad = {
   taskMapping: {
     title: {
-      label: 'Why',
+      label: 'CCCCCCCC',
       html: false
     },
     progress: 'percent'

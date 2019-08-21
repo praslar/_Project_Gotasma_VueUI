@@ -18,7 +18,9 @@ Vue.use(VueRouter)
 Vue.use(VueSplit)
 Vue.use(VueDateNow)
 Vue.use(VModal, { dialog: true })
-    // Routing logic
+Vue.use(VeeValidate);
+
+// Routing logic
 var router = new VueRouter({
     routes: routes,
     mode: 'history',

@@ -527,7 +527,7 @@ a:focus {
 }
 
 .user-panel:after {
-    clear: both
+    clear: both;
 }
 
 .user-panel>.image>img {
@@ -703,6 +703,10 @@ a:focus {
     .sidebar-mini.sidebar-collapse .sidebar-menu li.header {
         display: none !important;
         -webkit-transform: translateZ(0)
+    }
+    .sidebar-mini.sidebar-collapse .main-sidebar .user-panel {
+        position: fixed;
+        bottom: 0;
     }
     .sidebar-mini.sidebar-collapse .main-header .logo {
         width: 50px
@@ -2764,7 +2768,7 @@ a:focus {
 .nav>li>a:active,
 .nav>li>a:focus {
     color: #444;
-    background: #fff
+    background: transparent
 }
 
 .nav-pills>li>a {

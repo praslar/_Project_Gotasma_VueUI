@@ -1,0 +1,10 @@
+{
+    "id": "admin",
+    "fullName": "Coffee Cat",
+    "email": "coffaacat@gmail.com",
+    "country": "Heaven",
+    "avatar": "/static/img/stock/meo2.jpeg",
+    "aboutAvatar": "/static/img/stock/meo.jpeg",
+    "aboutBackground": "/static/img/about.jpg",
+    "role": "Task Planning"
+}

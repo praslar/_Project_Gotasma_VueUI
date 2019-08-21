@@ -5,15 +5,30 @@
       <!-- Sidebar Menu -->
       <sidebar-menu />
       <!-- /.sidebar-menu -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img :src="admin.avatar" />
+        </div>
+        <div class="pull-left info">
+          <div>
+            <p class="white">{{admin.fullName}}</p>
+          </div>
+          <a href="javascript:;">
+            <i class="fa fa-circle text-success"></i> DC-14
+          </a>
+        </div>
+      </div>
     </section>
     <!-- /.sidebar -->
   </aside>
 </template>
 <script>
+
 import SidebarMenu from './SidebarElements/SidebarMenu'
 
 export default {
   name: 'Sidebar',
+  props: ['admin'],
   components: { SidebarMenu },
   mounted: function() {
     window
@@ -24,8 +39,15 @@ export default {
 }
 </script>
 <style scope="local">
-.user-panel .image img {
-  border-radius: 50%;
+.user-panel {
+  position: absolute;
+  bottom: 0;
+  background-color: #d8d3c0;
+  height: 40px;
+  padding-bottom: 50px;
+}
+.user-panel .image img{
+  border-radius: 10px;
 }
 #searchForm {
   padding-left: 0em;

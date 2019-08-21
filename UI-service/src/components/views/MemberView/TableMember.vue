@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-12">
     <div class="box">
-      <div class="box-body">
+      <div class="box-body ">
         <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
           <div class="row">
             <div class="col-sm-12 table-responsive">
@@ -9,7 +9,7 @@
                 aria-describedby="example1_info"
                 role="grid"
                 id="example1"
-                class="table table-bordered table-striped dataTable"
+                class="table table-bordered table-hover dataTable"
               >
                 <thead>
                   <tr role="row">
@@ -49,7 +49,7 @@
                       aria-controls="example1"
                       tabindex="0"
                       class="sorting"
-                    >Project</th>
+                    >Current Projects</th>
                     <th
                       aria-label="CSS grade: activate to sort column ascending"
                       style="width: 101px;"
@@ -125,5 +125,10 @@ td a {
 td a i{
   padding: 0px;
   margin-bottom: 10px;
+}
+table {
+  border-radius: 10px;
+  border: 1px solid #95a5a6;
+  font-size: 18px !important
 }
 </style>

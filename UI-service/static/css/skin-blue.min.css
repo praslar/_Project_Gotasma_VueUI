@@ -62,14 +62,15 @@ body {
 .skin-blue .sidebar-menu>li.header {
     color: #3f3f3f;
     background: #d8d3c0;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .skin-blue .sidebar-menu>li>a {
     border-left: 1px solid transparent
 }
 
-.skin-blue .sidebar-menu>li:hover>a,
-.skin-blue .sidebar-menu>li.active>a {
+.skin-blue .sidebar-menu>li:hover>a {
     color: #3f3f3f;
     background: #d8d3c0;
     border-left-color: #d8d3c0
@@ -154,4 +155,29 @@ body {
     background-color: #3f3f3f
 }
 
-52852977-5-3-1254
+.skin-blue .dropdown-toggle {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.skin-blue .dropdown-toggle:hover {
+    background-color: transparent !important;
+}
+
+.skin-blue .dropdown-toggle span {
+    color: #000
+}
+
+.skin-blue .dropdown-toggle span {
+    color: #000
+}
+
+.skin-blue .dropdown-menu li p span,
+small {
+    color: #000
+}
+
+.skin-blue .dropdown-menu li a span,
+small {
+    color: #000
+}

@@ -8,12 +8,15 @@
       <div class="col-md-12" id="add-member">
         <div class="input-group">
           <input
-            type="text"
+            type="email"
             class="col-md-12 form-control"
             placeholder="Enter an email address of a person you want to invite"
+            id="email"
+           v-model="userData.email"
           />
           <span class="input-group-btn">
-            <button type="button" class="btn btn-info btn-sm">Invite by email</button>
+            <button @click="$modal.show('NewMember')" type="button" class="btn btn-info btn-sm">Invite by email</button>
+            <new-member :userData="userData"></new-member>
           </span>
         </div>
       </div>
@@ -24,13 +27,23 @@
 
 <script>
 import TableMember from './TableMember'
+import NewMember from './NewMember'
 // Require needed datatables modules
 
 export default {
   name: 'member',
   components: {
-    TableMember
+    TableMember,
+    NewMember
+  },
+  data() {
+    return {
+        userData: {
+          email: ''
+       }
+    }
   }
+
 }
 </script>
 
