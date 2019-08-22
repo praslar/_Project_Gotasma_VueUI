@@ -3,7 +3,7 @@
     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
       <!-- The user image in the navbar-->
       <!-- hidden-xs hides the username on small devices so only the image appears. -->
-
+      <img :src="admin.avatar" class="pull-left avatar"/>
       <div class="pull-left info">
           <div>
             <span class="hidden-xs">{{admin.fullName}}</span>
@@ -45,5 +45,10 @@ export default {
   }
   .hidden-xs{
     font-size: 20px;
+  }
+  .avatar {
+    margin: 5px;
+    margin-top: 2px;
+    border-radius: 8px;
   }
 </style>

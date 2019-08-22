@@ -1,6 +1,7 @@
 <template>
   <div class="main">
-        <button @click="addTask" type="button" class="btn btn-info" id="btn-add-task" >Add Task</button>
+        <button @click="addTask" type="button" class="btn btn-info"  >Add Sum</button>
+        <button @click="addTask" type="button" class="btn btn-info"  >Add Task</button>
     <Split style="height: auto;" direction="vertical">
     <SplitArea>
             <gantt-elastic
@@ -70,8 +71,8 @@ let tasks = [
     collapsed: true,
     style: {
       base: {
-        fill: '#1EBC61',
-        stroke: '#0EAC51'
+        fill: '#fae596',
+        stroke: '#fae596'
       }
     }
   },
@@ -418,7 +419,7 @@ let tasksWorkload = [
     type: 'task',
         style: {
       base: {
-        fill: '#1ebc61'
+        fill: '#fae596'
       }
     }
   }
@@ -472,18 +473,9 @@ export default {
 }
 </script>
 <style scoped>
-#btn-add-task{
-  position: absolute;
-  margin-left: 200px;
-  margin-top: 10px;
+button {
+  margin: 10px;
   font-size: 16px;
   padding: 7px 12px;
-
-}
-@media screen and (max-width: 1200px) {
-  #btn-add-task{
-  position: relative;
-  margin: 10px;
-}
 }
 </style>

@@ -192,4 +192,22 @@ export default {
   z-index: 999;
   color: #000;
 }
+.box-footer button {
+    background: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 10px;
+    letter-spacing: 1px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    min-width: 140px;
+    margin-top: 8px;
+    color: #313233;
+    cursor: pointer;
+    border: 1px solid #bbbbbb;
+    text-transform: uppercase;
+    transition: 0.1s all;
+    font-size: 13px;
+    outline: none;
+}
 </style>

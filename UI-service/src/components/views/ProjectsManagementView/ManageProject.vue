@@ -3,7 +3,7 @@
       <div id="btn-spacing">
         <button
           type="submit"
-          v-bind:class="'btn btn-primary btn-lg'"
+          v-bind:class="'btn btn-info btn-lg'"
           @click="$modal.show('createNewProj')">
           Create New Project</button>
       </div>

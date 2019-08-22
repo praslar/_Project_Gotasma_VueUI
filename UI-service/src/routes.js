@@ -6,11 +6,17 @@ import HistoryView from './components/views/HistoryView/History.vue'
 import ProjectDetailView from './components/views/ProjectDetailView/Project.vue'
 // Routes
 const routes = [{
+        path: '/project',
+        alias: '',
+        component: ProjectDetailView,
+        name: 'Project',
+        meta: { description: 'View project detail' }
+    },
+    {
         path: '/',
         component: DashView,
         children: [{
                 path: 'projectsmanagement',
-                alias: '',
                 component: ProjectsManagementView,
                 name: 'Projects Management',
                 meta: { description: 'View all projects' }
@@ -28,12 +34,6 @@ const routes = [{
                 meta: { description: 'View project history' }
             }
         ]
-    },
-    {
-        path: '/project',
-        component: ProjectDetailView,
-        name: 'Project',
-        meta: { description: 'View project detail' }
     }
 ]
 export default routes
