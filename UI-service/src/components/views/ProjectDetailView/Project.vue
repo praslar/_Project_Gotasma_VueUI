@@ -1,6 +1,7 @@
 <template>
 <div>
    <div :class="['wrapper', classes]">
+ 
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
     <project-header ></project-header>
     <!-- Left side column. contains the logo and sidebar -->
@@ -10,12 +11,11 @@
       <!-- Content Header (Page header) -->
          <gantt></gantt> 
          <setting-modal></setting-modal>
-         
     </div>
     <!-- /.content-wrapper -->
 
     <!-- Horizontal bar at bottom. Contains copy right -->
-    <main-footer></main-footer>
+    <main-footer :admin="admin"></main-footer>
   </div>
 
 </div>
@@ -45,18 +45,32 @@ export default {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile
       },
-      admin: ''
+      admin: [
+        {
+          id: null,
+          fullName: '',
+          email: '',
+          country: '',
+          avatar: ''
+        }
+      ]
     }
   },
-    created() {
-    Services.getAdmin()
-      .then((response) => {
-        this.admin = response.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    mounted() {
+    this.fetchAdmin()
+  },
+  methods: {
+    fetchAdmin: function() {
+      let self = this
+      Services.getAdmin()
+        .then(response => {
+          self.admin = response.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
+  }
 }
 </script>
 

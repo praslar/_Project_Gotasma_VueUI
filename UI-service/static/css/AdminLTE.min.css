@@ -2554,14 +2554,14 @@ a:focus {
 }
 
 .btn-primary {
-    background-color: #3c8dbc;
-    border-color: #fff
+    background-color: #b34c4c;
+    border-color: #b34c4c
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-    background-color: #367fa9
+    background-color: #803434
 }
 
 .btn-success {
@@ -2576,14 +2576,14 @@ a:focus {
 }
 
 .btn-info {
-    background-color: #95a5a6;
-    border-color: #95a5a6
+    background-color: #3fb0ac;
+    border-color: #3fb0ac
 }
 
 .btn-info:hover,
 .btn-info:active,
 .btn-info.hover {
-    background-color: #1a2226;
+    background-color: #173e43;
 }
 
 .btn-danger {

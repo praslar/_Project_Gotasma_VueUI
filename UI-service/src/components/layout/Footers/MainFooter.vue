@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
 span {
-color: midnightblue;
+color: #173e43;
 }
 .right-align{
   position: absolute;

@@ -3,10 +3,19 @@ body {
 }
 
 .skin-blue .main-header .navbar {
-    background-color: #95a5a6;
+    background-color: #3fb0ac;
     -moz-box-shadow: 2px 4px 5px -5px #555;
     -webkit-box-shadow: 2px 4px 5px -5px #555;
     box-shadow: 2px 4px 5px -5px #555;
+}
+
+.navbar-custom-menu .navbar-nav>li>a:hover {
+    background-color: #173e43;
+    color: #fff !important;
+}
+
+.navbar-custom-menu .navbar-nav>li>a>span {
+    color: #fff !important;
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {
@@ -45,7 +54,7 @@ body {
 }
 
 .skin-blue .main-header li.user-header {
-    background-color: #d8d3c0
+    background-color: #dddfd4
 }
 
 .skin-blue .content-header {
@@ -61,7 +70,7 @@ body {
 
 .skin-blue .sidebar-menu>li.header {
     color: #3f3f3f;
-    background: #d8d3c0;
+    background: #dddfd4;
     font-weight: bold;
     font-size: 14px;
 }
@@ -72,13 +81,13 @@ body {
 
 .skin-blue .sidebar-menu>li:hover>a {
     color: #3f3f3f;
-    background: #d8d3c0;
-    border-left-color: #d8d3c0
+    background: #dddfd4;
+    border-left-color: #dddfd4
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu {
     margin: 0 1px;
-    background: #d8d3c0
+    background: #dddfd4
 }
 
 .skin-blue .sidebar a {
@@ -165,19 +174,19 @@ body {
 }
 
 .skin-blue .dropdown-toggle span {
-    color: #000
+    color: #eee
 }
 
 .skin-blue .dropdown-toggle span {
-    color: #000
+    color: #eee
 }
 
 .skin-blue .dropdown-menu li p span,
 small {
-    color: #000
+    color: #eee
 }
 
 .skin-blue .dropdown-menu li a span,
 small {
-    color: #000
+    color: #eee
 }
