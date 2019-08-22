@@ -4,6 +4,7 @@ import MemberView from './components/views/MemberView/Member.vue'
 import ProjectsManagementView from './components/views/ProjectsManagementView/ManageProject.vue'
 import HistoryView from './components/views/HistoryView/History.vue'
 import ProjectDetailView from './components/views/ProjectDetailView/Project.vue'
+import Exceptions from './components/views/ExceptionView/ManageExceptions.vue'
 // Routes
 const routes = [{
         path: '/project',
@@ -32,6 +33,12 @@ const routes = [{
                 component: HistoryView,
                 name: 'History',
                 meta: { description: 'View project history' }
+            },
+            {
+                path: 'exceptions',
+                component: Exceptions,
+                name: 'Exceptions',
+                meta: { description: 'View Excluded Holiday and day-off' }
             }
         ]
     }

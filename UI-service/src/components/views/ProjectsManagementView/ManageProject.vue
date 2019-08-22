@@ -1,6 +1,6 @@
 <template>
   <section class="content">
-      <div id="btn-spacing">
+      <div class="btn-spacing">
         <button
           type="submit"
           v-bind:class="'btn btn-info btn-lg'"
@@ -32,7 +32,7 @@ table{
 img{
   width: 80px;
 }
-#btn-spacing {
+.btn-spacing {
   margin-bottom: 20px;
   vertical-align: middle;
 }

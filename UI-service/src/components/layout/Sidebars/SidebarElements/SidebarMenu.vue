@@ -3,13 +3,13 @@
     <li class="header">Projects managment</li>
     <router-link tag="li" class="pageLink" to="/ProjectsManagement">
       <a>
-        <i class="fa fa-tasks"></i>
+        <i class="fa fa-suitcase"></i>
         <span class="page">View all project</span>
       </a>
     </router-link>
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-folder-o"></i>
+        <i class="fa fa-tags"></i>
         <span class="treeview-title">Recent Projects</span>
         <span class="pull-right-container pull-right">
           <i class="fa fa-angle-left fa-fw"></i>
@@ -18,17 +18,17 @@
       <ul class="treeview-menu">
         <li>
           <a href="/project">
-            <i class="fa fa-file-word-o"></i> Project No.1
+            <i class="fa fa-file-o"></i> Project No.1
           </a>
         </li>
         <li>
           <a href="#">
-            <i class="fa fa-file-picture-o"></i> Item 2
+            <i class="fa fa-file-o"></i> Item 2
           </a>
         </li>
         <li>
           <a href="#">
-            <i class="fa fa-file-pdf-o"></i> Item 3
+            <i class="fa fa-file-o"></i> Item 3
           </a>
         </li>
       </ul>
@@ -39,6 +39,14 @@
       <a>
         <i class="fa fa-users"></i>
         <span class="page">View all member</span>
+      </a>
+    </router-link>
+
+    <li class="header">Exceptions</li>
+    <router-link tag="li" class="pageLink" to="/exceptions">
+      <a>
+        <i class="fa fa-calendar-times-o  "></i>
+        <span class="page">View Exceptions</span>
       </a>
     </router-link>
   </ul>

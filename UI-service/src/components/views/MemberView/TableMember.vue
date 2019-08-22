@@ -72,8 +72,8 @@
                     <div class="external-event bg-red">{{user.country}}</div>
                     <div class="external-event bg-light-blue">{{user.graphColor}}</div>
                     </td>
-                    <td><a class="btn btn-app"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app"><i class="fa fa-remove"></i></a>
+                    <td><a class="btn btn-app" title="Edit member"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-app del-btn" title="Delete member" @click="showDialog"><i class="fa fa-remove"></i></a>
                     </td>
                   </tr>
                 </tbody>
@@ -83,6 +83,7 @@
         </div>
       </div>
     </div>
+    <v-dialog/>
   </div> 
   </template>
 <script>
@@ -107,7 +108,31 @@ export default {
       .catch(error => {
         console.log(error)
       })
+    },
+  methods: {
+    showDialog() {
+      this.$modal.show('dialog', {
+        title: 'Are you sure?',
+        text: 'Do you wish to delete?',
+        buttons: [
+          {
+            title: 'OK',
+            default: true,
+            handler: () => {
+              alert('OK You have deleted')
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: 'CANCEL',
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          }
+        ]
+      })
     }
+  }
 }
 </script>
 <style scoped>
@@ -130,5 +155,8 @@ table {
   border-radius: 10px;
   border: 1px solid #95a5a6;
   font-size: 18px !important
+}
+.del-btn {
+  background-color: rgba(255, 0, 0, 0.13)
 }
 </style>
