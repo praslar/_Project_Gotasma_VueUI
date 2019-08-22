@@ -4,19 +4,12 @@
       <div class="partition">
         <div class="partition-title">CREATE NEW PROJECT</div>
         <div class="partition-form">
-          <label>Name: </label>
+          <h4 class="myheading">Name of project: </h4>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-fw fa-check"></i></span>
               <input id="myInput" class="form-control" placeholder="Name of project" type="text">      
             </div>
-          <label>Start date:</label>
-          <div class="input-group">
-            <span class="input-group-addon">
-              <i class="fa fa-fw fa-calendar"></i>
-            </span>
-            <datepicker format="MMM/DD/YYYY" id="dateInput"></datepicker>
-          </div>
-          <label>Effort: </label>
+          <h4 class="myheading">Effort: </h4>
           <div class="input-group">
             <span class="input-group-addon">
               <i class="fa fa-fw fa-calendar-check-o"></i>
@@ -26,6 +19,13 @@
               <option>38 hours/week</option>
               <option>36 hours/week</option>
               </select>
+          </div>
+          <h4 class="myheading">Start date: </h4>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-fw fa-calendar"></i>
+            </span>
+            <datepicker format="MMM/DD/YYYY" id="dateInput"></datepicker>
           </div>
           <div class="button-set">
             <button class="create-btn" @click="createAlert">Create</button>
@@ -76,8 +76,12 @@ export default {
       font-size: 23px;
       font-weight: 300;
 }
-.modal-box .partition .partition-form{
+.modal-box .partition .partition-form {
       padding: 0 20px;
+}
+
+.modal-box .partition .partition-form .input-group{
+      padding-bottom: 10px;
 }
 
 .modal-box button {
@@ -108,5 +112,8 @@ export default {
   }
   .modal-box .button-set {
     margin-top: 30px;
+  }
+  .myheading {
+    margin: 3px 0 !important;
   }
 </style>

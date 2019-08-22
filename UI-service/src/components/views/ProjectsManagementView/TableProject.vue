@@ -52,8 +52,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="projects of projects" :key="projects">
-                    <td class="sorting_1">{{ projects.name }}</td>
+                  <tr class="even" role="row" v-for="projects of projects" :key="projects" >
+                    <td class="sorting_1" data-href='url://https://www.youtube.com/'>{{ projects.name }}</td>
                     <td>{{ projects.numberOfMembers }}</td>
                     <td>{{ projects.startDate }}</td>
                     <td>{{ projects.updateDate }}</td>
