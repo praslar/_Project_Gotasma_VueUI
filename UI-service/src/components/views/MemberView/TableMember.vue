@@ -1,5 +1,6 @@
 <template>
   <div class="col-md-12">
+
     <div class="box">
       <div class="box-body ">
         <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
@@ -62,20 +63,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="user of users" :key="user">
+                  <tr class="even" role="row" v-for="user of users" :key="user.badgeID">
                     <td class="sorting_1">
                       <img :src="user.avatar" class="user-image" alt="User Image" />
                     </td>
-                    <td>{{user.fullName}}</td>
+                    <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
                     <td>
-                    <div class="external-event bg-red">{{user.country}}</div>
-                    <div class="external-event bg-light-blue">{{user.graphColor}}</div>
+                    <div class="external-event bg-yellow" v-for="project in user.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
-                    <td><a class="btn btn-app"><i class="fa fa-edit"></i></a>
+
+                    <td><a class="btn btn-app" @click="$modal.show('NewMember', {user})"><i class="fa fa-edit"></i></a>
+   
                         <a class="btn btn-app"><i class="fa fa-remove"></i></a>
                     </td>
-                  </tr>
+
+                  </tr>                        
                 </tbody>
               </table>
             </div>
@@ -88,6 +91,7 @@
 <script>
 import $ from 'jquery'
 import * as Services from '../../../services'
+import NewMember from './NewMember'
 
 require('datatables.net-bs')
 
@@ -95,6 +99,9 @@ export default {
   data: () => ({
     users: []
   }),
+  components: {
+    NewMember
+  },
   name: 'table-member',
   created() {
     Services.getUsers()

@@ -8,7 +8,7 @@
           Create New Project</button>
       </div>
     <tableProject></tableProject>
-    <NewProject></NewProject>
+    <NewProject :projects="projects" ></NewProject>
   </section>  
 </template>
 
@@ -22,6 +22,14 @@ export default {
   components: {
     NewProject,
     tableProject
+  },
+  data() {
+    return {
+      projects: {
+        name: '',
+        startDate: ''
+      }
+    }
   }
 }
 </script>

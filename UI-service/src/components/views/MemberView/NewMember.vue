@@ -1,10 +1,21 @@
 <template>
-  <modal name="NewMember" class="modal-new-member" :resizable="true" :draggable="true">
-    <form enctype="multipart/form-data" novalidate>
+  <modal
+    name="NewMember"
+    class="modal-new-member"
+    :resizable="true"
+    :draggable="true"
+    :height="280"
+    @before-open="beforeOpen"
+  >
+    <a class="btn-close" @click="cancelCreate">
+      <i class="fa fa-close"></i>
+    </a>
+    <form enctype="multipart/form-data" novalidate @submit.prevent="handleSubmit">
       <div class="box box-group">
         <div class="box-header with-border dark">
           <h3 class="box-title">Add new member</h3>
         </div>
+        <!--Picture drag or selecte-->
         <div class="dropbox col-xs-4">
           <input
             type="file"
@@ -39,29 +50,65 @@
           </div>
         </div>
         <div class="box-body">
+          <!--Input section-->
           <div class="input-group col-xs-8">
             <span class="input-group-addon">
               <i class="fa fa-tag"></i>
             </span>
-            <input type="text" class="form-control" placeholder="Badge ID" />
+            <input
+              type="text"
+              id="badgeID"
+              v-model="userData.badgeID"
+              v-validate="'required|min:3'"
+              class="form-control"
+              placeholder="Badge ID"
+              name="badgeID"
+              :class="{ 'is-invalid': submitted && errors.has('badgeID') }"
+            />
+            <div v-if="submitted && errors.has('badgeID')" class="invalid-feedback">{{ errors.first('badgeID') }}</div>
           </div>
           <div class="input-group col-xs-8">
             <span class="input-group-addon">
               <i class="fa fa-user-plus"></i>
             </span>
-            <input type="text" class="form-control" placeholder="Username" />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              v-model="userData.name"
+              class="form-control"
+              v-validate="'required|min:5'"
+              :class="{ 'is-invalid': submitted && errors.has('name') }"
+              placeholder="Username"
+            />
+             <div v-if="submitted && errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
           </div>
           <br />
           <div class="input-group col-xs-8">
             <span class="input-group-addon">
               <i class="fa fa-envelope"></i>
             </span>
-            <input type="email" class="form-control" placeholder="Email" readonly :value="userData.email"/>
+            <input
+              v-validate="'required|email'"
+              name="email"
+              id="email"
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              readonly
+              :value="userData.email"
+              :class="{ 'is-invalid': submitted && errors.has('email') }"
+            />
+             <div v-if="submitted && errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>
           </div>
         </div>
-      </div>
-      <div class="box-footer">
-        <button type="submit" class="btn bg-navy pull-right">Submit</button>
+        <div class="box-footer">
+          <p class="quote">
+            Upload member potrait.
+            <br />File should be .jpg type with max solution at 128x128
+          </p>
+          <button class="btn-create">Create</button>
+        </div>
       </div>
     </form>
   </modal>
@@ -78,13 +125,16 @@ export default {
   props: ['userData'],
   data() {
     return {
+      // upload picture properties
       uploadedFiles: [],
       uploadError: null,
       currentStatus: null,
-      uploadFieldName: 'photos'
+      uploadFieldName: 'photos',
+      submitted: false
     }
   },
   computed: {
+    // upload pictute function
     isInitial() {
       return this.currentStatus === STATUS_INITIAL
     },
@@ -97,8 +147,11 @@ export default {
     isFailed() {
       return this.currentStatus === STATUS_FAILED
     }
+    // .....................
+
   },
   methods: {
+    // picture method
     reset() {
       // reset form to initial state
       this.currentStatus = STATUS_INITIAL
@@ -113,6 +166,7 @@ export default {
         .then(x => {
           this.uploadedFiles = [].concat(x)
           this.currentStatus = STATUS_SUCCESS
+          this.userData.avatar = this.uploadedFiles
         })
         .catch(err => {
           this.uploadError = err.response
@@ -132,20 +186,48 @@ export default {
 
       // save it
       this.save(formData)
+    },
+    // Modal
+    cancelCreate() {
+      this.$modal.hide('NewMember')
+    },
+    handleSubmit(e) {
+      this.submitted = true
+      this.$validator.validate().then(valid => {
+                if (valid) {
+                    alert(JSON.stringify(this.userData))
+                }
+            })
+    },
+    beforeOpen(event) {
+      if (event.params != null) {
+        this.userData = event.params.user
+      }
     }
   },
   mounted() {
+    // picture reset
     this.reset()
   }
 }
 </script>
 <style scoped>
+.invalid-feedback{
+  font-size: 12px;
+  color: red;
+  z-index: 9;
+  position: absolute;
+  margin-top: 35px;
+}
+#email{
+  margin-top: 0px;
+}
 .box-title {
   font-family: Roboto;
   font-weight: bold;
 }
 .input-group {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .box-footer {
   border: none;
@@ -162,6 +244,7 @@ export default {
   width: auto;
   margin-top: 20px;
   border-radius: 10px;
+  margin-right: 20px;
 }
 
 .input-file {
@@ -190,24 +273,57 @@ export default {
   position: absolute;
   bottom: 0;
   z-index: 999;
-  color: #000;
+  color: #3fb0ac;
 }
-.box-footer button {
-    background: white;
-    border-radius: 4px;
-    box-sizing: border-box;
-    padding: 10px;
-    letter-spacing: 1px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    min-width: 140px;
-    margin-top: 8px;
-    color: #313233;
-    cursor: pointer;
-    border: 1px solid #bbbbbb;
-    text-transform: uppercase;
-    transition: 0.1s all;
-    font-size: 13px;
-    outline: none;
+.reset-btn:hover {
+  color: #173e43;
+}
+button {
+  background: white;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  letter-spacing: 1px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  min-width: 140px;
+  margin-top: 8px;
+  color: #313233;
+  cursor: pointer;
+  border: 1px solid #bbbbbb;
+  text-transform: uppercase;
+  transition: 0.1s all;
+  font-size: 13px;
+  outline: none;
+}
+.btn-create {
+  margin: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+.btn-create:hover {
+  border-color: #173e43;
+  color: #173e43;
+  margin: 15px;
+}
+.btn-close {
+  width: 30px;
+  font-size: 20px;
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  margin: 1px;
+  padding-left: 10px;
+  color: #3fb0ac;
+}
+.btn-close:hover {
+  color: #173e43;
+}
+.quote {
+  font-size: 14px;
+  color: #000;
+  display: inline;
+  font-style: italic;
 }
 </style>
