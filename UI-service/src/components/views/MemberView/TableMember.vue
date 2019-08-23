@@ -75,8 +75,7 @@
 
                     <td><a class="btn btn-app" @click="$modal.show('NewMember', {user})"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>
-                    </td>
-
+                    </td> 
                   </tr>                        
                 </tbody>
               </table>
