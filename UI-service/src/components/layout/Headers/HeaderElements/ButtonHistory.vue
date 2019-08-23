@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a href="/history">
+    <a href="/history" title="History (snapshots list)">
       <span class="fa fa-history" id="myIcon"></span>
     </a>
   </li>
