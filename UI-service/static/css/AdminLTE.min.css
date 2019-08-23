@@ -102,7 +102,7 @@ body {
 .content-wrapper,
 .right-side {
     min-height: 100%;
-    background-color: #fff;
+    background-color: #dddfd426;
     z-index: 800
 }
 
@@ -1748,7 +1748,7 @@ a:focus {
 }
 
 .box.box-success {
-    border-top-color: #00a65a
+    border-top-color: #3fb0ac
 }
 
 .box.box-default {

@@ -18,6 +18,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <buttonHistory></buttonHistory>
+          <buttonAddMember></buttonAddMember>
           <buttonFilter></buttonFilter>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
@@ -33,6 +34,7 @@ import ButtonHistory from './HeaderElements/ButtonHistory'
 import ButtonSave from './HeaderElements/ButtonSave'
 import ButtonSetting from './HeaderElements/ButtonSetting'
 import ButtonFilter from './HeaderElements/ButtonFilter'
+import buttonAddMember from './HeaderElements/ButtonAddMember'
 
 export default {
   name: 'DashHeader',
@@ -40,7 +42,8 @@ export default {
     ButtonHistory,
     ButtonSave,
     ButtonSetting,
-    ButtonFilter
+    ButtonFilter,
+    buttonAddMember
   },
   methods: {
   }
