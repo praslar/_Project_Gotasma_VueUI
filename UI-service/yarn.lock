@@ -6324,6 +6324,11 @@ uuid@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 
+v-reset-input@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/v-reset-input/-/v-reset-input-1.1.2.tgz#047d8b83b1f9ef015a4ef30351fcf44d12da480a"
+  integrity sha1-BH2Lg7H57wFaTvMDUfz0TRLaSAo=
+
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.1.tgz#2804babe712ad3379459acfbe24746ab2c303fbc"

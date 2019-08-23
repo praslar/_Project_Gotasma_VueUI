@@ -11,7 +11,6 @@ import routes from './routes'
 import store from './store'
 import VueSplit from 'vue-split-panel'
 import VeeValidate from 'vee-validate'
-
 // Import Views - Top level
 import AppView from './components/App.vue'
 

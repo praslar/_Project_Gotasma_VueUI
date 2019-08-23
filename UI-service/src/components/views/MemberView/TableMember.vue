@@ -74,7 +74,7 @@
                     </td>
 
                     <td><a class="btn btn-app" @click="$modal.show('NewMember', {user})"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app"><i class="fa fa-remove"></i></a>
+                        <a class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>
                     </td>
 
                   </tr>                        
@@ -106,7 +106,7 @@ export default {
   created() {
     Services.getUsers()
       .then((response) => {
-        this.users = response.data
+        this.users = response
         this.$nextTick(() => {
       $('#example1').DataTable()
     })

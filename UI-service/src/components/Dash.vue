@@ -67,7 +67,7 @@ export default {
       let self = this
       Services.getAdmin()
         .then(response => {
-          self.admin = response.data
+          self.admin = response
         })
         .catch(error => {
           console.log(error)

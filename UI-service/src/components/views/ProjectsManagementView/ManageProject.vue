@@ -7,7 +7,7 @@
           @click="$modal.show('createNewProj')">
           Create New Project</button>
       </div>
-    <tableProject></tableProject>
+    <tableProject class="main" ></tableProject>
     <NewProject :projects="projects" ></NewProject>
   </section>  
 </template>
@@ -46,5 +46,8 @@ img{
 }
 .content {
   margin-top: 20px !important
+}
+.main {
+  
 }
 </style>

@@ -58,12 +58,13 @@
             <input
               type="text"
               id="badgeID"
-              v-model="userData.badgeID"
+              v-model="user.badgeID"
               v-validate="'required|min:3'"
               class="form-control"
               placeholder="Badge ID"
               name="badgeID"
               :class="{ 'is-invalid': submitted && errors.has('badgeID') }"
+              ref="badgeID"
             />
             <div v-if="submitted && errors.has('badgeID')" class="invalid-feedback">{{ errors.first('badgeID') }}</div>
           </div>
@@ -75,11 +76,12 @@
               type="text"
               id="name"
               name="name"
-              v-model="userData.name"
+              v-model="user.name"
               class="form-control"
               v-validate="'required|min:5'"
               :class="{ 'is-invalid': submitted && errors.has('name') }"
               placeholder="Username"
+              ref="name"
             />
              <div v-if="submitted && errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
           </div>
@@ -95,9 +97,9 @@
               type="email"
               class="form-control"
               placeholder="Email"
-              readonly
-              :value="userData.email"
+              :value="user.email"
               :class="{ 'is-invalid': submitted && errors.has('email') }"
+              ref = "email"
             />
              <div v-if="submitted && errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>
           </div>
@@ -115,6 +117,7 @@
 </template>
 <script>
 import { upload } from '@/services/file-upload'
+import * as Services from '../../../services'
 
 const STATUS_INITIAL = 0
 const STATUS_SAVING = 1
@@ -130,7 +133,8 @@ export default {
       uploadError: null,
       currentStatus: null,
       uploadFieldName: 'photos',
-      submitted: false
+      submitted: false,
+      user: this.userData
     }
   },
   computed: {
@@ -195,14 +199,46 @@ export default {
       this.submitted = true
       this.$validator.validate().then(valid => {
                 if (valid) {
-                    alert(JSON.stringify(this.userData))
+                    Services.addUser(this.userData)
+                      .then(response => {
+                        console.log(response)
+                        alert(JSON.stringify(response))
+                      })
+                      .catch(error => {
+                        console.log(error)
+                      })
                 }
             })
     },
     beforeOpen(event) {
       if (event.params != null) {
-        this.userData = event.params.user
+        this.user = event.params.user
+        this.isEditting = true
+      } else {
+        this.user = this.userData
       }
+    },
+      showDialog() {
+      this.$modal.show('dialog', {
+        title: 'Are you sure?',
+        text: 'Do you wish to delete?',
+        buttons: [
+          {
+            title: 'OK',
+            default: true,
+            handler: () => {
+              alert('OK You have deleted')
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: 'CANCEL',
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          }
+        ]
+      })
     }
   },
   mounted() {
