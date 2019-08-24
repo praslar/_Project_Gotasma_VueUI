@@ -50,5 +50,6 @@ export default {
     margin: 5px;
     margin-top: 2px;
     border-radius: 8px;
+    width: 40px;
   }
 </style>

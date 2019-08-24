@@ -3,8 +3,8 @@
     "fullName": "Coffee Cat",
     "email": "coffaacat@gmail.com",
     "country": "Heaven",
-    "avatar": "/static/img/stock/meo2.jpeg",
-    "aboutAvatar": "/static/img/stock/meo.jpeg",
+    "avatar": "/static/img/stock/giphy.gif",
+    "aboutAvatar": "/static/img/stock/giphy.gif",
     "aboutBackground": "/static/img/about.jpg",
     "role": "Task Planning"
 }
