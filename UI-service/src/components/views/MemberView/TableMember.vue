@@ -88,31 +88,16 @@
   </template>
 <script>
 import $ from 'jquery'
-import * as Services from '../../../services'
 import NewMember from './NewMember'
 
 require('datatables.net-bs')
 
 export default {
-  data: () => ({
-    members: []
-  }),
+  props: ['members'],
   components: {
     NewMember
   },
   name: 'table-member',
-  created() {
-    Services.getUsers()
-      .then((response) => {
-        this.members = response
-        this.$nextTick(() => {
-      $('#example1').DataTable()
-    })
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    },
   methods: {
     showDialog() {
       this.$modal.show('dialog', {
@@ -136,6 +121,11 @@ export default {
         ]
       })
     }
+  },
+  created() {
+       this.$nextTick(() => {
+      $('#example1').DataTable()
+    })
   }
 }
 </script>

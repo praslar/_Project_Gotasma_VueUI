@@ -61,13 +61,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="projects of projects" :key="projects" >
-                    <td class="sorting_1">{{ projects.name }}</td>
-                    <td>{{ projects.numberOfMembers }}</td>
-                    <td>{{ projects.startDate }}</td>
-                    <td>{{ projects.updateDate }}</td>
+                  <tr class="even" role="row" v-for="project of projects" :key="project.projectID" >
+                    <td class="sorting_1">{{ project.name }}</td>
+                    <td>{{ project.numberOfMembers }}</td>
+                    <td>{{ project.startDate }}</td>
+                    <td>{{ project.updateDate }}</td>
                     <td>
-                      <a class="btn btn-app" title="Go to project"><i class="fa fa-play"></i></a>
+                      <router-link :to="projectRoute + project.projectID ">
+                          <a class="btn btn-app" title="Go to project" ><i class="fa fa-play"></i></a>
+                      </router-link>
                       <a class="btn btn-app del-btn" title="Delete project" @click="showDialog"><i class="fa fa-remove"></i></a>
                     </td>
                   </tr>
@@ -112,7 +114,8 @@ export default {
     })
   },
    data: () => ({
-    projects: []
+    projects: [],
+    projectRoute: '../project/'
   }),
   methods: {
     showDialog() {

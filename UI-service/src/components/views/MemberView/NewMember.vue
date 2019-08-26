@@ -10,7 +10,7 @@
     <a class="btn-close" @click="cancelCreate">
       <i class="fa fa-close"></i>
     </a>
-    <form enctype="multipart/form-data" novalidate @submit.prevent="handleSubmit">
+    <form enctype="multipart/form-data" novalidate @submit.prevent="handleSubmit" class="inputUser">
       <div class="box box-group">
         <div class="box-header with-border dark">
           <h3 class="box-title">Add new member</h3>
@@ -85,7 +85,6 @@
             />
              <div v-if="submitted && errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
           </div>
-          <br />
           <div class="input-group col-xs-8">
             <span class="input-group-addon">
               <i class="fa fa-envelope"></i>
@@ -97,7 +96,7 @@
               type="email"
               class="form-control"
               placeholder="Email"
-              :value="member.email"
+              v-model="member.email"
               :class="{ 'is-invalid': submitted && errors.has('email') }"
             />
              <div v-if="submitted && errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>

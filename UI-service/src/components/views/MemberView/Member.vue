@@ -2,16 +2,12 @@
   <section class="content">
     <div class="row center-block">
       <div class="header col-md-12">
-        <span>Team and resources</span>
-        <p>Here you manage people from all your projects. You can also invite new members by email.</p>
+        <span>Team and resources</span> <br>
+        <i>Here you manage people from all your projects. You can also invite new members by email.</i>
+                <button type="button" @click="$modal.show('NewMember')" class="btn btn-info pull-right">Invite new member</button>
       </div>
-      <div class="col-md-12" id="add-member">
-          <span class="input-group-btn">
-            <button type="button" @click="$modal.show('NewMember')" class="btn btn-info btn-lg">Invite new member</button>
             <new-member :memberData="memberData"></new-member>
-          </span>
-        </div>
-              <table-member></table-member>
+            <table-member :members="members"></table-member>
       </div>
   </section>
 </template>
@@ -19,6 +15,7 @@
 <script>
 import TableMember from './TableMember'
 import NewMember from './NewMember'
+import * as Services from '../../../services'
 // Require needed datatables modules
 
 export default {
@@ -34,13 +31,24 @@ export default {
           name: '',
           email: '',
           avatar: []
-       }
+       },
+       members: []
     }
-  }
+  },
+created() {
+    Services.getUsers()
+      .then((response) => {
+        this.members = response
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
 }
 </script>
 
-<style>
+<style scoped>
+
 @import url("/static/js/plugins/datatables/dataTables.bootstrap.css");
 
 .content {
@@ -57,8 +65,9 @@ export default {
   color: #242e35;
   margin-bottom: 20px;
 }
-#add-member {
-  margin-bottom: 20px;
+.btn-info
+{
+  margin-bottom: 6px;
 }
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting_asc:after,

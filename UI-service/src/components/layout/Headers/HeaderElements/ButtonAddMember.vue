@@ -13,28 +13,40 @@
       <li class="header">
          There are {{ memberData.members | count }} member(s) in your project
       </li>
-      <!-- <li>
+      <li>
         <ul class="menu">
-          <notification-item v-for="notification in newNotifications" :key="notification.id" :notification="notification"></notification-item>
-          <li v-if="!newNotifications.length">
-            <span class="center-block text-center">There are no new notifications</span>
+          <member-list v-for="member in memberData.members" :key="member.memberID" :member="member"></member-list>
+          <li v-if="!memberData.members.length">
+            <span class="center-block text-center alert-error">Please assign member to your project</span>
           </li>
         </ul>
-      </li> -->
+      </li>
       <li class="footer">
-        <a href="/member">
+        <router-link :to="teamRoute + memberData.projectID + '/team'">
+        <a >
           <i class="fa fa-users"></i>
           See all member of project
         </a>
+        </router-link>
       </li>
     </ul>
 </li>
 </template>
 
 <script>
+import MemberList from './MemberList'
 export default {
   name: 'buttonAddMember',
-  props: ['memberData']
+  data() {
+    return {
+      teamRoute: '/project/'
+    }
+  },
+  components: { MemberList },
+  props: ['memberData'],
+  created() {
+   console.log(this.teamRoute)
+  }
 }
 </script>
 

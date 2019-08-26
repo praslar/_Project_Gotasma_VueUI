@@ -7,32 +7,28 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-         <fab-button></fab-button>
-         <!-- <gantt></gantt>  -->
          <setting-modal></setting-modal>
+         <router-view></router-view>
     </div>
     <main-footer :admin="admin"></main-footer>
   </div>
 </template>
 <script>
-import Gantt from './Gantt'
 import config from '../../../config'
 import MainFooter from '../../layout/Footers/MainFooter'
 import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import MainSidebar from '../../layout/Sidebars/MainSidebar'
 import * as Services from '../../../services'
 import SettingModal from '../../layout/Headers/HeaderElements/SettingModal'
-import FabButton from '../../layout/Buttons/FabButton'
 
 export default {
   name: 'Project',
+  props: ['id'],
   components: {
-    Gantt,
     MainFooter,
     ProjectHeader,
     MainSidebar,
-    SettingModal,
-    FabButton
+    SettingModal
   },
   data: function() {
     return {
@@ -84,8 +80,7 @@ export default {
         console.log(error)
       })
     }
-
-  }
+    }
 }
 </script>
 
