@@ -43,10 +43,7 @@ export default {
     }
   },
   components: { MemberList },
-  props: ['memberData'],
-  created() {
-   console.log(this.teamRoute)
-  }
+  props: ['memberData']
 }
 </script>
 
