@@ -2,23 +2,20 @@
 <!-- still in development -->
 
   <section class="content">
+    <!-- testing -->
+    <h5>Start Date : {{ exceptDate.exDate[0] }}</h5>
+    <h5>End Date : {{ exceptDate.exDate[1] }}</h5>
+    <!-- testing -->
     <h1>Still in development but can test if you want</h1>
     <div class="holder">
       <div class="createExcept">
-        <!-- testing -->
-          <p>Start Date : {{ exceptDate.start }}</p>
-          <p>End Date : {{ exceptDate.end }}</p>
-        <!-- testing -->
-
           <h4 class="myheading">Tittle: </h4>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-fw fa-calendar-plus-o"></i></span>
             <input class="form-control" v-model="exceptDate.tittle" placeholder="Enter tittle" type="text">      
           </div>
           <h4 class="myheading">Date range: </h4>
-          <div class="input-group">
-            <DateRangePicker @selected="onDateSelected" i18n="EN"></DateRangePicker>
-          </div>
+            <datepicker v-model="exceptDate.exDate" range appendToBody lang="en" format="DD/MM/YYYY"></datepicker>
       </div>
       <!-- button add -->
       <div class="btn-spacing">
@@ -40,28 +37,28 @@
 
 
 <script>
-import DateRangePicker from 'vue-rangedate-picker'
+import datepicker from 'vue2-datepicker'
 import ExceptionItem from './ExceptionItem'
 export default {
   name: 'manageExceptions',
   components: {
     ExceptionItem,
-    DateRangePicker
+    datepicker
   },
   data() {
     return {
       exceptDate: {
         tittle: '',
-        startDate: '',
-        endDate: ''
+        exDate: ''
       }
     }
   },
-  methods: {
-    onDateSelected(daterange) {
-      this.exceptDate = daterange
+  shortcuts: [{
+      onClick: () => {
+        this.exceptDate.exDate = [ new Date(), new Date() ]
+        }
     }
-  }
+  ]
 }
 </script>
 <style scoped>

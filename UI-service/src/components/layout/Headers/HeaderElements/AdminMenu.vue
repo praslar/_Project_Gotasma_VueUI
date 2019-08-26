@@ -21,7 +21,7 @@
       <li class="user-footer">
         <a href="javascript:;" class="btn btn-default btn-flat btn-block">
           <i class="fa fa-sign-out"></i>
-          <span>Logout</span>
+          <span class="myColor">Log out</span>
         </a>
       </li>
     </ul>
@@ -51,5 +51,8 @@ export default {
     margin-top: 2px;
     border-radius: 8px;
     width: 40px;
+  }
+  .myColor {
+    color: #587477 !important
   }
 </style>

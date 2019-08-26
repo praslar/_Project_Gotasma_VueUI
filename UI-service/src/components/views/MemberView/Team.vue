@@ -48,4 +48,26 @@ export default {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px
 }
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+  font-family: "FontAwesome";
+}
+
+table.dataTable thead .sorting:after {
+  content: "\f0dc";
+}
+
+table.dataTable thead .sorting_asc:after {
+  content: "\f0dd";
+}
+
+table.dataTable thead .sorting_desc:after {
+  content: "\f0de";
+}.email{
+  height: 46px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px
+}
+</style>
 </style>

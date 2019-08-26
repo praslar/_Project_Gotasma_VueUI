@@ -193,7 +193,7 @@ export default {
     cancelCreate() {
       this.$modal.hide('NewMember')
     },
-    handleSubmit(e) {
+    handleSubmit() {
       this.submitted = true
       this.$validator.validate().then(valid => {
                 if (valid) {

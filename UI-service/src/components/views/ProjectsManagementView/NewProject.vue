@@ -1,32 +1,56 @@
 <template>
-  <modal name="createNewProj" transition="pop-out" :height=450 :width=600 :draggable="true" :clickToClose="false">
+  <modal name="createNewProj" transition="pop-out" :height=450 :width=600 :draggable="true" :reset="true" :clickToClose="false">
     <a class="pull-right exit-btn" @click="cancelCreate"><i class="fa fa-close"/></a>
     <form action="" @submit.prevent="createAlert" >
       <div class="modal-box">
       <div class="partition">
         <div class="partition-title">CREATE NEW PROJECT</div>
         <div class="partition-form">
+
           <h4 class="myheading">Name of project: </h4>
-          <h5 class="alertValidate" v-if="errors.has(project.name)">{{ errors.first(project.name)}}</h5>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-fw fa-check"></i></span>
-              <input v-model="project.name" class="form-control" placeholder="Name of project" type="text" v-validate="'min:5'" >
-              <p class="alertValidate" v-if="errors.has(project.name)">{{ errors.first(project.name)}}</p>
+              <input v-model="project.name" 
+                      class="form-control" 
+                      placeholder="Name of project" 
+                      type="text" 
+                      v-validate="'required|min:5'" 
+                      name="Project Name" 
+                      :class="{'is-invalid': submitted && errors.has('Project Name')}">
             </div>
+            <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+              <h6 class="alertValidate pull-right" v-if=" submitted && errors.has('Project Name')">{{ errors.first('Project Name')}}</h6>
+            </transition>
+
           <h4 class="myheading">Effort: (hours/week)</h4>
           <div class="input-group">
             <span class="input-group-addon">
               <i class="fa fa-fw fa-calendar-check-o"></i>
             </span>
-            <select class="form-control" v-model="project.effort">
+            <select class="form-control"
+            v-model="project.effort" 
+            data-placeholder="Select effort"
+            name="Effort" 
+            v-validate="'required'" 
+            :class="{'is-invalid': submitted && errors.has('Effort')}" >
               <option>40</option>
+              <option>42</option>
               <option>38</option>
               <option>36</option>
               </select>
           </div>
-          <h4 class="myheading">Start date: </h4>
+          <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+              <h6 class="alertValidate pull-right" v-if=" submitted && errors.has('Effort')">{{ errors.first('Effort')}}</h6>
+          </transition>
+
+          <h4 class="myheading">Start date: (DD/MMM/YYYY)</h4>
           <div>
-            <datepicker v-model="project.startDate" appendToBody lang="en" ></datepicker>
+            <datepicker v-model="project.startDate" appendToBody 
+            lang="en" 
+            format="DD/MMM/YYYY" 
+            width="100%" 
+            :editable="false">
+            </datepicker>
           </div>
           <div class="button-set">
             <button class="create-btn">Create</button>
@@ -51,11 +75,11 @@ export default {
         name: '',
         effort: '',
         startDate: ''
-      }
+      },
+      submitted: false
     }
   },
   shortcuts: [{
-      text: 'Today',
       onClick: () => {
         this.project.startDate = [ new Date(), new Date() ]
         }
@@ -63,13 +87,11 @@ export default {
   ],
   methods: {
     createAlert() {
+      this.submitted = true
       this.$validator.validateAll().then(result => {
         if (result) {
           alert('You have created one project:    ' + JSON.stringify(this.project))
           this.$modal.hide('createNewProj')
-          console.log(this.project)
-        } else {
-          alert('Not valid')
         }
       })
     },
@@ -140,11 +162,18 @@ export default {
   .exit-btn:hover{
     color: #3fb0ac
   }
-  .alertValidate {
+.alertValidate {
+  color: red;
   background: #fdf2ce;
   font-weight: bold;
   display: inline-block;
-  padding: 5px;
+  padding: 10px 5px 5px 5px;
   margin-top: -20px;
+}
+.alert-in-enter-active {
+  animation: bounce-in .5s;
+}
+.alert-in-leave-active {
+  animation: bounce-in .5s reverse;
 }
 </style>

@@ -10,17 +10,16 @@ import VeeValidate from 'vee-validate'
 import routes from './routes'
 import store from './store'
 import VueSplit from 'vue-split-panel'
-
 // Import Views - Top level
 import AppView from './components/App.vue'
 import { count } from './filters'
 
 Vue.filter('count', count)
 
+Vue.use(VeeValidate)
 Vue.use(VueRouter)
 Vue.use(VueSplit)
 Vue.use(VueDateNow)
-Vue.use(VeeValidate)
 Vue.use(VModal, { dialog: true, dynamic: true })
 
 // Routing logic
