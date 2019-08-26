@@ -9,6 +9,8 @@
       </div>
     <tableProject class="main" ></tableProject>
     <NewProject :projects="projects" ></NewProject>
+
+   
   </section>  
 </template>
 
@@ -17,6 +19,7 @@
 
 import NewProject from './NewProject'
 import tableProject from './TableProject'
+
 export default {
   name: 'manageProject',
   components: {
@@ -47,7 +50,7 @@ img{
 .content {
   margin-top: 20px !important
 }
-.main {
-  
+.vdp-datepicker .vdp-datepicker__calendar{
+  color: #000 !important;
 }
 </style>

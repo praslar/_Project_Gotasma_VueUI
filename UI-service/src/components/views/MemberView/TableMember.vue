@@ -23,7 +23,7 @@
                       aria-controls="example1"
                       tabindex="0"
                       class="sorting_asc"
-                    >User</th>
+                    >Member</th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
                       style="width: 207px;"
@@ -63,17 +63,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="user of users" :key="user.badgeID">
+                  <tr class="even" role="row" v-for="member of members" :key="member.badgeID">
                     <td class="sorting_1">
-                      <img :src="user.avatar" class="user-image" alt="User Image" />
+                      <img :src="member.avatar" class="user-image" alt="User Image" />
                     </td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.email}}</td>
                     <td>
-                    <div class="external-event bg-yellow" v-for="project in user.projects" :key="project.projectID">{{project.name}}</div>
+                    <div class="external-event bg-yellow" v-for="project in member.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
-
-                    <td><a class="btn btn-app" @click="$modal.show('NewMember', {user})"><i class="fa fa-edit"></i></a>
+                    <td><a class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>
                     </td> 
                   </tr>                        
@@ -96,7 +95,7 @@ require('datatables.net-bs')
 
 export default {
   data: () => ({
-    users: []
+    members: []
   }),
   components: {
     NewMember
@@ -105,7 +104,7 @@ export default {
   created() {
     Services.getUsers()
       .then((response) => {
-        this.users = response
+        this.members = response
         this.$nextTick(() => {
       $('#example1').DataTable()
     })

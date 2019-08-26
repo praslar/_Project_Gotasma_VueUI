@@ -13,6 +13,9 @@ import VueSplit from 'vue-split-panel'
 import VeeValidate from 'vee-validate'
 // Import Views - Top level
 import AppView from './components/App.vue'
+import { count } from './filters'
+
+Vue.filter('count', count)
 
 Vue.use(VueRouter)
 Vue.use(VueSplit)

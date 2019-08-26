@@ -58,13 +58,13 @@
             <input
               type="text"
               id="badgeID"
-              v-model="user.badgeID"
+              v-model="member.badgeID"
               v-validate="'required|min:3'"
               class="form-control"
               placeholder="Badge ID"
               name="badgeID"
               :class="{ 'is-invalid': submitted && errors.has('badgeID') }"
-              ref="badgeID"
+           
             />
             <div v-if="submitted && errors.has('badgeID')" class="invalid-feedback">{{ errors.first('badgeID') }}</div>
           </div>
@@ -76,12 +76,12 @@
               type="text"
               id="name"
               name="name"
-              v-model="user.name"
+              v-model="member.name"
               class="form-control"
               v-validate="'required|min:5'"
               :class="{ 'is-invalid': submitted && errors.has('name') }"
               placeholder="Username"
-              ref="name"
+      
             />
              <div v-if="submitted && errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
           </div>
@@ -97,9 +97,8 @@
               type="email"
               class="form-control"
               placeholder="Email"
-              :value="user.email"
+              :value="member.email"
               :class="{ 'is-invalid': submitted && errors.has('email') }"
-              ref = "email"
             />
              <div v-if="submitted && errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>
           </div>
@@ -125,7 +124,7 @@ const STATUS_SUCCESS = 2
 const STATUS_FAILED = 3
 export default {
   name: 'NewMember',
-  props: ['userData'],
+  props: ['memberData'],
   data() {
     return {
       // upload picture properties
@@ -134,7 +133,7 @@ export default {
       currentStatus: null,
       uploadFieldName: 'photos',
       submitted: false,
-      user: this.userData
+      member: this.memberData
     }
   },
   computed: {
@@ -170,7 +169,7 @@ export default {
         .then(x => {
           this.uploadedFiles = [].concat(x)
           this.currentStatus = STATUS_SUCCESS
-          this.userData.avatar = this.uploadedFiles
+          this.member.avatar = this.uploadedFiles
         })
         .catch(err => {
           this.uploadError = err.response
@@ -199,7 +198,7 @@ export default {
       this.submitted = true
       this.$validator.validate().then(valid => {
                 if (valid) {
-                    Services.addUser(this.userData)
+                    Services.addUser(this.member)
                       .then(response => {
                         console.log(response)
                         alert(JSON.stringify(response))
@@ -212,10 +211,10 @@ export default {
     },
     beforeOpen(event) {
       if (event.params != null) {
-        this.user = event.params.user
+        this.member = event.params.member
         this.isEditting = true
       } else {
-        this.user = this.userData
+        this.member = this.memberData
       }
     },
       showDialog() {

@@ -6,22 +6,13 @@
         <p>Here you manage people from all your projects. You can also invite new members by email.</p>
       </div>
       <div class="col-md-12" id="add-member">
-        <div class="input-group">
-          <input
-            type="email"
-            class="col-md-12 form-control email"
-            placeholder="Enter an email address of a person you want to invite"
-            id="email"
-           v-model="userData.email"
-          />
           <span class="input-group-btn">
-            <button @click="$modal.show('NewMember')" type="button" class="btn btn-info btn-lg">Invite by email</button>
-            <new-member :userData="userData"></new-member>
+            <button type="button" @click="$modal.show('NewMember')" class="btn btn-info btn-lg">Invite new member</button>
+            <new-member :memberData="memberData"></new-member>
           </span>
         </div>
+              <table-member></table-member>
       </div>
-      <table-member></table-member>
-    </div>
   </section>
 </template>
 
@@ -38,7 +29,7 @@ export default {
   },
   data() {
     return {
-        userData: {
+        memberData: {
           badgeID: '',
           name: '',
           email: '',
@@ -46,7 +37,6 @@ export default {
        }
     }
   }
-
 }
 </script>
 

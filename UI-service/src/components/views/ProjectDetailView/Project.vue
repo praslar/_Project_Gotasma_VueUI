@@ -1,24 +1,18 @@
 <template>
-<div>
    <div :class="['wrapper', classes]">
- 
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <project-header ></project-header>
+    <project-header :memberData="memberData" ></project-header>
     <!-- Left side column. contains the logo and sidebar -->
     <main-sidebar :admin='admin'/>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-         <gantt></gantt> 
+         <fab-button></fab-button>
+         <!-- <gantt></gantt>  -->
          <setting-modal></setting-modal>
     </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Horizontal bar at bottom. Contains copy right -->
     <main-footer :admin="admin"></main-footer>
   </div>
-
-</div>
 </template>
 <script>
 import Gantt from './Gantt'
@@ -28,6 +22,7 @@ import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import MainSidebar from '../../layout/Sidebars/MainSidebar'
 import * as Services from '../../../services'
 import SettingModal from '../../layout/Headers/HeaderElements/SettingModal'
+import FabButton from '../../layout/Buttons/FabButton'
 
 export default {
   name: 'Project',
@@ -36,7 +31,8 @@ export default {
     MainFooter,
     ProjectHeader,
     MainSidebar,
-    SettingModal
+    SettingModal,
+    FabButton
   },
   data: function() {
     return {
@@ -53,23 +49,42 @@ export default {
           country: '',
           avatar: ''
         }
-      ]
+      ],
+      memberData: {
+        projectID: '',
+        name: '',
+        effort: '',
+        startDate: '',
+        updateDate: '',
+        members: []
+      }
     }
   },
     mounted() {
     this.fetchAdmin()
+    this.getMember()
   },
   methods: {
     fetchAdmin: function() {
       let self = this
       Services.getAdmin()
         .then(response => {
-          self.admin = response.data
+          self.admin = response
         })
         .catch(error => {
           console.log(error)
         })
+    },
+    getMember() {
+      Services.getMemberOfProject()
+      .then((response) => {
+        this.memberData = response
+      })
+      .catch(error => {
+        console.log(error)
+      })
     }
+
   }
 }
 </script>

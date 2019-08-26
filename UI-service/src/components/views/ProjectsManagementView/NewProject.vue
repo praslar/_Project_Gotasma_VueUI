@@ -27,7 +27,7 @@
             <span class="input-group-addon">
               <i class="fa fa-fw fa-calendar"></i>
             </span>
-            <datepicker format="MMM/DD/YYYY" id="dateInput" v-model="projects.startDate"></datepicker>
+            <datepicker name="calenderDate"  format="MMM/DD/YYYY" id="dateInput" v-model="projects.startDate"></datepicker>
           </div>
           <div class="button-set">
             <button class="create-btn" @click="createAlert">Create</button>
