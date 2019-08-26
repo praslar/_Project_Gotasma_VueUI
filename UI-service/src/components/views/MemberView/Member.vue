@@ -16,6 +16,8 @@
 import TableMember from './TableMember'
 import NewMember from './NewMember'
 import * as Services from '../../../services'
+import $ from 'jquery'
+require('datatables.net-bs')
 // Require needed datatables modules
 
 export default {
@@ -39,6 +41,9 @@ created() {
     Services.getUsers()
       .then((response) => {
         this.members = response
+        this.$nextTick(() => {
+        $('#example1').DataTable()
+      })
       })
       .catch(error => {
         console.log(error)
@@ -46,9 +51,7 @@ created() {
     }
 }
 </script>
-
 <style scoped>
-
 @import url("/static/js/plugins/datatables/dataTables.bootstrap.css");
 
 .content {

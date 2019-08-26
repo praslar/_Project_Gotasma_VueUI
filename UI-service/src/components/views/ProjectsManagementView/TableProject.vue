@@ -71,6 +71,7 @@
                           <a class="btn btn-app" title="Go to project" ><i class="fa fa-play"></i></a>
                       </router-link>
                       <a class="btn btn-app del-btn" title="Delete project" @click="showDialog"><i class="fa fa-remove"></i></a>
+                      <a class="btn btn-app star-btn" title="Highlight project" ><i class="fa fa-star-o"></i></a>
                     </td>
                   </tr>
                 </tbody>  
@@ -139,6 +140,9 @@ export default {
           }
         ]
       })
+    },
+    showProject(projInfo) {
+      alert('Go to Project:    ' + JSON.stringify(projInfo))
     }
   }
 }
@@ -154,6 +158,9 @@ td a {
   height: 40px
 }
 .del-btn {
-  background-color: rgba(255, 0, 0, 0.096)
+  background-color: #e6000026
+}
+.star-btn {
+  background-color: #efff0040
 }
 </style>

@@ -16,7 +16,6 @@
 
 
 <script>
-
 import NewProject from './NewProject'
 import tableProject from './TableProject'
 

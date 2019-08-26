@@ -1,6 +1,5 @@
 <template>
   <div class="col-md-12">
-
     <div class="box">
       <div class="box-body ">
         <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
@@ -87,10 +86,7 @@
   </div> 
   </template>
 <script>
-import $ from 'jquery'
 import NewMember from './NewMember'
-
-require('datatables.net-bs')
 
 export default {
   props: ['members'],
@@ -121,11 +117,6 @@ export default {
         ]
       })
     }
-  },
-  created() {
-       this.$nextTick(() => {
-      $('#example1').DataTable()
-    })
   }
 }
 </script>
@@ -146,8 +137,7 @@ td a i{
   margin-bottom: 10px;
 }
 table {
-  border-radius: 10px;
-  border: 1px solid #95a5a6;
+  border-radius: 10px; 
   font-size: 18px !important
 }
 .del-btn {
