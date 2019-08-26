@@ -6,7 +6,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueDateNow from 'vue-date-now'
 import VModal from 'vue-js-modal'
-
+import VeeValidate from 'vee-validate'
 import routes from './routes'
 import store from './store'
 import VueSplit from 'vue-split-panel'
@@ -17,6 +17,7 @@ import AppView from './components/App.vue'
 Vue.use(VueRouter)
 Vue.use(VueSplit)
 Vue.use(VueDateNow)
+Vue.use(VeeValidate)
 Vue.use(VModal, { dialog: true, dynamic: true })
     // Routing logic
 var router = new VueRouter({

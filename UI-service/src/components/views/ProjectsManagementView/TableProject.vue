@@ -61,14 +61,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="projects of projects" :key="projects" >
-                    <td class="sorting_1">{{ projects.name }}</td>
-                    <td>{{ projects.numberOfMembers }}</td>
-                    <td>{{ projects.startDate }}</td>
-                    <td>{{ projects.updateDate }}</td>
+                  <tr class="even" role="row" v-for="project of projects" :key="project" >
+                    <td class="sorting_1">{{ project.name }}</td>
+                    <td>{{ project.numberOfMembers }}</td>
+                    <td>{{ project.startDate }}</td>
+                    <td>{{ project.updateDate }}</td>
                     <td>
-                      <a class="btn btn-app" title="Go to project"><i class="fa fa-play"></i></a>
+                      <a class="btn btn-app" title="Go to project" @click="showProject(project)"><i class="fa fa-reply"></i></a>
                       <a class="btn btn-app del-btn" title="Delete project" @click="showDialog"><i class="fa fa-remove"></i></a>
+                      <a class="btn btn-app star-btn" title="Highlight project" ><i class="fa fa-star-o"></i></a>
                     </td>
                   </tr>
                 </tbody>  
@@ -136,6 +137,9 @@ export default {
           }
         ]
       })
+    },
+    showProject(projInfo) {
+      alert('Go to Project:    ' + JSON.stringify(projInfo))
     }
   }
 }
@@ -151,6 +155,9 @@ td a {
   height: 40px
 }
 .del-btn {
-  background-color: rgba(255, 0, 0, 0.096)
+  background-color: #e6000026
+}
+.star-btn {
+  background-color: #efff0040
 }
 </style>
