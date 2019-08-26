@@ -2556,7 +2556,7 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
-fecha@^2.3.2, fecha@^2.3.3:
+fecha@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fecha/-/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
   integrity sha512-lUGBnIamTAwk4znq5BcqsDaxSmZ9nDVJaij6NvRt/Tg4R69gERA+otPKbS86ROw9nxVMw2/mp1fnaiWqbs6Sdg==
@@ -6428,8 +6428,6 @@ vue-date-now@^1.1.1:
   resolved "https://registry.yarnpkg.com/vue-date-now/-/vue-date-now-1.1.1.tgz#fb232b76658252e6661e3a9e8195fb09a2ace2dc"
   integrity sha512-8zlNq9GhJ1qxfonQj2AvCZibQhLZSRL0/HbxvSpMZrjMrASmNGMr/I0BHGDlPyIKU0Q4KEN2p4vyNA0R3sDh1A==
 
-<<<<<<< HEAD
-=======
 vue-date-picker@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/vue-date-picker/-/vue-date-picker-2.5.0.tgz#db7a71c2c37e97b9ba16a90301f96fd5f07a4f5a"
@@ -6447,7 +6445,6 @@ vue-fab@^2.3.1:
     vue-clickaway "^2.1.0"
     vue-ripple-directive "^1.0.0"
 
->>>>>>> c6dedbb9eed5b0bdaa5b47122424b19b5a0cc347
 vue-hot-reload-api@^2.0.11:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
@@ -6490,13 +6487,6 @@ vue-property-decorator@^8.0.0:
   dependencies:
     vue "^2.6.10"
     vue-class-component "^7.0.1"
-
-vue-rangedate-picker@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vue-rangedate-picker/-/vue-rangedate-picker-1.0.0.tgz#59be6573fe8f264cd94fde12b11f0769c7f92eb7"
-  integrity sha512-6JHyyHq3Tu4s3+TNisNXpOXKe6KVB+gGxdNEPOCZrRmJX2YlLfkzuHuNXyH+RhjgpOsF6MQmfB9sntbYVIOJGA==
-  dependencies:
-    fecha "^2.3.2"
 
 vue-resource@^1.0.3:
   version "1.3.1"
@@ -6554,40 +6544,26 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.2.tgz#a0a6c50c941d2a4abda963f2f42c337ac450ee95"
 
-<<<<<<< HEAD
 vue2-datepicker@^2.12.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-2.12.0.tgz#36f2d5dd5ba67ea6abe7d336ab6bddc822828da6"
   integrity sha512-09PRIFm5hWrpfSBxWKJqm78yC0MTUZlq9MItLsWDe1OPgRqwWpex4fGkL7/nJG+d39v60wckQoVdk9RpLx8C9w==
   dependencies:
     fecha "^2.3.3"
-=======
+
 vue@^2.2.1, vue@^2.2.6, vue@^2.5.21, vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
->>>>>>> c6dedbb9eed5b0bdaa5b47122424b19b5a0cc347
 
 vue@^2.2.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
 
-<<<<<<< HEAD
-vue@^2.2.6, vue@^2.6.10:
-  version "2.6.10"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
-  integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
-=======
-vuejs-datepicker@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/vuejs-datepicker/-/vuejs-datepicker-1.6.2.tgz#83c1e8fd4108e7f1d01c061a7e344918f25e47ae"
-  integrity sha512-PkC4vxzFBo7i6FSCUAJfnaWOx6VkKbOqxijSGHHlWxh8FIUKEZVtFychkonVWtK3iwWfhmYtqHcwsmgxefLpLQ==
-
 vuelidate@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
   integrity sha512-QHZWYOL325Zo+2K7VBNEJTZ496Kd8Z31p85aQJFldKudUUGBmgw4zu4ghl4CyqPwjRCmqZ9lDdx4FSdMnu4fGg==
->>>>>>> c6dedbb9eed5b0bdaa5b47122424b19b5a0cc347
 
 vuetify@^2.0.7:
   version "2.0.7"

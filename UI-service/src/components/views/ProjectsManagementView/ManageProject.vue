@@ -8,7 +8,7 @@
           Create New Project</button>
       </div>
     <tableProject class="main" ></tableProject>
-    <NewProject :projects="projects" ></NewProject>
+    <NewProject :projects="projects"></NewProject>
 
    
   </section>  
