@@ -1,7 +1,7 @@
 <template>
   <ul class="sidebar-menu">
     <li class="header">Projects managment</li>
-    <router-link tag="li" class="pageLink" to="/ProjectsManagement">
+    <router-link tag="li" class="pageLink" to="/projectsmanagement">
       <a>
         <i class="fa fa-suitcase"></i>
         <span class="page">View all project</span>
@@ -17,7 +17,7 @@
       </a>
       <ul class="treeview-menu">
         <li>
-          <a href="/project">
+          <a href="/project/1510251">
             <i class="fa fa-file-o"></i> Project No.1
           </a>
         </li>

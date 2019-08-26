@@ -16,12 +16,13 @@ import { count } from './filters'
 
 Vue.filter('count', count)
 
+Vue.use(VeeValidate)
 Vue.use(VueRouter)
 Vue.use(VueSplit)
 Vue.use(VueDateNow)
 Vue.use(VModal, { dialog: true, dynamic: true })
-Vue.use(VeeValidate)
-    // Routing logic
+
+// Routing logic
 var router = new VueRouter({
     routes: routes,
     mode: 'history',
