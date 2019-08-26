@@ -4,9 +4,6 @@ body {
 
 .skin-blue .main-header .navbar {
     background-color: #3fb0ac;
-    -moz-box-shadow: 2px 4px 5px -5px #555;
-    -webkit-box-shadow: 2px 4px 5px -5px #555;
-    box-shadow: 2px 4px 5px -5px #555;
 }
 
 .navbar-custom-menu .navbar-nav>li>a:hover {

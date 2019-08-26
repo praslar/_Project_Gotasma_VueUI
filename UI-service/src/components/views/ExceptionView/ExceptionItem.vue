@@ -12,7 +12,7 @@
         <!-- /.box-tools -->
       </div>
       <!-- /.box-header -->
-      <div class="box-body">02-09-2019 (example)</div>
+      <div class="box-body">{{exceptDate.startDate}} {{exceptDate.endDate}}</div>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->

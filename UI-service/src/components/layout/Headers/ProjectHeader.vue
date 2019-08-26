@@ -3,7 +3,7 @@
     <span class="logo-mini">
       <a href="/">
         <img
-          src="/static/img/copilot-logo-white.svg"
+          src="/static/img/kitty.svg"
           alt="Logo"
           class="img-responsive center-block logo"
         />
@@ -18,7 +18,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <buttonHistory></buttonHistory>
-          <buttonAddMember></buttonAddMember>
+          <buttonAddMember :memberData="memberData"></buttonAddMember>
           <buttonFilter></buttonFilter>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
@@ -45,8 +45,7 @@ export default {
     ButtonFilter,
     buttonAddMember
   },
-  methods: {
-  }
+  props: ['memberData']
 }
 </script>
 
@@ -54,5 +53,8 @@ export default {
 .header-name {
   width: 50%;
   display: fixed;
+}
+.navbar-nav {
+  font-size: 18px;
 }
 </style>

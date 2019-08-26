@@ -103,7 +103,7 @@ export default {
   created() {
     Services.getProj()
     .then((response) => {
-      this.projects = response.data
+      this.projects = response
       this.$nextTick(() => {
       $('#example1').DataTable()
   })

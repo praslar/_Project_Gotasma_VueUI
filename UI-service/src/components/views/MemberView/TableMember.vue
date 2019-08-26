@@ -1,5 +1,6 @@
 <template>
   <div class="col-md-12">
+
     <div class="box">
       <div class="box-body ">
         <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
@@ -22,7 +23,7 @@
                       aria-controls="example1"
                       tabindex="0"
                       class="sorting_asc"
-                    >User</th>
+                    >Member</th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
                       style="width: 207px;"
@@ -62,20 +63,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="user of users" :key="user">
+                  <tr class="even" role="row" v-for="member of members" :key="member.badgeID">
                     <td class="sorting_1">
-                      <img :src="user.avatar" class="user-image" alt="User Image" />
+                      <img :src="member.avatar" class="user-image" alt="User Image" />
                     </td>
-                    <td>{{user.fullName}}</td>
-                    <td>{{user.email}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.email}}</td>
                     <td>
-                    <div class="external-event bg-red">{{user.country}}</div>
-                    <div class="external-event bg-light-blue">{{user.graphColor}}</div>
+                    <div class="external-event bg-yellow" v-for="project in member.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
-                    <td><a class="btn btn-app" title="Edit member"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app del-btn" title="Delete member" @click="showDialog"><i class="fa fa-remove"></i></a>
-                    </td>
-                  </tr>
+                    <td><a class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>
+                    </td> 
+                  </tr>                        
                 </tbody>
               </table>
             </div>
@@ -89,18 +89,22 @@
 <script>
 import $ from 'jquery'
 import * as Services from '../../../services'
+import NewMember from './NewMember'
 
 require('datatables.net-bs')
 
 export default {
   data: () => ({
-    users: []
+    members: []
   }),
+  components: {
+    NewMember
+  },
   name: 'table-member',
   created() {
     Services.getUsers()
       .then((response) => {
-        this.users = response.data
+        this.members = response
         this.$nextTick(() => {
       $('#example1').DataTable()
     })
