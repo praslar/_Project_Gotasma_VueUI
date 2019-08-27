@@ -9,8 +9,6 @@
       </div>
     <tableProject class="main" ></tableProject>
     <NewProject :projects="projects"></NewProject>
-
-   
   </section>  
 </template>
 

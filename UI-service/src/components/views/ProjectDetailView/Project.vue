@@ -1,7 +1,7 @@
 <template>
    <div :class="['wrapper', classes]">
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <project-header :memberData="memberData" ></project-header>
+    <project-header :memberData="memberData" :idProject="id" ></project-header>
     <!-- Left side column. contains the logo and sidebar -->
     <main-sidebar :admin='admin'/>
     <!-- Content Wrapper. Contains page content -->

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <aside class="control-sidebar control-sidebar-light control-sidebar-open">
+  <aside class="control-sidebar control-sidebar-dark control-sidebar-open">
 
     <!-- Tab panes -->
     <div class="tab-content">

@@ -1,6 +1,5 @@
 <template>
   <div class="col-md-12">
-
     <div class="box">
       <div class="box-body ">
         <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
@@ -51,7 +50,7 @@
                       tabindex="0"
                       class="sorting"
                     >Current Projects</th>
-                    <th
+                    <th 
                       aria-label="CSS grade: activate to sort column ascending"
                       style="width: 101px;"
                       colspan="1"
@@ -72,8 +71,9 @@
                     <td>
                     <div class="external-event bg-yellow" v-for="project in member.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
-                    <td><a class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>
+                    <td ><a v-if="manageMember" class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
+                        <a v-if="manageMember" class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>
+                        <a v-if="chooseFromMember" class="btn btn-app" @click="getMember(member)"><i class="fa fa-check-circle" style="color:green"></i></a>
                     </td> 
                   </tr>                        
                 </tbody>
@@ -87,31 +87,20 @@
   </div> 
   </template>
 <script>
-import $ from 'jquery'
-import * as Services from '../../../services'
 import NewMember from './NewMember'
 
 require('datatables.net-bs')
 export default {
-  data: () => ({
-    members: []
-  }),
+  props: ['members', 'chooseFromMember', 'manageMember'],
   components: {
     NewMember
   },
+  data() {
+    return {
+      getMember: {}
+    }
+  },
   name: 'table-member',
-  created() {
-    Services.getUsers()
-      .then((response) => {
-        this.members = response
-        this.$nextTick(() => {
-      $('#example1').DataTable()
-    })
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    },
   methods: {
     showDialog() {
       this.$modal.show('dialog', {
@@ -134,6 +123,9 @@ export default {
           }
         ]
       })
+    },
+    getMember(memberData) {
+      this.getMember = memberData
     }
   }
 }
@@ -156,7 +148,6 @@ td a i{
 }
 table {
   border-radius: 10px;
-  border: 1px solid #95a5a6;
   font-size: 18px !important
 }
 .del-btn {

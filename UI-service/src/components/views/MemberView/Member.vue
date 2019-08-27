@@ -3,11 +3,12 @@
     <div class="row center-block">
       <div class="header col-md-12">
         <span>Team and resources</span> <br>
+          <button type="button" @click="$modal.show('NewMember')" class="btn btn-info pull-right special">Invite new member</button>
         <i>Here you manage people from all your projects. You can also invite new members by email.</i>
-                <button type="button" @click="$modal.show('NewMember')" class="btn btn-info pull-right">Invite new member</button>
+              
       </div>
             <new-member :memberData="memberData"></new-member>
-            <table-member :members="members"></table-member>
+            <table-member :members="members" :manageMember="manageMember"></table-member>
       </div>
   </section>
 </template>
@@ -34,7 +35,8 @@ export default {
           email: '',
           avatar: []
        },
-       members: []
+       members: [],
+       manageMember: true
     }
   },
 created() {
@@ -68,10 +70,7 @@ created() {
   color: #242e35;
   margin-bottom: 20px;
 }
-.btn-info
-{
-  margin-bottom: 6px;
-}
+
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting_asc:after,
 table.dataTable thead .sorting_desc:after {

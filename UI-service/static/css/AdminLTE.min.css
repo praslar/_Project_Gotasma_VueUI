@@ -254,7 +254,7 @@ a:focus {
 @media (max-width:991px) {
     .main-header .navbar-custom-menu a,
     .main-header .navbar-right a {
-        color: inherit;
+        color: #fff;
         background: transparent
     }
 }
@@ -762,8 +762,8 @@ a:focus {
 .control-sidebar-bg,
 .control-sidebar {
     top: 0;
-    right: -350px;
-    width: 350px;
+    right: -250px;
+    width: 250px;
     -webkit-transition: right .3s ease-in-out;
     -o-transition: right .3s ease-in-out;
     transition: right .3s ease-in-out

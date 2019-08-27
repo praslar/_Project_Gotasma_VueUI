@@ -1,16 +1,18 @@
 <template>
   <div class="main">
-    
       <gantt-elastic
       :options="options"
       :tasks="tasks"
+      @tasks-changed="tasksUpdate"
+      @options-changed="optionsUpdate"
+      @dynamic-style-changed="styleUpdate"
     >
     </gantt-elastic>
-
   </div>
 </template>
 <script>
 import GanttElastic from 'gantt-elastic'
+import GanttHeader from 'gantt-elastic-header'
 import dayjs from 'dayjs'
 // just helper to get current dates
 function getDate(hours) {
@@ -322,7 +324,8 @@ let options = {
 export default {
   name: 'Gantt-History',
   components: {
-    GanttElastic
+    GanttElastic,
+    GanttHeader
   },
   data() {
     return {

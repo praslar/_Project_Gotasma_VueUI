@@ -6505,6 +6505,11 @@ vue-router@^2.2.0:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.5.3.tgz#073783f564b6aece6c8a59c63e298dc2aabfb51b"
 
+vue-search-select@^2.8.3:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/vue-search-select/-/vue-search-select-2.8.3.tgz#06c29acf681ba11f4a169a26f6925aef4e0bdaf0"
+  integrity sha512-m9hyq0ZytReFmfIso1GQ2MekQNPkM3wSPD8YQ9BxrvMhiQ7kZorD85mwMTEJSX3lqgg/J4hxlJwfHGvYssdBBw==
+
 vue-slider-component@^3.0.31:
   version "3.0.38"
   resolved "https://registry.yarnpkg.com/vue-slider-component/-/vue-slider-component-3.0.38.tgz#dce3473ff97b51a094069b2f505132d059e18f32"
@@ -6560,14 +6565,6 @@ vue@^2.2.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
 
-<<<<<<< HEAD
-=======
-vuejs-datepicker@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/vuejs-datepicker/-/vuejs-datepicker-1.6.2.tgz#83c1e8fd4108e7f1d01c061a7e344918f25e47ae"
-  integrity sha512-PkC4vxzFBo7i6FSCUAJfnaWOx6VkKbOqxijSGHHlWxh8FIUKEZVtFychkonVWtK3iwWfhmYtqHcwsmgxefLpLQ==
-
->>>>>>> b0a1d8e9f79eeae4de90519786093d482e55b620
 vuelidate@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"

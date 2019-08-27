@@ -17,8 +17,8 @@
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <buttonHistory></buttonHistory>
-          <buttonAddMember :memberData="memberData"></buttonAddMember>
+          <buttonHistory :idProject="idProject"></buttonHistory>
+          <buttonAddMember :memberData="memberData" :idProject="idProject"></buttonAddMember>
           <buttonFilter></buttonFilter>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
@@ -45,7 +45,7 @@ export default {
     ButtonFilter,
     buttonAddMember
   },
-  props: ['memberData']
+  props: ['memberData', 'idProject']
 }
 </script>
 

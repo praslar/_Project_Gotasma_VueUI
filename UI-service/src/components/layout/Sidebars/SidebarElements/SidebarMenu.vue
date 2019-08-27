@@ -10,26 +10,16 @@
     <li class="treeview">
       <a href="#">
         <i class="fa fa-tags"></i>
-        <span class="treeview-title">Recent Projects</span>
+        <span class="treeview-title">Hight-light Projects</span>
         <span class="pull-right-container pull-right">
           <i class="fa fa-angle-left fa-fw"></i>
         </span>
       </a>
       <ul class="treeview-menu">
-        <li>
-          <a href="/project/1510251">
-            <i class="fa fa-file-o"></i> Project No.1
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-file-o"></i> Item 2
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-file-o"></i> Item 3
-          </a>
+        <li v-for="project in highlightedProject" :key="project.projectID">
+          <router-link tag="a" class="pageLink" :to="'/project/'+project.projectID">
+            <i class="fa fa-file-o"></i> {{project.name}}
+          </router-link>
         </li>
       </ul>
     </li>
@@ -53,8 +43,30 @@
 </template>
 
 <script>
+import * as Services from '../../../../services'
+
 export default {
-  name: 'SidebarMenu'
+  name: 'SidebarMenu',
+  data() {
+    return {
+      highlightedProject: []
+    }
+  },
+  mounted() {
+    this.getHighlightedProject()
+  },
+  methods: {
+    getHighlightedProject: function() {
+      let self = this
+      Services.getHighlightedProject()
+        .then(response => {
+          self.highlightedProject = response
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+  }
 }
 </script>
 

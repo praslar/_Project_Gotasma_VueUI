@@ -2,7 +2,7 @@
   <div class="main">
         <button @click="addTask" type="button" class="btn btn-info"  >Add Sum</button>
         <button @click="addTask" type="button" class="btn btn-info"  >Add Task</button>
-    <Split style="height: auto;" direction="vertical">
+    <Split class="split-panel" direction="vertical">
     <SplitArea>
             <gantt-elastic
       :options="options"
@@ -426,6 +426,7 @@ let tasksWorkload = [
 ]
 export default {
   name: 'Gantt',
+  props: ['id'],
   components: {
     GanttElastic,
     GanttHeader
@@ -477,5 +478,8 @@ button {
   margin: 10px;
   font-size: 16px;
   padding: 7px 12px;
+}
+.split-panel {
+  min-height: 700px
 }
 </style>

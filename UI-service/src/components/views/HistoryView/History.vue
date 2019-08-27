@@ -1,8 +1,21 @@
 <template>
-<section class="content">
-  <a class="toggle-btn" href="#" data-toggle="control-sidebar"><i class="fa fa-exchange"></i></a>
-  <gantt-history></gantt-history>
-  <snapshot-list></snapshot-list>
+<section class="content"> 
+   <div class="row center-block">
+      <div class="header col-md-12">
+        <span>History</span>
+        <p> Here you see can all the states of your project at a specific point in time, <br> you navigate around the history list and choose see what you have saved</p>
+      </div>
+    <Split>
+      <SplitArea :size="84">
+        <gantt-history></gantt-history>
+      </SplitArea>
+      <SplitArea :size="16">
+          <snapshot-list></snapshot-list>
+      </SplitArea>
+   </Split>
+
+
+</div>
 </section>
 </template>
 
