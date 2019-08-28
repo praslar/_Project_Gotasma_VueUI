@@ -1,8 +1,8 @@
 <template>
   <li>
     <router-link :to="'/project/' + idProject + '/history'">
-        <a title="History (snapshots list)" class="myIcon">
-          <i class="fa fa-history"></i>
+        <a title="History (snapshots list)">
+          <span class="fa fa-history myIcon"></span>
         </a>
     </router-link>
   </li>
