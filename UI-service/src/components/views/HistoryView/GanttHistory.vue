@@ -7,7 +7,9 @@
       @options-changed="optionsUpdate"
       @dynamic-style-changed="styleUpdate"
     >
+          <gantt-header slot="header"></gantt-header>
     </gantt-elastic>
+
   </div>
 </template>
 <script>
@@ -228,7 +230,7 @@ let options = {
   taskMapping: {
     title: {
       label: 'Project 2 3 34',
-      html: false
+      html: true
     },
     progress: 'percent'
   },

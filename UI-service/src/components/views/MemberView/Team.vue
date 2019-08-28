@@ -8,7 +8,7 @@
         <button type="button" @click="hideTableMember" class="btn btn-info pull-right special">Hide table</button>
         <i> Here you manage all your project members. You can choose from the already invited team members.</i>
       </div>             
-      <table-member class="choose-member" v-if="chooseFromMember" :members="members" :chooseFromMember="chooseFromMember"></table-member>
+      <table-member class="choose-member" v-if="chooseFromMember" :projectID="projectID" :members="members" :chooseFromMember="chooseFromMember"></table-member>
       <team-table :team="team"></team-table>
     </div>
   </section>
@@ -16,6 +16,7 @@
 <script>
 import TableMember from './TableMember'
 import TeamTable from './TeamTable'
+import $ from 'jquery'
 
 import * as Services from '../../../services'
 // Require needed datatables modules
@@ -27,12 +28,16 @@ export default {
     return {
       team: [],
       members: [],
+      projectID: '',
       chooseFromMember: false
     }
   },
   methods: {
     showTableMember() {
       this.chooseFromMember = true
+              this.$nextTick(() => {
+        $('#example1').DataTable()
+      })
     },
     hideTableMember() {
       this.chooseFromMember = false
@@ -44,6 +49,7 @@ export default {
       Services.getMemberOfProject()
       .then((response) => {
         this.team = response.members
+        this.projectID = response.projectID
       })
       .catch(error => {
         console.log(error)

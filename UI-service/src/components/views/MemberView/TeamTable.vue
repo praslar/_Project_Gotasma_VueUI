@@ -18,7 +18,7 @@
                     <td>{{team.badgeID}}</td>
                     <td>{{team.name}}</td>
                     <td>{{team.email}}</td>
-                    <td> <a class="btn">remove</a> </td>
+                    <td> <a class="btn-remove">remove</a> </td>
                     </tr>
               </tbody>
             </table>
@@ -37,7 +37,9 @@ export default {
 </script>
 
 <style scoped>
-
+.btn-remove:hover{
+  cursor: pointer
+}
 table>thead>th{
   padding: 10px
 }

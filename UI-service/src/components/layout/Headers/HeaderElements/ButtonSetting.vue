@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a href="" data-toggle="control-sidebar" title="Setting">
+    <a data-toggle="control-sidebar" title="Setting">
       <span class="fa fa-gears" id="myIcon" ></span>
     </a>
   </li>

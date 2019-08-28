@@ -8,7 +8,7 @@
               
       </div>
             <new-member :memberData="memberData"></new-member>
-            <table-member :members="members" :manageMember="manageMember"></table-member>
+            <table-member :members="members"></table-member>
       </div>
   </section>
 </template>
@@ -35,8 +35,7 @@ export default {
           email: '',
           avatar: []
        },
-       members: [],
-       manageMember: true
+       members: []
     }
   },
 created() {

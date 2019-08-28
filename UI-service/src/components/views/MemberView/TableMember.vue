@@ -61,7 +61,26 @@
                     ></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody v-if="chooseFromMember">
+                  <tr class="even" role="row" v-for="member of members" :key="member.badgeID">
+  
+                        <td class="sorting_1">
+                          <img :src="member.avatar" class="user-image" alt="User Image" />
+                        </td>
+                        <td>{{member.name}}</td>
+                        <td>{{member.email}}</td>
+                        <td>     
+                          <div v-for="project in member.projects" :key="project.projectID" class="status">            
+                             <p class="external-event btn-info" v-if="projectID != project.projectID" >{{project.name}} </p>
+                            <p class="external-event btn-danger danger" v-else>All ready in project </p>
+                          </div>
+                        </td>
+                        <td >
+                            <a class="btn btn-app"><i class="fa fa-level-down" style="color:#008d4c; font-size: 22px"></i></a>
+                        </td> 
+                  </tr> 
+                </tbody>
+                <tbody v-else>
                   <tr class="even" role="row" v-for="member of members" :key="member.badgeID">
                     <td class="sorting_1">
                       <img :src="member.avatar" class="user-image" alt="User Image" />
@@ -71,9 +90,8 @@
                     <td>
                     <div class="external-event bg-yellow" v-for="project in member.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
-                    <td ><a v-if="manageMember" class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
-                        <a v-if="manageMember" class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>
-                        <a v-if="chooseFromMember" class="btn btn-app" @click="getMember(member)"><i class="fa fa-check-circle" style="color:green"></i></a>
+                    <td ><a class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
@@ -91,14 +109,14 @@ import NewMember from './NewMember'
 
 require('datatables.net-bs')
 export default {
-  props: ['members', 'chooseFromMember', 'manageMember'],
-  components: {
-    NewMember
-  },
+  props: ['members', 'chooseFromMember', 'manageMember', 'projectID'],
   data() {
     return {
-      getMember: {}
+      projectOfEachMember: []
     }
+  },
+  components: {
+    NewMember
   },
   name: 'table-member',
   methods: {
@@ -123,14 +141,16 @@ export default {
           }
         ]
       })
-    },
-    getMember(memberData) {
-      this.getMember = memberData
     }
   }
 }
 </script>
 <style scoped>
+.danger {
+  width: 100%;
+  position: relative;
+  font-size: 14px
+}
 table{
   color: #242E35;
 }
