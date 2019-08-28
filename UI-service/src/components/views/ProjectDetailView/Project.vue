@@ -7,7 +7,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-         <setting-modal></setting-modal>
+         <settingModal></settingModal>
          <router-view></router-view>
     </div>
     <main-footer :admin="admin"></main-footer>

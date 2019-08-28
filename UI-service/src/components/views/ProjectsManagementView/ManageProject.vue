@@ -1,5 +1,11 @@
 <template>
   <section class="content">
+    <div class="row center-block">
+      <div class="header col-md-12">
+        <span>Projects</span> <br>
+        <i>Here you can manage all your projects. You can also create new project by clicking a single button.</i>
+      </div>
+    </div>
       <div class="btn-spacing">
         <button
           type="submit"
@@ -43,7 +49,7 @@ img{
   width: 80px;
 }
 .btn-spacing {
-  margin-bottom: 20px;
+  margin: 20px 0;
   vertical-align: middle;
 }
 .content {

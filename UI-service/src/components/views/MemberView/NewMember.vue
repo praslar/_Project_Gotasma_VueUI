@@ -78,7 +78,7 @@
               name="name"
               v-model="member.name"
               class="form-control"
-              v-validate="'required|min:5'"
+              v-validate="'required|min:3'"
               :class="{ 'is-invalid': submitted && errors.has('name') }"
               placeholder="Username"
       
@@ -199,7 +199,6 @@ export default {
                 if (valid) {
                     Services.addUser(this.member)
                       .then(response => {
-                        console.log(response)
                         alert(JSON.stringify(response))
                       })
                       .catch(error => {
