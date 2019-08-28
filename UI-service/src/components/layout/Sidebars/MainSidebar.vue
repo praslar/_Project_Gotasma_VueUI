@@ -65,10 +65,14 @@ export default {
 #search-btn {
   width: 20%;
 }
+.sidebar{
+
+}
 .main-sidebar{
+ margin-top: 5px;
   height: 100%; 
-   -moz-box-shadow:    0px 0 5px 0 #555;
-  -webkit-box-shadow:  0px 0 5px 0 #555;
-  box-shadow:          0px 0 5px 0 #555;
+   -moz-box-shadow:    0px 0 6px 0 #555;
+  -webkit-box-shadow:  0px 0 6px 0 #555;
+  box-shadow:          0px 0 6px 0 #555;
 }
 </style>

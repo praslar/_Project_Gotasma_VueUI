@@ -1,20 +1,23 @@
 <template>
   <li>
-    <a href="/history" title="History (snapshots list)">
-      <span class="fa fa-history" id="myIcon"></span>
-    </a>
+    <router-link :to="'/project/' + idProject + '/history'">
+        <a title="History (snapshots list)" class="myIcon">
+          <i class="fa fa-history"></i>
+        </a>
+    </router-link>
   </li>
 </template>
 
 <script>
 export default {
-  name: 'buttonHistory'
+  name: 'buttonHistory',
+  props: ['idProject']
 }
 </script>
 
 <style scoped>
-#myIcon {
-  color: rgb(43, 42, 42);
+.myIcon {
+  color:white;
   margin: 0 5px 0 5px
 }
 </style>

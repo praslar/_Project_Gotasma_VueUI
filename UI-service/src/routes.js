@@ -16,17 +16,25 @@ const routes = [{
         meta: { description: 'View project detail' },
         children: [{
                 path: 'gantt',
+                props: true,
                 alias: '',
-                props: ['project'],
                 component: Gantt,
                 name: 'Gantt',
                 meta: { description: 'Gantt chart' }
             },
             {
                 path: 'team',
+                props: true,
                 component: Team,
                 name: 'Team',
                 meta: { description: 'Team member' }
+            },
+            {
+                path: 'history',
+                props: true,
+                component: HistoryView,
+                name: 'History',
+                meta: { description: 'View project history' }
             }
         ]
     },
@@ -45,12 +53,6 @@ const routes = [{
                 component: MemberView,
                 name: 'Member',
                 meta: { description: 'View all member' }
-            },
-            {
-                path: 'history',
-                component: HistoryView,
-                name: 'History',
-                meta: { description: 'View project history' }
             },
             {
                 path: 'exceptions',

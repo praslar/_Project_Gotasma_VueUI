@@ -22,7 +22,7 @@
         </ul>
       </li>
       <li class="footer">
-        <router-link :to="teamRoute + memberData.projectID + '/team'">
+        <router-link :to="teamRoute + idProject + '/team'">
         <a >
           <i class="fa fa-users"></i>
           See all member of project
@@ -43,11 +43,16 @@ export default {
     }
   },
   components: { MemberList },
-  props: ['memberData']
+  props: ['memberData', 'idProject']
 }
 </script>
 
 <style scoped>
+@media (max-width:991px) {
+    .navbar-custom-menu .navbar-nav>li>a {
+        padding-top: 5px !important;
+    }
+}
 #myIcon {
   color: rgb(43, 42, 42);
   margin: 0 5px 0 5px
