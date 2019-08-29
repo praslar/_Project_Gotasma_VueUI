@@ -76,7 +76,7 @@
                           </div>
                         </td>
                         <td >
-                            <a class="btn btn-app"><i class="fa fa-level-down" style="color:#008d4c; font-size: 22px"></i></a>
+                            <a class="btn btn-app" @click="showDialogMember(addUser)"><i class="fa fa-level-down" style="color:#008d4c; font-size: 22px"></i></a>
                         </td> 
                   </tr> 
                 </tbody>
@@ -91,7 +91,7 @@
                     <div class="external-event bg-yellow" v-for="project in member.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
                     <td ><a class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app" @click="showDialog"><i class="fa fa-remove"></i></a>           
+                        <a class="btn btn-app" @click="showDialogMember(deleted)"><i class="fa fa-remove"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
@@ -112,7 +112,9 @@ export default {
   props: ['members', 'chooseFromMember', 'manageMember', 'projectID'],
   data() {
     return {
-      projectOfEachMember: []
+      projectOfEachMember: [],
+      addUser: 'Add new member to this project team',
+      deleted: 'Do you wish to delele'
     }
   },
   components: {
@@ -120,16 +122,16 @@ export default {
   },
   name: 'table-member',
   methods: {
-    showDialog() {
+    showDialogMember: function(text) {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
-        text: 'Do you wish to delete?',
+        text: text,
         buttons: [
           {
             title: 'OK',
             default: true,
             handler: () => {
-              alert('OK You have deleted')
+              alert('OK ' + text)
               this.$modal.hide('dialog')
             }
           },
@@ -168,7 +170,7 @@ td a i{
 }
 table {
   border-radius: 10px;
-  font-size: 18px !important
+  font-size: 16px !important
 }
 .del-btn {
   background-color: rgba(255, 0, 0, 0.13)

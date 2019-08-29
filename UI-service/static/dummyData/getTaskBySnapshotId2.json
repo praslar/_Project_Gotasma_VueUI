@@ -3,28 +3,76 @@
     "description": "Add new task to project",
     "time": "2019-08-28T14:08:00.000Z",
     "tasks": [{
-            "id": 2,
+            "id": 22,
             "label": "Design calender",
             "user": ["Thang Pham", "Quan Vo"],
             "start": "2019-09-28T14:25:55.000Z",
             "duration": 345600000,
-            "type": "milestone"
+            "type": "task"
         },
         {
-            "id": 3,
+            "id": 31,
             "label": "Member management",
             "user": "Quan Vo",
             "start": "2019-09-29T11:20:55.000Z",
             "duration": 518400000,
-            "type": "milestone"
+            "type": "task"
         },
         {
-            "id": 4,
+            "id": 44,
             "label": "Project mamgement",
             "user": ["Trung Huynh", "Quan Vo", "Thang Pham"],
             "start": "2019-09-30T14:25:55.000Z",
             "duration": 245600000,
-            "type": "milestone"
+            "type": "task"
+        },
+        {
+            "id": 26,
+            "label": "This a test, dummydata",
+            "user": "Thang Pham",
+            "start": "2019-08-25T16:00:00.000Z",
+            "duration": 305600000,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Another stupid JSON Ttest",
+            "user": "Quan Vo",
+            "start": "2019-08-30T11:20:55.000Z",
+            "duration": 418400000,
+            "type": "task"
+        },
+        {
+            "id": 4,
+            "label": "Project mamgement",
+            "user": "Trung Huynh",
+            "start": "2019-08-26T14:25:55.000Z",
+            "duration": 245600000,
+            "type": "task"
+        },
+        {
+            "id": 3,
+            "label": "This a test, dummydata",
+            "user": "Thang Pham",
+            "start": "2019-08-25T16:00:00.000Z",
+            "duration": 305600000,
+            "type": "task"
+        },
+        {
+            "id": 2,
+            "label": "Another stupid JSON Ttest",
+            "user": "Quan Vo",
+            "start": "2019-08-30T11:20:55.000Z",
+            "duration": 418400000,
+            "type": "task"
+        },
+        {
+            "id": 1,
+            "label": "Project mamgement",
+            "user": "Trung Huynh",
+            "start": "2019-08-26T14:25:55.000Z",
+            "duration": 245600000,
+            "type": "task"
         }
     ]
 }

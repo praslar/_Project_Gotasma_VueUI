@@ -7,12 +7,12 @@ body {
 }
 
 .navbar-custom-menu .navbar-nav>li>a:hover {
-    background-color: #173e43;
+    background-color: #f3f5f7;
     color: #fff !important;
 }
 
 .navbar-custom-menu .navbar-nav>li>a>span {
-    color: #fff !important;
+    color: #3fb0ac !important;
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {
@@ -161,10 +161,7 @@ body {
     background-color: #3f3f3f
 }
 
-.skin-blue .dropdown-toggle {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
+.skin-blue .dropdown-toggle {}
 
 .skin-blue .dropdown-toggle:hover {
     background-color: transparent !important;

@@ -21,16 +21,16 @@
                 <!-- /.col -->
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">13,000</h5>
-                    <span class="description-text">FOLLOWERS</span>
+                    <h5 class="description-header">2000$</h5>
+                    <span class="description-text">Income</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4">
                   <div class="description-block">
-                    <h5 class="description-header">35</h5>
-                    <span class="description-text">PRODUCTS</span>
+                    <h5 class="description-header">DC-14</h5>
+                    <span class="description-text">TEAM</span>
                   </div>
                   <!-- /.description-block -->
                 </div>

@@ -10,7 +10,7 @@
     <li class="treeview">
       <a href="#">
         <i class="fa fa-tags"></i>
-        <span class="treeview-title">Hight-light Projects</span>
+        <span class="treeview-title page">Hight-light Projects</span>
         <span class="pull-right-container pull-right">
           <i class="fa fa-angle-left fa-fw"></i>
         </span>
@@ -18,7 +18,7 @@
       <ul class="treeview-menu">
         <li v-for="project in highlightedProject" :key="project.projectID">
           <router-link tag="a" class="pageLink" :to="'/project/'+project.projectID">
-            <i class="fa fa-file-o"></i> {{project.name}}
+            <i class="fa fa-calendar"></i> {{project.name}}
           </router-link>
         </li>
       </ul>
@@ -102,5 +102,8 @@ span {
 
 span {
   color: #eeeee7;
+}
+.page{
+  font-weight: bold;
 }
 </style>

@@ -1,20 +1,5 @@
 <template>
   <header class="main-header">
-    <span class="logo-mini">
-      <a href="/">
-        <img
-          src="/static/img/kitty.svg"
-          alt="Logo"
-          class="img-responsive center-block logo"
-        />
-      </a>
-    </span>
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
-      <a href="javascript:;" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <buttonAddMember :memberData="memberData" :idProject="idProject"></buttonAddMember>
@@ -25,7 +10,6 @@
         </ul>
       </div>
       <v-dialog/>
-    </nav>
   </header>
 </template>
 

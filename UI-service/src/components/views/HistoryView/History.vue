@@ -6,8 +6,8 @@
         <p> Here you see can all the states of your project at a specific point in time, <br> you navigate around the history list and choose see what you have saved</p>
       </div>
     <Split>
-      <SplitArea :size="84">
-          <gantt-history :snapshotHistoryID="snapshotHistoryID"></gantt-history>
+      <SplitArea :size="80">
+          <gantt-history :snapshotHistoryID="snapshotHistoryID" class="heightOf"></gantt-history>
       </SplitArea>
       <SplitArea :size="16">
           <snapshot-list :ProjectHistory="ProjectHistory" @clicked="eventChild" ></snapshot-list>
@@ -52,6 +52,10 @@ export default {
 }
 </script>
 <style scoped>
+.heightOf {
+  height: 100%;
+  z-index: 1020 !important;
+}
 .tab-content .current-time {
   text-align: center;
   font-size: 16px;

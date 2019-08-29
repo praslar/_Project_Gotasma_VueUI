@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+    <project-header :memberData="memberData" :id="id" ></project-header>
         <button @click="addTask" type="button" class="btn btn-info"  >Add Sum</button>
         <button @click="addTask" type="button" class="btn btn-info"  >Add Task</button>
     <Split class="split-panel" direction="vertical">
@@ -29,6 +30,8 @@
 import GanttElastic from 'gantt-elastic'
 import GanttHeader from 'gantt-elastic-header'
 import dayjs from 'dayjs'
+import ProjectHeader from '../../layout/Headers/ProjectHeader'
+import * as Services from '../../../services'
 
 // just helper to get current dates
 function getDate(hours) {
@@ -429,10 +432,19 @@ export default {
   props: ['id'],
   components: {
     GanttElastic,
-    GanttHeader
+    GanttHeader,
+    ProjectHeader
   },
   data() {
     return {
+      memberData: {
+        projectID: '',
+        name: '',
+        effort: '',
+        startDate: '',
+        updateDate: '',
+        members: []
+      },
       tasks,
       options,
       optionsWorkLoad,
@@ -440,6 +452,9 @@ export default {
       dynamicStyle: {},
       lastId: 16
     }
+  },
+  mounted() {
+    this.getMember()
   },
   methods: {
     addTask() {
@@ -464,11 +479,14 @@ export default {
     styleUpdate(style) {
       this.dynamicStyle = style
     },
-    showModal() {
-      this.$modal.show('hello-cc')
-    },
-    hide() {
-      this.$modal.hide('hello-cc')
+    getMember() {
+      Services.getMemberOfProject()
+      .then((response) => {
+        this.memberData = response
+      })
+      .catch(error => {
+        console.log(error)
+      })
     }
   }
 }

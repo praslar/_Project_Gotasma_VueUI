@@ -7,9 +7,11 @@
         <button type="button" @click="showTableMember" class="btn btn-info pull-right special">Choose from member</button>
         <button type="button" @click="hideTableMember" class="btn btn-info pull-right special">Hide table</button>
         <i> Here you manage all your project members. You can choose from the already invited team members.</i>
-      </div>             
+      </div>  
+      <team-table :team="team"></team-table>   
+      <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">     
       <table-member class="choose-member" v-if="chooseFromMember" :projectID="projectID" :members="members" :chooseFromMember="chooseFromMember"></table-member>
-      <team-table :team="team"></team-table>
+      </transition>   
     </div>
   </section>
 </template>
@@ -119,4 +121,5 @@ table.dataTable thead .sorting_desc:after {
 .special {
   margin: 10px; 
 }
+
 </style>

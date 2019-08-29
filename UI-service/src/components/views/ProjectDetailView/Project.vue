@@ -1,7 +1,8 @@
 <template>
    <div :class="['wrapper', classes]">
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <project-header :memberData="memberData" :idProject="id" ></project-header>
+    <!-- <main-header :memberData="memberData" :idProject="id" ></main-header> -->
+    <main-header :admin="admin"></main-header>
     <!-- Left side column. contains the logo and sidebar -->
     <main-sidebar :admin='admin'/>
     <!-- Content Wrapper. Contains page content -->
@@ -17,18 +18,18 @@
 <script>
 import config from '../../../config'
 import MainFooter from '../../layout/Footers/MainFooter'
-import ProjectHeader from '../../layout/Headers/ProjectHeader'
+import MainHeader from '../../layout/Headers/MainHeader'
 import MainSidebar from '../../layout/Sidebars/MainSidebar'
-import * as Services from '../../../services'
 import SettingModal from '../../layout/Headers/HeaderElements/SettingModal'
 import FilterModal from '../../layout/Headers/HeaderElements/FilterModal'
+import * as Services from '../../../services'
 
 export default {
   name: 'Project',
   props: ['id'],
   components: {
     MainFooter,
-    ProjectHeader,
+    MainHeader,
     MainSidebar,
     SettingModal,
     FilterModal
@@ -48,20 +49,11 @@ export default {
           country: '',
           avatar: ''
         }
-      ],
-      memberData: {
-        projectID: '',
-        name: '',
-        effort: '',
-        startDate: '',
-        updateDate: '',
-        members: []
-      }
+      ]
     }
   },
     mounted() {
     this.fetchAdmin()
-    this.getMember()
   },
   methods: {
     fetchAdmin: function() {
@@ -73,27 +65,23 @@ export default {
         .catch(error => {
           console.log(error)
         })
-    },
-    getMember() {
-      Services.getMemberOfProject()
-      .then((response) => {
-        this.memberData = response
-      })
-      .catch(error => {
-        console.log(error)
-      })
     }
-    }
+  }
 }
 </script>
-
 <style>
+.control{
+  position: absolute;
+  height: 100%;
+  background-color: red;
+}
 .wrapper.fixed_layout .main-header {
   position: fixed;
   width: 100%;
 }
 .wrapper.fixed_layout .content-wrapper {
   padding-top: 10px;
+  height: 100%;
 }
 .wrapper.fixed_layout .main-sidebar {
   position: fixed;

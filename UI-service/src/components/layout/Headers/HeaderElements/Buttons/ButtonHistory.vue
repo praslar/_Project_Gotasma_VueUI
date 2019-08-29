@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .myIcon {
-  color:white;
+  color:#3fb0ac;
   margin: 0 5px 0 5px
 }
 </style>

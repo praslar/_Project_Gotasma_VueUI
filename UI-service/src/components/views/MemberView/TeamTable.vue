@@ -18,7 +18,7 @@
                     <td>{{team.badgeID}}</td>
                     <td>{{team.name}}</td>
                     <td>{{team.email}}</td>
-                    <td> <a class="btn-remove">remove</a> </td>
+                    <td> <a class="btn-remove" @click="showDialogModal">remove</a></td>
                     </tr>
               </tbody>
             </table>
@@ -26,13 +26,38 @@
           <!-- /.box-body -->
         </div>
       </div>
+      <v-dialog></v-dialog>
     </div>
 </template>
 <script>
 
 export default {
     name: 'team-table',
-    props: ['team']
+    props: ['team'],
+    methods: {
+    showDialogModal() {
+      this.$modal.show('dialog', {
+        title: 'Are you sure?',
+        text: 'Do you want to remove this user?',
+        buttons: [
+          {
+            title: 'OK',
+            default: true,
+            handler: () => {
+              alert('OK You have remove user')
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: 'CANCEL',
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          }
+        ]
+      })
+    }
+    }
 }
 </script>
 

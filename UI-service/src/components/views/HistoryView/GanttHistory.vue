@@ -11,15 +11,23 @@ import * as Services from '../../../services'
 // just helper to get current dates
 
 let options = {
+  scope: {
+      before: 1,
+      after: 100
+    },
   maxRows: 1000,
   maxHeight: 1000,
   row: {
     height: 20
   },
+  times: {
+    timeZoom: 21
+  },
   calendar: {
     hour: {
       display: false
-    }
+    },
+    workingDays: [0, 1, 2]
   },
   chart: {
     progress: {
@@ -27,6 +35,14 @@ let options = {
     },
     expander: {
       display: false
+    },
+    text: {
+      display: false
+    },
+    grid: {
+      vertical: {
+        gap: 50
+      }
     }
   },
   taskList: {
@@ -38,7 +54,7 @@ let options = {
         id: 2,
         label: 'Description',
         value: 'label',
-        width: 200,
+        width: 100,
         expander: true,
         html: true
       },
@@ -46,7 +62,7 @@ let options = {
         id: 3,
         label: 'Assigned to',
         value: 'user',
-        width: 130,
+        width: 100,
         html: true,
         events: {
           click({ data }) {
@@ -59,12 +75,6 @@ let options = {
         label: 'Start',
         value: task => dayjs(task.start).format('YYYY-MM-DD'),
         width: 78
-      },
-      {
-        id: 5,
-        label: 'Effort',
-        value: 'progress',
-        width: 35
       }
     ]
   }

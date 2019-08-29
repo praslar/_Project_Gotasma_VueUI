@@ -10,8 +10,8 @@
       <span class="label label-danger">{{memberData.members | count}}</span>
     </a> -->    
     <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown">
-      <span class="fa fa-user-plus myIcon"></span>
-      <span class="label label-danger">{{memberData.members | count}}</span>
+      <span class="fa fa-group myIcon"></span>
+      <span class="label special" >{{memberData.members | count}}</span>
     </a>
 
 
@@ -54,12 +54,17 @@ export default {
 </script>
 
 <style scoped>
+.special {
+  padding: 0px;
+  margin: 0px;
+  text-decoration-line: underline
+}
 .myIcon {
   color: rgb(43, 42, 42);
   margin: 0 5px 0 5px
 }
 .dropdown-toggle:hover {
-  background-color: #173e43 !important;
+  background-color: #f3f5f7 !important;
   border-radius: none !important
 }
 </style>

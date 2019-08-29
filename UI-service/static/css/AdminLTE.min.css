@@ -403,7 +403,7 @@ a:focus {
 }
 
 .navbar-toggle {
-    color: #fff;
+    color: red;
     border: 0;
     margin: 0;
     padding: 15px 15px
@@ -781,7 +781,10 @@ a:focus {
 }
 
 .control-sidebar>.tab-content {
-    padding: 10px 25px
+    padding: 10px 25px;
+    height: calc(110vh - 150px);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .control-sidebar.control-sidebar-open,
