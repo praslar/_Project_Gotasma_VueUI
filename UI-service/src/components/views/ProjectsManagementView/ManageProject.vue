@@ -3,16 +3,16 @@
     <div class="row center-block">
       <div class="header col-md-12">
         <span>Projects</span> <br>
-        <i>Here you can manage all your projects. You can also create new project by clicking a single button.</i>
-      </div>
-    </div>
-      <div class="btn-spacing">
         <button
           type="submit"
-          v-bind:class="'btn btn-info btn-lg'"
+          class="btn btn-info pull-right special"
           @click="$modal.show('createNewProj')">
           Create New Project</button>
+        <i>Here you can manage all your projects. You can also create new project by clicking a single button.</i>
+        
       </div>
+    </div>
+     
     <tableProject class="main" ></tableProject>
     <NewProject :projects="projects"></NewProject>
   </section>  

@@ -148,6 +148,7 @@ export default {
 <style scoped>
 table {
   color: #242e35;
+  font-size: 18px !important
 }
 td a {
   min-width: 30px !important;
