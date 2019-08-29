@@ -17,8 +17,8 @@
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <buttonHistory :idProject="idProject"></buttonHistory>
           <buttonAddMember :memberData="memberData" :idProject="idProject"></buttonAddMember>
+          <buttonHistory :idProject="idProject"></buttonHistory>
           <buttonFilter></buttonFilter>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import ButtonHistory from './HeaderElements/ButtonHistory'
-import ButtonSave from './HeaderElements/ButtonSave'
-import ButtonSetting from './HeaderElements/ButtonSetting'
-import ButtonFilter from './HeaderElements/ButtonFilter'
-import buttonAddMember from './HeaderElements/ButtonAddMember'
+import ButtonHistory from './HeaderElements/Buttons/ButtonHistory'
+import ButtonSave from './HeaderElements/Buttons/ButtonSave'
+import ButtonSetting from './HeaderElements/Buttons/ButtonSetting'
+import ButtonFilter from './HeaderElements/Buttons/ButtonFilter'
+import buttonAddMember from './HeaderElements/Buttons/ButtonAddMember'
 
 export default {
   name: 'DashHeader',

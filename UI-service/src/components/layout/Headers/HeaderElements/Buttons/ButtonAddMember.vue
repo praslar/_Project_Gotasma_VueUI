@@ -1,6 +1,6 @@
 <template>
   <li class="dropdown messages-menu">
-    <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown">
+    <!-- <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown">
       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 36 36">
         <g fill="#fff" fill-rule="evenodd" transform="translate(8 6)">
             <path d="M10.001 2.0029C9.45 2.0029 9.001 2.4519 9.001 3.0029 9.001 3.5549 9.45 4.0029 10.001 4.0029 10.552 4.0029 11.001 3.5549 11.001 3.0029 11.001 2.4519 10.552 2.0029 10.001 2.0029M10.001 6.0029C8.347 6.0029 7.001 4.6569 7.001 3.0029 7.001 1.3489 8.347.0029 10.001.0029 11.655.0029 13.001 1.3489 13.001 3.0029 13.001 4.6569 11.655 6.0029 10.001 6.0029M9.001 18.0029L11.001 18.0029 11.001 14.0029C11.001 13.4509 11.449 13.0029 12.001 13.0029L13.001 13.0029 13.001 12.0029C13.001 10.3489 11.655 9.0029 10.001 9.0029 8.347 9.0029 7.001 10.3489 7.001 12.0029L7.001 13.0029 8.001 13.0029C8.553 13.0029 9.001 13.4509 9.001 14.0029L9.001 18.0029zM12.001 20.0029L8.001 20.0029C7.449 20.0029 7.001 19.5549 7.001 19.0029L7.001 15.0029 6.001 15.0029C5.449 15.0029 5.001 14.5549 5.001 14.0029L5.001 12.0029C5.001 9.2459 7.244 7.0029 10.001 7.0029 12.758 7.0029 15.001 9.2459 15.001 12.0029L15.001 14.0029C15.001 14.5549 14.553 15.0029 14.001 15.0029L13.001 15.0029 13.001 19.0029C13.001 19.5549 12.553 20.0029 12.001 20.0029L12.001 20.0029z"></path>
@@ -8,7 +8,13 @@
         </g>
       </svg>
       <span class="label label-danger">{{memberData.members | count}}</span>
+    </a> -->    
+    <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown">
+      <span class="fa fa-user-plus myIcon"></span>
+      <span class="label label-danger">{{memberData.members | count}}</span>
     </a>
+
+
      <ul class="dropdown-menu">
       <li class="header">
          There are {{ memberData.members | count }} member(s) in your project
@@ -34,7 +40,7 @@
 </template>
 
 <script>
-import MemberList from './MemberList'
+import MemberList from '../MemberList'
 export default {
   name: 'buttonAddMember',
   data() {
@@ -48,27 +54,13 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width:991px) {
-    .navbar-custom-menu .navbar-nav>li>a {
-        padding-top: 5px !important;
-    }
-}
-#myIcon {
+.myIcon {
   color: rgb(43, 42, 42);
   margin: 0 5px 0 5px
 }
-.member{
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-}
-li>a {
-  padding: 0px;
-  margin-top: 3px;
-}
-
-li>a .label{
-  font-size: 14px;
+.dropdown-toggle:hover {
+  background-color: #173e43 !important;
+  border-radius: none !important
 }
 </style>
 

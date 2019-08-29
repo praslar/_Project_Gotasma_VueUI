@@ -1,8 +1,8 @@
 <template>
   <li>
-    <a href="javascript:;" @click="showDialog">
+    <a @click="showDialog">
       <span class="fa fa-download" id="myIcon" />
-      <span class="hidden-xs" id="myIcon">{{ "SAVE" }}</span>
+      <span class="hidden-xs myIcon">{{ "SAVE" }}</span>
     </a>
   </li>
 </template>
@@ -38,9 +38,12 @@ export default {
 </script>
 
 <style scoped>
-#myIcon {
+.myIcon {
   color: rgb(43, 42, 42);
   margin: 0 5px 0 5px
+}
+a{
+  cursor: pointer
 }
 </style>
 

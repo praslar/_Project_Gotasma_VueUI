@@ -29,10 +29,10 @@
             </span>
             <select class="form-control"
             v-model="project.effort" 
-            data-placeholder="Select effort"
             name="Effort" 
             v-validate="'required'" 
             :class="{'is-invalid': submitted && errors.has('Effort')}" >
+              <option value="" disabled selected hidden>Select your option</option>
               <option>40</option>
               <option>42</option>
               <option>38</option>
@@ -48,10 +48,16 @@
             <datepicker v-model="project.startDate" appendToBody 
             lang="en" 
             format="DD/MMM/YYYY" 
-            width="100%" 
+            width="100%"
+            data-vv-name="Date"
+            v-validate="'required'"
             :editable="false">
             </datepicker>
           </div>
+          <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+              <h6 class="alertValidate pull-right ontop" v-if=" submitted && errors.has('Date')">{{ errors.first('Date')}}</h6>
+          </transition>
+
           <div class="button-set">
             <button class="create-btn">Create</button>
           </div>
@@ -63,6 +69,7 @@
 </template>
 <script>
 import datepicker from 'vue2-datepicker'
+import * as Services from '../../../services'
 
 export default {
   name: 'NewProject',
@@ -90,8 +97,17 @@ export default {
       this.submitted = true
       this.$validator.validateAll().then(result => {
         if (result) {
-          alert('You have created one project:    ' + JSON.stringify(this.project))
+          Services.addProj(this.project)
+          .then(response => {
+            alert(JSON.stringify(response) + '\nYou have created one project:    ' + JSON.stringify(this.project))
+          })
+          .catch(error => {
+            console.log(error)
+          })
+          // alert('You have created one project:    ' + JSON.stringify(this.project))
           this.$modal.hide('createNewProj')
+        } else {
+          alert('Invalid input')
         }
       })
     },
@@ -175,5 +191,8 @@ export default {
 }
 .alert-in-leave-active {
   animation: bounce-in .5s reverse;
+}
+.ontop {
+  padding-top: 19px;
 }
 </style>

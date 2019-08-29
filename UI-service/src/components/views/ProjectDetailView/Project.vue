@@ -7,7 +7,8 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-         <setting-modal></setting-modal>
+         <settingModal :id="id"></settingModal>
+         <filterModal></filterModal>
          <router-view></router-view>
     </div>
     <main-footer :admin="admin"></main-footer>
@@ -20,6 +21,7 @@ import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import MainSidebar from '../../layout/Sidebars/MainSidebar'
 import * as Services from '../../../services'
 import SettingModal from '../../layout/Headers/HeaderElements/SettingModal'
+import FilterModal from '../../layout/Headers/HeaderElements/FilterModal'
 
 export default {
   name: 'Project',
@@ -28,7 +30,8 @@ export default {
     MainFooter,
     ProjectHeader,
     MainSidebar,
-    SettingModal
+    SettingModal,
+    FilterModal
   },
   data: function() {
     return {
