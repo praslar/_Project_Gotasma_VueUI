@@ -159,7 +159,7 @@ img{
 }
 td a {
   min-width: 30px !important;
-  width: 30px;
+  width: 40px;
   height: 40px
 }
 td a i{

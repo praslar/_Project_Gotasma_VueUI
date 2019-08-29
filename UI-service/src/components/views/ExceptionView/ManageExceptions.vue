@@ -22,9 +22,16 @@
                   class="form-control"
                   id="exceptTittle"
                   placeholder="Enter tittle"
+                  name="Tittle"
+                  v-validate="'required|min:5'" 
                   v-model="exceptDate.tittle"
                 />
+                <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+                  <div class="invalid-feedback" v-if="errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
+                </transition>
               </div>
+              
+
               <div class="form-group">
                 <label>Choose Date</label>
                 <datepicker
@@ -34,7 +41,12 @@
                   lang="en"
                   format="DD/MMM/YYYY"
                   width="100%"
+                  data-vv-name="Date"
+                  v-validate="'required'"
                 ></datepicker>
+                <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+                  <div class="invalid-feedback ontop" v-if=" errors.has('Date')">{{ errors.first('Date')}}</div>
+                </transition>
               </div>
             </div>
             <!-- /.box-body -->
@@ -45,25 +57,10 @@
           </form>
         </div>
         <h2>Exceptions</h2>
+        
         <ExceptionItem :exceptions="exceptions"></ExceptionItem>
       </div>
     </div>
-
-    <!-- <div class="box box-success" v-for="(exception, index) in exceptions" :key="index">
-      <div class="box-header with-border">
-        <h3 class="box-title"> {{ exception.tittle }} </h3>
-    
-        <div class="box-tools pull-left">
-          <button type="button" class="btn btn-box-tool">
-            <i class="fa fa-times"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="box-body"> <p>From: {{ exception.exDate[0] }}</p></div>
-      <div class="box-body"> <p>To: {{ exception.exDate[1] }}</p></div>    
-
-    </div>-->
   </section>
 </template>
 
@@ -79,6 +76,7 @@ export default {
   },
   data() {
     return {
+      // submitted: false,
       exceptDate: {
         tittle: '',
         exDate: ''
@@ -87,20 +85,23 @@ export default {
         { tittle: 'Day off 1', exDate: ['2/Sep/2019', '3/Sep/2019'] },
         { tittle: 'Day off 2', exDate: ['13/Sep/2019', '22/Sep/2019'] }
       ]
-      // exceptions: []
     }
   },
   methods: {
     addException() {
-      this.exceptions.push({
-        tittle: this.exceptDate.tittle,
-        exDate: this.exceptDate.exDate
+      // this.submitted = true
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          this.exceptions.push({
+          tittle: this.exceptDate.tittle,
+          exDate: this.exceptDate.exDate
+        })
+          // this.exceptions.push({ exception: this.exception })
+          this.exceptDate.tittle = ''
+          this.exceptDate.exDate = ''
+          // console.log(this.exceptions)
+        }
       })
-      // this.exceptions.push({ exception: this.exception })
-      this.exceptDate.tittle = ''
-      this.exceptDate.exDate = ''
-      console.log(this.exceptions)
-    }
   },
   shortcuts: [
     {
@@ -110,9 +111,28 @@ export default {
     }
   ]
 }
+}
 </script>
+
 <style scoped>
 .mySpacing {
   padding-bottom: 20px
+}
+.form-group {
+  margin-bottom: 25px !important
+}
+
+.invalid-feedback{
+  font-size: 12px;
+  color: red;
+  display: inline-block;
+  z-index: 9;
+  position: absolute;
+}
+.alert-in-enter-active {
+  animation: bounce-in .5s;
+}
+.alert-in-leave-active {
+  animation: bounce-in .5s reverse;
 }
 </style>

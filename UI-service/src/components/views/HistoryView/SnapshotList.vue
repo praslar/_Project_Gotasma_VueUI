@@ -30,7 +30,7 @@
               <i class="menu-icon fa fa-book bg-green"></i>
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">{{snapshot.description}}</h4>
-                <p>{{snapshot.time}}</p>
+                <p>{{snapshot.time | momentDetailDate}}</p>
               </div>
             </a>
           </li>

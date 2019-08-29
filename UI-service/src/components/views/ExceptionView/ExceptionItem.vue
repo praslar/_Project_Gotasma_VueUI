@@ -1,5 +1,6 @@
 <template>
 <div>
+  <transition-group enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutRight">
   <div class="col-md-3" v-for="(exception, index) in exceptions" :key="index">
     <div class="box box-success">
       <div class="box-header with-border">
@@ -12,13 +13,12 @@
         </div>
       </div>
 
-      <div class="box-body"> <p>From: {{ exception.exDate[0] }}</p></div>
-      <div class="box-body"> <p>To: {{ exception.exDate[1] }}</p></div>    
-
+      <div class="box-body">From:&nbsp;{{ exception.exDate[0] | momentNormalDate}}</div>
+      <div class="box-body">To:&nbsp;{{ exception.exDate[1] | momentNormalDate}}</div>
     </div>
-
-    <v-dialog/>
   </div>
+  </transition-group>
+  <v-dialog/>
 </div>
 </template>
 
@@ -55,3 +55,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.box-body {
+  font-size: 16px !important
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <modal name="createNewProj" transition="pop-out" :height=450 :width=600 :draggable="true" :reset="true" :clickToClose="false">
+  <modal name="createNewProj" transition="pop-out" :height=460 :width=600 :draggable="true" :reset="true" :clickToClose="false">
     <a class="pull-right exit-btn" @click="cancelCreate"><i class="fa fa-close"/></a>
     <form action="" @submit.prevent="createAlert" >
       <div class="modal-box">
@@ -19,7 +19,7 @@
                       :class="{'is-invalid': submitted && errors.has('Project Name')}">
             </div>
             <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <h6 class="alertValidate pull-right" v-if=" submitted && errors.has('Project Name')">{{ errors.first('Project Name')}}</h6>
+              <div class="invalid-feedback" v-if=" submitted && errors.has('Project Name')">{{ errors.first('Project Name')}}</div>
             </transition>
 
           <h4 class="myheading">Effort: (hours/week)</h4>
@@ -40,14 +40,14 @@
               </select>
           </div>
           <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <h6 class="alertValidate pull-right" v-if=" submitted && errors.has('Effort')">{{ errors.first('Effort')}}</h6>
+              <div class="invalid-feedback" v-if=" submitted && errors.has('Effort')">{{ errors.first('Effort')}}</div>
           </transition>
 
-          <h4 class="myheading">Start date: (DD/MMM/YYYY)</h4>
+          <h4 class="myheading">Start date: (MMM/DD/YYYY)</h4>
           <div>
             <datepicker v-model="project.startDate" appendToBody 
             lang="en" 
-            format="DD/MMM/YYYY" 
+            format="MMM/DD/YYYY" 
             width="100%"
             data-vv-name="Date"
             v-validate="'required'"
@@ -55,7 +55,7 @@
             </datepicker>
           </div>
           <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <h6 class="alertValidate pull-right ontop" v-if=" submitted && errors.has('Date')">{{ errors.first('Date')}}</h6>
+              <div class="invalid-feedback ontop" v-if=" submitted && errors.has('Date')">{{ errors.first('Date')}}</div>
           </transition>
 
           <div class="button-set">
@@ -104,7 +104,6 @@ export default {
           .catch(error => {
             console.log(error)
           })
-          // alert('You have created one project:    ' + JSON.stringify(this.project))
           this.$modal.hide('createNewProj')
         } else {
           alert('Invalid input')
@@ -163,12 +162,14 @@ export default {
   .modal-box .partition-form .button-set :hover {
       border-color: #3fb0ac;
       color: #3fb0ac;
+
   }
   .modal-box .button-set {
     margin-top: 60px;
   }
   .myheading {
-    margin: 3px 0 !important;
+    margin: 5px 0 !important;
+    padding-top: 8px !important
   }
   .exit-btn {
     font-size: 25px;
@@ -178,13 +179,14 @@ export default {
   .exit-btn:hover{
     color: #3fb0ac
   }
-.alertValidate {
+
+.invalid-feedback{
+  font-size: 12px;
   color: red;
-  background: #fdf2ce;
-  font-weight: bold;
   display: inline-block;
-  padding: 10px 5px 5px 5px;
-  margin-top: -20px;
+  z-index: 9;
+  position: absolute;
+  margin-top: -11px;
 }
 .alert-in-enter-active {
   animation: bounce-in .5s;
@@ -193,6 +195,6 @@ export default {
   animation: bounce-in .5s reverse;
 }
 .ontop {
-  padding-top: 19px;
+  padding-top: 10px;
 }
 </style>

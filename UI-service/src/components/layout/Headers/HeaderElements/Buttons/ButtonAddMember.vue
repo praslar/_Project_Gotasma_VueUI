@@ -9,7 +9,7 @@
       </svg>
       <span class="label label-danger">{{memberData.members | count}}</span>
     </a> -->    
-    <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown">
+    <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown" @click="hide">
       <span class="fa fa-user-plus myIcon"></span>
       <span class="label label-danger">{{memberData.members | count}}</span>
     </a>
@@ -49,7 +49,13 @@ export default {
     }
   },
   components: { MemberList },
-  props: ['memberData', 'idProject']
+  props: ['memberData', 'idProject'],
+  methods: {
+    hide() {
+      this.$modal.hide('someFilter')
+      this.$modal.hide('someSetting')
+    }
+  }
 }
 </script>
 

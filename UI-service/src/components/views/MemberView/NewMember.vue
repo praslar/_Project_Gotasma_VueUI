@@ -5,6 +5,7 @@
     :resizable="true"
     :draggable="true"
     :height="280"
+    :clickToClose="false"
     @before-open="beforeOpen"
   >
     <a class="btn-close" @click="cancelCreate">
@@ -66,7 +67,9 @@
               :class="{ 'is-invalid': submitted && errors.has('badgeID') }"
            
             />
-            <div v-if="submitted && errors.has('badgeID')" class="invalid-feedback">{{ errors.first('badgeID') }}</div>
+            <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+              <div v-if="submitted && errors.has('badgeID')" class="invalid-feedback">{{ errors.first('badgeID') }}</div> 
+            </transition>
           </div>
           <div class="input-group col-xs-8">
             <span class="input-group-addon">
@@ -83,7 +86,9 @@
               placeholder="Username"
       
             />
-             <div v-if="submitted && errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
+            <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+              <div v-if="submitted && errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
+            </transition>
           </div>
           <div class="input-group col-xs-8">
             <span class="input-group-addon">
@@ -99,7 +104,9 @@
               v-model="member.email"
               :class="{ 'is-invalid': submitted && errors.has('email') }"
             />
+            <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
              <div v-if="submitted && errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>
+            </transition>
           </div>
         </div>
         <div class="box-footer">
@@ -336,9 +343,9 @@ button {
   bottom: 5px;
 }
 .btn-create:hover {
-  border-color: #173e43;
-  color: #173e43;
-  margin: 15px;
+  border-color: #3fb0ac;
+  color: #3fb0ac;
+  margin: -0px;
 }
 .btn-close {
   width: 30px;
@@ -358,5 +365,11 @@ button {
   color: #000;
   display: inline;
   font-style: italic;
+}
+.alert-in-enter-active {
+  animation: bounce-in .5s;
+}
+.alert-in-leave-active {
+  animation: bounce-in .5s reverse;
 }
 </style>
