@@ -49,7 +49,13 @@ export default {
     }
   },
   components: { MemberList },
-  props: ['memberData', 'idProject']
+  props: ['memberData', 'idProject'],
+  methods: {
+    hide() {
+      this.$modal.hide('someFilter')
+      this.$modal.hide('someSetting')
+    }
+  }
 }
 </script>
 

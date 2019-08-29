@@ -64,14 +64,14 @@
                   <tr class="even" role="row" v-for="project of projects" :key="project.projectID" >
                     <td class="sorting_1">{{ project.name }}</td>
                     <td>{{ project.numberOfMembers }}</td>
-                    <td>{{ project.startDate }}</td>
-                    <td>{{ project.updateDate }}</td>
+                    <td>{{ project.startDate | momentNormalDate }}</td>
+                    <td>{{ project.updateDate | momentDetailDate }}</td>
                     <td>
                       <router-link :to="projectRoute + project.projectID ">
                           <a class="btn btn-app" title="View this project" ><i class="fa fa-reply"></i></a>
                       </router-link>
                       <a class="btn btn-app del-btn" title="Delete project" @click="showDialog"><i class="fa fa-remove"></i></a>
-                      <a class="btn btn-app star-btn" title="Highlight project" ><i class="fa fa-star-o"></i></a>
+                      <a class="btn btn-app star-btn" title="Highlight project" ><i class="fa fa-star"></i></a>
                     </td>
                   </tr>
                 </tbody>  
@@ -152,13 +152,13 @@ table {
 }
 td a {
   min-width: 30px !important;
-  width: 30px;
+  width: 40px;
   height: 40px
 }
 .del-btn {
-  background-color: #e6000026
+  color: #c70707c2
 }
 .star-btn {
-  background-color: #efff0040
+  color: #ffca00
 }
 </style>

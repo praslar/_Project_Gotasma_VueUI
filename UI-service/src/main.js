@@ -12,9 +12,11 @@ import store from './store'
 import VueSplit from 'vue-split-panel'
 // Import Views - Top level
 import AppView from './components/App.vue'
-import { count } from './filters'
+import { count, momentNormalDate, momentDetailDate } from './filters'
 
 Vue.filter('count', count)
+Vue.filter('momentNormalDate', momentNormalDate)
+Vue.filter('momentDetailDate', momentDetailDate)
 
 Vue.use(VeeValidate)
 Vue.use(VueRouter)

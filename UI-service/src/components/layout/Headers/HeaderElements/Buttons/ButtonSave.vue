@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a @click="showDialog">
+    <a @click="showDialog ">
       <span class="fa fa-download" id="myIcon" />
       <span class="hidden-xs myIcon">{{ "SAVE" }}</span>
     </a>
