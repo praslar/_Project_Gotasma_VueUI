@@ -1,0 +1,30 @@
+{
+    "snapshotID": 2808190800,
+    "description": "Add new task to project",
+    "time": "2019-08-28T14:08:00.000Z",
+    "tasks": [{
+            "id": 2,
+            "label": "Design calender",
+            "user": ["Thang Pham", "Quan Vo"],
+            "start": "2019-09-28T14:25:55.000Z",
+            "duration": 345600000,
+            "type": "milestone"
+        },
+        {
+            "id": 3,
+            "label": "Member management",
+            "user": "Quan Vo",
+            "start": "2019-09-29T11:20:55.000Z",
+            "duration": 518400000,
+            "type": "milestone"
+        },
+        {
+            "id": 4,
+            "label": "Project mamgement",
+            "user": ["Trung Huynh", "Quan Vo", "Thang Pham"],
+            "start": "2019-09-30T14:25:55.000Z",
+            "duration": 245600000,
+            "type": "milestone"
+        }
+    ]
+}

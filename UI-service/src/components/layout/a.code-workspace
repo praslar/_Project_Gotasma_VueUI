@@ -4,10 +4,13 @@
             "path": "D:\\template\\projectTask\\projects-management\\UI-service"
         },
         {
-            "path": "D:\\template\\vue-search-select"
+            "path": "D:\\template\\gantt-elastic"
+        },
+        {
+            "path": "D:\\template\\vue-gantt-elastic"
         }
     ],
     "settings": {
-        "liveServer.settings.multiRootWorkspaceName": "vue-split-pane"
+        "liveServer.settings.multiRootWorkspaceName": "gantt-elastic"
     }
 }

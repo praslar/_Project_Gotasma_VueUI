@@ -7,14 +7,12 @@
       </div>
     <Split>
       <SplitArea :size="84">
-        <gantt-history></gantt-history>
+          <gantt-history :snapshotHistoryID="snapshotHistoryID"></gantt-history>
       </SplitArea>
       <SplitArea :size="16">
-          <snapshot-list></snapshot-list>
+          <snapshot-list :ProjectHistory="ProjectHistory" @clicked="eventChild" ></snapshot-list>
       </SplitArea>
    </Split>
-
-
 </div>
 </section>
 </template>
@@ -22,12 +20,34 @@
 <script>
 import GanttHistory from './GanttHistory'
 import SnapshotList from './SnapshotList'
+import * as Services from '../../../services'
 
 export default {
   name: 'history',
   components: {
     GanttHistory,
     SnapshotList
+  },
+  data() {
+    return {
+      ProjectHistory: [],
+      snapshotHistoryID: ''
+    }
+  },
+  created() {
+    //  getMemberInfo by ID project
+      Services.getProjectSnapshotByIDProject()
+      .then((response) => {
+        this.ProjectHistory = response.snapshots
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    },
+  methods: {
+    eventChild(snapshotID) {
+      this.snapshotHistoryID = snapshotID
+    }
   }
 }
 </script>

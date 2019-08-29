@@ -25,40 +25,12 @@
       <div class="tab-home" id="control-sidebar-home-tab">
         <h3 class="control-sidebar-heading">Recent Activity</h3>
         <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-clock-o bg-green"></i>
+          <li v-for="snapshot in ProjectHistory" :key="snapshot.snapshotID">
+            <a class="cursor" @click="sendSnapshotID(snapshot.snapshotID)">
+              <i class="menu-icon fa fa-book bg-green"></i>
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">The <b>'Test'</b> task have been added to the project</h4>
-                <p>{{time}}</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-clock-o bg-red"></i>
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Member <i>Johnken DamanaTut</i> have been remove from the project</h4>
-                <p>{{time}}</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-clock-o bg-green"></i>
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-                <p>{{time}}</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-                <p>{{time}}</p>
+                <h4 class="control-sidebar-subheading">{{snapshot.description}}</h4>
+                <p>{{snapshot.time}}</p>
               </div>
             </a>
           </li>
@@ -72,6 +44,7 @@
 <script>
 export default {
     name: 'SnapshotList',
+    props: ['ProjectHistory'],
     components: {
         day: new Date(),
         date: new Date()
@@ -82,11 +55,18 @@ export default {
         day: this.$dn.dayText(new Date(), 'en'),
         time: this.$dn.time()
     }
+  },
+  methods: {
+    sendSnapshotID: function(id) {
+      this.$emit('clicked', id)
+    }
   }
-
 }
 </script>
 <style scoped>
+.cursor{
+  cursor: pointer
+}
 ul li {
   border-bottom: 1px solid #242e35 ;
 }

@@ -1,0 +1,30 @@
+{
+    "snapshotID": 2808191200,
+    "description": "Assign new team member to project",
+    "time": "2019-08-28T12:00:00.000Z",
+    "tasks": [{
+            "id": 2,
+            "label": "This a test, dummydata",
+            "user": "Thang Pham",
+            "start": "2019-08-25T16:00:00.000Z",
+            "duration": 305600000,
+            "type": "milestone"
+        },
+        {
+            "id": 3,
+            "label": "Another stupid JSON Ttest",
+            "user": "Quan Vo",
+            "start": "2019-08-30T11:20:55.000Z",
+            "duration": 418400000,
+            "type": "milestone"
+        },
+        {
+            "id": 4,
+            "label": "Project mamgement",
+            "user": "Trung Huynh",
+            "start": "2019-08-26T14:25:55.000Z",
+            "duration": 245600000,
+            "type": "milestone"
+        }
+    ]
+}
