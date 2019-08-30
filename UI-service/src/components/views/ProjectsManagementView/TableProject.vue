@@ -33,6 +33,15 @@
                     >Number of members</th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
+                      style="width: 10px;"
+                      colspan="1"
+                      rowspan="1"
+                      aria-controls="example1"
+                      tabindex="0"
+                      class="sorting"
+                    >Max effort (hours/week)</th>
+                    <th
+                      aria-label="Browser: activate to sort column ascending"
                       style="width: 150px;"
                       colspan="1"
                       rowspan="1"
@@ -64,6 +73,7 @@
                   <tr class="even" role="row" v-for="project of projects" :key="project.projectID" >
                     <td class="sorting_1">{{ project.name }}</td>
                     <td>{{ project.numberOfMembers }}</td>
+                    <td>{{ project.effort }}</td>
                     <td>{{ project.startDate | momentNormalDate }}</td>
                     <td>{{ project.updateDate | momentDetailDate }}</td>
                     <td>
@@ -79,6 +89,7 @@
                   <tr>
                     <th colspan="1" rowspan="1">Project name</th>
                     <th colspan="1" rowspan="1">Number of members</th>
+                    <th colspan="1" rowspan="1">Max effort</th>
                     <th colspan="1" rowspan="1">Start date</th>
                     <th colspan="1" rowspan="1">Last change (Last Update)</th>
                     <th colspan="1" rowspan="1"></th>

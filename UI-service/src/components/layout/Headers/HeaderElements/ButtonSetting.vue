@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a data-toggle="control-sidebar" title="Setting">
+    <a @click="showSetting" title="Setting">
       <span class="fa fa-gears" id="myIcon" ></span>
     </a>
   </li>
@@ -9,7 +9,14 @@
 <script>
 export default {
   name: 'buttonSetting',
-  components: {
+  methods: {
+    showSetting() {
+    this.$modal.show('someSetting')
+    this.$modal.hide('someFilter')
+    },
+    hide () {
+    this.$modal.hide('someSetting')
+    }
   }
 }
 </script>

@@ -1,22 +1,44 @@
 <template>
   <div>
-    <modal name="someSetting" transition="pop-out" :height=600 :width=400 :draggable="true" :reset="true">
+    <modal name="someSetting" 
+        transition="nice-modal-fade" 
+        :height=600 
+        :width=400 
+        :draggable="true" 
+        :reset="true"
+        :pivotX=0.95
+        :pivotY=0.8>
+      <a class="pull-right exit-btn" @click="$modal.hide('someSetting')"><i class="fa fa-close"/></a>
       <div class="setting-content">
         <div>
           <h3 class="setting-heading">Project Setting</h3>
         </div>
         <div class="form-group">
-          <label class="setting-subheading">Project's Name</label>
-          <input type="text" /> 
-          <p> id: {{ id }} </p>
-          
+          <label class="setting-subheading">Project's name: </label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-fw fa-file-o"></i></span>
+              <input
+                class="form-control" 
+                :value="id"
+                type="text"/>
+            </div>
         </div>
+          <p> id: {{ id }} </p>
 
         <div class="form-group">
           <label class="setting-subheading">Effort of this project</label>
-
-          <p>40 hours/week</p>
-          <button class="btn btn-flat btn-sm btn-info"> Change </button>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-fw fa-calendar-check-o"></i>
+            </span>
+            <select class="form-control">
+              <option selected>{{id}}</option>
+              <option>40</option>
+              <option>42</option>
+              <option>38</option>
+              <option>36</option>
+              </select>
+          </div>  
         </div>
 
         <div class="form-group">
@@ -52,11 +74,19 @@ export default {
   text-align: center
 }
 .setting-heading {
-  margin-bottom: 60px
+  margin-bottom: 50px
 }
 .form-group {
   margin: 20px !important;
   padding: 5px
 }
+.exit-btn {
+    font-size: 15px;
+    padding: 5px;
+    color: #313233
+  }
+  .exit-btn:hover{
+    color: #3fb0ac
+  }
 </style>
 
