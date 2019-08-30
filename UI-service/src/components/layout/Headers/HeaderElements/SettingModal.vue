@@ -6,8 +6,7 @@
         :width=400 
         :draggable="true" 
         :reset="true"
-        :pivotX=0.95
-        :pivotY=0.8>
+        :pivotX=0.95>
       <a class="pull-right exit-btn" @click="$modal.hide('someSetting')"><i class="fa fa-close"/></a>
       <div class="setting-content">
         <div>
@@ -23,7 +22,6 @@
                 type="text"/>
             </div>
         </div>
-          <p> id: {{ id }} </p>
 
         <div class="form-group">
           <label class="setting-subheading">Effort of this project</label>
@@ -43,8 +41,14 @@
 
         <div class="form-group">
           <label class="setting-subheading">This project start at</label>
-
-          <p>view date</p>
+          <div>
+            <datepicker v-model="project.startDate" appendToBody 
+            lang="en" 
+            format="MMM/DD/YYYY" 
+            width="100%"
+            :editable="false">
+            </datepicker>
+          </div>
         </div>
 
         <div class="form-group">
@@ -63,9 +67,28 @@
 </template>
 
 <script>
+import datepicker from 'vue2-datepicker'
+
 export default {
   name: 'settingModal',
-  props: ['id']
+  components: {
+    datepicker
+  },
+  props: ['id'],
+  data() {
+    return {
+      project: {
+        name: '',
+        effort: '',
+        startDate: '21/sep/2019'
+      }
+    }
+  },
+  shortcuts: [{
+    onClick: () => {
+      this.project.startDate = [ new Date(), new Date() ]
+    }
+  }]
 }
 </script>
 

@@ -82,8 +82,8 @@ export default {
         exDate: ''
       },
       exceptions: [
-        { tittle: 'Day off 1', exDate: ['2/Sep/2019', '3/Sep/2019'] },
-        { tittle: 'Day off 2', exDate: ['13/Sep/2019', '22/Sep/2019'] }
+        { tittle: 'Day off 1', exDate: ['2019-04-01T23:28:56.782Z', '2019-04-02T23:28:56.782Z'] },
+        { tittle: 'Day off 2', exDate: ['2019-09-01T23:28:56.782Z', '2019-09-01T23:28:56.782Z'] }
       ]
     }
   },

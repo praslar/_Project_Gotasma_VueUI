@@ -5,8 +5,7 @@
         :width=400 
         :draggable="true" 
         :reset="true"
-        :pivotX=0.95
-        :pivotY=0.8>
+        :pivotX=0.95>
       <a class="pull-right exit-btn" @click="$modal.hide('someFilter')"><i class="fa fa-close"/></a>
       <div class="setting-content">
         <div>
@@ -45,9 +44,9 @@
             </div>
         </div>
 
-        <div class="btn-apply">
+        <!-- <div class="btn-apply">
           <button class="btn btn-info btn-flat btn-lg">APPLY</button>
-        </div>
+        </div> -->
       </div>
 
     </modal>
