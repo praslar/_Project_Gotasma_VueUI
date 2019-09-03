@@ -8,9 +8,9 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-         <settingModal :id="id"></settingModal>
+         <settingModal :id="id" :projectName="projectName"></settingModal>
          <filterModal></filterModal>
-         <router-view></router-view>
+         <router-view :members="members"></router-view>
     </div>
     <main-footer :admin="admin"></main-footer>
   </div>
@@ -49,11 +49,14 @@ export default {
           country: '',
           avatar: ''
         }
-      ]
+      ],
+      members: [],
+      projectName: ''
     }
   },
     mounted() {
     this.fetchAdmin()
+    this.getProjectByID()
   },
   methods: {
     fetchAdmin: function() {
@@ -65,11 +68,21 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+    getProjectByID() {
+     let self = this
+      Services.getMemberOfProject()
+        .then(response => {
+          self.projectName = response.name
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }
 </script>
-<style>
+<style scoped>
 .control{
   position: absolute;
   height: 100%;
@@ -79,9 +92,12 @@ export default {
   position: fixed;
   width: 100%;
 }
+.content-wrapper{
+  height: 800px;
+}
 .wrapper.fixed_layout .content-wrapper {
   padding-top: 10px;
-  height: 100%;
+  min-height: 100%;
 }
 .wrapper.fixed_layout .main-sidebar {
   position: fixed;

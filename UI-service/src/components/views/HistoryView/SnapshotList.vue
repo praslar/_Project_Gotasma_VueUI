@@ -1,10 +1,9 @@
 <template>
-<div>
+<div >
+ 
   <aside class="control-sidebar control-sidebar-dark control-sidebar-open">
-
     <!-- Tab panes -->
     <div class="tab-content">
-      <!-- Home tab content -->
       <p class="current-time">{{day}} {{date}}</p>
       <form v-on:submit.prevent class="sidebar-form" id="searchForm">
         <div class="input-group" id="searchContainer">

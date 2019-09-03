@@ -55,6 +55,10 @@ body {
     background: url('../img/boxed-bg.jpg') repeat fixed
 }
 
+.content-wrapper {
+    height: auto;
+}
+
 .content-wrapper,
 .right-side,
 .main-footer {
@@ -254,7 +258,7 @@ a:focus {
 @media (max-width:991px) {
     .main-header .navbar-custom-menu a,
     .main-header .navbar-right a {
-        color: #fff;
+        color: lightseagreen;
         background: transparent
     }
 }
@@ -563,7 +567,8 @@ a:focus {
 .sidebar-menu {
     list-style: none;
     margin: 0;
-    padding: 0
+    padding: 0;
+    margin-top: 20px;
 }
 
 .sidebar-menu>li {
@@ -782,7 +787,7 @@ a:focus {
 
 .control-sidebar>.tab-content {
     padding: 10px 25px;
-    height: calc(110vh - 150px);
+    height: calc(100vh - 150px);
     overflow-y: scroll;
     overflow-x: hidden;
 }

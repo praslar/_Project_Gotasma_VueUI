@@ -2,6 +2,15 @@
     "folders": [
         {
             "path": "D:\\template\\projectTask\\projects-management\\UI-service"
+        },
+        {
+            "path": "D:\\template\\demo"
+        },
+        {
+            "path": "D:\\template\\vue-gantt-demo"
+        },
+        {
+            "path": "D:\\template\\gantt-elastic"
         }
     ],
     "settings": {

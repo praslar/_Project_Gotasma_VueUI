@@ -56,4 +56,5 @@ img{
 .vdp-datepicker .vdp-datepicker__calendar{
   color: #000 !important;
 }
+
 </style>

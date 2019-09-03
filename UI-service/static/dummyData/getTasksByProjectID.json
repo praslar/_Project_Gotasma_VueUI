@@ -1,0 +1,15 @@
+{
+    "projectID": 2,
+    "name": "Coffee Cat",
+    "effort": 40,
+    "startDate": "2018-04-01T23:28:56.782Z",
+    "tasks": [{
+        "id": 1,
+        "label": "Phan tich va thiet ke",
+        "user": "Thang Pham",
+        "start": "2019-08-29T16:00:00.000Z",
+        "duration": 86400000,
+        "percent": 67,
+        "type": "project"
+    }]
+}

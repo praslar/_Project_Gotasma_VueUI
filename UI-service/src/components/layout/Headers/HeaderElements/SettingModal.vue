@@ -19,7 +19,7 @@
               <span class="input-group-addon"><i class="fa fa-fw fa-file-o"></i></span>
               <input
                 class="form-control" 
-                :value="id"
+                :value="projectName"
                 type="text"/>
             </div>
         </div>
@@ -65,7 +65,7 @@
 <script>
 export default {
   name: 'settingModal',
-  props: ['id']
+  props: ['id', 'projectName']
 }
 </script>
 

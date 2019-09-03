@@ -1,8 +1,6 @@
 <template>
-<div id="gantt">
   <gantt-elastic v-if="task1ID == snapshotHistoryID" :options="options" :tasks="task1"></gantt-elastic>
-   <gantt-elastic v-else :options="options" :tasks="task2"></gantt-elastic>
-</div>
+  <gantt-elastic v-else :options="options" :tasks="task2"></gantt-elastic>
 </template>
 <script>
 import GanttElastic from 'gantt-elastic'
@@ -16,7 +14,7 @@ let options = {
       after: 100
     },
   maxRows: 1000,
-  maxHeight: 1000,
+  maxHeight: 800,
   row: {
     height: 20
   },
@@ -27,7 +25,7 @@ let options = {
     hour: {
       display: false
     },
-    workingDays: [0, 1, 2]
+    workingDays: [0, 1, 2, 3, 4]
   },
   chart: {
     progress: {
@@ -51,12 +49,18 @@ let options = {
     },
     columns: [
       {
+        id: 1,
+        label: 'ID',
+        value: 'id',
+        width: 30
+      },
+      {
         id: 2,
         label: 'Description',
         value: 'label',
-        width: 100,
+        width: 60,
         expander: true,
-        html: true
+        html: false
       },
       {
         id: 3,
@@ -65,16 +69,23 @@ let options = {
         width: 100,
         html: true,
         events: {
-          click({ data }) {
+          click({ data, column }) {
             alert('Assign new member to this task!\n' + data.label)
+            console.log(data)
           }
         }
       },
       {
-        id: 3,
+        id: 4,
         label: 'Start',
         value: task => dayjs(task.start).format('YYYY-MM-DD'),
         width: 78
+      },
+       {
+        id: 5,
+        label: 'Type',
+        value: 'type',
+        width: 68
       }
     ]
   }
