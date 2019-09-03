@@ -16,11 +16,11 @@ export function prettyDate (date) {
 }
 
 export function momentNormalDate (date) {
-  return moment(String(date)).format('MMMM Do YYYY')
+  return moment(date).format('MMMM Do YYYY')
 }
 
 export function momentDetailDate (date) {
-  return moment(String(date)).format('MMM Do YYYY, h:mm:ss a')
+  return moment(date).format('MMM Do YYYY, h:mm:ss a')
 }
 
 export function pluralize (time, label) {
