@@ -197,7 +197,7 @@ export default {
   font-size: 30px;
   line-height: 40px;
   padding: 5px
-  
+    
 }
 .info-box-number{
   margin-bottom: 0

@@ -60,7 +60,7 @@
                     >Last change (Last Update)</th>
                     <th
                       aria-label="Engine version: activate to sort column ascending"
-                      style="width: 100px;"
+                      style="width: 80px;"
                       colspan="1"
                       rowspan="1"
                       aria-controls="example1"
@@ -71,15 +71,15 @@
                 </thead>
                 <tbody>
                   <tr class="even" role="row" v-for="project of projects" :key="project.projectID" >
-                    <td class="sorting_1">{{ project.name }}</td>
+                    <td class="sorting_1">
+                      <router-link :to="projectRoute + project.projectID ">
+                          <a>{{ project.name }}</a>
+                      </router-link></td>
                     <td>{{ project.numberOfMembers }}</td>
                     <td>{{ project.effort }}</td>
                     <td>{{ project.startDate | momentNormalDate }}</td>
                     <td>{{ project.updateDate | momentDetailDate }}</td>
                     <td>
-                      <router-link :to="projectRoute + project.projectID ">
-                          <a class="btn btn-app" title="View this project" ><i class="fa fa-reply"></i></a>
-                      </router-link>
                       <a class="btn btn-app del-btn" title="Delete project" @click="showDialog"><i class="fa fa-remove"></i></a>
                       <a class="btn btn-app star-btn" title="Highlight project" ><i class="fa fa-star"></i></a>
                     </td>

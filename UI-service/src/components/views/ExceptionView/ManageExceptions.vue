@@ -4,6 +4,10 @@
       <div class="header col-md-12">
         <div class="mySpacing">
           <span>Exceptions</span>
+          <button
+          type="submit"
+          class="btn btn-lg btn-info pull-right special">
+          Recalculated</button>
           <br />
           <i>Here you can manage exception date like Holiday, day-off, etc. The form below help you to create an exception.</i>
         </div>
@@ -57,7 +61,6 @@
           </form>
         </div>
         <h2>Exceptions</h2>
-        
         <ExceptionItem :exceptions="exceptions"></ExceptionItem>
       </div>
     </div>
@@ -66,6 +69,7 @@
 
 
 <script>
+import moment from 'moment'
 import datepicker from 'vue2-datepicker'
 import ExceptionItem from './ExceptionItem'
 export default {
@@ -82,8 +86,8 @@ export default {
         exDate: ''
       },
       exceptions: [
-        { tittle: 'Day off 1', exDate: ['2/Sep/2019', '3/Sep/2019'] },
-        { tittle: 'Day off 2', exDate: ['13/Sep/2019', '22/Sep/2019'] }
+        { tittle: 'Day off 1', exDate: [ 1554161336782, 1554247736782 ] },
+        { tittle: 'Day off 2', exDate: [ 1567380536782, 1567380536782 ] }
       ]
     }
   },
@@ -92,6 +96,8 @@ export default {
       // this.submitted = true
       this.$validator.validateAll().then(result => {
         if (result) {
+          this.exceptDate.exDate[0] = moment(this.exceptDate.exDate[0]).valueOf()
+          this.exceptDate.exDate[1] = moment(this.exceptDate.exDate[1]).valueOf()
           this.exceptions.push({
           tittle: this.exceptDate.tittle,
           exDate: this.exceptDate.exDate

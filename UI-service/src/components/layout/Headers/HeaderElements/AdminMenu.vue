@@ -1,6 +1,6 @@
 <template>
-  <li class="dropdown user user-menu">
-    <a @click="$modal.show('about')" class="dropdown-toggle special" data-toggle="dropdown">
+  <li class="user-menu">
+    <a @click="$modal.show('about')" class="dropdown-toggle specialalala">
       <!-- The user image in the navbar-->
       <!-- hidden-xs hides the username on small devices so only the image appears. -->
       <img :src="admin.avatar" class="pull-left avatar"/>
@@ -9,7 +9,7 @@
             <span class="hidden-xs">{{admin.fullName}}</span>
           </div>
             <i class="fa fa-circle text-success"></i> <span>{{admin.role}}</span>
-        </div>
+      </div>
     </a>
   </li>
 </template>
@@ -22,13 +22,11 @@ export default {
 }
 </script>
 <style scoped>
-.dropdown-toggle{
-  padding-top: 5px;
-}
   .dropdown-toggle .user-image{
     border-radius: 5px !important;
     width: 30px;
     height: 40px;
+ 
   }
   .hidden-xs{
     font-size: 20px;
@@ -42,7 +40,9 @@ export default {
   .myColor {
     color: #587477 !important
   }
-  .special {
+  .specialalala {
     cursor: pointer;
+    padding: 0px !important;
+    margin: 5px;
   }
 </style>
