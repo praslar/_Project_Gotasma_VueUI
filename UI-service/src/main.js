@@ -38,8 +38,8 @@ var router = new VueRouter({
 // eslint-disable-next-line no-new
 new Vue({
     el: '#root',
-    router: router,
-    store: store,
+    router,
+    store,
     render: h => h(AppView)
 })
 

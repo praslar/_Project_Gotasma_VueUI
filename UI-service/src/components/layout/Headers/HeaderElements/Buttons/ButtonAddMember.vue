@@ -10,7 +10,7 @@
       <span class="label label-danger">{{memberData.members | count}}</span>
     </a> -->    
     <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown">
-      <span class="fa fa-group myIcon"></span>
+      <span class="fa  fa-street-view myIcon"></span>
       <span class="label special" >{{memberData.members | count}}</span>
     </a>
 

@@ -72,30 +72,25 @@ let options = {
         value: 'label',
         width: 100,
         expander: true,
-        html: true,
-        events: {
-          click({ data }) {
-            alert('description clicked!\n' + data.label)
-          }
-        }
+        html: true
       },
       {
         id: 3,
         label: 'Assignee',
         value: 'user',
-        width: 80
+        width: 90
       },
       {
         id: 3,
-        label: 'Start',
-        value: task => dayjs(task.start).format('YYYY-MM-DD'),
+        label: 'Start date',
+        value: task => dayjs(task.start).format('DD-MM-YYYY'),
         width: 78
       },
       {
         id: 4,
-        label: 'Type',
-        value: 'type',
-        width: 68
+        label: 'End date',
+        value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
+        width: 78
       }
     ]
   }
@@ -190,6 +185,18 @@ export default {
 }
 
 </script>
+<style>
+.gantt-elastic__chart-days-highlight-rect {
+  fill: #fae596 !important;
+  z-index: 9999 !important;
+}
+.gantt-elastic__chart-days-highlight-rects{
+   fill: rgba(255, 138, 138, 0.952) !important
+}
+.gantt-elastic__grid-line-time {
+    stroke-width: 4px !important
+}
+</style>
 <style scoped>
 .info-box-icon{
 
