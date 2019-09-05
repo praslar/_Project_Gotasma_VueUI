@@ -8,13 +8,8 @@
         "id": 1,
         "label": "Phan tich va thiet ke",
         "user": "Thang Pham",
-<<<<<<< HEAD
         "start": 1567011600000,
         "duration": 259200000,
-=======
-        "start": "2019-08-29T16:00:00.000Z",
-        "duration": 950400000,
->>>>>>> 7b587cca8ae24229a9e9fb248d736dc9d0f3bae0
         "percent": 67,
         "type": "project"
         },
