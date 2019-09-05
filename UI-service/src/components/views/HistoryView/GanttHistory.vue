@@ -63,7 +63,7 @@ let options = {
         html: false
       },
       {
-        id: 3,
+        id: 34,
         label: 'Assigned to',
         value: 'user',
         width: 100,
@@ -71,7 +71,7 @@ let options = {
         events: {
           click({ data, column }) {
             alert('Assign new member to this task!\n' + data.label)
-            console.log(data)
+            // console.log(data)
           }
         }
       },

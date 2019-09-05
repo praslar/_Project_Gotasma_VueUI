@@ -21,7 +21,7 @@
         "datatables.net": "^1.10.19",
         "datatables.net-bs": "^1.10.19",
         "faker": "^3.1.0",
-        "gantt-elastic": "^1.0.5",
+        "gantt-elastic": "https://github.com/praslar/gantt-elastic/tarball/master",
         "gantt-elastic-header": "^0.1.11",
         "hideseek": "^0.7.0",
         "http-server": "^0.9.0",

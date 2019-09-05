@@ -3,13 +3,189 @@
     "name": "Coffee Cat",
     "effort": 40,
     "startDate": "2018-04-01T23:28:56.782Z",
-    "tasks": [{
+    "tasks": [
+        {
         "id": 1,
         "label": "Phan tich va thiet ke",
         "user": "Thang Pham",
-        "start": "2019-08-29T16:00:00.000Z",
-        "duration": 86400000,
+        "start": 1567011600000,
+        "duration": 259200000,
         "percent": 67,
         "type": "project"
-    }]
+        },
+        { 
+          "id": 2,
+          "label": "Make some noise",
+          "user": "John Doe",
+          "start": 1567931380000,
+          "duration": 1296000000,
+          "progress": 85,
+          "type": "project"
+        },
+        {
+          "id": 3,
+          "label": "With great power comes great responsibility",
+          "user":"Peter Parker",
+          "parentId": 1,
+          "start": 1568104180000,
+          "duration": 345600000,
+          "progress": 50,
+          "collapsed": true,
+          "type": "project"
+        },
+        {
+          "id": 4,
+          "label": "Courage is being scared to death, but saddling up anyway.",
+          "user": "John Wayne",
+          "parentId": 2,
+          "start": 1567758580000,
+          "duration": 172800000,
+          "progress": 100,
+          "type": "task"          
+        },
+        {
+          "id": 5,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 6,
+          "label": "Frick this",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 7,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 8,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 9,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 10,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 11,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 12,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 13,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 14,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 15,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 16,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 17,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 18,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 19,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        },
+        {
+          "id": 20,
+          "label": "Put that toy AWAY!",
+          "user": "Clark Kent",
+          "start": 1568739600000,
+          "duration": 172800000,
+          "progress": 50,
+          "type": "task"
+        }
+    ]
 }

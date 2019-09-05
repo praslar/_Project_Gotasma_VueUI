@@ -1783,10 +1783,10 @@ dateformat@^1.0.6:
     get-stdin "^4.0.1"
     meow "^3.3.0"
 
-dayjs@^1.8.15:
-  version "1.8.15"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.15.tgz#7121bc04e6a7f2621ed6db566be4a8aaf8c3913e"
-  integrity sha512-HYHCI1nohG52B45vCQg8Re3hNDZbMroWPkhz50yaX7Lu0ATyjGsTdoYZBpjED9ar6chqTx2dmSmM8A51mojnAg==
+dayjs@^1.8.16:
+  version "1.8.16"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.16.tgz#2a3771de537255191b947957af2fd90012e71e64"
+  integrity sha512-XPmqzWz/EJiaRHjBqSJ2s6hE/BUoCIHKgdS2QPtTQtKcS9E4/Qn0WomoH1lXanWCzri+g7zPcuNV4aTZ8PMORQ==
 
 de-indent@^1.0.2:
   version "1.0.2"
@@ -2791,12 +2791,11 @@ gantt-elastic-header@^0.1.11:
     vue-slider-component "^3.0.31"
     vue-switches "^2.0.1"
 
-gantt-elastic@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/gantt-elastic/-/gantt-elastic-1.0.5.tgz#3bea082d6dcd5b5db695ac2c344fb9baa1d12bce"
-  integrity sha512-e1HJROnXitL6Jwab3elJcee6MgYrF3IKS7XxSxgLzU+Pfo9Pj+Ytdtr0xy42zA+Y793G9hPaCIMhbW0HcmM4lA==
+"gantt-elastic@https://github.com/praslar/gantt-elastic/tarball/master":
+  version "1.0.6"
+  resolved "https://github.com/praslar/gantt-elastic/tarball/master#4cb01bd1573fb153919d434477853031fbe8756c"
   dependencies:
-    dayjs "^1.8.15"
+    dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"
     vue "^2.6.10"
 
@@ -6486,11 +6485,10 @@ vue-material-components@^0.3.4:
     vue-class-component "^3.2.0"
 
 vue-property-decorator@^8.0.0:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-8.2.1.tgz#3791662033b20d20d098cb20e86fd23842982508"
-  integrity sha512-zgtcvzGB2JpDqnIxVhTK+6m+dv3uyhYs+tL8elL+DWiXj9kDonKcPY7f1DHYX1NlnWPCj7ht0nL/i8+S1gg76Q==
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-8.2.2.tgz#ac895e9508ee1bf86e3a28568d94d842c2c8e42f"
+  integrity sha512-3gRrIeoUtjXvkoMX2stJsVs7805Pa9MXEndnk21ej+sWO7AIc5HF1TKqK0Pox5TEjpO02UbadIF0QWNrx6ZwXQ==
   dependencies:
-    vue "^2.6.10"
     vue-class-component "^7.0.1"
 
 vue-resource@^1.0.3:
@@ -6516,9 +6514,9 @@ vue-search-select@^2.8.3:
   integrity sha512-m9hyq0ZytReFmfIso1GQ2MekQNPkM3wSPD8YQ9BxrvMhiQ7kZorD85mwMTEJSX3lqgg/J4hxlJwfHGvYssdBBw==
 
 vue-slider-component@^3.0.31:
-  version "3.0.38"
-  resolved "https://registry.yarnpkg.com/vue-slider-component/-/vue-slider-component-3.0.38.tgz#dce3473ff97b51a094069b2f505132d059e18f32"
-  integrity sha512-7iuN4jtH1ceUzjTr4CUI3FbnONOUPxFdW79HuUwdbTfuJgh/806Xkuc2runAS0Z3UsCY+DuNnKifb9ip1rz8GQ==
+  version "3.0.40"
+  resolved "https://registry.yarnpkg.com/vue-slider-component/-/vue-slider-component-3.0.40.tgz#f8eb0ae2d4d8c63f7b767e2ae7a316449a88958c"
+  integrity sha512-8obhszDPC34b43h/dd0Gh+oQmUD402X+yo129K3m1EiqAlQ5Imr12XAOQ+RcwCKSOLigLW/flZ0H3dvmhk2ZWQ==
   dependencies:
     vue-property-decorator "^8.0.0"
 
