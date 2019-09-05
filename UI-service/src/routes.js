@@ -9,58 +9,57 @@ import Team from './components/views/MemberView/Team.vue'
 import Gantt from './components/views/ProjectDetailView/Gantt.vue'
 // Routes
 const routes = [{
-        path: '/project/:id/',
-        component: ProjectDetailView,
-        name: 'Project',
-        props: true,
-        meta: { description: 'View project detail' },
-        children: [{
-                path: 'gantt',
-                props: true,
-                alias: '',
-                component: Gantt,
-                name: 'Gantt',
-                meta: { description: 'Gantt chart' }
-            },
-            {
-                path: 'team',
-                props: true,
-                component: Team,
-                name: 'Team',
-                meta: { description: 'Team member' }
-            },
-            {
-                path: 'history',
-                props: true,
-                component: HistoryView,
-                name: 'History',
-                meta: { description: 'View project history' }
-            }
-        ]
-    },
-    {
-        path: '/',
-        component: DashView,
-        children: [{
-                path: 'projectsmanagement',
-                alias: '',
-                component: ProjectsManagementView,
-                name: 'Projects Management',
-                meta: { description: 'View all projects' }
-            },
-            {
-                path: 'member',
-                component: MemberView,
-                name: 'Member',
-                meta: { description: 'View all member' }
-            },
-            {
-                path: 'exceptions',
-                component: Exceptions,
-                name: 'Exceptions',
-                meta: { description: 'View Excluded Holiday and day-off' }
-            }
-        ]
-    }
-]
+    path: '/',
+    component: DashView,
+    children: [{
+            path: 'projectsmanagement',
+            alias: '',
+            component: ProjectsManagementView,
+            name: 'Projects Management',
+            meta: { description: 'View all projects' }
+        },
+        {
+            path: 'member',
+            component: MemberView,
+            name: 'Member',
+            meta: { description: 'View all member' }
+        },
+        {
+            path: 'exceptions',
+            component: Exceptions,
+            name: 'Exceptions',
+            meta: { description: 'View Excluded Holiday and day-off' }
+        },
+        {
+            path: 'project/:id/',
+            component: ProjectDetailView,
+            name: 'Project',
+            props: true,
+            meta: { description: 'View project detail' },
+            children: [{
+                    path: 'gantt',
+                    props: true,
+                    alias: '',
+                    component: Gantt,
+                    name: 'Gantt',
+                    meta: { description: 'Gantt chart' }
+                },
+                {
+                    path: 'team',
+                    props: true,
+                    component: Team,
+                    name: 'Team',
+                    meta: { description: 'Team member' }
+                },
+                {
+                    path: 'history',
+                    props: true,
+                    component: HistoryView,
+                    name: 'History',
+                    meta: { description: 'View project history' }
+                }
+            ]
+        }
+    ]
+}]
 export default routes

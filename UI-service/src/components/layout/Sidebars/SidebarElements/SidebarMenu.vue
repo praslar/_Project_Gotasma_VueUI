@@ -7,22 +7,6 @@
         <span class="page">View all project</span>
       </a>
     </router-link>
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-tags"></i>
-        <span class="treeview-title page">Hight-light Projects</span>
-        <span class="pull-right-container pull-right">
-          <i class="fa fa-angle-left fa-fw"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li v-for="project in highlightedProject" :key="project.projectID">
-          <router-link tag="a" class="pageLink" :to="'/project/'+project.projectID">
-            <i class="fa fa-calendar"></i> {{project.name}}
-          </router-link>
-        </li>
-      </ul>
-    </li>
 
     <li class="header">Team and Resource</li>
     <router-link tag="li" class="pageLink" to="/member">
@@ -43,37 +27,12 @@
 </template>
 
 <script>
-import * as Services from '../../../../services'
-
 export default {
-  name: 'SidebarMenu',
-  data() {
-    return {
-      highlightedProject: []
-    }
-  },
-  mounted() {
-    this.getHighlightedProject()
-  },
-  methods: {
-    getHighlightedProject: function() {
-      let self = this
-      Services.getHighlightedProject()
-        .then(response => {
-          self.highlightedProject = response
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    }
-  }
+  name: 'SidebarMenu'
 }
 </script>
 
 <style>
-span {
-  color: #eeeee7
-}
 /* override default */
 .sidebar-menu > li > a {
   padding: 12px 15px 12px 15px;
