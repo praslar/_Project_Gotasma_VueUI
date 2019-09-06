@@ -14,16 +14,6 @@ import VueSplit from 'vue-split-panel'
 import AppView from './components/App.vue'
 import { count, momentNormalDate, momentDetailDate } from './filters'
 
-Vue.filter('count', count)
-Vue.filter('momentNormalDate', momentNormalDate)
-Vue.filter('momentDetailDate', momentDetailDate)
-
-Vue.use(VeeValidate)
-Vue.use(VueRouter)
-Vue.use(VueSplit)
-Vue.use(VueDateNow)
-Vue.use(VModal, { dialog: true, dynamic: true })
-
 // Routing logic
 var router = new VueRouter({
     routes: routes,
@@ -34,15 +24,24 @@ var router = new VueRouter({
     }
 })
 
+Vue.use(VueRouter)
+Vue.use(VeeValidate)
+Vue.use(VueSplit)
+Vue.use(VueDateNow)
+Vue.use(VModal, { dialog: true, dynamic: true })
+
+new Vue({
+    render: h => h(AppView),
+    router,
+    store
+}).$mount('#root')
+
+Vue.filter('count', count)
+Vue.filter('momentNormalDate', momentNormalDate)
+Vue.filter('momentDetailDate', momentDetailDate)
+
 // Start out app!
 // eslint-disable-next-line no-new
-export const eventBus = new Vue({
-    el: '#root',
-    router,
-    store,
-    render: h => h(AppView)
-})
-
 // change this. demo
 window.bugsnagClient = window.bugsnag('02fe1c2caaf5874c50b6ee19534f5932')
 window.bugsnagClient.use(window.bugsnag__vue(Vue))
