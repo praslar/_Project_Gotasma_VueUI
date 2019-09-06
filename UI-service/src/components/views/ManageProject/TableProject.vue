@@ -1,13 +1,13 @@
 <template>
     <div class="box">
       <div class="box-body">
-        <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
+        <div class="dataTables_wrapper form-inline dt-bootstrap" id="tableProjects_wrapper">
           <div class="row">
             <div class="col-sm-12 table-responsive">
               <table
-                aria-describedby="example1_info"
+                aria-describedby="tableProjects_info"
                 role="grid"
-                id="example1"
+                id="tableProjects"
                 class="table table-bordered table-hover dataTable"
               >
                 <thead>
@@ -18,7 +18,7 @@
                       style="width: 130px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting_asc"
                     >Project name</th>
@@ -27,7 +27,7 @@
                       style="width: 20px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting"
                     >Number of members</th>
@@ -36,7 +36,7 @@
                       style="width: 10px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting"
                     >Max effort (hours/week)</th>
@@ -45,7 +45,7 @@
                       style="width: 150px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting"
                     >Start date</th>
@@ -54,7 +54,7 @@
                       style="width: 150px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting"
                     >Last change (Last Update)</th>
@@ -63,7 +63,7 @@
                       style="width: 80px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting"
                     ></th>
@@ -72,7 +72,7 @@
                 <tbody>
                   <tr class="even" role="row" v-for="project of projects" :key="project.projectID" >
                     <td class="sorting_1">
-                      <router-link :to="projectRoute + project.projectID ">
+                      <router-link :to="'../project/' + project.projectID ">
                           <a>{{ project.name }}</a>
                       </router-link></td>
                     <td>{{ project.numberOfMembers }}</td>
@@ -106,29 +106,11 @@
 
 <script>
 import $ from 'jquery'
-import * as Services from '../../../services'
-
 require('datatables.net-bs')
-require('datatables.net')
 
 export default {
   name: 'tableProject',
-  created() {
-    Services.getProj()
-    .then((response) => {
-      this.projects = response
-      this.$nextTick(() => {
-      $('#example1').DataTable()
-  })
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  },
-   data: () => ({
-    projects: [],
-    projectRoute: '../project/'
-  }),
+  props: ['projects'],
   methods: {
     showDialog() {
       this.$modal.show('dialog', {
@@ -152,6 +134,11 @@ export default {
         ]
       })
     }
+  },
+  updated() {
+      this.$nextTick(() => {
+        $('#tableProjects').DataTable()
+      })
   }
 }
 </script>

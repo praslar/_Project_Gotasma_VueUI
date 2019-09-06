@@ -1,38 +1,38 @@
 import DashView from './components/Dash.vue'
 // Import Views - Dash
-import MemberView from './components/views/MemberView/Member.vue'
-import ProjectsManagementView from './components/views/ProjectsManagementView/ManageProject.vue'
-import HistoryView from './components/views/HistoryView/History.vue'
-import ProjectDetailView from './components/views/ProjectDetailView/Project.vue'
-import Exceptions from './components/views/ExceptionView/ManageExceptions.vue'
-import Team from './components/views/MemberView/Team.vue'
-import Gantt from './components/views/ProjectDetailView/Gantt.vue'
+import Resources from './components/views/Resources/Resources.vue'
+import ManageProject from './components/views/ManageProject/ManageProject.vue'
+import History from './components/views/History/History.vue'
+import Project from './components/views/Project/Project.vue'
+import Exception from './components/views/Exception/ManageException.vue'
+import Team from './components/views/Team/Team.vue'
+import Gantt from './components/views/Project/Gantt.vue'
 // Routes
 const routes = [{
     path: '/',
     component: DashView,
     children: [{
-            path: 'projectsmanagement',
+            path: 'manageproject',
             alias: '',
-            component: ProjectsManagementView,
+            component: ManageProject,
             name: 'Projects Management',
             meta: { description: 'View all projects' }
         },
         {
-            path: 'member',
-            component: MemberView,
-            name: 'Member',
-            meta: { description: 'View all member' }
+            path: 'resources',
+            component: Resources,
+            name: 'Resources',
+            meta: { description: 'View all resources' }
         },
         {
-            path: 'exceptions',
-            component: Exceptions,
-            name: 'Exceptions',
+            path: 'exception',
+            component: Exception,
+            name: 'Exception',
             meta: { description: 'View Excluded Holiday and day-off' }
         },
         {
             path: 'project/:id/',
-            component: ProjectDetailView,
+            component: Project,
             name: 'Project',
             props: true,
             meta: { description: 'View project detail' },
@@ -54,7 +54,7 @@ const routes = [{
                 {
                     path: 'history',
                     props: true,
-                    component: HistoryView,
+                    component: History,
                     name: 'History',
                     meta: { description: 'View project history' }
                 }

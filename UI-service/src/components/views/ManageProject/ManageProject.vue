@@ -13,7 +13,7 @@
       </div>
     </div>
      
-    <tableProject class="main" ></tableProject>
+    <tableProject class="main" :projects="projects" ></tableProject>
     <NewProject :projects="projects"></NewProject>
   </section>  
 </template>
@@ -21,21 +21,22 @@
 
 <script>
 import NewProject from './NewProject'
-import tableProject from './TableProject'
+import TableProject from './TableProject'
+import { mapState } from 'vuex'
 
 export default {
   name: 'manageProject',
   components: {
     NewProject,
-    tableProject
+    TableProject
   },
-  data() {
-    return {
-      projects: {
-        name: '',
-        startDate: ''
-      }
-    }
+  created() {
+    this.$store.dispatch('getProjects')
+  },
+  computed: {
+    ...mapState([
+      'projects'
+    ])
   }
 }
 </script>

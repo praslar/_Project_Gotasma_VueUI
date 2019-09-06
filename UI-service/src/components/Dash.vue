@@ -15,9 +15,11 @@
         </h1>
         <ol class="breadcrumb">
           <li>
-            <a href="/">
+            <router-link to="/">
+            <a>
               <i class="fa fa-home"></i>Home
             </a>
+            </router-link>
           </li>
           <li class="active"> <i class="fa fa-pagelines"></i> &nbsp;{{$route.name.toUpperCase()}}</li>
         </ol>

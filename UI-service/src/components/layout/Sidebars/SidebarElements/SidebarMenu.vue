@@ -1,23 +1,23 @@
 <template>
   <ul class="sidebar-menu">
     <li class="header">Projects managment</li>
-    <router-link tag="li" class="pageLink" to="/projectsmanagement">
+    <router-link tag="li" class="pageLink" to="/manageproject">
       <a>
         <i class="fa fa-suitcase"></i>
         <span class="page">View all project</span>
       </a>
     </router-link>
 
-    <li class="header">Team and Resource</li>
-    <router-link tag="li" class="pageLink" to="/member">
+    <li class="header">Resources</li>
+    <router-link tag="li" class="pageLink" to="/resources">
       <a>
         <i class="fa fa-users"></i>
-        <span class="page">View all member</span>
+        <span class="page">View all resources</span>
       </a>
     </router-link>
 
     <li class="header">Exceptions</li>
-    <router-link tag="li" class="pageLink" to="/exceptions">
+    <router-link tag="li" class="pageLink" to="/exception">
       <a>
         <i class="fa fa-calendar-times-o  "></i>
         <span class="page">View Exceptions</span>

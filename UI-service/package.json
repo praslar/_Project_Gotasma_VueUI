@@ -26,6 +26,7 @@
         "hideseek": "^0.7.0",
         "http-server": "^0.9.0",
         "jquery": "^2.2.2",
+        "json-server": "^0.15.1",
         "moment": "^2.24.0",
         "v-reset-input": "^1.1.2",
         "vee-validate": "^2.2.15",

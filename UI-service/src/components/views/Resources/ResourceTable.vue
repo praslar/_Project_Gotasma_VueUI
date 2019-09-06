@@ -2,13 +2,13 @@
   <div class="col-md-12">
     <div class="box">
       <div class="box-body ">
-        <div class="dataTables_wrapper form-inline dt-bootstrap" id="example1_wrapper">
+        <div class="dataTables_wrapper form-inline dt-bootstrap" id="resourcesTable_wrapper">
           <div class="row">
             <div class="col-sm-12 table-responsive">
               <table
-                aria-describedby="example1_info"
+                aria-describedby="resourcesTable_info"
                 role="grid"
-                id="example1"
+                id="resourcesTable"
                 class="table table-bordered table-hover dataTable"
               >
                 <thead>
@@ -19,16 +19,16 @@
                       style="width: 167px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="resourcesTable"
                       tabindex="0"
                       class="sorting_asc"
-                    >Member</th>
+                    >Bagde ID</th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
                       style="width: 207px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="resourcesTable"
                       tabindex="0"
                       class="sorting"
                     >Full Name</th>
@@ -37,7 +37,7 @@
                       style="width: 182px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="resourcesTable"
                       tabindex="0"
                       class="sorting"
                     >Email</th>
@@ -46,7 +46,7 @@
                       style="width: 142px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="resourcesTable"
                       tabindex="0"
                       class="sorting"
                     >Current Projects</th>
@@ -55,7 +55,7 @@
                       style="width: 101px;"
                       colspan="1"
                       rowspan="1"
-                      aria-controls="example1"
+                      aria-controls="resourcesTable"
                       tabindex="0"
                       class="sorting"
                     ></th>
@@ -81,16 +81,16 @@
                   </tr> 
                 </tbody>
                 <tbody v-else>
-                  <tr class="even" role="row" v-for="member of members" :key="member.badgeID">
+                  <tr class="even" role="row" v-for="resource of resources" :key="resource.badgeID">
                     <td class="sorting_1">
-                      <img :src="member.avatar" class="user-image" alt="User Image" />
+                      {{resource.badgeID}}
                     </td>
-                    <td>{{member.name}}</td>
-                    <td>{{member.email}}</td>
+                    <td>{{resource.name}}</td>
+                    <td>{{resource.email}}</td>
                     <td>
-                    <div class="external-event bg-yellow" v-for="project in member.projects" :key="project.projectID">{{project.name}}</div>
+                    <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
-                    <td ><a class="btn btn-app" @click="$modal.show('NewMember', {member})"><i class="fa fa-edit"></i></a>
+                    <td ><a class="btn btn-app" @click="$modal.show('newresource', {resource})"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-app" @click="showDialogMember(deleted)"><i class="fa fa-remove"></i></a>           
                     </td> 
                   </tr>                        
@@ -105,22 +105,22 @@
   </div> 
   </template>
 <script>
-import NewMember from './NewMember'
-
+import NewResource from './NewResource'
+import $ from 'jquery'
 require('datatables.net-bs')
+
 export default {
-  props: ['members', 'chooseFromMember', 'manageMember', 'projectID'],
+  name: 'resource-table',
+  props: ['resources', 'chooseFromMember', 'manageMember', 'projectID'],
   data() {
     return {
-      projectOfEachMember: [],
       addUser: 'Add new member to this project team',
       deleted: 'Do you wish to delele'
     }
   },
   components: {
-    NewMember
+    NewResource
   },
-  name: 'table-member',
   methods: {
     showDialogMember: function(text) {
       this.$modal.show('dialog', {
@@ -144,10 +144,34 @@ export default {
         ]
       })
     }
+  },
+  updated() {
+      console.log('updated', this.resources)
+      this.$nextTick(() => {
+        $('#resourcesTable').DataTable()
+      })
   }
 }
 </script>
 <style scoped>
+@import url("/static/js/plugins/datatables/dataTables.bootstrap.css");
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+  font-family: "FontAwesome";
+}
+
+table.dataTable thead .sorting:after {
+  content: "\f0dc";
+}
+
+table.dataTable thead .sorting_asc:after {
+  content: "\f0dd";
+}
+
+table.dataTable thead .sorting_desc:after {
+  content: "\f0de";
+}
 .danger {
   width: 100%;
   position: relative;
@@ -155,6 +179,8 @@ export default {
 }
 table{
   color: #242E35;
+  border-radius: 10px;
+  font-size: 16px !important
 }
 img{
   width: 40px;
@@ -167,12 +193,5 @@ td a {
 td a i{
   padding: 0px;
   margin-bottom: 10px;
-}
-table {
-  border-radius: 10px;
-  font-size: 16px !important
-}
-.del-btn {
-  background-color: rgba(255, 0, 0, 0.13)
 }
 </style>

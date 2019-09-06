@@ -1,6 +1,7 @@
 <template>
   <header class="main-header">
     <span class="logo-mini">
+       <router-link to="/">
       <a href="/">
         <img
           src="/static/img/kitty.svg"
@@ -8,6 +9,7 @@
           class="img-responsive center-block logo"
         />
       </a>
+      </router-link>
     </span>
     <nav class="navbar navbar-static-top" role="navigation">
             <a href="javascript:;" class="sidebar-toggle" data-toggle="offcanvas" role="button">

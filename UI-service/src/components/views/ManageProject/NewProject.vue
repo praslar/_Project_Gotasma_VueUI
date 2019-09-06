@@ -69,7 +69,6 @@
 </template>
 <script>
 import datepicker from 'vue2-datepicker'
-import * as Services from '../../../services'
 
 export default {
   name: 'NewProject',
@@ -97,13 +96,7 @@ export default {
       this.submitted = true
       this.$validator.validateAll().then(result => {
         if (result) {
-          Services.addProj(this.project)
-          .then(response => {
-            alert(JSON.stringify(response) + '\nYou have created one project:    ' + JSON.stringify(this.project))
-          })
-          .catch(error => {
-            console.log(error)
-          })
+            alert('OK')
           this.$modal.hide('createNewProj')
         } else {
           alert('Invalid input')

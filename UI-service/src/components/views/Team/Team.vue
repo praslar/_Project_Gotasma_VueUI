@@ -10,13 +10,13 @@
       </div>  
       <team-table :team="team"></team-table>   
       <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">     
-      <table-member class="choose-member" v-if="chooseFromMember" :projectID="projectID" :members="members" :chooseFromMember="chooseFromMember"></table-member>
+      <resource-table class="choose-member" v-if="chooseFromMember" :projectID="projectID" :members="members" :chooseFromMember="chooseFromMember"></resource-table>
       </transition>   
     </div>
   </section>
 </template>
 <script>
-import TableMember from './TableMember'
+import ResourceTable from '../Resources/ResourceTable'
 import TeamTable from './TeamTable'
 import $ from 'jquery'
 
@@ -45,7 +45,7 @@ export default {
       this.chooseFromMember = false
     }
   },
-  components: { TableMember, TeamTable },
+  components: { ResourceTable, TeamTable },
   created() {
     //  getMemberInfo by ID project
       Services.getMemberOfProject()

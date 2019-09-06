@@ -1,0 +1,191 @@
+{
+    "resources": [{
+            "resourcesID": 1510251,
+            "badgeID": "batch-27",
+            "name": "Thang Pham",
+            "email": "praslar@gmail.com",
+            "projects": [{
+                    "projectID": 1,
+                    "name": "Project Management",
+                    "effort": 20
+                },
+                {
+                    "projectID": 2,
+                    "name": "Coffee Cat",
+                    "effort": 20
+                }
+            ]
+        },
+        {
+            "resourcesID": 1510238,
+            "badgeID": "batch-27",
+            "name": "Quan Vo",
+            "email": "vnmquan@gmail.com",
+            "projects": [{
+                    "projectID": 1,
+                    "name": "Project Management",
+                    "effort": 20
+                },
+                {
+                    "projectID": 3,
+                    "name": "Smart DLU",
+                    "effort": 20
+                },
+                {
+                    "projectID": 2,
+                    "name": "Coffee Cat",
+                    "effort": 20
+                }
+            ]
+        },
+        {
+            "resourcesID": 1002401,
+            "badgeID": "939145",
+            "name": "Nhan Dinh",
+            "email": "ndinh@gmail.com",
+            "projects": [{
+                    "projectID": 1,
+                    "name": "Project Management",
+                    "effort": 20
+                },
+                {
+                    "projectID": 4,
+                    "name": "Vitalsuite",
+                    "effort": 20
+                }
+            ]
+        },
+        {
+            "resourcesID": 103211,
+            "badgeID": "132145",
+            "name": "Trung Huynh",
+            "email": "httrung@gmail.com",
+            "projects": [{
+                    "projectID": 1,
+                    "name": "Project Management",
+                    "effort": 10
+                },
+                {
+                    "projectID": 3,
+                    "name": "Smart DLU",
+                    "effort": 10
+                },
+                {
+                    "projectID": 2,
+                    "name": "Coffee Cat",
+                    "effort": 10
+                },
+                {
+                    "projectID": 4,
+                    "name": "Vitalsuite",
+                    "effort": 10
+                }
+            ]
+        }
+    ],
+    "projects": [{
+            "projectID": 1,
+            "name": "coca cola",
+            "effort": 40,
+            "startDate": "2016-01-10T23:28:56.782Z",
+            "updateDate": "2016-02-10T23:28:56.782Z",
+            "numberOfResources": 5
+        },
+        {
+            "projectID": 2,
+            "name": "Coffee Cat",
+            "effort": 40,
+            "startDate": "2018-04-01T23:28:56.782Z",
+            "updateDate": "2018-05-01T23:28:56.782Z",
+            "numberOfResources": 3
+        },
+        {
+            "projectID": 3,
+            "name": "moutain dew",
+            "effort": 38,
+            "startDate": "2019-06-07T23:28:56.782Z",
+            "updateDate": "2019-07-07T23:28:56.782Z",
+            "numberOfResources": 2
+        },
+        {
+            "projectID": 4,
+            "name": "heineken",
+            "effort": 40,
+            "startDate": "2016-09-29T23:28:56.782Z",
+            "updateDate": "2016-10-29T23:28:56.782Z",
+            "numberOfResources": 12
+        },
+        {
+            "projectID": 5,
+            "name": "sting",
+            "effort": 40,
+            "startDate": "2018-08-09T23:28:56.782Z",
+            "updateDate": "2018-09-09T23:28:56.782Z",
+            "numberOfResources": 1
+        },
+        {
+            "projectID": 6,
+            "name": "oolong",
+            "effort": 36,
+            "startDate": "2017-05-09T23:28:56.782Z",
+            "updateDate": "2017-06-09T23:28:56.782Z",
+            "numberOfResources": 3
+        },
+        {
+            "projectID": 7,
+            "name": "coffee S",
+            "effort": 40,
+            "startDate": "2019-02-12T23:28:56.782Z",
+            "updateDate": "2019-03-12T23:28:56.782Z",
+            "numberOfResources": 6
+        },
+        {
+            "projectID": 8,
+            "name": "white coke",
+            "effort": 40,
+            "startDate": "2018-06-26T23:28:56.782Z",
+            "updateDate": "2018-07-26T23:28:56.782Z",
+            "numberOfResources": 10
+        },
+        {
+            "projectID": 9,
+            "name": "this is a long aquafina",
+            "effort": 36,
+            "startDate": "2019-12-23T23:28:56.782Z",
+            "updateDate": "2019-12-30T23:28:56.782Z",
+            "numberOfResources": 6
+        },
+        {
+            "projectID": 10,
+            "name": "japanese tea",
+            "effort": 40,
+            "startDate": "2019-02-03T23:28:56.782Z",
+            "updateDate": "2019-03-03T23:28:56.782Z",
+            "numberOfResources": 3
+        },
+        {
+            "projectID": 11,
+            "name": "milk tea",
+            "effort": 36,
+            "startDate": "2019-02-01T23:28:56.782Z",
+            "updateDate": "2019-02-27T23:28:56.782Z",
+            "numberOfResources": 7
+        },
+        {
+            "projectID": 12,
+            "name": "coca cola light",
+            "effort": 40,
+            "startDate": "2019-11-20T23:28:56.782Z",
+            "updateDate": "2019-12-20T23:28:56.782Z",
+            "numberOfResources": 9
+        },
+        {
+            "projectID": 13,
+            "name": "pure water",
+            "effort": 36,
+            "startDate": "2018-02-09T23:28:56.782Z",
+            "updateDate": "2018-03-20T23:28:56.782Z",
+            "numberOfResources": 8
+        }
+    ]
+}

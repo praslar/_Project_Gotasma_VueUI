@@ -8,5 +8,7 @@ export default {
         aboutAvatar: '/static/img/stock/giphy.gif',
         aboutBackground: '/static/img/about.jpg',
         role: 'Task Planning'
-    }
+    },
+    resources: [],
+    projects: []
 }
