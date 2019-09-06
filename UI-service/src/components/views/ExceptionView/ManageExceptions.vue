@@ -49,7 +49,7 @@
                   v-validate="'required'"
                 ></datepicker>
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback ontop" v-if=" errors.has('Date')">{{ errors.first('Date')}}</div>
+                  <div class="invalid-feedback" v-if=" errors.has('Date')">{{ errors.first('Date')}}</div>
                 </transition>
               </div>
             </div>
@@ -141,4 +141,5 @@ export default {
 .alert-in-leave-active {
   animation: bounce-in .5s reverse;
 }
+
 </style>

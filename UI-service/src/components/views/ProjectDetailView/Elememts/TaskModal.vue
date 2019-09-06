@@ -1,15 +1,15 @@
 <template>
-  <modal name="taskModal" transition="pop-out" :height=460 :width=600 :draggable="true" :reset="true" @before-open="beforeOpen" >
+  <modal name="taskModal" transition="pop-out" :height=560 :width=500 :draggable="true" :reset="true" @before-open="beforeOpen" @before-close="beforeClose" >
     <a class="pull-right exit-btn" @click="cancelCreate"><i class="fa fa-close"/></a>
     <form action="">
       <div class="modal-box">
       <div class="partition">
-        <div class="partition-title">new modal</div>
+        <div class="partition-title">Task info</div>
         <div class="partition-form">
 
           <h4 class="myheading">Name: </h4>
           <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-check"></i></span>
+            <span class="input-group-addon"><i class="fa fa-fw fa-edit"></i></span>
               <input
                 class="form-control" 
                 placeholder="Name of project" 
@@ -19,7 +19,7 @@
 
           <h4 class="myheading">Asignee: </h4>
           <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-check"></i></span>
+            <span class="input-group-addon"><i class="fa fa-fw fa-child"></i></span>
               <input
                 class="form-control" 
                 placeholder="Asignee" 
@@ -27,40 +27,36 @@
                 v-model="project.user">
             </div>
 
-          <!-- Effort -->
-          <!-- <h4 class="myheading">Effort</h4>
-          <div class="input-group">
-            <span class="input-group-addon">
-              <i class="fa fa-fw fa-calendar-check-o"></i>
-            </span>
-            <select class="form-control">
-              <option value="" disabled selected hidden>Select your option</option>
-              <option>40</option>
-              <option>42</option>
-              <option>38</option>
-              <option>36</option>
-              </select>
-          </div> -->
-
           <h4 class="myheading">Start date</h4>
           <div>
             <datepicker appendToBody
             v-model="project.start"
             lang="en" 
-            format="MMM/DD/YYYY" 
+            format="DD/MMM/YYYY" 
             width="100%"
             :editable="false">
             </datepicker>
           </div>
+
+          <h4 class="myheading">Duration (in day)</h4>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-3"></i></span>
+              <input
+                class="form-control" 
+                placeholder="Duration" 
+                type="text"
+                v-model="project.duration">
+            </div>
 
           <h4 class="myheading">End date</h4>
           <div>
             <datepicker appendToBody
             v-model="project.endTime"
             lang="en" 
-            format="MMM/DD/YYYY" 
+            format="DD/MMM/YYYY" 
             width="100%"
-            :editable="false">
+            :editable="false"
+            disabled>
             </datepicker>
           </div>
 
@@ -71,8 +67,8 @@
   </modal>
 </template>
 <script>
+// import moment from 'moment'
 import datepicker from 'vue2-datepicker'
-
 export default {
   name: 'taskModal',
   components: {
@@ -86,7 +82,7 @@ export default {
   shortcuts: [{
       onClick: () => {
         this.project.startDate = [ new Date(), new Date() ]
-        }
+      }
     }
   ],
   methods: {
@@ -94,8 +90,13 @@ export default {
       this.$modal.hide('taskModal')
     },
     beforeOpen(event) {
-      console.log(event.params.data)
+      // console.log(event.params.data)
       this.project = event.params.data
+      this.project.duration = this.project.duration / 86400000
+    },
+    beforeClose() {
+      this.project.startTime = this.project.start.valueOf()
+      this.project.duration = this.project.duration * 86400000
     }
   }
 }
@@ -163,22 +164,4 @@ export default {
   .exit-btn:hover{
     color: #3fb0ac
   }
-
-.invalid-feedback{
-  font-size: 12px;
-  color: red;
-  display: inline-block;
-  z-index: 9;
-  position: absolute;
-  margin-top: -11px;
-}
-.alert-in-enter-active {
-  animation: bounce-in .5s;
-}
-.alert-in-leave-active {
-  animation: bounce-in .5s reverse;
-}
-.ontop {
-  padding-top: 10px;
-}
 </style>

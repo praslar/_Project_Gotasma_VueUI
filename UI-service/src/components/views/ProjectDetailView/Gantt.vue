@@ -15,8 +15,7 @@
       :tasks="tasks"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate"
-      @dynamic-style-changed="styleUpdate"
-    >
+      @dynamic-style-changed="styleUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
     <taskModal></taskModal>
@@ -29,7 +28,6 @@ import GanttHeader from 'gantt-elastic-header'
 import dayjs from 'dayjs'
 import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import * as Services from '../../../services'
-import { eventBus } from '../../../main'
 // just helper to get current dates
 function getDate(hours) {
   const currentDate = new Date()
@@ -139,9 +137,8 @@ export default {
               expander: true,
               html: true,
               events: {
-                click({ data }) {
-                  // console.log(data)
-                  eventBus.$emit('quan', data)
+                click: ({ data }) => {
+                  this.showTaskModal(data)
                 }
               }
             },
@@ -160,7 +157,7 @@ export default {
             {
               id: 4,
               label: 'End',
-              value: task => dayjs(task.start + task.duration).format('DD-MM-YYYY'),
+              value: task => dayjs(task.startTime + task.duration).format('DD-MM-YYYY'),
               width: 78
             }
           ]
@@ -174,10 +171,12 @@ export default {
     },
     optionsUpdate(options) {
       this.options = options
-      // console.log(this.$modal)
     },
     styleUpdate(style) {
       this.dynamicStyle = style
+    },
+    showTaskModal(data) {
+      this.$modal.show('taskModal', { data: data })
     }
   },
   beforeCreate() {
@@ -195,12 +194,6 @@ export default {
       .catch(error => {
         console.log(error)
       })
-  },
-  created () {
-    eventBus.$on('quan', (data) => {
-        // console.log(data)
-        this.$modal.show('taskModal', { data: data })
-    })
   }
 }
 </script>
