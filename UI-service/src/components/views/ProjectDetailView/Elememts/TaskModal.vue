@@ -4,12 +4,12 @@
     <form action="">
       <div class="modal-box">
       <div class="partition">
-        <div class="partition-title">Task info</div>
+        <div class="partition-title"><i class="fa fa-fw fa-edit"></i> Task info</div>
         <div class="partition-form">
 
           <h4 class="myheading">Name: </h4>
           <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-edit"></i></span>
+            <span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span>
               <input
                 class="form-control" 
                 placeholder="Name of project" 

@@ -4,7 +4,7 @@
     <form action="" @submit.prevent="createAlert" >
       <div class="modal-box">
       <div class="partition">
-        <div class="partition-title">CREATE NEW PROJECT</div>
+        <div class="partition-title"><i class="fa fa-fw fa-edit"></i>CREATE NEW PROJECT</div>
         <div class="partition-form">
 
           <h4 class="myheading">Name of project: </h4>
