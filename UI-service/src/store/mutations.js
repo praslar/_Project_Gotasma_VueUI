@@ -4,5 +4,8 @@ export default {
     },
     GET_PROJECTS(state, projects) {
         state.projects = projects
+    },
+    GET_EXCEPTIONS(state, exceptions) {
+        state.exceptions = exceptions
     }
 }

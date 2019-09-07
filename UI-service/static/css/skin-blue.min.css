@@ -73,13 +73,22 @@ body {
 }
 
 .skin-blue .sidebar-menu>li>a {
-    border-left: 1px solid transparent
+    border-left: 1px solid transparent;
 }
 
 .skin-blue .sidebar-menu>li:hover>a {
     color: #3f3f3f;
     background: #dddfd4;
-    border-left-color: #dddfd4
+    border-left-color: #dddfd4;
+    transform: translate3d(0px, 5px, 5px);
+    -webkit-transition: transform 2s;
+    -moz-transition: transform 2s;
+    -o-transition: transform 2s;
+    transition: transform 2s;
+    -webkit-transition: background-color 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out;
+    -o-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu {

@@ -56,13 +56,6 @@ export default {
       .catch(error => {
         console.log(error)
       })
-      Services.getUsers()
-      .then((response) => {
-        this.members = response
-      })
-      .catch(error => {
-        console.log(error)
-      })
     }
 }
 </script>

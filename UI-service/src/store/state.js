@@ -10,5 +10,6 @@ export default {
         role: 'Task Planning'
     },
     resources: [],
-    projects: []
+    projects: [],
+    exceptions: []
 }

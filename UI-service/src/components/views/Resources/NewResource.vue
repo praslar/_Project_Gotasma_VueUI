@@ -6,6 +6,7 @@
     :height="280"
     :clickToClose="false"
     @before-open="beforeOpen"
+    @before-close="beforeClose"
   >
     <a class="btn-close" @click="cancelCreate">
       <i class="fa fa-close"></i>
@@ -74,7 +75,8 @@
           </div>
         </div>
         <div class="box-footer">
-          <button class="btn-create pull-right">Create</button>
+          <button v-if="isEditting" class="btn-create pull-right">Edit</button>
+          <button v-else class="btn-create pull-right">Invite</button>
         </div>
       </div>
     </form>
@@ -113,7 +115,12 @@ export default {
       if (event.params != null) {
         this.member = event.params.resource
         this.isEditting = true
+      } else {
+        this.member = {}
       }
+    },
+    beforeClose() {
+      this.isEditting = false
     }
   }
 }

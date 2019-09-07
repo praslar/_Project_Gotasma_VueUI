@@ -39,7 +39,7 @@
               <div class="form-group">
                 <label>Choose Date</label>
                 <datepicker
-                  v-model="exceptDate.exDate"
+                  v-model="exceptDate.date"
                   range
                   appendToBody
                   lang="en"
@@ -61,7 +61,7 @@
           </form>
         </div>
         <h2>Exceptions</h2>
-        <ExceptionItem :exceptions="exceptions"></ExceptionItem>
+        <exception-item></exception-item>
       </div>
     </div>
   </section>
@@ -72,6 +72,7 @@
 import moment from 'moment'
 import datepicker from 'vue2-datepicker'
 import ExceptionItem from './ExceptionItem'
+
 export default {
   name: 'manageExceptions',
   components: {
@@ -80,43 +81,33 @@ export default {
   },
   data() {
     return {
-      // submitted: false,
       exceptDate: {
         tittle: '',
-        exDate: ''
-      },
-      exceptions: [
-        { tittle: 'Day off 1', exDate: [ 1554161336782, 1554247736782 ] },
-        { tittle: 'Day off 2', exDate: [ 1567380536782, 1567380536782 ] }
-      ]
+        date: ''
+      }
     }
   },
   methods: {
+
     addException() {
       // this.submitted = true
       this.$validator.validateAll().then(result => {
         if (result) {
-          this.exceptDate.exDate[0] = moment(this.exceptDate.exDate[0]).valueOf()
-          this.exceptDate.exDate[1] = moment(this.exceptDate.exDate[1]).valueOf()
-          this.exceptions.push({
-          tittle: this.exceptDate.tittle,
-          exDate: this.exceptDate.exDate
-        })
-          // this.exceptions.push({ exception: this.exception })
-          this.exceptDate.tittle = ''
-          this.exceptDate.exDate = ''
-          // console.log(this.exceptions)
+          this.exceptDate.date[0] = moment(this.exceptDate.date[0]).valueOf()
+          this.exceptDate.date[1] = moment(this.exceptDate.date[1]).valueOf()
+          this.$store.dispatch('addExceptions', this.exceptDate)
+          location.reload()
         }
       })
+    }
   },
   shortcuts: [
     {
       onClick: () => {
-        this.exceptDate.exDate = [new Date(), new Date()]
+        this.exceptDate.date = [new Date(), new Date()]
       }
     }
   ]
-}
 }
 </script>
 

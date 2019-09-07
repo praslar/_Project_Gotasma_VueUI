@@ -1,15 +1,11 @@
 <template>
-  <div class="col-md-12">
-    <div class="box">
-      <div class="box-body ">
-        <div class="dataTables_wrapper form-inline dt-bootstrap" id="resourcesTable_wrapper">
-          <div class="row">
+  <div class="col-md-12 box box-body">
             <div class="col-sm-12 table-responsive">
               <table
                 aria-describedby="resourcesTable_info"
                 role="grid"
                 id="resourcesTable"
-                class="table table-bordered table-hover dataTable"
+                class="table   table-hover dataTable"
               >
                 <thead>
                   <tr role="row">
@@ -61,26 +57,7 @@
                     ></th>
                   </tr>
                 </thead>
-                <tbody v-if="chooseFromMember">
-                  <tr class="even" role="row" v-for="member of members" :key="member.badgeID">
-  
-                        <td class="sorting_1">
-                          <img :src="member.avatar" class="user-image" alt="User Image" />
-                        </td>
-                        <td>{{member.name}}</td>
-                        <td>{{member.email}}</td>
-                        <td>     
-                          <div v-for="project in member.projects" :key="project.projectID" class="status">            
-                             <p class="external-event btn-info" v-if="projectID != project.projectID" >{{project.name}} </p>
-                            <p class="external-event btn-danger danger" v-else>All ready in project </p>
-                          </div>
-                        </td>
-                        <td >
-                            <a class="btn btn-app" @click="showDialogMember(addUser)"><i class="fa fa-level-down" style="color:#008d4c; font-size: 22px"></i></a>
-                        </td> 
-                  </tr> 
-                </tbody>
-                <tbody v-else>
+                <tbody>
                   <tr class="even" role="row" v-for="resource of resources" :key="resource.badgeID">
                     <td class="sorting_1">
                       {{resource.badgeID}}
@@ -91,17 +68,13 @@
                     <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
                     <td ><a class="btn btn-app" @click="$modal.show('newresource', {resource})"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app" @click="showDialogMember(deleted)"><i class="fa fa-remove"></i></a>           
+                        <a class="btn btn-app" @click="showDialogMember()"><i class="fa fa-remove"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <v-dialog/>
+  <v-dialog/>
   </div> 
   </template>
 <script>
@@ -111,27 +84,21 @@ require('datatables.net-bs')
 
 export default {
   name: 'resource-table',
-  props: ['resources', 'chooseFromMember', 'manageMember', 'projectID'],
-  data() {
-    return {
-      addUser: 'Add new member to this project team',
-      deleted: 'Do you wish to delele'
-    }
-  },
+  props: ['resources'],
   components: {
     NewResource
   },
   methods: {
-    showDialogMember: function(text) {
+    showDialogMember() {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
-        text: text,
+        text: 'Do you wish to delete this project',
         buttons: [
           {
             title: 'OK',
             default: true,
             handler: () => {
-              alert('OK ' + text)
+              alert('OK')
               this.$modal.hide('dialog')
             }
           },
@@ -146,7 +113,6 @@ export default {
     }
   },
   updated() {
-      console.log('updated', this.resources)
       this.$nextTick(() => {
         $('#resourcesTable').DataTable()
       })
@@ -181,9 +147,6 @@ table{
   color: #242E35;
   border-radius: 10px;
   font-size: 16px !important
-}
-img{
-  width: 40px;
 }
 td a {
   min-width: 30px !important;
