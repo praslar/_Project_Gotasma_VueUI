@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "resources": [
     {
       "resourcesID": 1510251,
@@ -6,6 +7,48 @@
       "name": "Thang Pham",
       "email": "praslar@gmail.com",
       "projects": [
+=======
+    "resources": [
+        {
+            "resourcesID": 1510251,
+            "badgeID": "batch-27",
+            "name": "Thang Pham",
+            "email": "praslar@gmail.com",
+            "projects": [{
+                    "projectID": 1,
+                    "name": "Project Management",
+                    "effort": 20
+                },
+                {
+                    "projectID": 2,
+                    "name": "Coffee Cat",
+                    "effort": 20
+                }
+            ]
+        },
+        {
+            "resourcesID": 1510238,
+            "badgeID": "batch-27",
+            "name": "Quan Vo",
+            "email": "vnmquan@gmail.com",
+            "projects": [{
+                    "projectID": 1,
+                    "name": "Project Management",
+                    "effort": 20
+                },
+                {
+                    "projectID": 3,
+                    "name": "Smart DLU",
+                    "effort": 20
+                },
+                {
+                    "projectID": 2,
+                    "name": "Coffee Cat",
+                    "effort": 20
+                }
+            ]
+        },
+>>>>>>> 164e4cddd4dc493fc73f1754b8a23b4efa3f6740
         {
           "projectID": 1,
           "name": "Project Management",
@@ -16,6 +59,7 @@
           "name": "Coffee Cat",
           "effort": 20
         }
+<<<<<<< HEAD
       ]
     },
     {
@@ -244,4 +288,643 @@
       "id": 18
     }
   ]
+=======
+    ],
+    "projects": [
+        {
+        "projectID": 1,
+        "name": "coca cola",
+        "effort": 40,
+        "startDate": 1566925200000,
+        "updateDate": 1566929200000,
+        "numberOfMembers": 5,
+        "tasks": [{
+            "id": 1,
+            "label": "Phan tich va thiet ke",
+            "user": "Thang Pham",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Make some noise",
+            "user": "John Doe",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "With great power comes great responsibility",
+            "user": "Peter Parker",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Courage is being scared to death, but saddling up anyway.",
+            "user": "John Wayne",
+            "parentId": 2,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Put that toy AWAY!",
+            "user": "Clark Kent",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Frick this",
+            "user": "Clark Kent",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Put that toy AWAY!",
+            "user": "Clark Kent",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 2,
+        "name": "Coffee Cat",
+        "effort": 40,
+        "startDate": 1572625336782,
+        "updateDate": 1575217336782,
+        "numberOfMembers": 4,
+        "tasks": [{
+            "id": 1,
+            "label": "Phan tich va Thiet ke va Design",
+            "user": "Thang Pham Xuan",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Make some coffee",
+            "user": "Cat",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "Spider-man is gone",
+            "user": "Peter Parker",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Courage is a dog, and courage is a silly name",
+            "user": "Cat",
+            "parentId": 2,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Slap like now",
+            "user": "Davie",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Frick this",
+            "user": "Thang Pham Xuan",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Bass is bass, slap the bass!!!",
+            "user": "Davie",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 3,
+        "name": "moutain dew",
+        "effort": 38,
+        "startDate": 1566950136782,
+        "updateDate": 1569542136782,
+        "numberOfMembers": 2,
+        "tasks": [{
+            "id": 1,
+            "label": "This is a mountain",
+            "user": "Thang Pham",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Make a mountain",
+            "user": "Thang Pham",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "This is a dew",
+            "user": "Quan Vo",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Make a dew from a dove",
+            "user": "Quan Vo",
+            "parentId": 3,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "collapsed": true,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Combine mountain and dew",
+            "user": "Thang Pham Xuan",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Frick this",
+            "user": "Quan Vo",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Go the frick AWAY!",
+            "user": "Quan Vo",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 4,
+        "name": "heineken",
+        "effort": 40,
+        "startDate": 1565191736782,
+        "updateDate": 1566783736782,
+        "numberOfMembers": 5,
+        "tasks": [{
+            "id": 1,
+            "label": "Break the rule",
+            "user": "Dixie Normous",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Cutting loose end",
+            "user": "Justin Sider",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "See thing form a side and from bottom up",
+            "user": "Jen Sidebottom",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Get jacked and go off",
+            "user": "Jack Kanoff",
+            "parentId": 3,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "collapsed": true,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Once a loser always a winner",
+            "user": "Oliver Loser",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Frick those who say loser",
+            "user": "Oliver Loser ",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Sometimes small sometimes big sometimes enormous",
+            "user": "Dixie Normous",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 5,
+        "name": "sting",
+        "effort": 40,
+        "startDate": 1569857336782,
+        "updateDate": 1566535736782,
+        "numberOfMembers": 1,
+        "tasks": [{
+            "id": 1,
+            "label": "Find sweet",
+            "user": "Juky frickin-san",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Find red stuff",
+            "user": "Juky frickin-san",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "Stank it up",
+            "user": "Juky frickin-san",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        }]
+    },
+    {
+        "projectID": 6,
+        "name": "oolong",
+        "effort": 36,
+        "startDate": 1567372536782,
+        "updateDate": 1569050936782,
+        "numberOfMembers": 3,
+        "tasks": [{
+            "id": 1,
+            "label": "Say ooo",
+            "user": "Thuy Kieu",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Say ooooooooo",
+            "user": "Thuy Van",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "Say long",
+            "user": "Thuy Kieu",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Say longgggg",
+            "user": "Thuy Van",
+            "parentId": 3,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "collapsed": true,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Say oolong",
+            "user": "Trang Quynh",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Oo that's longg",
+            "user": "Thuy Kieu",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Say ooo longgg",
+            "user": "Trang Quynh",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 7,
+        "name": "coffee S",
+        "effort": 40,
+        "startDate": 1550014136782,
+        "updateDate": 1572433336782,
+        "numberOfMembers": 6,
+        "tasks": [{
+            "id": 1,
+            "label": "Say ooo",
+            "user": "Thuy Kieu",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Say ooooooooo",
+            "user": "Thuy Van",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "Say long",
+            "user": "Thuy Kieu",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Say longgggg",
+            "user": "Thuy Van",
+            "parentId": 3,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "collapsed": true,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Say oolong",
+            "user": "Trang Quynh",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Oo that's longg",
+            "user": "Thuy Kieu",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Say ooo longgg",
+            "user": "Trang Quynh",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 8,
+        "name": "white coke",
+        "effort": 40,
+        "startDate": 1567055736782,
+        "updateDate": 1572647736782,
+        "numberOfMembers": 2,
+        "tasks": [{
+            "id": 1,
+            "label": "Out of idea",
+            "user": "Quan Vo",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Idea 1",
+            "user": "Quan Vo",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "Idea 22",
+            "user": "Thang Pham Xuan",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Idea 333",
+            "user": "Quan Vo",
+            "parentId": 3,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "collapsed": true,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Idea 4444",
+            "user": "Quan Vo",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Idea 55555",
+            "user": "Thang Pham Xuan",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Dead",
+            "user": "Quan Vo",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 9,
+        "name": "this is a long aquafina",
+        "effort": 36,
+        "startDate": 1577143736782,
+        "updateDate": 1577748536782,
+        "numberOfMembers": 10,
+        "tasks": [{
+            "id": 1,
+            "label": "Say long",
+            "user": "Thuy Kieu",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Say ooooooooo",
+            "user": "Thuy Van",
+            "parentId": 1,
+            "start": 1568104180000,
+            "duration": 345600000,
+            "collapsed": true,
+            "type": "project"
+        },
+        {
+            "id": 3,
+            "label": "Say long",
+            "user": "Random Cat",
+            "start": 1567931380000,
+            "duration": 1296000000,
+            "type": "project"
+        },
+        {
+            "id": 4,
+            "label": "Say longgggg",
+            "user": "Random Dog",
+            "parentId": 3,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "collapsed": true,
+            "type": "task"
+        },
+        {
+            "id": 5,
+            "label": "Say oolong",
+            "user": "Trang Quynh",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 6,
+            "label": "Oo that's longg",
+            "user": "Ton Ngo Khong",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 7,
+            "label": "Say ooo longgg",
+            "user": "Tru Bat Gioi",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 8,
+            "label": "Say longgggg",
+            "user": "Cookie some",
+            "parentId": 7,
+            "start": 1567758580000,
+            "duration": 172800000,
+            "collapsed": true,
+            "type": "task"
+        },
+        {
+            "id": 9,
+            "label": "Say oolong",
+            "user": "Cow",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        },
+        {
+            "id": 10,
+            "label": "Oo that's longg",
+            "user": "Songoku",
+            "start": 1568739600000,
+            "duration": 172800000,
+            "type": "task"
+        }]
+    },
+    {
+        "projectID": 10,
+        "name": "japanese tea",
+        "effort": 40,
+        "startDate": 1559236536782,
+        "updateDate": 1571655736782,
+        "numberOfMembers": 1,
+        "tasks": [{
+            "id": 1,
+            "label": "Japanese is awesome",
+            "user": "Trump",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 2,
+            "label": "Japanese is fricking awesome",
+            "user": "Obama",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        },
+        {
+            "id": 1,
+            "label": "Go away Obama",
+            "user": "Trump",
+            "start": 1567011600000,
+            "duration": 259200000,
+            "type": "project"
+        }]
+    }
+    ]
+>>>>>>> 164e4cddd4dc493fc73f1754b8a23b4efa3f6740
 }

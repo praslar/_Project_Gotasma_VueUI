@@ -29,9 +29,10 @@
                   name="Tittle"
                   v-validate="'required|min:5'" 
                   v-model="exceptDate.tittle"
+                  :class="{ 'is-invalid': submitted && errors.has('Tittle') }"
                 />
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback" v-if="errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
+                  <div class="invalid-feedback" v-if="submitted && errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
                 </transition>
               </div>
               
@@ -40,6 +41,7 @@
                 <label>Choose Date</label>
                 <datepicker
                   v-model="exceptDate.date"
+                  :editable="false"
                   range
                   appendToBody
                   lang="en"
@@ -47,9 +49,9 @@
                   width="100%"
                   data-vv-name="Date"
                   v-validate="'required'"
-                ></datepicker>
+                  :class="{ 'is-invalid': submitted && errors.has('Date') }"></datepicker>
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback ontop special" v-if=" errors.has('Date')">{{ errors.first('Date')}}</div>
+                  <div class="invalid-feedback ontop special" v-if="submitted && errors.has('Date')">{{ errors.first('Date')}}</div>
                 </transition>
               </div>
             </div>
@@ -90,8 +92,9 @@ export default {
   methods: {
 
     addException() {
-      // this.submitted = true
-      this.$validator.validateAll().then(result => {
+      this.submitted = true
+      if (this.exceptDate.exDate[0] != null && this.exceptDate.exDate[1] != null) {
+        this.$validator.validateAll().then(result => {
         if (result) {
           this.exceptDate.date[0] = moment(this.exceptDate.date[0]).valueOf()
           this.exceptDate.date[1] = moment(this.exceptDate.date[1]).valueOf()
@@ -99,6 +102,8 @@ export default {
           location.reload()
         }
       })
+    } else {
+      alert('Can not be null')
     }
   },
   shortcuts: [
@@ -108,6 +113,7 @@ export default {
       }
     }
   ]
+}
 }
 </script>
 
