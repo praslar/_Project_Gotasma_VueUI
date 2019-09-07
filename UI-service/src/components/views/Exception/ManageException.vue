@@ -29,9 +29,10 @@
                   name="Tittle"
                   v-validate="'required|min:5'" 
                   v-model="exceptDate.tittle"
+                  :class="{ 'is-invalid': submitted && errors.has('Tittle') }"
                 />
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback" v-if="errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
+                  <div class="invalid-feedback" v-if="submitted && errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
                 </transition>
               </div>
               
@@ -40,6 +41,7 @@
                 <label>Choose Date</label>
                 <datepicker
                   v-model="exceptDate.exDate"
+                  :editable="false"
                   range
                   appendToBody
                   lang="en"
@@ -47,9 +49,9 @@
                   width="100%"
                   data-vv-name="Date"
                   v-validate="'required'"
-                ></datepicker>
+                  :class="{ 'is-invalid': submitted && errors.has('Date') }"></datepicker>
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback ontop special" v-if=" errors.has('Date')">{{ errors.first('Date')}}</div>
+                  <div class="invalid-feedback ontop special" v-if="submitted && errors.has('Date')">{{ errors.first('Date')}}</div>
                 </transition>
               </div>
             </div>
@@ -80,21 +82,22 @@ export default {
   },
   data() {
     return {
-      // submitted: false,
+      submitted: false,
       exceptDate: {
         tittle: '',
-        exDate: ''
+        exDate: []
       },
       exceptions: [
-        { tittle: 'Day off 1', exDate: [ 1554161336782, 1554247736782 ] },
-        { tittle: 'Day off 2', exDate: [ 1567380536782, 1567380536782 ] }
+        { tittle: 'Day off 1', exDate: [ 1554138000000, 1554224400000 ] },
+        { tittle: 'Day off 2', exDate: [ 1567357200000, 1567357200000 ] }
       ]
     }
   },
   methods: {
     addException() {
-      // this.submitted = true
-      this.$validator.validateAll().then(result => {
+      this.submitted = true
+      if (this.exceptDate.exDate[0] != null && this.exceptDate.exDate[1] != null) {
+        this.$validator.validateAll().then(result => {
         if (result) {
           this.exceptDate.exDate[0] = moment(this.exceptDate.exDate[0]).valueOf()
           this.exceptDate.exDate[1] = moment(this.exceptDate.exDate[1]).valueOf()
@@ -108,6 +111,9 @@ export default {
           // console.log(this.exceptions)
         }
       })
+    } else {
+      alert('Can not be null')
+    }
   },
   shortcuts: [
     {

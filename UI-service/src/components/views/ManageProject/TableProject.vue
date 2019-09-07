@@ -75,7 +75,7 @@
                       <router-link :to="'../project/' + project.projectID ">
                           <a>{{ project.name }}</a>
                       </router-link></td>
-                    <td>{{ project.numberOfMembers }}</td>
+                    <td>{{ project.numberOfResources }}</td>
                     <td>{{ project.effort }}</td>
                     <td>{{ project.startDate | momentNormalDate }}</td>
                     <td>{{ project.updateDate | momentDetailDate }}</td>

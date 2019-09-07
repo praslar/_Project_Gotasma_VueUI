@@ -13,8 +13,8 @@
         </div>
       </div>
 
-      <div class="box-body">From:&nbsp;{{ exception.exDate[0] | momentNormalDate}}</div>
-      <div class="box-body">To:&nbsp;{{ exception.exDate[1] | momentNormalDate}}</div>
+      <div class="box-body">From:&nbsp;{{ exception.exDate[0] | momentNormalDate }}</div>
+      <div class="box-body">To:&nbsp;{{ exception.exDate[1] | momentNormalDate }}</div>
     </div>
   </div>
   </transition-group>
@@ -26,10 +26,6 @@
 export default {
     name: 'ExceptionItem',
     props: ['exceptions'],
-    data() {
-        return {
-        }
-    },
     methods: {
     showDialog(index) {
       this.$modal.show('dialog', {
