@@ -57,6 +57,24 @@ export default {
                 console.log(error)
             })
     },
+    addProject({ commit }, payload) {
+        Services.addProject(payload)
+        .then((response) => {
+            commit('ADD_PROJECT', response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    },
+    deleteProject({ commit }, payload) {
+        Services.deleteProject(payload)
+        .then((response) => {
+            commit('DELETE_PROJECT', response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    },
     // Exception actions
     getExceptions({ commit }) {
         Services.getExceptions()

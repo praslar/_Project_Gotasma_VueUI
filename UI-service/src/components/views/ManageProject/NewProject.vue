@@ -1,7 +1,11 @@
 <template>
-  <modal name="createNewProj" transition="pop-out" :height=460 :width=600 :draggable="true" :reset="true" :clickToClose="false">
+  <modal name="createNewProj" transition="pop-out" :height=460 :width=600 
+  :draggable="true" 
+  :reset="true" 
+  :clickToClose="false" 
+  @before-open="beforeOpen">
     <a class="pull-right exit-btn" @click="cancelCreate"><i class="fa fa-close"/></a>
-    <form action="" @submit.prevent="createAlert" >
+    <form action="" @submit.prevent="createProject" >
       <div class="modal-box">
       <div class="partition">
         <div class="partition-title"><i class="fa fa-fw fa-edit"></i>CREATE NEW PROJECT</div>
@@ -16,10 +20,10 @@
                       type="text" 
                       v-validate="'required|min:5'" 
                       name="Project Name" 
-                      :class="{'is-invalid': submitted && errors.has('Project Name')}">
+                      :class="{'is-invalid':submitted && errors.has('Project Name')}">
             </div>
             <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <div class="invalid-feedback" v-if=" submitted && errors.has('Project Name')">{{ errors.first('Project Name')}}</div>
+              <div class="invalid-feedback" v-if="submitted && errors.has('Project Name')">{{ errors.first('Project Name')}}</div>
             </transition>
 
           <h4 class="myheading">Effort: (hours/week)</h4>
@@ -31,7 +35,7 @@
             v-model="project.effort" 
             name="Effort" 
             v-validate="'required'" 
-            :class="{'is-invalid': submitted && errors.has('Effort')}" >
+            :class="{'is-invalid': errors.has('Effort')}" >
               <option value="" disabled selected hidden>Select your option</option>
               <option>40</option>
               <option>42</option>
@@ -40,22 +44,23 @@
               </select>
           </div>
           <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <div class="invalid-feedback" v-if=" submitted && errors.has('Effort')">{{ errors.first('Effort')}}</div>
+              <div class="invalid-feedback" v-if="submitted && errors.has('Effort')">{{ errors.first('Effort')}}</div>
           </transition>
 
           <h4 class="myheading">Start date: (MMM/DD/YYYY)</h4>
           <div>
-            <datepicker v-model="project.startDate" appendToBody 
+            <datepicker v-model="project.startDate" 
+            appendToBody 
             lang="en" 
             format="MMM/DD/YYYY" 
             width="100%"
-            data-vv-name="Date"
+            data-vv-name="Start Date"
             v-validate="'required'"
             :editable="false">
             </datepicker>
           </div>
           <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <div class="invalid-feedback ontop" v-if=" submitted && errors.has('Date')">{{ errors.first('Date')}}</div>
+              <div class="invalid-feedback ontop" v-if="submitted && errors.has('Start Date')">{{ errors.first('Start Date')}}</div>
           </transition>
 
           <div class="button-set">
@@ -69,7 +74,7 @@
 </template>
 <script>
 import datepicker from 'vue2-datepicker'
-
+import moment from 'moment'
 export default {
   name: 'NewProject',
   components: {
@@ -77,12 +82,15 @@ export default {
   },
   data() {
     return {
+      submitted: false,
       project: {
         name: '',
         effort: '',
-        startDate: ''
-      },
-      submitted: false
+        startDate: '',
+        updateDate: '',
+        users: [],
+        tasks: []
+      }
     }
   },
   shortcuts: [{
@@ -92,16 +100,25 @@ export default {
     }
   ],
   methods: {
-    createAlert() {
+    createProject() {
       this.submitted = true
       this.$validator.validateAll().then(result => {
         if (result) {
-            alert('OK')
-          this.$modal.hide('createNewProj')
+          this.project.startDate = moment(this.project.startDate).valueOf()
+          this.$store.dispatch('addProject', this.project)
         } else {
           alert('Invalid input')
         }
       })
+      this.$modal.hide('createNewProj')
+    },
+    beforeOpen() {
+        this.project.name = ''
+        this.project.effort = ''
+        this.project.startDate = ''
+        this.project.updateDate = ''
+        this.project.users = []
+        this.project.tasks = []
     },
     cancelCreate() {
       this.$modal.hide('createNewProj')
