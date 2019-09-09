@@ -1,18 +1,18 @@
 <template>
   <div class="main">
-    <project-header :project="project"></project-header>
+    <!-- <project-header :project="project"></project-header> -->
     <div class="info-box">
       <span class="info-box-icon bg-yellow">
         <i class="fa fa-files-o"></i>
       </span>
       <div class="info-box-content">
         <p class="info-box-number">{{ project.name }}</p>
-        <p class="info-box-text">{{ project.tasks | count }} Task</p>
+        <p class="info-box-text">Task</p>
       </div>
     </div>
     <gantt-elastic
       :options="options"
-      :tasks="tasks"
+      :tasks="project.tasks"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
@@ -23,6 +23,7 @@
 <script>
 import ProjectHeader from '../../layout/Headers/ProjectHeader'
 import taskModal from './Elememts/TaskModal'
+import dayjs from 'dayjs'
 import GanttElastic from 'gantt-elastic'
 import GanttHeader from 'gantt-elastic-header'
 import { mapState } from 'vuex'
@@ -36,13 +37,90 @@ export default {
     ProjectHeader,
     taskModal
   },
+  data() {
+    return {
+        options: {
+        scope: {
+            before: 1,
+            after: 80
+        },
+        maxRows: 1000,
+        maxHeight: 1000,
+        times: {
+            timeZoom: 21
+        },
+        row: {
+            height: 20
+        },
+        calendar: {
+            hour: {
+                display: false
+            }
+        },
+        chart: {
+            progress: {
+                bar: false
+            },
+            text: {
+                display: false
+            },
+            expander: {
+                display: false
+            }
+        },
+        taskList: {
+            expander: {
+                straight: true
+            },
+            columns: [{
+                    id: 1,
+                    label: 'ID',
+                    value: 'id',
+                    width: 35
+                },
+                {
+                    id: 2,
+                    label: 'Description',
+                    value: 'label',
+                    width: 100,
+                    expander: true,
+                    html: true,
+                    events: {
+                        click: ({ data }) => {
+                            console.log(data)
+                            this.showTaskModal(data)
+                        }
+                    }
+                },
+                {
+                    id: 3,
+                    label: 'Assignee',
+                    value: 'user',
+                    width: 80
+                },
+                {
+                    id: 3,
+                    label: 'Start',
+                    value: task => dayjs(task.start).format('DD-MM-YYYY'),
+                    width: 78
+                },
+                {
+                    id: 4,
+                    label: 'End',
+                    value: task => dayjs(task.startTime + task.duration).format('DD-MM-YYYY'),
+                    width: 78
+                }
+            ]
+        }
+      }
+    }
+  },
   created() {
     this.$store.dispatch('getProjectById', this.id)
   },
   computed: {
     ...mapState([
       'headerOptions',
-      'options',
       'tasks',
       'project'
     ])
