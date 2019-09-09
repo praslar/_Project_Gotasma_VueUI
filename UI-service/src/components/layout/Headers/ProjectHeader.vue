@@ -2,8 +2,8 @@
   <header class="main-header">
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <buttonAddMember :memberData="memberData" :idProject="idProject"></buttonAddMember>
-          <buttonHistory :idProject="idProject"></buttonHistory>
+          <buttonAddMember :project="project"></buttonAddMember>
+          <buttonHistory :project="project"></buttonHistory>
           <buttonFilter></buttonFilter>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
@@ -29,7 +29,7 @@ export default {
     ButtonFilter,
     buttonAddMember
   },
-  props: ['memberData', 'idProject']
+  props: ['project']
 }
 </script>
 

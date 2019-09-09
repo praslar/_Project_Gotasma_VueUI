@@ -12,7 +12,7 @@ import store from './store'
 import VueSplit from 'vue-split-panel'
 // Import Views - Top level
 import AppView from './components/App.vue'
-import { count, momentNormalDate, momentDetailDate } from './filters'
+import { count, momentNormalDate, momentDetailDate } from './Utils/filter'
 
 // Routing logic
 var router = new VueRouter({

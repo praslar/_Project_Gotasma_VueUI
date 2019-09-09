@@ -18,7 +18,7 @@
               <span class="input-group-addon"><i class="fa fa-fw fa-file-o"></i></span>
               <input
                 class="form-control" 
-                :value="projectName"
+                :value="project.name"
                 type="text"/>
             </div>
         </div>
@@ -68,21 +68,21 @@
 
 <script>
 import datepicker from 'vue2-datepicker'
+import { mapState } from 'vuex'
 
 export default {
   name: 'settingModal',
-  props: ['id', 'projectName'],
+  props: ['id'],
   components: {
     datepicker
   },
-  data() {
-    return {
-      project: {
-        name: '',
-        effort: '',
-        startDate: '21/sep/2019'
-      }
-    }
+  created() {
+    this.$store.dispatch('getProjectById', this.id)
+  },
+  computed: {
+   ...mapState([
+     'project'
+   ])
   },
   shortcuts: [{
     onClick: () => {
