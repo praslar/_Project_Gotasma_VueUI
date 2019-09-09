@@ -29,10 +29,10 @@
                   name="Tittle"
                   v-validate="'required|min:5'" 
                   v-model="exceptDate.tittle"
-                  :class="{ 'is-invalid':  errors.has('Tittle') }"
+                  :class="{ 'is-invalid': errors.has('Tittle') }"
                 />
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback" v-if=" errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
+                  <div class="invalid-feedback" v-if="errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
                 </transition>
               </div>
               
@@ -49,9 +49,9 @@
                   width="100%"
                   data-vv-name="Date"
                   v-validate="'required'"
-                  :class="{ 'is-invalid':  errors.has('Date') }"></datepicker>
+                  :class="{ 'is-invalid': errors.has('Date') }"></datepicker>
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback ontop special" v-if=" errors.has('Date')">{{ errors.first('Date')}}</div>
+                  <div class="invalid-feedback ontop special" v-if="errors.has('Date')">{{ errors.first('Date')}}</div>
                 </transition>
               </div>
             </div>
