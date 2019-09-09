@@ -5,6 +5,12 @@ export default {
     GET_PROJECTS(state, projects) {
         state.projects = projects
     },
+    ADD_PROJECT() {
+        console.log('added one project')
+    },
+    DELETE_PROJECT() {
+        console.log('deleted one project')
+    },
     GET_PROJECT_BY_ID(state, project) {
         state.project = project
     },

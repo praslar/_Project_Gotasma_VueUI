@@ -80,7 +80,7 @@
                     <td>{{ project.startDate | momentNormalDate }}</td>
                     <td>{{ project.updateDate | momentDetailDate }}</td>
                     <td>
-                      <a class="btn btn-app del-btn" title="Delete project" @click="showDialog"><i class="fa fa-remove"></i></a>
+                      <a class="btn btn-app del-btn" title="Delete project" @click="showDialog(project.id)"><i class="fa fa-remove"></i></a>
                       <a class="btn btn-app star-btn" title="Highlight project" ><i class="fa fa-star"></i></a>
                     </td>
                   </tr>
@@ -111,8 +111,20 @@ require('datatables.net-bs')
 export default {
   name: 'tableProject',
   props: ['projects'],
+  mounted() {
+    this.$store.subscribe((mutation, state) => {
+      switch (mutation.type) {
+        case 'ADD_PROJECT':
+          this.$store.dispatch('getProjects')
+          break
+        case 'DELETE_PROJECT':
+          this.$store.dispatch('getProjects')
+         break
+      }
+    })
+  },
   methods: {
-    showDialog() {
+    showDialog(id) {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
         text: 'Do you wish to delete?',
@@ -121,7 +133,7 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-              alert('OK You have deleted')
+              this.$store.dispatch('deleteProject', id)
               this.$modal.hide('dialog')
             }
           },

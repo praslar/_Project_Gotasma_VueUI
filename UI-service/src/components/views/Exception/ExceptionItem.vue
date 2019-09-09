@@ -5,7 +5,7 @@
     <div class="col-md-3" v-for="exception in exceptions" :key="exception.id">
     <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"> {{ exception.tittle }} </h3>
+          <h3 class="box-title"> {{ exception.title }} </h3>
       
           <div class="box-tools pull-left">
             <button type="submmit" class="btn btn-box-tool" @click="showDialog(exception.id)">

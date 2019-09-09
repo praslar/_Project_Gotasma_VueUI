@@ -90,7 +90,7 @@ export default {
       submitted: false,
       isEditting: false,
       member: {
-        resourcesID: '12309123',
+        id: '',
         badgeID: '',
         name: '',
         email: '',

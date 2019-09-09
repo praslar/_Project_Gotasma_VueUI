@@ -20,19 +20,19 @@
           <form role="form" @submit.prevent="addException">
             <div class="box-body">
               <div class="form-group">
-                <label for="exceptTittle">Tittle</label>
+                <label for="excepttitle">Title</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="exceptTittle"
-                  placeholder="Enter tittle"
-                  name="Tittle"
+                  id="exceptTitle"
+                  placeholder="Enter Title"
+                  name="Title"
                   v-validate="'required|min:5'" 
-                  v-model="exceptDate.tittle"
-                  :class="{ 'is-invalid': errors.has('Tittle') }"
+                  v-model="exceptDate.title"
+                  :class="{ 'is-invalid': errors.has('Title') }"
                 />
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback" v-if="errors.has('Tittle')">{{ errors.first('Tittle')}}</div>
+                  <div class="invalid-feedback" v-if="errors.has('Title')">{{ errors.first('Title')}}</div>
                 </transition>
               </div>
               
@@ -84,7 +84,7 @@ export default {
   data() {
     return {
       exceptDate: {
-        tittle: '',
+        title: '',
         date: ''
       }
     }
@@ -109,6 +109,9 @@ export default {
           this.exceptDate.date[0] = moment(this.exceptDate.date[0]).valueOf()
           this.exceptDate.date[1] = moment(this.exceptDate.date[1]).valueOf()
           this.$store.dispatch('addExceptions', this.exceptDate)
+          // console.log('clear')
+          this.exceptDate.title = ''
+          this.exceptDate.date = ''
         }
       })
     }

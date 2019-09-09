@@ -366,14 +366,14 @@
   "exceptions": [
     {
       "id": 2,
-      "tittle": "Christmas",
+      "title": "Christmas",
       "date": [
         1577206800000,
         1577725200000
       ]
     },
     {
-      "tittle": "Random day off 3",
+      "title": "Random day off 3",
       "date": [
         1569603600000,
         1569690000000
@@ -381,7 +381,7 @@
       "id": 6
     },
     {
-      "tittle": "Mid-autumn",
+      "title": "Mid-autumn",
       "date": [
         1567702800000,
         1567875600000
@@ -389,7 +389,7 @@
       "id": 14
     },
     {
-      "tittle": "Random day off",
+      "title": "Random day off",
       "date": [
         1568739600000,
         1568826000000
@@ -397,7 +397,7 @@
       "id": 15
     },
     {
-      "tittle": "Mid-autumn222",
+      "title": "Mid-autumn222",
       "date": [
         1568221200000,
         1568566800000
@@ -405,7 +405,7 @@
       "id": 16
     },
     {
-      "tittle": "Indepentdence Day ",
+      "title": "Indepentdence Day ",
       "date": [
         1567357200000,
         1567357200000
@@ -413,7 +413,7 @@
       "id": 19
     },
     {
-      "tittle": "frick no2",
+      "title": "frick no2",
       "date": [
         1568134800000,
         1568826000000
@@ -421,7 +421,7 @@
       "id": 20
     },
     {
-      "tittle": "frick212",
+      "title": "frick212",
       "date": [
         1564333200000,
         1570208400000
