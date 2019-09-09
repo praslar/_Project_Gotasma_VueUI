@@ -1,7 +1,7 @@
 {
   "resources": [
     {
-      "id": 1510251,
+      "id": 11,
       "badgeID": "batch-27",
       "name": "Thang Pham",
       "email": "praslar@gmail.com",
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "id": 1510238,
+      "id": 12,
       "badgeID": "batch-27",
       "name": "Quan Vo",
       "email": "vnmquan@gmail.com",
@@ -42,10 +42,10 @@
       ]
     },
     {
-      "id": 1002401,
+      "id": 13,
       "badgeID": "939145",
-      "name": "Nhan Dinh",
-      "email": "ndinh@gmail.com",
+      "name": "Clark Kent",
+      "email": "clarkfrickinKent@gmail.com",
       "projects": [
         {
           "id": 1,
@@ -60,10 +60,10 @@
       ]
     },
     {
-      "id": 103211,
+      "id": 13,
       "badgeID": "132145",
-      "name": "Trung Huynh",
-      "email": "httrung@gmail.com",
+      "name": "John Doe",
+      "email": "johnnyboydoe@gmail.com",
       "projects": [
         {
           "id": 1,
@@ -74,18 +74,148 @@
           "id": 3,
           "name": "Smart DLU",
           "effort": 10
-        },
-        {
-          "id": 2,
-          "name": "Coffee Cat",
-          "effort": 10
-        },
-        {
-          "id": 4,
-          "name": "Vitalsuite",
-          "effort": 10
         }
       ]
+    },
+    {
+      "id": 14,
+      "badgeID": "456789",
+      "name": "Peter Parker",
+      "email": "peterspiderboi@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 15,
+      "badgeID": "122332",
+      "name": "John Wayne",
+      "email": "wannabeBruce@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 16,
+      "badgeID": "455654",
+      "name": "Cat",
+      "email": "wannabeDog@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 17,
+      "badgeID": "908713",
+      "name": "Davie",
+      "email": "davie504@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 18,
+      "badgeID": "batch-26",
+      "name": "Dixie Normous",
+      "email": "myenormousD@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 19,
+      "badgeID": "batch-26",
+      "name": "Justin Sider",
+      "email": "wannabeBieber@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 110,
+      "badgeID": "batch-26",
+      "name": "Jen Sidebottom",
+      "email": "wannabeInTheMiddle@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 111,
+      "badgeID": "784123",
+      "name": "Jack Kanoff",
+      "email": "jackinoffsometime@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 112,
+      "badgeID": "532874",
+      "name": "Oliver Loser",
+      "email": "praslar2pointO@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 113,
+      "badgeID": "857746",
+      "name": "Juky frickin-san",
+      "email": "jukysanlol@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 114,
+      "badgeID": "ngungbich-69",
+      "name": "Thuy Kieu",
+      "email": "buontrong@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 115,
+      "badgeID": "ngungbich-69",
+      "name": "Thuy Van",
+      "email": "wannabeKieu@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 117,
+      "badgeID": "ngungbich-69",
+      "name": "Trang Quynh",
+      "email": "lamTrangSuck@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 118,
+      "badgeID": "628869",
+      "name": "Dog",
+      "email": "wannabeCat@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 119,
+      "badgeID": "628090",
+      "name": "Ton Ngo Khong",
+      "email": "toTheEast@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 120,
+      "badgeID": "690069",
+      "name": "Tru Bat Gioi",
+      "email": "toTheEastwithLove@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 121,
+      "badgeID": "969213",
+      "name": "Cow",
+      "email": "justaCow@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 122,
+      "badgeID": "327456",
+      "name": "Songoku",
+      "email": "wannabe@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 123,
+      "badgeID": "456781",
+      "name": "Trump",
+      "email": "theBestPre@gmail.com",
+      "projects": []
+    },
+    {
+      "id": 124,
+      "badgeID": "777888",
+      "name": "Obama",
+      "email": "theOneandOnly@gmail.com",
+      "projects": []
     }
   ],
   "exceptions": [
@@ -96,6 +226,14 @@
         1577206800000,
         1577725200000
       ]
+    },
+    {
+      "tittle": "Random day off 3",
+      "date": [
+        1569603600000,
+        1569690000000
+      ],
+      "id": 6
     },
     {
       "tittle": "Mid-autumn",
@@ -114,12 +252,39 @@
       "id": 15
     },
     {
+      "tittle": "Mid-autumn222",
+      "date": [
+        1568221200000,
+        1568566800000
+      ],
+      "id": 16
+    },
+    {
       "tittle": "Indepentdence Day ",
       "date": [
         1567357200000,
         1567357200000
       ],
       "id": 19
+<<<<<<< HEAD
+=======
+    },
+    {
+      "tittle": "frick no2",
+      "date": [
+        1568134800000,
+        1568826000000
+      ],
+      "id": 20
+    },
+    {
+      "tittle": "frick212",
+      "date": [
+        1564333200000,
+        1570208400000
+      ],
+      "id": 21
+>>>>>>> 4bcc225395face60f7f0c0a25ce7e80657d32f2c
     }
   ],
   "projects": [
@@ -237,16 +402,10 @@
           "email": "praslar@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
+          "id": 16,
+          "badgeID": "455654",
+          "name": "Cat",
+          "email": "wannabeDog@gmail.com"
         },
         {
           "id": 14,
@@ -255,17 +414,17 @@
           "email": "peterspiderboi@gmail.com"
         },
         {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 17,
+          "badgeID": "908713",
+          "name": "Davie",
+          "email": "davie504@gmail.com"
         }
       ],
       "tasks": [
         {
           "id": 1,
           "label": "Phan tich va Thiet ke va Design",
-          "user": "Thang Pham Xuan",
+          "user": "Thang Pham",
           "start": 1567011600000,
           "duration": 259200000,
           "type": "project"
@@ -308,7 +467,7 @@
         {
           "id": 6,
           "label": "Frick this",
-          "user": "Thang Pham Xuan",
+          "user": "Thang Pham",
           "start": 1568739600000,
           "duration": 172800000,
           "type": "task"
@@ -337,28 +496,10 @@
           "email": "praslar@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 12,
+          "badgeID": "batch-27",
+          "name": "Quan Vo",
+          "email": "vnmquan@gmail.com"
         }
       ],
       "tasks": [
@@ -401,7 +542,7 @@
         {
           "id": 5,
           "label": "Combine mountain and dew",
-          "user": "Thang Pham Xuan",
+          "user": "Thang Pham",
           "start": 1568739600000,
           "duration": 172800000,
           "type": "task"
@@ -432,34 +573,34 @@
       "updateDate": 1566783736782,
       "users": [
         {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
+          "id": 18,
+          "badgeID": "batch-26",
+          "name": "Dixie Normous",
+          "email": "myenormousD@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
+          "id": 19,
+          "badgeID": "batch-26",
+          "name": "Justin Sider",
+          "email": "wannabeBieber@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
+          "id": 110,
+          "badgeID": "batch-26",
+          "name": "Jen Sidebottom",
+          "email": "wannabeInTheMiddle@gmail.com"
         },
         {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
+          "id": 111,
+          "badgeID": "784123",
+          "name": "Jack Kanoff",
+          "email": "jackinoffsometime@gmail.com"
         },
         {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 112,
+          "badgeID": "532874",
+          "name": "Oliver Loser",
+          "email": "praslar2pointO@gmail.com"
         }
       ],
       "tasks": [
@@ -533,34 +674,10 @@
       "updateDate": 1566535736782,
       "users": [
         {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 113,
+          "badgeID": "857746",
+          "name": "Juky frickin-san",
+          "email": "jukysanlol@gmail.com"
         }
       ],
       "tasks": [
@@ -600,135 +717,22 @@
       "updateDate": 1569050936782,
       "users": [
         {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
+          "id": 114,
+          "badgeID": "ngungbich-69",
+          "name": "Thuy Kieu",
+          "email": "buontrong@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
+          "id": 115,
+          "badgeID": "ngungbich-69",
+          "name": "Thuy Van",
+          "email": "wannabeKieu@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Say ooo",
-          "user": "Thuy Kieu",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Say ooooooooo",
-          "user": "Thuy Van",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "Say long",
-          "user": "Thuy Kieu",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Say longgggg",
-          "user": "Thuy Van",
-          "parentId": 3,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "collapsed": true,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Say oolong",
-          "user": "Trang Quynh",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Oo that's longg",
-          "user": "Thuy Kieu",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Say ooo longgg",
-          "user": "Trang Quynh",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "name": "coffee S",
-      "effort": 40,
-      "startDate": 1550014136782,
-      "updateDate": 1572433336782,
-      "users": [
-        {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 117,
+          "badgeID": "ngungbich-69",
+          "name": "Trang Quynh",
+          "email": "lamTrangSuck@gmail.com"
         }
       ],
       "tasks": [
@@ -808,28 +812,10 @@
           "email": "praslar@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 12,
+          "badgeID": "batch-27",
+          "name": "Quan Vo",
+          "email": "vnmquan@gmail.com"
         }
       ],
       "tasks": [
@@ -854,7 +840,7 @@
         {
           "id": 3,
           "label": "Idea 22",
-          "user": "Thang Pham Xuan",
+          "user": "Thang Pham",
           "start": 1567931380000,
           "duration": 1296000000,
           "type": "project"
@@ -880,7 +866,7 @@
         {
           "id": 6,
           "label": "Idea 55555",
-          "user": "Thang Pham Xuan",
+          "user": "Thang Pham",
           "start": 1568739600000,
           "duration": 172800000,
           "type": "task"
@@ -903,34 +889,58 @@
       "updateDate": 1577748536782,
       "users": [
         {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
+          "id": 114,
+          "badgeID": "ngungbich-69",
+          "name": "Thuy Kieu",
+          "email": "buontrong@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
+          "id": 115,
+          "badgeID": "ngungbich-69",
+          "name": "Thuy Van",
+          "email": "wannabeKieu@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
+          "id": 118,
+          "badgeID": "628869",
+          "name": "Dog",
+          "email": "wannabeCat@gmail.com"
         },
         {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
+          "id": 119,
+          "badgeID": "628090",
+          "name": "Ton Ngo Khong",
+          "email": "toTheEast@gmail.com"
         },
         {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 120,
+          "badgeID": "690069",
+          "name": "Tru Bat Gioi",
+          "email": "toTheEastwithLove@gmail.com"
+        },
+        {
+          "id": 121,
+          "badgeID": "969213",
+          "name": "Cow",
+          "email": "justaCow@gmail.com"
+        },
+        {
+          "id": 122,
+          "badgeID": "327456",
+          "name": "Songoku",
+          "email": "wannabe@gmail.com"
+        },
+        {
+          "id": 16,
+          "badgeID": "455654",
+          "name": "Cat",
+          "email": "wannabeDog@gmail.com"
+        },
+        {
+          "id": 117,
+          "badgeID": "ngungbich-69",
+          "name": "Trang Quynh",
+          "email": "lamTrangSuck@gmail.com"
         }
       ],
       "tasks": [
@@ -955,7 +965,7 @@
         {
           "id": 3,
           "label": "Say long",
-          "user": "Random Cat",
+          "user": "Cat",
           "start": 1567931380000,
           "duration": 1296000000,
           "type": "project"
@@ -963,7 +973,7 @@
         {
           "id": 4,
           "label": "Say longgggg",
-          "user": "Random Dog",
+          "user": "Dog",
           "parentId": 3,
           "start": 1567758580000,
           "duration": 172800000,
@@ -997,7 +1007,7 @@
         {
           "id": 8,
           "label": "Say longgggg",
-          "user": "Cookie some",
+          "user": "Cow",
           "parentId": 7,
           "start": 1567758580000,
           "duration": 172800000,
@@ -1030,34 +1040,16 @@
       "updateDate": 1571655736782,
       "users": [
         {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
+          "id": 124,
+          "badgeID": "777888",
+          "name": "Obama",
+          "email": "theOneandOnly@gmail.com"
         },
         {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
+          "id": 123,
+          "badgeID": "456781",
+          "name": "Trump",
+          "email": "theBestPre@gmail.com"
         }
       ],
       "tasks": [
