@@ -4,6 +4,6 @@ export const getProjects = async() => {
     return await NetworkHelper.requestGet('/projects')
 }
 
-export const addProj = async() => {
-    return await NetworkHelper.requestGet('/addProject.json')
+export const addProject = async() => {
+    return await NetworkHelper.requestGet()
 }
