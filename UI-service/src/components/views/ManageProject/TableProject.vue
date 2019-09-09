@@ -70,12 +70,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="project of projects" :key="project.projectID" >
+                  <tr class="even" role="row" v-for="project of projects" :key="project.id" >
                     <td class="sorting_1">
-                      <router-link :to="'../project/' + project.projectID ">
+                      <router-link :to="'../project/' + project.id ">
                           <a>{{ project.name }}</a>
                       </router-link></td>
-                    <td>{{ project.numberOfResources }}</td>
+                    <td>{{ project.users | count }}</td>
                     <td>{{ project.effort }}</td>
                     <td>{{ project.startDate | momentNormalDate }}</td>
                     <td>{{ project.updateDate | momentDetailDate }}</td>

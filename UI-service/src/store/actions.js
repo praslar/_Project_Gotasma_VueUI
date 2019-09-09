@@ -30,6 +30,15 @@ export default {
                 console.log(error)
             })
     },
+    getProjectById({ commit }, payload) {
+        Services.getProjectByID(payload)
+            .then((response) => {
+                commit('GET_PROJECT_BY_ID', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     // Exception actions
     getExceptions({ commit }) {
         Services.getExceptions()
@@ -40,16 +49,20 @@ export default {
                 console.log(error)
             })
     },
-    addExceptions(context, payload) {
-        console.log(payload, 'add')
+    addExceptions({ commit }, payload) {
         Services.addExceptions(payload)
+            .then((response) => {
+                commit('ADD_EXCEPTION')
+            })
             .catch(error => {
                 console.log(error)
             })
     },
-    deleteExceptions(context, payload) {
-        console.log('ID1', payload)
+    deleteExceptions({ commit }, payload) {
         Services.deleteExceptions(payload)
+            .then((response) => {
+                commit('DELETE_EXCEPTION')
+            })
             .catch(error => {
                 console.log('error', payload)
                 console.log(error)

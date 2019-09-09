@@ -1,3 +1,1 @@
-export default {
-    getExceptions: state => state.exceptions
-}
+export default {}
