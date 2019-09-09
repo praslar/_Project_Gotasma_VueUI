@@ -148,6 +148,7 @@ export default {
     }
   },
   updated() {
+    console.log('update')
       this.$nextTick(() => {
         $('#tableProjects').DataTable()
       })
