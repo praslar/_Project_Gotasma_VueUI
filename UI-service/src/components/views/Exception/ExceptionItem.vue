@@ -32,8 +32,7 @@ export default {
     },
     computed: {
     ...mapState([
-      'exceptions',
-      'status'
+      'exceptions'
     ])
     },
     methods: {

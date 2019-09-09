@@ -86,7 +86,7 @@
     },
     {
       "id": 15,
-      "badgeID": "122332",
+      "badgeID": "1510231",
       "name": "John Wayne",
       "email": "wannabeBruce@gmail.com",
       "projects": []
@@ -211,32 +211,24 @@
       "projects": []
     },
     {
-      "id": 124,
-      "badgeID": "777888",
-      "name": "Obama",
-      "email": "theOneandOnly@gmail.com",
-      "projects": []
+      "project": [],
+      "badgeID": "testlast",
+      "name": "lastest",
+      "email": "lastest@lastest.com",
+      "id": 135
     }
   ],
   "exceptions": [
     {
       "id": 2,
-      "tittle": "Christmas",
+      "title": "Christmas",
       "date": [
         1577206800000,
         1577725200000
       ]
     },
     {
-      "tittle": "Random day off 3",
-      "date": [
-        1569603600000,
-        1569690000000
-      ],
-      "id": 6
-    },
-    {
-      "tittle": "Mid-autumn",
+      "title": "Mid-autumn",
       "date": [
         1567702800000,
         1567875600000
@@ -244,7 +236,7 @@
       "id": 14
     },
     {
-      "tittle": "Random day off",
+      "title": "Random day off",
       "date": [
         1568739600000,
         1568826000000
@@ -252,39 +244,12 @@
       "id": 15
     },
     {
-      "tittle": "Mid-autumn222",
-      "date": [
-        1568221200000,
-        1568566800000
-      ],
-      "id": 16
-    },
-    {
-      "tittle": "Indepentdence Day ",
+      "title": "Indepentdence Day ",
       "date": [
         1567357200000,
         1567357200000
       ],
       "id": 19
-<<<<<<< HEAD
-=======
-    },
-    {
-      "tittle": "frick no2",
-      "date": [
-        1568134800000,
-        1568826000000
-      ],
-      "id": 20
-    },
-    {
-      "tittle": "frick212",
-      "date": [
-        1564333200000,
-        1570208400000
-      ],
-      "id": 21
->>>>>>> 4bcc225395face60f7f0c0a25ce7e80657d32f2c
     }
   ],
   "projects": [
@@ -1078,6 +1043,112 @@
           "type": "project"
         }
       ]
+    },
+    {
+      "name": "frick",
+      "effort": "40",
+      "startDate": 1567962000000,
+      "users": [],
+      "tasks": [],
+      "id": 11
+    },
+    {
+      "name": "frick2",
+      "effort": "42",
+      "startDate": 1568048400000,
+      "users": [],
+      "tasks": [],
+      "id": 12
+    },
+    {
+      "name": "frick234",
+      "effort": "40",
+      "startDate": 1567962000000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 13
+    },
+    {
+      "name": "test01project",
+      "effort": "42",
+      "startDate": 1568653200000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 14
+    },
+    {
+      "name": "test02project",
+      "effort": "40",
+      "startDate": 1567962000000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 15
+    },
+    {
+      "name": "test03project",
+      "effort": "40",
+      "startDate": 1568134800000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 16
+    },
+    {
+      "name": "test05project",
+      "effort": "40",
+      "startDate": 1569430800000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 17
+    },
+    {
+      "name": "dddddddddd",
+      "effort": "36",
+      "startDate": 1569258000000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 18
+    },
+    {
+      "name": "test01project2212",
+      "effort": "40",
+      "startDate": 1569776400000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 19
+    },
+    {
+      "name": "frick987654321",
+      "effort": "40",
+      "startDate": 1569776400000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 20
+    },
+    {
+      "name": "frick234987654321",
+      "effort": "42",
+      "startDate": 1569171600000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 21
+    },
+    {
+      "name": "frick234987654323456789876543",
+      "effort": "38",
+      "startDate": 1568739600000,
+      "updateDate": "",
+      "users": [],
+      "tasks": [],
+      "id": 22
     }
   ]
 }

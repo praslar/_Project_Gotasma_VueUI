@@ -68,7 +68,7 @@
                     <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
                     <td ><a class="btn btn-app" @click="$modal.show('newresource', {resource})"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app" @click="showDialogMember()"><i class="fa fa-remove"></i></a>           
+                        <a class="btn btn-app" @click="showDialogMember(resource.id)"><i class="fa fa-remove"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
@@ -80,16 +80,16 @@
 <script>
 import NewResource from './NewResource'
 import $ from 'jquery'
+import { mapState } from 'vuex'
 require('datatables.net-bs')
 
 export default {
   name: 'resource-table',
-  props: ['resources'],
   components: {
     NewResource
   },
   methods: {
-    showDialogMember() {
+    showDialogMember(id) {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
         text: 'Do you wish to delete this project',
@@ -98,7 +98,7 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-              alert('OK')
+              this.$store.dispatch('deleteResource', id)
               this.$modal.hide('dialog')
             }
           },
@@ -116,6 +116,29 @@ export default {
       this.$nextTick(() => {
         $('#resourcesTable').DataTable()
       })
+  },
+  created() {
+    this.$store.dispatch('getResources')
+  },
+  computed: {
+   ...mapState([
+     'resources'
+   ])
+  },
+  mounted() {
+    this.$store.subscribe((mutation, state) => {
+      switch (mutation.type) {
+        case 'ADD_RESOURCE':
+          this.$store.dispatch('getResources')
+          break
+        case 'DELETE_RESOURCE':
+          this.$store.dispatch('getResources')
+          break
+        case 'EDIT_RESOURCE':
+        this.$store.dispatch('getResources')
+        break
+      }
+    })
   }
 }
 </script>

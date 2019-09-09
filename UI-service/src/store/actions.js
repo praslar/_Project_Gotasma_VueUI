@@ -11,10 +11,28 @@ export default {
                 console.log(error)
             })
     },
-    addResources(resources) {
-        Services.addResources(resources)
+    addResource({ commit }, payload) {
+        Services.addResource(payload)
             .then((response) => {
-                console.log(response)
+                commit('ADD_RESOURCE')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    deleteResource({ commit }, payload) {
+        Services.deleteResource(payload)
+            .then((response) => {
+                commit('DELETE_RESOURCE')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    editResource({ commit }, payload) {
+        Services.editResource(payload)
+            .then((response) => {
+                commit('EDIT_RESOURCE')
             })
             .catch(error => {
                 console.log(error)
@@ -64,7 +82,6 @@ export default {
                 commit('DELETE_EXCEPTION')
             })
             .catch(error => {
-                console.log('error', payload)
                 console.log(error)
             })
     }

@@ -4,6 +4,14 @@ export const getResources = async() => {
     return await NetworkHelper.requestGet('/resources')
 }
 
-export const addResources = async(resources) => {
-    return await NetworkHelper.requestPost('/resources', resources)
+export const addResource = async(resource) => {
+    return await NetworkHelper.requestPost('/resources', resource)
+}
+
+export const deleteResource = async(id) => {
+    return await NetworkHelper.requestDelete('/resources/' + id)
+}
+
+export const editResource = async(resource) => {
+    return await NetworkHelper.requestPut('/resources/' + resource.id, resource)
 }

@@ -7,8 +7,8 @@
         <i>Here you manage people from all your projects. You can also invite new members by email.</i>
               
       </div>
-            <new-resource :resources="resources"></new-resource>
-            <resource-table :resources="resources"></resource-table>
+            <new-resource></new-resource>
+            <resource-table></resource-table>
       </div>
   </section>
 </template>
@@ -16,21 +16,12 @@
 <script>
 import ResourceTable from './ResourceTable'
 import NewResource from './NewResource'
-import { mapState } from 'vuex'
 
 export default {
   name: 'resource',
   components: {
     ResourceTable,
     NewResource
-  },
-  created() {
-    this.$store.dispatch('getResources')
-  },
-  computed: {
-   ...mapState([
-     'resources'
-   ])
   }
 }
 </script>

@@ -90,7 +90,7 @@ export default {
       submitted: false,
       isEditting: false,
       member: {
-        resourcesID: '12309123',
+        id: '',
         badgeID: '',
         name: '',
         email: '',
@@ -106,10 +106,16 @@ export default {
       this.submitted = true
       this.$validator.validate().then(valid => {
                 if (valid) {
-                  this.$store.dispatch('addResources', this.member)
+                  if (this.isEditting === false) {
+                    this.$store.dispatch('addResource', this.member)
+                    this.$modal.hide('newresource')
+                  } else {
+                    this.$store.dispatch('editResource', this.member)
+                    this.$modal.hide('newresource')
+                  }
                 }
             })
-            },
+    },
     beforeOpen(event) {
       // check if the dialog open is for edit resources or to add new resources
       if (event.params != null) {
@@ -117,6 +123,7 @@ export default {
         this.isEditting = true
       } else {
         this.member = {}
+        this.member.project = []
       }
     },
     beforeClose() {
