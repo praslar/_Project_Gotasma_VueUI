@@ -15,6 +15,7 @@
     <gantt-elastic
       :options="options"
       :tasks="tasks"
+      :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
@@ -30,7 +31,7 @@ import taskModal from './Elememts/TaskModal'
 import dayjs from 'dayjs'
 import GanttElastic from 'gantt-elastic'
 import GanttHeader from 'gantt-elastic-header'
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'Gantt',
@@ -116,7 +117,7 @@ export default {
                   {
                       id: 4,
                       label: 'End',
-                      value: task => dayjs(task.startTime + task.duration).format('DD-MM-YYYY'),
+                      value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 78
                   }
               ]
@@ -131,7 +132,11 @@ export default {
     ...mapState([
       'headerOptions',
       'tasks',
-      'project'
+      'project',
+      'exceptions'
+    ]),
+    ...mapGetters([
+      'exceptionDays'
     ])
   },
   methods: {

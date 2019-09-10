@@ -30,13 +30,14 @@ export default {
         id: 0,
         label: 'Preloading',
         user: 'Preloading',
-        start: 1567875600000,
-        duration: 1 * 24 * 60 * 60 * 1000,
+        start: 1568566800000 + 86400000 * 4,
+        duration: 3 * 24 * 60 * 60 * 1000,
         type: 'project'
     }],
     resources: [],
     users: [],
     projects: [],
     project: {},
-    exceptions: []
+    exceptions: [],
+    exceptionDatesList: []
 }
