@@ -1,1207 +1,1160 @@
 {
-  "resources": [
-    {
-      "id": 11,
-      "badgeID": "batch-27",
-      "name": "Thang Pham",
-      "email": "praslar@gmail.com",
-      "projects": [
-        {
-          "id": 1,
-          "name": "coca cola",
-          "effort": 20
+    "resources": [{
+            "id": 11,
+            "badgeID": "batch-27",
+            "name": "Thang Pham",
+            "email": "praslar@gmail.com",
+            "projects": [{
+                    "id": 1,
+                    "name": "coca cola",
+                    "effort": 20
+                },
+                {
+                    "id": 2,
+                    "name": "Coffee Cat",
+                    "effort": 20
+                },
+                {
+                    "id": 3,
+                    "name": "mountain dew",
+                    "effort": 20
+                },
+                {
+                    "id": 8,
+                    "name": "white coke",
+                    "effort": 20
+                }
+            ]
         },
         {
-          "id": 2,
-          "name": "Coffee Cat",
-          "effort": 20
+            "id": 12,
+            "badgeID": "batch-27",
+            "name": "Quan Vo",
+            "email": "vnmquan@gmail.com",
+            "projects": [{
+                    "id": 3,
+                    "name": "mountain dew",
+                    "effort": 20
+                },
+                {
+                    "id": 8,
+                    "name": "white coke",
+                    "effort": 20
+                },
+                {
+                    "id": 2,
+                    "name": "Coffee Cat",
+                    "effort": 20
+                }
+            ]
         },
         {
-          "id": 3,
-          "name": "mountain dew",
-          "effort": 20
+            "id": 13,
+            "badgeID": "939145",
+            "name": "Clark Kent",
+            "email": "clarkfrickinKent@gmail.com",
+            "projects": [{
+                "id": 1,
+                "name": "coca cola",
+                "effort": 20
+            }]
         },
         {
-          "id": 8,
-          "name": "white coke",
-          "effort": 20
+            "id": 13,
+            "badgeID": "132145",
+            "name": "John Doe",
+            "email": "johnnyboydoe@gmail.com",
+            "projects": [{
+                "id": 1,
+                "name": "coca cola",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 14,
+            "badgeID": "456789",
+            "name": "Peter Parker",
+            "email": "peterspiderboi@gmail.com",
+            "projects": [{
+                    "id": 1,
+                    "name": "coca cola",
+                    "effort": 10
+                },
+                {
+                    "id": 2,
+                    "name": "Coffee Cat",
+                    "effort": 10
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "badgeID": "122332",
+            "name": "John Wayne",
+            "email": "wannabeBruce@gmail.com",
+            "projects": [{
+                "id": 1,
+                "name": "coca cola",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 16,
+            "badgeID": "455654",
+            "name": "Cat",
+            "email": "wannabeDog@gmail.com",
+            "projects": [{
+                    "id": 2,
+                    "name": "Coffee Cat",
+                    "effort": 10
+                },
+                {
+                    "id": 9,
+                    "name": "this is a long aquafina",
+                    "effort": 10
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "badgeID": "908713",
+            "name": "Davie",
+            "email": "davie504@gmail.com",
+            "projects": [{
+                "id": 2,
+                "name": "Coffee Cat",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 18,
+            "badgeID": "batch-26",
+            "name": "Dixie Normous",
+            "email": "myenormousD@gmail.com",
+            "projects": [{
+                "id": 4,
+                "name": "heineken",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 19,
+            "badgeID": "batch-26",
+            "name": "Justin Sider",
+            "email": "wannabeBieber@gmail.com",
+            "projects": [{
+                "id": 4,
+                "name": "heineken",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 110,
+            "badgeID": "batch-26",
+            "name": "Jen Sidebottom",
+            "email": "wannabeInTheMiddle@gmail.com",
+            "projects": [{
+                "id": 4,
+                "name": "heineken",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 111,
+            "badgeID": "784123",
+            "name": "Jack Kanoff",
+            "email": "jackinoffsometime@gmail.com",
+            "projects": [{
+                "id": 4,
+                "name": "heineken",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 112,
+            "badgeID": "532874",
+            "name": "Oliver Loser",
+            "email": "praslar2pointO@gmail.com",
+            "projects": [{
+                "id": 4,
+                "name": "heineken",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 113,
+            "badgeID": "857746",
+            "name": "Juky frickin-san",
+            "email": "jukysanlol@gmail.com",
+            "projects": [{
+                "id": 5,
+                "name": "sting",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 114,
+            "badgeID": "ngungbich-69",
+            "name": "Thuy Kieu",
+            "email": "buontrong@gmail.com",
+            "projects": [{
+                    "id": 6,
+                    "name": "oolong",
+                    "effort": 10
+                },
+                {
+                    "id": 9,
+                    "name": "this is a long aquafina",
+                    "effort": 10
+                }
+            ]
+        },
+        {
+            "id": 115,
+            "badgeID": "ngungbich-69",
+            "name": "Thuy Van",
+            "email": "wannabeKieu@gmail.com",
+            "projects": [{
+                    "id": 6,
+                    "name": "oolong",
+                    "effort": 10
+                },
+                {
+                    "id": 9,
+                    "name": "this is a long aquafina",
+                    "effort": 10
+                }
+            ]
+        },
+        {
+            "id": 117,
+            "badgeID": "ngungbich-69",
+            "name": "Trang Quynh",
+            "email": "lamTrangSuck@gmail.com",
+            "projects": [{
+                    "id": 6,
+                    "name": "oolong",
+                    "effort": 10
+                },
+                {
+                    "id": 9,
+                    "name": "this is a long aquafina",
+                    "effort": 10
+                }
+            ]
+        },
+        {
+            "id": 118,
+            "badgeID": "628869",
+            "name": "Dog",
+            "email": "wannabeCat@gmail.com",
+            "projects": [{
+                "id": 9,
+                "name": "this is a long aquafina",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 119,
+            "badgeID": "628090",
+            "name": "Ton Ngo Khong",
+            "email": "toTheEast@gmail.com",
+            "projects": [{
+                "id": 9,
+                "name": "this is a long aquafina",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 120,
+            "badgeID": "690069",
+            "name": "Tru Bat Gioi",
+            "email": "toTheEastwithLove@gmail.com",
+            "projects": [{
+                "id": 9,
+                "name": "this is a long aquafina",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 121,
+            "badgeID": "969213",
+            "name": "Cow",
+            "email": "justaCow@gmail.com",
+            "projects": [{
+                "id": 9,
+                "name": "this is a long aquafina",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 122,
+            "badgeID": "327456",
+            "name": "Songoku",
+            "email": "wannabe@gmail.com",
+            "projects": [{
+                "id": 9,
+                "name": "this is a long aquafina",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 123,
+            "badgeID": "456781",
+            "name": "Trump",
+            "email": "theBestPre@gmail.com",
+            "projects": [{
+                "id": 10,
+                "name": "japanese tea",
+                "effort": 10
+            }]
+        },
+        {
+            "id": 124,
+            "badgeID": "777888",
+            "name": "Obama",
+            "email": "theOneandOnly@gmail.com",
+            "projects": [{
+                "id": 10,
+                "name": "japanese tea",
+                "effort": 10
+            }]
         }
-      ]
-    },
-    {
-      "id": 12,
-      "badgeID": "batch-27",
-      "name": "Quan Vo",
-      "email": "vnmquan@gmail.com",
-      "projects": [
-        {
-          "id": 3,
-          "name": "mountain dew",
-          "effort": 20
+    ],
+    "exceptions": [{
+            "id": 2,
+            "title": "Christmas",
+            "date": [
+                1577206800000,
+                1577725200000
+            ]
         },
         {
-          "id": 8,
-          "name": "white coke",
-          "effort": 20
+            "title": "Mid-autumn",
+            "date": [
+                1567702800000,
+                1567875600000
+            ],
+            "id": 14
         },
         {
-          "id": 2,
-          "name": "Coffee Cat",
-          "effort": 20
+            "title": "Random day off",
+            "date": [
+                1568739600000,
+                1568826000000
+            ],
+            "id": 15
+        },
+        {
+            "title": "Independence day",
+            "date": [
+                1567357200000,
+                1567443600000
+            ],
+            "id": 16
+        },
+        {
+            "title": "Day of 23",
+            "date": [
+                1569171600000,
+                1569258000000
+            ],
+            "id": 17
+        },
+        {
+            "title": "Hom nay nghi di nhe ",
+            "date": [
+                1568048400000,
+                1568134800000
+            ],
+            "id": 18
         }
-      ]
-    },
-    {
-      "id": 13,
-      "badgeID": "939145",
-      "name": "Clark Kent",
-      "email": "clarkfrickinKent@gmail.com",
-      "projects": [
+    ],
+    "projects": [{
+            "id": 1,
+            "name": "coca cola",
+            "effort": 40,
+            "startDate": 1566925200000,
+            "updateDate": 1566929200000,
+            "users": [{
+                    "id": 11,
+                    "badgeID": "batch-27",
+                    "name": "Thang Pham",
+                    "email": "praslar@gmail.com"
+                },
+                {
+                    "id": 13,
+                    "badgeID": "939145",
+                    "name": "Clark Kent",
+                    "email": "clarkfrickinKent@gmail.com"
+                },
+                {
+                    "id": 13,
+                    "badgeID": "132145",
+                    "name": "John Doe",
+                    "email": "johnnyboydoe@gmail.com"
+                },
+                {
+                    "id": 14,
+                    "badgeID": "456789",
+                    "name": "Peter Parker",
+                    "email": "peterspiderboi@gmail.com"
+                },
+                {
+                    "id": 15,
+                    "badgeID": "122332",
+                    "name": "John Wayne",
+                    "email": "wannabeBruce@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Phan tich va thiet ke",
+                    "user": "Thang Pham",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Make some noise",
+                    "user": "John Doe",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "With great power comes great responsibility",
+                    "user": "Peter Parker",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 4,
+                    "label": "Courage is being scared to death, but saddling up anyway.",
+                    "user": "John Wayne",
+                    "parentId": 2,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 5,
+                    "label": "Put that toy AWAY!",
+                    "user": "Clark Kent",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 6,
+                    "label": "Frick this",
+                    "user": "Clark Kent",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Put that toy AWAY!",
+                    "user": "Clark Kent",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
         {
-          "id": 1,
-          "name": "coca cola",
-          "effort": 20
+            "id": 2,
+            "name": "Coffee Cat",
+            "effort": 40,
+            "startDate": 1572625336782,
+            "updateDate": 1575217336782,
+            "users": [{
+                    "id": 11,
+                    "badgeID": "batch-27",
+                    "name": "Thang Pham",
+                    "email": "praslar@gmail.com"
+                },
+                {
+                    "id": 16,
+                    "badgeID": "455654",
+                    "name": "Cat",
+                    "email": "wannabeDog@gmail.com"
+                },
+                {
+                    "id": 14,
+                    "badgeID": "456789",
+                    "name": "Peter Parker",
+                    "email": "peterspiderboi@gmail.com"
+                },
+                {
+                    "id": 17,
+                    "badgeID": "908713",
+                    "name": "Davie",
+                    "email": "davie504@gmail.com"
+                },
+                {
+                    "id": 12,
+                    "badgeID": "batch-27",
+                    "name": "Quan Vo",
+                    "email": "vnmquan@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Phan tich va Thiet ke va Design",
+                    "user": "Thang Pham",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Make some coffee",
+                    "user": "Cat",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "Spider-man is gone",
+                    "user": "Peter Parker",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 4,
+                    "label": "Courage is a dog, and courage is a silly name",
+                    "user": "Cat",
+                    "parentId": 2,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 5,
+                    "label": "Slap like now",
+                    "user": "Davie",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 6,
+                    "label": "Frick this",
+                    "user": "Thang Pham",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Bass is bass, slap the bass!!!",
+                    "user": "Davie",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Be the boss lol",
+                    "user": "Quan Vo",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "moutain dew",
+            "effort": 38,
+            "startDate": 1566950136782,
+            "updateDate": 1569542136782,
+            "users": [{
+                    "id": 11,
+                    "badgeID": "batch-27",
+                    "name": "Thang Pham",
+                    "email": "praslar@gmail.com"
+                },
+                {
+                    "id": 12,
+                    "badgeID": "batch-27",
+                    "name": "Quan Vo",
+                    "email": "vnmquan@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "This is a mountain",
+                    "user": "Thang Pham",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Make a mountain",
+                    "user": "Thang Pham",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "This is a dew",
+                    "user": "Quan Vo",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                },
+                {
+                    "id": 4,
+                    "label": "Make a dew from a dove",
+                    "user": "Quan Vo",
+                    "parentId": 3,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "collapsed": true,
+                    "type": "task"
+                },
+                {
+                    "id": 5,
+                    "label": "Combine mountain and dew",
+                    "user": "Thang Pham",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 6,
+                    "label": "Frick this",
+                    "user": "Quan Vo",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Go the frick AWAY!",
+                    "user": "Quan Vo",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "heineken",
+            "effort": 40,
+            "startDate": 1565191736782,
+            "updateDate": 1566783736782,
+            "users": [{
+                    "id": 18,
+                    "badgeID": "batch-26",
+                    "name": "Dixie Normous",
+                    "email": "myenormousD@gmail.com"
+                },
+                {
+                    "id": 19,
+                    "badgeID": "batch-26",
+                    "name": "Justin Sider",
+                    "email": "wannabeBieber@gmail.com"
+                },
+                {
+                    "id": 110,
+                    "badgeID": "batch-26",
+                    "name": "Jen Sidebottom",
+                    "email": "wannabeInTheMiddle@gmail.com"
+                },
+                {
+                    "id": 111,
+                    "badgeID": "784123",
+                    "name": "Jack Kanoff",
+                    "email": "jackinoffsometime@gmail.com"
+                },
+                {
+                    "id": 112,
+                    "badgeID": "532874",
+                    "name": "Oliver Loser",
+                    "email": "praslar2pointO@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Break the rule",
+                    "user": "Dixie Normous",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Cutting loose end",
+                    "user": "Justin Sider",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "See thing form a side and from bottom up",
+                    "user": "Jen Sidebottom",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                },
+                {
+                    "id": 4,
+                    "label": "Get jacked and go off",
+                    "user": "Jack Kanoff",
+                    "parentId": 3,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "collapsed": true,
+                    "type": "task"
+                },
+                {
+                    "id": 5,
+                    "label": "Once a loser always a winner",
+                    "user": "Oliver Loser",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 6,
+                    "label": "Frick those who say loser",
+                    "user": "Oliver Loser ",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Sometimes small sometimes big sometimes enormous",
+                    "user": "Dixie Normous",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "sting",
+            "effort": 40,
+            "startDate": 1569857336782,
+            "updateDate": 1566535736782,
+            "users": [{
+                "id": 113,
+                "badgeID": "857746",
+                "name": "Juky frickin-san",
+                "email": "jukysanlol@gmail.com"
+            }],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Find sweet",
+                    "user": "Juky frickin-san",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Find red stuff",
+                    "user": "Juky frickin-san",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "Stank it up",
+                    "user": "Juky frickin-san",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "oolong",
+            "effort": 36,
+            "startDate": 1567372536782,
+            "updateDate": 1569050936782,
+            "users": [{
+                    "id": 114,
+                    "badgeID": "ngungbich-69",
+                    "name": "Thuy Kieu",
+                    "email": "buontrong@gmail.com"
+                },
+                {
+                    "id": 115,
+                    "badgeID": "ngungbich-69",
+                    "name": "Thuy Van",
+                    "email": "wannabeKieu@gmail.com"
+                },
+                {
+                    "id": 117,
+                    "badgeID": "ngungbich-69",
+                    "name": "Trang Quynh",
+                    "email": "lamTrangSuck@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Say ooo",
+                    "user": "Thuy Kieu",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Say ooooooooo",
+                    "user": "Thuy Van",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "Say long",
+                    "user": "Thuy Kieu",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                },
+                {
+                    "id": 4,
+                    "label": "Say longgggg",
+                    "user": "Thuy Van",
+                    "parentId": 3,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "collapsed": true,
+                    "type": "task"
+                },
+                {
+                    "id": 5,
+                    "label": "Say oolong",
+                    "user": "Trang Quynh",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 6,
+                    "label": "Oo that's longg",
+                    "user": "Thuy Kieu",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Say ooo longgg",
+                    "user": "Trang Quynh",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "white coke",
+            "effort": 40,
+            "startDate": 1567055736782,
+            "updateDate": 1572647736782,
+            "users": [{
+                    "id": 11,
+                    "badgeID": "batch-27",
+                    "name": "Thang Pham",
+                    "email": "praslar@gmail.com"
+                },
+                {
+                    "id": 12,
+                    "badgeID": "batch-27",
+                    "name": "Quan Vo",
+                    "email": "vnmquan@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Out of idea",
+                    "user": "Quan Vo",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Idea 1",
+                    "user": "Quan Vo",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "Idea 22",
+                    "user": "Thang Pham",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                },
+                {
+                    "id": 4,
+                    "label": "Idea 333",
+                    "user": "Quan Vo",
+                    "parentId": 3,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "collapsed": true,
+                    "type": "task"
+                },
+                {
+                    "id": 5,
+                    "label": "Idea 4444",
+                    "user": "Quan Vo",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 6,
+                    "label": "Idea 55555",
+                    "user": "Thang Pham",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Dead",
+                    "user": "Quan Vo",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "this is a long aquafina",
+            "effort": 36,
+            "startDate": 1577143736782,
+            "updateDate": 1577748536782,
+            "users": [{
+                    "id": 114,
+                    "badgeID": "ngungbich-69",
+                    "name": "Thuy Kieu",
+                    "email": "buontrong@gmail.com"
+                },
+                {
+                    "id": 115,
+                    "badgeID": "ngungbich-69",
+                    "name": "Thuy Van",
+                    "email": "wannabeKieu@gmail.com"
+                },
+                {
+                    "id": 118,
+                    "badgeID": "628869",
+                    "name": "Dog",
+                    "email": "wannabeCat@gmail.com"
+                },
+                {
+                    "id": 119,
+                    "badgeID": "628090",
+                    "name": "Ton Ngo Khong",
+                    "email": "toTheEast@gmail.com"
+                },
+                {
+                    "id": 120,
+                    "badgeID": "690069",
+                    "name": "Tru Bat Gioi",
+                    "email": "toTheEastwithLove@gmail.com"
+                },
+                {
+                    "id": 121,
+                    "badgeID": "969213",
+                    "name": "Cow",
+                    "email": "justaCow@gmail.com"
+                },
+                {
+                    "id": 122,
+                    "badgeID": "327456",
+                    "name": "Songoku",
+                    "email": "wannabe@gmail.com"
+                },
+                {
+                    "id": 16,
+                    "badgeID": "455654",
+                    "name": "Cat",
+                    "email": "wannabeDog@gmail.com"
+                },
+                {
+                    "id": 117,
+                    "badgeID": "ngungbich-69",
+                    "name": "Trang Quynh",
+                    "email": "lamTrangSuck@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Say long",
+                    "user": "Thuy Kieu",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Say ooooooooo",
+                    "user": "Thuy Van",
+                    "parentId": 1,
+                    "start": 1568104180000,
+                    "duration": 345600000,
+                    "collapsed": true,
+                    "type": "project"
+                },
+                {
+                    "id": 3,
+                    "label": "Say long",
+                    "user": "Cat",
+                    "start": 1567931380000,
+                    "duration": 1296000000,
+                    "type": "project"
+                },
+                {
+                    "id": 4,
+                    "label": "Say longgggg",
+                    "user": "Dog",
+                    "parentId": 3,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "collapsed": true,
+                    "type": "task"
+                },
+                {
+                    "id": 5,
+                    "label": "Say oolong",
+                    "user": "Trang Quynh",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 6,
+                    "label": "Oo that's longg",
+                    "user": "Ton Ngo Khong",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Say ooo longgg",
+                    "user": "Tru Bat Gioi",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 8,
+                    "label": "Say longgggg",
+                    "user": "Cow",
+                    "parentId": 7,
+                    "start": 1567758580000,
+                    "duration": 172800000,
+                    "collapsed": true,
+                    "type": "task"
+                },
+                {
+                    "id": 9,
+                    "label": "Say oolong",
+                    "user": "Cow",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 10,
+                    "label": "Oo that's longg",
+                    "user": "Songoku",
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "japanese tea",
+            "effort": 40,
+            "startDate": 1559236536782,
+            "updateDate": 1571655736782,
+            "users": [{
+                    "id": 124,
+                    "badgeID": "777888",
+                    "name": "Obama",
+                    "email": "theOneandOnly@gmail.com"
+                },
+                {
+                    "id": 123,
+                    "badgeID": "456781",
+                    "name": "Trump",
+                    "email": "theBestPre@gmail.com"
+                }
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Japanese is awesome",
+                    "user": "Trump",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 2,
+                    "label": "Japanese is fricking awesome",
+                    "user": "Obama",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 1,
+                    "label": "Go away Obama",
+                    "user": "Trump",
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": 13,
-      "badgeID": "132145",
-      "name": "John Doe",
-      "email": "johnnyboydoe@gmail.com",
-      "projects": [
-        {
-          "id": 1,
-          "name": "coca cola",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "badgeID": "456789",
-      "name": "Peter Parker",
-      "email": "peterspiderboi@gmail.com",
-      "projects": [
-        {
-          "id": 1,
-          "name": "coca cola",
-          "effort": 10
-        },
-        {
-          "id": 2,
-          "name": "Coffee Cat",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "badgeID": "122332",
-      "name": "John Wayne",
-      "email": "wannabeBruce@gmail.com",
-      "projects": [
-        {
-          "id": 1,
-          "name": "coca cola",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "badgeID": "455654",
-      "name": "Cat",
-      "email": "wannabeDog@gmail.com",
-      "projects": [
-        {
-          "id": 2,
-          "name": "Coffee Cat",
-          "effort": 10
-        },
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 17,
-      "badgeID": "908713",
-      "name": "Davie",
-      "email": "davie504@gmail.com",
-      "projects": [
-        {
-          "id": 2,
-          "name": "Coffee Cat",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 18,
-      "badgeID": "batch-26",
-      "name": "Dixie Normous",
-      "email": "myenormousD@gmail.com",
-      "projects": [
-        {
-          "id": 4,
-          "name": "heineken",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "badgeID": "batch-26",
-      "name": "Justin Sider",
-      "email": "wannabeBieber@gmail.com",
-      "projects": [
-        {
-          "id": 4,
-          "name": "heineken",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 110,
-      "badgeID": "batch-26",
-      "name": "Jen Sidebottom",
-      "email": "wannabeInTheMiddle@gmail.com",
-      "projects": [
-        {
-          "id": 4,
-          "name": "heineken",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 111,
-      "badgeID": "784123",
-      "name": "Jack Kanoff",
-      "email": "jackinoffsometime@gmail.com",
-      "projects": [
-        {
-          "id": 4,
-          "name": "heineken",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 112,
-      "badgeID": "532874",
-      "name": "Oliver Loser",
-      "email": "praslar2pointO@gmail.com",
-      "projects": [
-        {
-          "id": 4,
-          "name": "heineken",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 113,
-      "badgeID": "857746",
-      "name": "Juky frickin-san",
-      "email": "jukysanlol@gmail.com",
-      "projects": [
-        {
-          "id": 5,
-          "name": "sting",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 114,
-      "badgeID": "ngungbich-69",
-      "name": "Thuy Kieu",
-      "email": "buontrong@gmail.com",
-      "projects": [
-        {
-          "id": 6,
-          "name": "oolong",
-          "effort": 10
-        },
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 115,
-      "badgeID": "ngungbich-69",
-      "name": "Thuy Van",
-      "email": "wannabeKieu@gmail.com",
-      "projects": [
-        {
-          "id": 6,
-          "name": "oolong",
-          "effort": 10
-        },
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 117,
-      "badgeID": "ngungbich-69",
-      "name": "Trang Quynh",
-      "email": "lamTrangSuck@gmail.com",
-      "projects": [
-        {
-          "id": 6,
-          "name": "oolong",
-          "effort": 10
-        },
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 118,
-      "badgeID": "628869",
-      "name": "Dog",
-      "email": "wannabeCat@gmail.com",
-      "projects": [
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 119,
-      "badgeID": "628090",
-      "name": "Ton Ngo Khong",
-      "email": "toTheEast@gmail.com",
-      "projects": [
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 120,
-      "badgeID": "690069",
-      "name": "Tru Bat Gioi",
-      "email": "toTheEastwithLove@gmail.com",
-      "projects": [
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 121,
-      "badgeID": "969213",
-      "name": "Cow",
-      "email": "justaCow@gmail.com",
-      "projects": [
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 122,
-      "badgeID": "327456",
-      "name": "Songoku",
-      "email": "wannabe@gmail.com",
-      "projects": [
-        {
-          "id": 9,
-          "name": "this is a long aquafina",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 123,
-      "badgeID": "456781",
-      "name": "Trump",
-      "email": "theBestPre@gmail.com",
-      "projects": [
-        {
-          "id": 10,
-          "name": "japanese tea",
-          "effort": 10
-        }
-      ]
-    },
-    {
-      "id": 124,
-      "badgeID": "777888",
-      "name": "Obama",
-      "email": "theOneandOnly@gmail.com",
-      "projects": [
-        {
-          "id": 10,
-          "name": "japanese tea",
-          "effort": 10
-        }
-      ]
-    }
-  ],  
-  "exceptions": [
-    {
-      "id": 2,
-      "title": "Christmas",
-      "date": [
-        1577206800000,
-        1577725200000
-      ]
-    },
-    {
-      "title": "Mid-autumn",
-      "date": [
-        1567702800000,
-        1567875600000
-      ],
-      "id": 14
-    },
-    {
-      "title": "Random day off",
-      "date": [
-        1568739600000,
-        1568826000000
-      ],
-      "id": 15
-    },
-    {
-      "title": "Indepentdence Day ",
-      "date": [
-        1567357200000,
-        1567357200000
-      ],
-      "id": 19
-    }
-  ],
-  "projects": [
-    {
-      "id": 1,
-      "name": "coca cola",
-      "effort": 40,
-      "startDate": 1566925200000,
-      "updateDate": 1566929200000,
-      "users": [
-        {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "132145",
-          "name": "John Doe",
-          "email": "johnnyboydoe@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 15,
-          "badgeID": "122332",
-          "name": "John Wayne",
-          "email": "wannabeBruce@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Phan tich va thiet ke",
-          "user": "Thang Pham",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Make some noise",
-          "user": "John Doe",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "With great power comes great responsibility",
-          "user": "Peter Parker",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Courage is being scared to death, but saddling up anyway.",
-          "user": "John Wayne",
-          "parentId": 2,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Put that toy AWAY!",
-          "user": "Clark Kent",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Frick this",
-          "user": "Clark Kent",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Put that toy AWAY!",
-          "user": "Clark Kent",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Coffee Cat",
-      "effort": 40,
-      "startDate": 1572625336782,
-      "updateDate": 1575217336782,
-      "users": [
-        {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
-        },
-        {
-          "id": 16,
-          "badgeID": "455654",
-          "name": "Cat",
-          "email": "wannabeDog@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 17,
-          "badgeID": "908713",
-          "name": "Davie",
-          "email": "davie504@gmail.com"
-        },
-        {
-          "id": 12,
-          "badgeID": "batch-27",
-          "name": "Quan Vo",
-          "email": "vnmquan@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Phan tich va Thiet ke va Design",
-          "user": "Thang Pham",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Make some coffee",
-          "user": "Cat",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "Spider-man is gone",
-          "user": "Peter Parker",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Courage is a dog, and courage is a silly name",
-          "user": "Cat",
-          "parentId": 2,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Slap like now",
-          "user": "Davie",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Frick this",
-          "user": "Thang Pham",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Bass is bass, slap the bass!!!",
-          "user": "Davie",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Be the boss lol",
-          "user": "Quan Vo",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "moutain dew",
-      "effort": 38,
-      "startDate": 1566950136782,
-      "updateDate": 1569542136782,
-      "users": [
-        {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
-        },
-        {
-          "id": 12,
-          "badgeID": "batch-27",
-          "name": "Quan Vo",
-          "email": "vnmquan@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "This is a mountain",
-          "user": "Thang Pham",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Make a mountain",
-          "user": "Thang Pham",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "This is a dew",
-          "user": "Quan Vo",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Make a dew from a dove",
-          "user": "Quan Vo",
-          "parentId": 3,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "collapsed": true,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Combine mountain and dew",
-          "user": "Thang Pham",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Frick this",
-          "user": "Quan Vo",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Go the frick AWAY!",
-          "user": "Quan Vo",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "name": "heineken",
-      "effort": 40,
-      "startDate": 1565191736782,
-      "updateDate": 1566783736782,
-      "users": [
-        {
-          "id": 18,
-          "badgeID": "batch-26",
-          "name": "Dixie Normous",
-          "email": "myenormousD@gmail.com"
-        },
-        {
-          "id": 19,
-          "badgeID": "batch-26",
-          "name": "Justin Sider",
-          "email": "wannabeBieber@gmail.com"
-        },
-        {
-          "id": 110,
-          "badgeID": "batch-26",
-          "name": "Jen Sidebottom",
-          "email": "wannabeInTheMiddle@gmail.com"
-        },
-        {
-          "id": 111,
-          "badgeID": "784123",
-          "name": "Jack Kanoff",
-          "email": "jackinoffsometime@gmail.com"
-        },
-        {
-          "id": 112,
-          "badgeID": "532874",
-          "name": "Oliver Loser",
-          "email": "praslar2pointO@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Break the rule",
-          "user": "Dixie Normous",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Cutting loose end",
-          "user": "Justin Sider",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "See thing form a side and from bottom up",
-          "user": "Jen Sidebottom",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Get jacked and go off",
-          "user": "Jack Kanoff",
-          "parentId": 3,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "collapsed": true,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Once a loser always a winner",
-          "user": "Oliver Loser",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Frick those who say loser",
-          "user": "Oliver Loser ",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Sometimes small sometimes big sometimes enormous",
-          "user": "Dixie Normous",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "sting",
-      "effort": 40,
-      "startDate": 1569857336782,
-      "updateDate": 1566535736782,
-      "users": [
-        {
-          "id": 113,
-          "badgeID": "857746",
-          "name": "Juky frickin-san",
-          "email": "jukysanlol@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Find sweet",
-          "user": "Juky frickin-san",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Find red stuff",
-          "user": "Juky frickin-san",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "Stank it up",
-          "user": "Juky frickin-san",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "name": "oolong",
-      "effort": 36,
-      "startDate": 1567372536782,
-      "updateDate": 1569050936782,
-      "users": [
-        {
-          "id": 114,
-          "badgeID": "ngungbich-69",
-          "name": "Thuy Kieu",
-          "email": "buontrong@gmail.com"
-        },
-        {
-          "id": 115,
-          "badgeID": "ngungbich-69",
-          "name": "Thuy Van",
-          "email": "wannabeKieu@gmail.com"
-        },
-        {
-          "id": 117,
-          "badgeID": "ngungbich-69",
-          "name": "Trang Quynh",
-          "email": "lamTrangSuck@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Say ooo",
-          "user": "Thuy Kieu",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Say ooooooooo",
-          "user": "Thuy Van",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "Say long",
-          "user": "Thuy Kieu",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Say longgggg",
-          "user": "Thuy Van",
-          "parentId": 3,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "collapsed": true,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Say oolong",
-          "user": "Trang Quynh",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Oo that's longg",
-          "user": "Thuy Kieu",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Say ooo longgg",
-          "user": "Trang Quynh",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "white coke",
-      "effort": 40,
-      "startDate": 1567055736782,
-      "updateDate": 1572647736782,
-      "users": [
-        {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
-        },
-        {
-          "id": 12,
-          "badgeID": "batch-27",
-          "name": "Quan Vo",
-          "email": "vnmquan@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Out of idea",
-          "user": "Quan Vo",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Idea 1",
-          "user": "Quan Vo",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "Idea 22",
-          "user": "Thang Pham",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Idea 333",
-          "user": "Quan Vo",
-          "parentId": 3,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "collapsed": true,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Idea 4444",
-          "user": "Quan Vo",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Idea 55555",
-          "user": "Thang Pham",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Dead",
-          "user": "Quan Vo",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "name": "this is a long aquafina",
-      "effort": 36,
-      "startDate": 1577143736782,
-      "updateDate": 1577748536782,
-      "users": [
-        {
-          "id": 114,
-          "badgeID": "ngungbich-69",
-          "name": "Thuy Kieu",
-          "email": "buontrong@gmail.com"
-        },
-        {
-          "id": 115,
-          "badgeID": "ngungbich-69",
-          "name": "Thuy Van",
-          "email": "wannabeKieu@gmail.com"
-        },
-        {
-          "id": 118,
-          "badgeID": "628869",
-          "name": "Dog",
-          "email": "wannabeCat@gmail.com"
-        },
-        {
-          "id": 119,
-          "badgeID": "628090",
-          "name": "Ton Ngo Khong",
-          "email": "toTheEast@gmail.com"
-        },
-        {
-          "id": 120,
-          "badgeID": "690069",
-          "name": "Tru Bat Gioi",
-          "email": "toTheEastwithLove@gmail.com"
-        },
-        {
-          "id": 121,
-          "badgeID": "969213",
-          "name": "Cow",
-          "email": "justaCow@gmail.com"
-        },
-        {
-          "id": 122,
-          "badgeID": "327456",
-          "name": "Songoku",
-          "email": "wannabe@gmail.com"
-        },
-        {
-          "id": 16,
-          "badgeID": "455654",
-          "name": "Cat",
-          "email": "wannabeDog@gmail.com"
-        },
-        {
-          "id": 117,
-          "badgeID": "ngungbich-69",
-          "name": "Trang Quynh",
-          "email": "lamTrangSuck@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Say long",
-          "user": "Thuy Kieu",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Say ooooooooo",
-          "user": "Thuy Van",
-          "parentId": 1,
-          "start": 1568104180000,
-          "duration": 345600000,
-          "collapsed": true,
-          "type": "project"
-        },
-        {
-          "id": 3,
-          "label": "Say long",
-          "user": "Cat",
-          "start": 1567931380000,
-          "duration": 1296000000,
-          "type": "project"
-        },
-        {
-          "id": 4,
-          "label": "Say longgggg",
-          "user": "Dog",
-          "parentId": 3,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "collapsed": true,
-          "type": "task"
-        },
-        {
-          "id": 5,
-          "label": "Say oolong",
-          "user": "Trang Quynh",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 6,
-          "label": "Oo that's longg",
-          "user": "Ton Ngo Khong",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 7,
-          "label": "Say ooo longgg",
-          "user": "Tru Bat Gioi",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 8,
-          "label": "Say longgggg",
-          "user": "Cow",
-          "parentId": 7,
-          "start": 1567758580000,
-          "duration": 172800000,
-          "collapsed": true,
-          "type": "task"
-        },
-        {
-          "id": 9,
-          "label": "Say oolong",
-          "user": "Cow",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        },
-        {
-          "id": 10,
-          "label": "Oo that's longg",
-          "user": "Songoku",
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "task"
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "name": "japanese tea",
-      "effort": 40,
-      "startDate": 1559236536782,
-      "updateDate": 1571655736782,
-      "users": [
-        {
-          "id": 124,
-          "badgeID": "777888",
-          "name": "Obama",
-          "email": "theOneandOnly@gmail.com"
-        },
-        {
-          "id": 123,
-          "badgeID": "456781",
-          "name": "Trump",
-          "email": "theBestPre@gmail.com"
-        }
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Japanese is awesome",
-          "user": "Trump",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 2,
-          "label": "Japanese is fricking awesome",
-          "user": "Obama",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        },
-        {
-          "id": 1,
-          "label": "Go away Obama",
-          "user": "Trump",
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
-        }
-      ]
-    }
-  ]
+    ]
 }

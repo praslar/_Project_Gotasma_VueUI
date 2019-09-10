@@ -97,7 +97,6 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-              this.$store.dispatch('deleteResource', id)
               this.$modal.hide('dialog')
             }
           },
