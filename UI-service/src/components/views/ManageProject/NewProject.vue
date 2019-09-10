@@ -56,6 +56,7 @@
             width="100%"
             data-vv-name="Start Date"
             v-validate="'required'"
+            :class="{'is-invalid':submitted && errors.has('Start Date')}"
             :editable="false">
             </datepicker>
           </div>
@@ -102,15 +103,19 @@ export default {
   methods: {
     createProject() {
       this.submitted = true
-      this.$validator.validateAll().then(result => {
+      this.$validator.validateAll()
+      .then(result => {
         if (result) {
           this.project.startDate = moment(this.project.startDate).valueOf()
           this.$store.dispatch('addProject', this.project)
+          this.$modal.hide('createNewProj')
         } else {
-          alert('Invalid input')
+          alert('invalid Input')
         }
       })
-      this.$modal.hide('createNewProj')
+      .catch(error => {
+        console.log(error)
+      })
     },
     beforeOpen() {
         this.project.name = ''

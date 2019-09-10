@@ -18,10 +18,10 @@ import { count, momentNormalDate, momentDetailDate } from './Utils/filter'
 var router = new VueRouter({
     routes: routes,
     mode: 'history',
-    linkExactActiveClass: 'active',
-    scrollBehavior: function(to, from, savedPosition) {
-        return savedPosition || { x: 0, y: 0 }
-    }
+    linkExactActiveClass: 'active'
+    // scrollBehavior: function(to, from, savedPosition) {
+    //     return savedPosition || { x: 0, y: 0 }
+    // }
 })
 
 Vue.use(VueRouter)
@@ -35,9 +35,9 @@ Vue.filter('momentNormalDate', momentNormalDate)
 Vue.filter('momentDetailDate', momentDetailDate)
 
 new Vue({
-    render: h => h(AppView),
     router,
-    store
+    store,
+    render: h => h(AppView)
 }).$mount('#root')
 
 // Start out app!
