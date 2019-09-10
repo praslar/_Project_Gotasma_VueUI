@@ -92,11 +92,11 @@ export default {
                       id: 2,
                       label: 'Description',
                       value: 'label',
-                      width: 100,
+                      width: 200,
                       expander: true,
                       events: {
                           click: ({ data }) => {
-                              console.log(data)
+                              console.log(data.label, data)
                               this.showTaskModal(data)
                           }
                       }
@@ -105,19 +105,37 @@ export default {
                       id: 3,
                       label: 'Assignee',
                       value: 'user',
-                      width: 80
+                      width: 80,
+                      events: {
+                          click: ({ data }) => {
+                              console.log(data.label, data)
+                              this.showTaskModal(data)
+                          }
+                      }
                   },
                   {
                       id: 3,
                       label: 'Start',
                       value: task => dayjs(task.start).format('DD-MM-YYYY'),
-                      width: 78
+                      width: 78,
+                      events: {
+                          click: ({ data }) => {
+                              console.log(data.label, data)
+                              this.showTaskModal(data)
+                          }
+                      }
                   },
                   {
                       id: 4,
                       label: 'End',
-                      value: task => dayjs(task.startTime + task.duration).format('DD-MM-YYYY'),
-                      width: 78
+                      value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
+                      width: 78,
+                      events: {
+                          click: ({ data }) => {
+                              console.log(data.label, data)
+                              this.showTaskModal(data)
+                          }
+                      }
                   }
               ]
           }

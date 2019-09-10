@@ -65,7 +65,7 @@
           </transition>
 
           <div class="button-set">
-            <button class="create-btn">Create</button>
+            <button>Create</button>
           </div>
         </div>
       </div>
