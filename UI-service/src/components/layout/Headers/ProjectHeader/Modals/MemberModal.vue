@@ -1,34 +1,39 @@
 <template>
   <li class="notification-item">
     <a href="javascript:;">
-    <div class="pull-left">
-        <img :src="member.avatar" class="img-circle" alt="User Image">
-     </div>
-
+      <div class="pull-left">
+         <avatar :username="user.name" :size="30" ></avatar>
+      </div>
       <h4>
-        <span class="name">{{ member.name }}</span>
+        <span class="name">{{ user.name }}</span>
         <span class="time pull-right">
           <i class="fa fa-tags"></i>
-          <span class="name">{{ member.badgeID }}</span>
+          <span class="name">{{ user.badgeID }}</span>
         </span>
       </h4>
-      <p>{{ member.email }}</p>
+      <p>{{ user.email }}</p>
     </a>
   </li>
 </template>
 
 <script>
+import Avatar from 'vue-avatar'
+
 export default {
   props: {
-    member: {
+    user: {
       type: Object,
       required: true
     }
-  }
+  },
+  components: { Avatar }
 }
 </script>
 
 <style scoped>
+.special-fa{
+  font-size: 25px;
+}
 .name { 
     color: black !important
 }

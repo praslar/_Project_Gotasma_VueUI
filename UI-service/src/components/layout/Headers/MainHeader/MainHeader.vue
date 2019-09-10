@@ -25,7 +25,7 @@
   </header>
 </template>
 <script>
-import AdminMenu from './HeaderElements/AdminMenu'
+import AdminMenu from './AdminMenu'
 
 export default {
   name: 'dash-header-history',

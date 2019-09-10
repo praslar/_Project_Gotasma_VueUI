@@ -49,6 +49,7 @@ export default {
             })
     },
     getProjectById({ commit }, payload) {
+        console.log('payload', payload)
         Services.getProjectByID(payload)
             .then((response) => {
                 commit('GET_PROJECT_BY_ID', response)
@@ -59,21 +60,21 @@ export default {
     },
     addProject({ commit }, payload) {
         Services.addProject(payload)
-        .then((response) => {
-            commit('ADD_PROJECT', response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then((response) => {
+                commit('ADD_PROJECT', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     deleteProject({ commit }, payload) {
         Services.deleteProject(payload)
-        .then((response) => {
-            commit('DELETE_PROJECT', response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then((response) => {
+                commit('DELETE_PROJECT', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     // Exception actions
     getExceptions({ commit }) {

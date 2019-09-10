@@ -12,8 +12,7 @@
         
       </div>
     </div>
-     
-    <tableProject class="main" :projects="projects" ></tableProject>
+    <tableProject :projects="projects" ></tableProject>
     <NewProject :projects="projects"></NewProject>
   </section>  
 </template>
@@ -41,18 +40,17 @@ export default {
 }
 </script>
 <style scoped>
-table{
-  color: #242E35;
-}
-img{
-  width: 80px;
+span {
+  font-size: 24px;
+  color: #242e35;
+  font-weight: bold;
 }
 .btn-spacing {
   margin: 20px 0;
   vertical-align: middle;
 }
 .content {
-  margin-top: 20px !important
+  margin: 20px !important
 }
 .vdp-datepicker .vdp-datepicker__calendar{
   color: #000 !important;

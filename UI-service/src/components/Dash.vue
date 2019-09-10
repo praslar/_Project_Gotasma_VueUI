@@ -33,7 +33,7 @@
 <script>
 import config from '../config'
 import MainFooter from './layout/Footers/MainFooter'
-import MainHeader from './layout/Headers/MainHeader'
+import MainHeader from './layout/Headers/MainHeader/MainHeader'
 import MainSidebar from './layout/Sidebars/MainSidebar'
 import { mapState } from 'vuex'
 import 'hideseek'
@@ -62,7 +62,24 @@ export default {
 </script>
 
 <style>
+@import url("/static/js/plugins/datatables/dataTables.bootstrap.css");
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+  font-family: "FontAwesome";
+}
 
+table.dataTable thead .sorting:after {
+  content: "\f0dc";
+}
+
+table.dataTable thead .sorting_asc:after {
+  content: "\f0dd";
+}
+
+table.dataTable thead .sorting_desc:after {
+  content: "\f0de";
+}
 .wrapper.fixed_layout .main-header {
   position: fixed;
   width: 100%;

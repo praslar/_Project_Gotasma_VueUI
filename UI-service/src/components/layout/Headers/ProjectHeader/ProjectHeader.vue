@@ -2,8 +2,8 @@
   <header class="main-header">
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <buttonAddMember :project="project"></buttonAddMember>
-          <buttonHistory :project="project"></buttonHistory>
+          <buttonAddMember :id="id" :users="users"></buttonAddMember>
+          <buttonHistory></buttonHistory>
           <buttonFilter></buttonFilter>
           <buttonSetting></buttonSetting>
           <buttonSave></buttonSave>
@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import ButtonHistory from './HeaderElements/Buttons/ButtonHistory'
-import ButtonSave from './HeaderElements/Buttons/ButtonSave'
-import ButtonSetting from './HeaderElements/Buttons/ButtonSetting'
-import ButtonFilter from './HeaderElements/Buttons/ButtonFilter'
-import buttonAddMember from './HeaderElements/Buttons/ButtonAddMember'
+import ButtonHistory from './Buttons/ButtonHistory'
+import ButtonSave from './Buttons/ButtonSave'
+import ButtonSetting from './Buttons/ButtonSetting'
+import ButtonFilter from './Buttons/ButtonFilter'
+import buttonAddMember from './Buttons/ButtonAddMember'
 
 export default {
   name: 'DashHeader',
@@ -29,7 +29,7 @@ export default {
     ButtonFilter,
     buttonAddMember
   },
-  props: ['project']
+  props: ['id', 'users']
 }
 </script>
 

@@ -1,8 +1,5 @@
 <template>
-    <div class="box">
-      <div class="box-body">
-        <div class="dataTables_wrapper form-inline dt-bootstrap" id="tableProjects_wrapper">
-          <div class="row">
+  <div class="col-md-12 box box-body special">
             <div class="col-sm-12 table-responsive">
               <table
                 aria-describedby="tableProjects_info"
@@ -96,12 +93,9 @@
                   </tr>
                 </tfoot>
               </table>
-            </div>
-          </div>
-        </div>
       </div>
       <v-dialog/>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -156,9 +150,13 @@ export default {
 </script>
 
 <style scoped>
+.special{
+  margin: 20px;
+  margin-right: 20px !important
+}
 table {
   color: #242e35;
-  font-size: 16px !important
+  font-size: 16px !important;
 }
 td a {
   min-width: 30px !important;

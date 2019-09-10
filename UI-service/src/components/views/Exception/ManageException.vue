@@ -128,6 +128,11 @@ export default {
 </script>
 
 <style scoped>
+span {
+  font-size: 24px;
+  color: #242e35;
+  font-weight: bold;
+}
 .mySpacing {
   padding-bottom: 20px
 }

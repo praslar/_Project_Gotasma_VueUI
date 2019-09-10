@@ -5,7 +5,7 @@ import ManageProject from './components/views/ManageProject/ManageProject.vue'
 import History from './components/views/History/History.vue'
 import Project from './components/views/Project/Project.vue'
 import Exception from './components/views/Exception/ManageException.vue'
-import Team from './components/views/Team/Team.vue'
+import Member from './components/views/Member/Member.vue'
 import Gantt from './components/views/Project/Gantt.vue'
 // Routes
 const routes = [{
@@ -45,11 +45,11 @@ const routes = [{
                     meta: { description: 'Gantt chart' }
                 },
                 {
-                    path: 'team',
+                    path: 'member',
                     props: true,
-                    component: Team,
-                    name: 'Team',
-                    meta: { description: 'Team member' }
+                    component: Member,
+                    name: 'member',
+                    meta: { description: 'Member list' }
                 },
                 {
                     path: 'history',

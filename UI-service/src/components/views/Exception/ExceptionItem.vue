@@ -14,8 +14,8 @@
           </div>
         </div>
 
-        <div class="box-body">From:&nbsp;{{ exception.date[0] | momentNormalDate}}</div>
-        <div class="box-body">To:&nbsp;{{ exception.date[1] | momentNormalDate}}</div>
+        <div class="box-body box-title">From:&nbsp;{{ exception.date[0] | momentNormalDate}}</div>
+        <div class="box-body box-title">To:&nbsp;{{ exception.date[1] | momentNormalDate}}</div>
       </div>
     </div>
   </transition-group>
@@ -63,6 +63,7 @@ export default {
 
 <style scoped>
 .box-body {
-  font-size: 16px !important
+  font-size: 16px !important;
+  color: #000
 }
 </style>

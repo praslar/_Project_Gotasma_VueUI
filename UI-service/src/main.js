@@ -30,15 +30,15 @@ Vue.use(VueSplit)
 Vue.use(VueDateNow)
 Vue.use(VModal, { dialog: true, dynamic: true })
 
+Vue.filter('count', count)
+Vue.filter('momentNormalDate', momentNormalDate)
+Vue.filter('momentDetailDate', momentDetailDate)
+
 new Vue({
     render: h => h(AppView),
     router,
     store
 }).$mount('#root')
-
-Vue.filter('count', count)
-Vue.filter('momentNormalDate', momentNormalDate)
-Vue.filter('momentDetailDate', momentDetailDate)
 
 // Start out app!
 // eslint-disable-next-line no-new

@@ -68,21 +68,12 @@
 
 <script>
 import datepicker from 'vue2-datepicker'
-import { mapState } from 'vuex'
 
 export default {
   name: 'settingModal',
   props: ['id'],
   components: {
     datepicker
-  },
-  created() {
-    this.$store.dispatch('getProjectById', this.id)
-  },
-  computed: {
-   ...mapState([
-     'project'
-   ])
   },
   shortcuts: [{
     onClick: () => {
