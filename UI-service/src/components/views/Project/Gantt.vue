@@ -14,7 +14,7 @@
      <filter-modal></filter-modal>
     <gantt-elastic
       :options="options"
-      :tasks="tasks"
+      :tasks="project.tasks"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
@@ -128,8 +128,8 @@ export default {
                   },
                   {
                       id: 4,
-                      label: 'End',
-                      value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
+                      label: 'Duration (planning)',
+                      value: task => task.endTime / 86400000,
                       width: 78,
                       events: {
                           click: ({ data }) => {

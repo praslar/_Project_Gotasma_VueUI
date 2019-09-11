@@ -26,14 +26,14 @@ export default {
         }
     },
     // task default preloading
-    // tasks: [{
-    //     id: 0,
-    //     label: 'Preloading',
-    //     user: 'Preloading',
-    //     start: 1567875600000,
-    //     duration: 1 * 24 * 60 * 60 * 1000,
-    //     type: 'project'
-    // }],
+    tasks: [{
+        id: 0,
+        label: 'Preloading',
+        user: 'Preloading',
+        start: 1567875600000,
+        duration: 1 * 24 * 60 * 60 * 1000,
+        type: 'project'
+    }],
 
     // test tasks
     // tasks: [
@@ -122,14 +122,24 @@ export default {
     //       type: 'task'
     //     }
     // ],
-    tasks: [{
-        id: 0,
-        label: 'Preloading',
-        user: 'Preloading',
-        start: 1568566800000 + 86400000 * 4,
-        duration: 3 * 24 * 60 * 60 * 1000,
-        type: 'project'
-    }],
+    // tasks: [
+    //   {
+    //     id: 0,
+    //     label: 'Preloading',
+    //     user: 'Preloading',
+    //     start: 1568221200000 + 86400000 * 3,
+    //     duration: 4 * 24 * 60 * 60 * 1000,
+    //     type: 'project'
+    // },
+    // {
+    //   id: 1,
+    //       label: 'Phan tich va thiet ke',
+    //       user: 'Thang Pham',
+    //       start: 1566838800000,
+    //       duration: 4 * 24 * 60 * 60 * 1000,
+    //       type: 'task'
+    // }
+    // ],
     resources: [],
     users: [],
     projects: [],
