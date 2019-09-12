@@ -26,7 +26,9 @@ export default {
 }
 </script>
 <style scoped>
-
+.special{
+  margin-bottom: 10px;
+}
 .content {
   padding: 60px;
 }

@@ -8,6 +8,6 @@
         }
     ],
     "settings": {
-        "liveServer.settings.multiRootWorkspaceName": "gantt-elastic"
+        "liveServer.settings.multiRootWorkspaceName": "UI-service"
     }
 }

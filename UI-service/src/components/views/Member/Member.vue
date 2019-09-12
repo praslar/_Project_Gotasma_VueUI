@@ -4,14 +4,15 @@
       <div class="header col-md-12">
         <span>Team</span>
         <br>
-        <button type="button" @click="showTableMember" class="btn btn-info pull-right special">Choose from member</button>
-        <button type="button" @click="hideTableMember" class="btn btn-info pull-right special">Hide table</button>
+        <button type="button" @click="showTableResources = true" class="btn btn-info pull-right special">Choose from member</button>
+        <button type="button" @click="showTableResources = false" class="btn btn-info pull-right special">Hide table</button>
         <i> Here you manage all your project members. You can choose from the already invited team members.</i>
-      </div>  
+      </div> 
+      <member-table :users="project.users"></member-table>  
       <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">     
-      <resources-table></resources-table>
+          <resources-table :showTableResources="showTableResources"></resources-table>
       </transition> 
-      <member-table :users="project.users" ></member-table>     
+    
     </div>
   </section>
 </template>
@@ -25,6 +26,11 @@ export default {
   name: 'member',
   props: ['id'],
   components: { ResourcesTable, MemberTable },
+  data() {
+    return {
+      showTableResources: false
+    }
+  },
   created() {
     this.$store.dispatch('getProjectById', this.id)
   },
@@ -63,7 +69,8 @@ export default {
   border-bottom-left-radius: 5px
 }
 .special {
-  margin: 10px; 
+  margin: 10px;
+  font-size: 16px !important 
 }
 
 </style>

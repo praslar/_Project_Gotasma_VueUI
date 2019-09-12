@@ -9,7 +9,6 @@ import VModal from 'vue-js-modal'
 import VeeValidate from 'vee-validate'
 import routes from './routes'
 import store from './store'
-import VueSplit from 'vue-split-panel'
 // Import Views - Top level
 import AppView from './components/App.vue'
 import { count, momentNormalDate, momentDetailDate } from './Utils/filter'
@@ -19,14 +18,13 @@ var router = new VueRouter({
     routes: routes,
     mode: 'history',
     linkExactActiveClass: 'active'
-    // scrollBehavior: function(to, from, savedPosition) {
-    //     return savedPosition || { x: 0, y: 0 }
-    // }
+        // scrollBehavior: function(to, from, savedPosition) {
+        //     return savedPosition || { x: 0, y: 0 }
+        // }
 })
 
 Vue.use(VueRouter)
 Vue.use(VeeValidate)
-Vue.use(VueSplit)
 Vue.use(VueDateNow)
 Vue.use(VModal, { dialog: true, dynamic: true })
 

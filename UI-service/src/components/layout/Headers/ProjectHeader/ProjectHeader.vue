@@ -41,4 +41,5 @@ export default {
 .navbar-nav {
   font-size: 18px;
 }
+
 </style>

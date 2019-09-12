@@ -1,24 +1,13 @@
 <template>
-  <div class="col-md-12 box box-body">
-            <div class="col-sm-12 table-responsive">
+            <div class="col-sm-12 table-responsive  " v-if="this.showTableResources">
               <table
                 aria-describedby="resourcesTable_info"
                 role="grid"
                 id="resourcesTable"
-                class="table   table-hover dataTable"
+                class="table table-striped dataTable box box-body"
               >
                 <thead>
                   <tr role="row">
-                    <th
-                      aria-label="Rendering engine: activate to sort column descending"
-                      aria-sort="ascending"
-                      style="width: 167px;"
-                      colspan="1"
-                      rowspan="1"
-                      aria-controls="resourcesTable"
-                      tabindex="0"
-                      class="sorting_asc"
-                    ></th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
                       style="width: 207px;"
@@ -29,14 +18,14 @@
                       class="sorting"
                     >Full Name</th>
                     <th
-                      aria-label="Platform(s): activate to sort column ascending"
-                      style="width: 182px;"
+                      aria-label="Browser: activate to sort column ascending"
+                      style="width: 207px;"
                       colspan="1"
                       rowspan="1"
                       aria-controls="resourcesTable"
                       tabindex="0"
                       class="sorting"
-                    >Email</th>
+                    >Email Name</th>
                     <th
                       aria-label="Engine version: activate to sort column ascending"
                       style="width: 142px;"
@@ -59,34 +48,29 @@
                 </thead>
                 <tbody>
                   <tr class="even" role="row" v-for="resource of resources" :key="resource.badgeID">
-                    <td>  <avatar :username="resource.name"></avatar></td>
                     <td>{{resource.name}}</td>
-                    <td>{{resource.email}}</td>
+                                      <td>{{resource.email}}</td>
                     <td>
                     <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
                     <td >
-                        <a class="btn btn-app" @click="showDialogAddresource(resource.id)" ><i class="fa fa-level-down special"></i></a>           
+                        <a class="btn" @click="showDialogAddresource(resource.id)" ><i class="fa fa-level-down special"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
               </table>
+                <v-dialog/>
             </div>
-  <v-dialog/>
-  </div> 
   </template>
 <script>
 import $ from 'jquery'
-import { mapState } from 'vuex'
-import Avatar from 'vue-avatar'
+import { mapState, mapGetters } from 'vuex'
 
 require('datatables.net-bs')
 
 export default {
   name: 'resource-table',
-  components: {
-    Avatar
-  },
+  props: ['showTableResources'],
   methods: {
     showDialogAddresource(id) {
       this.$modal.show('dialog', {
@@ -115,19 +99,24 @@ export default {
         $('#resourcesTable').DataTable()
       })
   },
-  created() {
-    this.$store.dispatch('getResources')
-  },
   computed: {
    ...mapState([
      'resources'
-   ])
+   ]),
+   ...mapGetters({
+      chooseResources: 'chooseResources'
+    })
+  },
+  created() {
+    if (this.resources.length === 0) {
+       this.$store.dispatch('getResources')
+    }
   }
 }
 </script>
 <style scoped>
 .special{
-    font-size: 24px !important;
+    font-size: 20px !important;
     color:green
 }
 table{

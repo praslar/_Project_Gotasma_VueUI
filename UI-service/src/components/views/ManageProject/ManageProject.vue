@@ -50,7 +50,8 @@ span {
   vertical-align: middle;
 }
 .content {
-  margin: 20px !important
+  margin: 20px !important;
+  min-height: 1102px !important
 }
 .vdp-datepicker .vdp-datepicker__calendar{
   color: #000 !important;

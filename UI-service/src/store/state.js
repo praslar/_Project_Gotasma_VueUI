@@ -25,15 +25,147 @@ export default {
             'Display task list': 'Hide Task'
         }
     },
+    workloadHeaderOptions: {
+        title: {
+            label: 'Work Load ',
+            html: false
+        },
+        locale: {
+            name: 'fr',
+            Now: 'Now',
+            'X-Scale': 'Width',
+            'Y-Scale': 'Height'
+        }
+    },
+    workloadOptions: {
+        scope: {
+            before: 1,
+            after: 80
+        },
+        maxRows: 500,
+        maxHeight: 1000,
+        times: {
+            timeZoom: 21
+        },
+        row: {
+            height: 20
+        },
+        calendar: {
+            hour: {
+                display: false
+            }
+        },
+        chart: {
+            progress: {
+                bar: false
+            },
+            text: {
+                display: true
+            },
+            expander: {
+                display: false
+            }
+        },
+        taskList: {
+            expander: {
+                straight: true
+            },
+            columns: [{
+                    id: 7,
+                    label: 'ID',
+                    value: 'id',
+                    width: 35
+                },
+                {
+                    id: 8,
+                    label: 'Member',
+                    value: 'name',
+                    width: 180
+                },
+                {
+                    id: 10,
+                    label: 'Status',
+                    value: 'status',
+                    width: 158
+                }
+            ]
+        }
+    },
     // task default preloading
     tasks: [{
-        id: 0,
-        label: 'Preloading',
-        user: 'Preloading',
-        start: 1568566800000 + 86400000 * 4,
-        duration: 3 * 24 * 60 * 60 * 1000,
-        type: 'project'
-    }],
+            id: 939145,
+            name: 'Clark Kent',
+            start: 1568566800000,
+            duration: 1 * 24 * 60 * 60 * 1000,
+            status: 'OVERLOAD',
+            type: 'task',
+            style: {
+                base: {
+                    fill: '#f75c4c',
+                    stroke: '#f75c4c'
+                }
+            },
+            progress: 0
+        },
+        {
+            id: 27,
+            name: 'Thang Pham',
+            start: 1568566800000 - 86400000,
+            duration: 3 * 24 * 60 * 60 * 1000,
+            status: 'NORMAL',
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#1EBC61',
+                    stroke: '#0EAC51'
+                }
+            },
+            progress: 0
+        }, {
+            id: 3,
+            email: 'johnnyboydoe@gmail.com',
+            name: 'John Wayne',
+            start: 1568566800000 + 86400000 * 5,
+            duration: 3 * 24 * 60 * 60 * 1000,
+            status: 'NORMAL',
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#1EBC61',
+                    stroke: '#0EAC51'
+                }
+            },
+            progress: 0
+        }, {
+            id: 4,
+            name: 'Peter Parker',
+            start: 1568566800000 + 86400000 * 2,
+            duration: 2 * 24 * 60 * 60 * 1000,
+            status: 'NORMAL',
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#1EBC61',
+                    stroke: '#0EAC51'
+                }
+            },
+            progress: 0
+        }, {
+            id: 5,
+            name: 'John Doe',
+            start: 1568566800000 + 86400000 * 6,
+            duration: 6 * 24 * 60 * 60 * 1000,
+            status: 'OVERLOAD',
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#f75c4c',
+                    stroke: '#f75c4c'
+                }
+            },
+            progress: 0
+        }
+    ],
     resources: [],
     users: [],
     projects: [],

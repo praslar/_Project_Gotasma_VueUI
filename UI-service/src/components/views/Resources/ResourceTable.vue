@@ -69,17 +69,17 @@
                 </thead>
                 <tbody>
                   <tr class="even" role="row" v-for="resource of resources" :key="resource.badgeID">
-                    <td>  <avatar :username="resource.name"></avatar></td>
+                    <td>  <avatar :username="resource.name" :size="40"></avatar></td>
                     <td class="sorting_1">
                       {{resource.badgeID}}
                     </td>
                     <td>{{resource.name}}</td>
                     <td>{{resource.email}}</td>
                     <td>
-                    <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
+                    <div class="external-event bg-red" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
                     <td ><a class="btn btn-app" @click="$modal.show('newresource', {resource})"><i class="fa fa-edit"></i></a>
-                        <a class="btn btn-app" @click="showDialogMember(resource.id)"><i class="fa fa-remove"></i></a>           
+                        <a class="btn btn-app" style="color:#c70707c2" @click="showDialogMember(resource.id)"><i class="fa fa-remove"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
@@ -157,10 +157,9 @@ export default {
 }
 </script>
 <style>
-.danger {
-  width: 100%;
-  position: relative;
-  font-size: 14px
+.btn-edit-remove{
+  font-size: 30px;
+  margin-left: 10px;
 }
 table{
   color: #242E35;

@@ -9869,9 +9869,9 @@
                         'chart-row-bar-wrapper': {},
                         'chart-row-bar': {},
                         'chart-row-bar-polygon': {
-                            stroke: '#E74C3C',
+                            stroke: '#000',
                             'stroke-width': 1,
-                            fill: '#F75C4C'
+                            fill: '#000'
                         },
                         'chart-row-project-wrapper': {},
                         'chart-row-project': {},

@@ -1,3 +1,4 @@
+// let arr = ''
 export default {
     exceptionDays: (state) => {
         let arr = []

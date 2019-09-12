@@ -1,9 +1,7 @@
 <template>
-    <div class="row center-block">
-      <div class="col-md-12">
-        <div class="box">
+    <div class="col-md-12">
           <!-- /.box-header -->
-          <div class="box-body no-padding table-responsive">
+          <div class="box box-body no-padding table-responsive">
             <table class="table table-hover">
             <thead>
                   <th>Member</th>
@@ -24,8 +22,6 @@
             </table>
           </div>
           <!-- /.box-body -->
-        </div>
-      </div>
       <v-dialog></v-dialog>
     </div>
 </template>

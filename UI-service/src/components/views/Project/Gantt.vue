@@ -6,21 +6,30 @@
         <i class="fa fa-files-o"></i>
       </span>
       <div class="info-box-content">
-        <p class="info-box-number"></p>
-        <p class="info-box-text">Task</p>
+        <p class="info-box-number">{{project.name}}</p>
+        <p class="info-box-text" v-if="project.tasks">{{project.tasks | count}} tasks</p>
       </div>
     </div>
     <!-- <setting-modal :id="id"></setting-modal> -->
+     <v-dialog></v-dialog>
      <filter-modal></filter-modal>
     <gantt-elastic
+      v-if="project.tasks && exceptionDays.length > 0"
       :options="options"
-      :tasks="tasks"
+      :tasks="project.tasks"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
     <taskModal></taskModal>
+
+    <gantt-elastic
+      v-if="tasks"
+      :options="workloadOptions"
+      :tasks="tasks"
+      :exceptionDays="exceptionDays">
+    </gantt-elastic>
   </div>
 </template>
 <script>
@@ -31,7 +40,7 @@ import taskModal from './Elememts/TaskModal'
 import dayjs from 'dayjs'
 import GanttElastic from 'gantt-elastic'
 import GanttHeader from 'gantt-elastic-header'
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Gantt',
@@ -48,9 +57,6 @@ export default {
     return {
         options:
          {
-          taskMapping: {
-            progress: 'percent'
-          },
           scope: {
               before: 1,
               after: 80
@@ -126,20 +132,41 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('getProjectById', this.id)
+    this.getProject(this.id)
+    if (this.project === 'undefine' || this.project === {}) {
+      this.$modal.show('dialog', {
+        title: 'frick',
+        text: 'frick u too'
+      })
+    }
+    if (this.exceptions.length === 0) {
+      console.log('timelog')
+      this.getExceptions()
+    }
+    if (this.resources.length === 0) {
+        this.getResources()
+    }
   },
   computed: {
     ...mapState([
       'headerOptions',
+      'workloadOptions',
+      'workloadHeaderOptions',
       'tasks',
       'project',
-      'exceptions'
+      'exceptions',
+      'resources'
     ]),
     ...mapGetters([
       'exceptionDays'
     ])
   },
   methods: {
+    ...mapActions({
+      getProject: 'getProjectById',
+      getResources: 'getResources',
+      getExceptions: 'getExceptions'
+    }),
     tasksUpdate(tasks) {
       this.tasks = tasks
     },
@@ -154,11 +181,11 @@ export default {
 </script>
 <style>
 .gantt-elastic__chart-days-highlight-rect {
-  fill: #fae596 !important;
+  fill: #ddd !important;
   z-index: 9999 !important;
 }
 .gantt-elastic__chart-days-highlight-rects{
-   fill: rgba(255, 138, 138, 0.952) !important
+   fill: #fae596 !important
 }
 .gantt-elastic__grid-line-time {
     stroke-width: 4px !important
