@@ -20,7 +20,12 @@
         "chart.js": "2.3.0",
         "datatables.net": "^1.10.19",
         "datatables.net-bs": "^1.10.19",
+<<<<<<< HEAD
         "gantt-elastic": "https://github.com/praslar/gantt-elastic-vue/tarball/master/calculate",
+=======
+        "faker": "^3.1.0",
+        "gantt-elastic": "https://github.com/praslar/gantt-elastic-vue/tarball/master/2ff86b",
+>>>>>>> 57b6522fd937d842e8029dc73abfcf4e5f61a5cd
         "gantt-elastic-header": "^0.1.11",
         "hideseek": "^0.7.0",
         "http-server": "^0.9.0",

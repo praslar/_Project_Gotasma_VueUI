@@ -1,7 +1,6 @@
-<template>
-  <modal name="taskModal" transition="pop-out" :height=560 :width=500 :draggable="true" :reset="true" @before-open="beforeOpen" @before-close="beforeClose" >
-    <a class="pull-right exit-btn" @click="cancelCreate"><i class="fa fa-close"/></a>
-    <form action="">
+  <template>
+  <modal name="taskModal" transition="pop-out" :height=590 :width=500 :draggable="true" :reset="true" @before-open="beforeOpen" @before-close="beforeClose" >
+    <!-- <form submite.prevent> -->
       <div class="modal-box">
       <div class="partition">
         <div class="partition-title"><i class="fa fa-fw fa-edit"></i> Task info</div>
@@ -45,7 +44,7 @@
                 class="form-control" 
                 placeholder="Duration" 
                 type="text"
-                v-model="project.duration">
+                v-model="project.myAttribute ">
             </div>
 
           <h4 class="myheading">End date</h4>
@@ -59,11 +58,13 @@
             disabled>
             </datepicker>
           </div>
-
-        </div>
-      </div>
+          <div class="button-set">
+            <button>Apply</button>
+          </div>
+        </div>        
+      </div>  
     </div>
-    </form>
+    <!-- </form> -->
   </modal>
 </template>
 <script>
@@ -86,17 +87,14 @@ export default {
     }
   ],
   methods: {
-    cancelCreate() {
-      this.$modal.hide('taskModal')
-    },
     beforeOpen(event) {
       // console.log(event.params.data)
       this.project = event.params.data
-      this.project.duration = this.project.duration / 86400000
+      this.project.myAttribute = this.project.myAttribute / 86400000
     },
     beforeClose() {
       this.project.startTime = this.project.start.valueOf()
-      this.project.duration = this.project.duration * 86400000
+      this.project.myAttribute = this.project.myAttribute * 86400000
     }
   }
 }
@@ -150,7 +148,7 @@ export default {
 
   }
   .modal-box .button-set {
-    margin-top: 60px;
+    margin-top: 40px;
   }
   .myheading {
     margin: 5px 0 !important;

@@ -3485,9 +3485,23 @@ gantt-elastic-header@^0.1.11:
     vue-slider-component "^3.0.31"
     vue-switches "^2.0.1"
 
+<<<<<<< HEAD
 "gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/calculate":
   version "1.0.6"
   resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/calculate#080770fd6e81d5c09202218a0b939cd43134f907"
+=======
+"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master":
+  version "1.0.6"
+  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master#d44388c9531dc82c90a7703a30e4d45672d77e85"
+  dependencies:
+    dayjs "^1.8.16"
+    resize-observer-polyfill "^1.5.1"
+    vue "^2.6.10"
+
+"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/2ff86b":
+  version "1.0.6"
+  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/2ff86b#9627b5dac6a39d84b36e4ccce36f14138ade6d68"
+>>>>>>> 57b6522fd937d842e8029dc73abfcf4e5f61a5cd
   dependencies:
     dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"
