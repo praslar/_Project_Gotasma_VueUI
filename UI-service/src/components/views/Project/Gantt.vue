@@ -14,7 +14,7 @@
      <filter-modal></filter-modal>
     <gantt-elastic
       :options="options"
-      :tasks="project.tasks"
+      :tasks="tasks"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
@@ -49,7 +49,7 @@ export default {
         options:
          {
           taskMapping: {
-            progress: 'percent'
+            progress: false
           },
           scope: {
               before: 1,
@@ -69,9 +69,6 @@ export default {
               }
           },
           chart: {
-              progress: {
-                  bar: false
-              },
               text: {
                   display: false
               },
@@ -129,7 +126,8 @@ export default {
                   {
                       id: 4,
                       label: 'Duration (planning)',
-                      value: task => task.endTime / 86400000,
+                      value: task => task.duration / 86400000,
+                      // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 78,
                       events: {
                           click: ({ data }) => {

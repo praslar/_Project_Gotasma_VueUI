@@ -44,7 +44,7 @@
                 class="form-control" 
                 placeholder="Duration" 
                 type="text"
-                v-model="project.duration">
+                v-model="project.myAttribute ">
             </div>
 
           <h4 class="myheading">End date</h4>
@@ -90,11 +90,11 @@ export default {
     beforeOpen(event) {
       // console.log(event.params.data)
       this.project = event.params.data
-      this.project.duration = this.project.duration / 86400000
+      this.project.myAttribute = this.project.myAttribute / 86400000
     },
     beforeClose() {
       this.project.startTime = this.project.start.valueOf()
-      this.project.duration = this.project.duration * 86400000
+      this.project.myAttribute = this.project.myAttribute * 86400000
     }
   }
 }
