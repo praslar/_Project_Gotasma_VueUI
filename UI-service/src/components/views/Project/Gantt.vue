@@ -131,7 +131,7 @@ export default {
                   },
                   {
                       id: 4,
-                      label: 'Duration (planning)',
+                      label: 'Duration (Realtime)',
                       value: task => task.duration / 86400000,
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 78,

@@ -37,7 +37,7 @@
             </datepicker>
           </div>
 
-          <h4 class="myheading">Duration (in day)</h4>
+          <h4 class="myheading">Duration (estimated)</h4>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-3"></i></span>
               <input
