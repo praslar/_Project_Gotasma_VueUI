@@ -14,9 +14,9 @@
      <v-dialog></v-dialog>
      <filter-modal></filter-modal>
     <gantt-elastic
-      v-if="testTask && exceptionDays.length > 0"
+      v-if="project.tasks && exceptionDays.length > 0"
       :options="options"
-      :tasks="testTask"
+      :tasks="project.tasks"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
@@ -195,31 +195,7 @@ export default {
     breakTask(currentTask, lastTask) {
           let tempStart = 0
           let tempDuration = 0
-          let lastId = lastTask.id
        for (let i = 0; i < 3; i++) {
-          if (i > 1) {
-            frick = 99 + i
-            console.log(frick)
-          }
-          if(i === 0) {
-            this.testTask.push({
-              id: 99 + i,
-              label: currentTask.label,
-              user: currentTask.user,
-              start: currentTask.start + tempStart,
-              duration: 86400000 * 3 + tempDuration,
-              progress: 100,
-              type: 'task',
-              parentId: currentTask.id,
-              style: {
-                  base: {
-                      fill: '#1EBC61',
-                      stroke: '#0EAC51'
-                  }
-              },
-            })
-          }
-          else {
              this.testTask.push({
               id: 99 + i,
               label: currentTask.label,
@@ -234,13 +210,11 @@ export default {
                       fill: '#1EBC61',
                       stroke: '#0EAC51'
                   }
-              },
-              dependentOn: [frick]
+              }
             })
-          }
+            }
           tempStart = 86400000 * 3
           tempDuration = -86400000
-       }
     }
   }
 }
