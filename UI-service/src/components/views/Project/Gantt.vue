@@ -14,16 +14,15 @@
      <v-dialog></v-dialog>
      <filter-modal></filter-modal>
     <gantt-elastic
-      v-if="project.tasks && exceptionDays.length > 0"
+      v-if="testTask && exceptionDays.length > 0"
       :options="options"
-      :tasks="project.tasks"
+      :tasks="testTask"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
-    <taskModal></taskModal>
-
+    <taskModal  v-on:clicked ="breakTask($event)"></taskModal>
     <gantt-elastic
       v-if="tasks"
       :options="workloadOptions"
@@ -62,7 +61,7 @@ export default {
               after: 80
           },
           maxRows: 1000,
-          maxHeight: 1000,
+          maxHeight: 400,
           times: {
               timeZoom: 21
           },
@@ -171,7 +170,8 @@ export default {
       'tasks',
       'project',
       'exceptions',
-      'resources'
+      'resources',
+      'testTask'
     ]),
     ...mapGetters([
       'exceptionDays'
@@ -191,6 +191,56 @@ export default {
     },
     showTaskModal(data) {
       this.$modal.show('taskModal', { data: data })
+    },
+    breakTask(currentTask, lastTask) {
+          let tempStart = 0
+          let tempDuration = 0
+          let lastId = lastTask.id
+       for (let i = 0; i < 3; i++) {
+          if (i > 1) {
+            frick = 99 + i
+            console.log(frick)
+          }
+          if(i === 0) {
+            this.testTask.push({
+              id: 99 + i,
+              label: currentTask.label,
+              user: currentTask.user,
+              start: currentTask.start + tempStart,
+              duration: 86400000 * 3 + tempDuration,
+              progress: 100,
+              type: 'task',
+              parentId: currentTask.id,
+              style: {
+                  base: {
+                      fill: '#1EBC61',
+                      stroke: '#0EAC51'
+                  }
+              },
+            })
+          }
+          else {
+             this.testTask.push({
+              id: 99 + i,
+              label: currentTask.label,
+              user: currentTask.user,
+              start: currentTask.start + tempStart,
+              duration: 86400000 * 3 + tempDuration,
+              progress: 100,
+              type: 'task',
+              parentId: currentTask.id,
+              style: {
+                  base: {
+                      fill: '#1EBC61',
+                      stroke: '#0EAC51'
+                  }
+              },
+              dependentOn: [frick]
+            })
+          }
+          tempStart = 86400000 * 3
+          tempDuration = -86400000
+       }
     }
   }
 }

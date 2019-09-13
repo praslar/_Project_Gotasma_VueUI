@@ -91,6 +91,38 @@ export default {
             ]
         }
     },
+    testTask: [{
+            id: 1,
+            label: 'Test break task',
+            user: 'Cat boss',
+            start: 1567962000000,
+            duration: 5 * 24 * 60 * 60 * 1000,
+            type: 'task',
+            style: {
+                base: {
+                    fill: '#f75c4c',
+                    stroke: '#f75c4c'
+                }
+            },
+            progress: 100
+        }
+        // {
+        //     id: 2,
+        //     label: 'Test break task',
+        //     user: 'Cat boss',
+        //     start: 1567962000000 + 86400000 * 8,
+        //     duration: 2 * 24 * 60 * 60 * 1000,
+        //     type: 'task',
+        //     style: {
+        //         base: {
+        //             fill: '#f75c4c',
+        //             stroke: '#f75c4c'
+        //         }
+        //     },
+        //     dependentOn: [1],
+        //     progress: 100
+        // }
+    ],
     // task default preloading
     tasks: [{
             id: 939145,
