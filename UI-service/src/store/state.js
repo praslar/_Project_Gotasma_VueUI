@@ -97,7 +97,7 @@ export default {
             user: 'Cat boss',
             start: 1567962000000,
             duration: 5 * 24 * 60 * 60 * 1000,
-            type: 'task',
+            type: 'milestone',
             style: {
                 base: {
                     fill: '#f75c4c',
@@ -105,6 +105,21 @@ export default {
                 }
             },
             progress: 100
+        },
+        {
+            id: 2,
+            label: 'Test break task',
+            user: 'Cat boss',
+            start: 1567962000000,
+            duration: 10 * 24 * 60 * 60 * 1000,
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#f75c4c',
+                    stroke: '#f75c4c'
+                }
+            },
+            progress: 0
         }
         // {
         //     id: 2,
@@ -184,6 +199,21 @@ export default {
             progress: 0
         }, {
             id: 5,
+            name: 'John Doe',
+            start: 1568566800000 + 86400000 * 6,
+            duration: 6 * 24 * 60 * 60 * 1000,
+            status: 'OVERLOAD',
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#f75c4c',
+                    stroke: '#f75c4c'
+                }
+            },
+            progress: 0
+        },
+        {
+            id: 6,
             name: 'John Doe',
             start: 1568566800000 + 86400000 * 6,
             duration: 6 * 24 * 60 * 60 * 1000,
