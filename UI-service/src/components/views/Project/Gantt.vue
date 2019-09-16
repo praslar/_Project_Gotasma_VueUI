@@ -22,8 +22,7 @@
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
-    <taskModal></taskModal>
-
+    <taskModal  v-on:clicked ="breakTask($event)"></taskModal>
     <gantt-elastic
       v-if="tasks"
       :options="workloadOptions"
@@ -62,7 +61,7 @@ export default {
               after: 80
           },
           maxRows: 1000,
-          maxHeight: 1000,
+          maxHeight: 400,
           times: {
               timeZoom: 21
           },
@@ -131,7 +130,7 @@ export default {
                   },
                   {
                       id: 4,
-                      label: 'Duration (Realtime)',
+                      label: 'Duration (planning)',
                       value: task => task.duration / 86400000,
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 78,
@@ -192,6 +191,30 @@ export default {
     },
     showTaskModal(data) {
       this.$modal.show('taskModal', { data: data })
+    },
+    breakTask(currentTask, lastTask) {
+          let tempStart = 0
+          let tempDuration = 0
+       for (let i = 0; i < 3; i++) {
+             this.testTask.push({
+              id: 99 + i,
+              label: currentTask.label,
+              user: currentTask.user,
+              start: currentTask.start + tempStart,
+              duration: 86400000 * 3 + tempDuration,
+              progress: 100,
+              type: 'task',
+              parentId: currentTask.id,
+              style: {
+                  base: {
+                      fill: '#1EBC61',
+                      stroke: '#0EAC51'
+                  }
+              }
+            })
+            }
+          tempStart = 86400000 * 3
+          tempDuration = -86400000
     }
   }
 }

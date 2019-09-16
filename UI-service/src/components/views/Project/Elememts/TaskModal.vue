@@ -1,5 +1,5 @@
   <template>
-  <modal name="taskModal" transition="pop-out" :height=590 :width=500 :draggable="true" :reset="true" @before-open="beforeOpen" @before-close="beforeClose" >
+  <modal name="taskModal" transition="pop-out" :height=620 :width=500 :draggable="true" :reset="true" @before-open="beforeOpen" @before-close="beforeClose" >
     <!-- <form submite.prevent> -->
       <div class="modal-box">
       <div class="partition">
@@ -11,9 +11,9 @@
             <span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span>
               <input
                 class="form-control" 
-                placeholder="Name of project" 
+                placeholder="Name of task" 
                 type="text"
-                v-model="project.label">
+                v-model="currentTask.label">
             </div>
 
           <h4 class="myheading">Asignee: </h4>
@@ -23,13 +23,13 @@
                 class="form-control" 
                 placeholder="Asignee" 
                 type="text"
-                v-model="project.user">
+                v-model="currentTask.user">
             </div>
 
           <h4 class="myheading">Start date</h4>
           <div>
             <datepicker appendToBody
-            v-model="project.start"
+            v-model="currentTask.start"
             lang="en" 
             format="DD/MMM/YYYY" 
             width="100%"
@@ -44,13 +44,13 @@
                 class="form-control" 
                 placeholder="Duration" 
                 type="text"
-                v-model="project.myAttribute ">
+                v-model="currentTask.myAttribute ">
             </div>
 
           <h4 class="myheading">End date</h4>
           <div>
             <datepicker appendToBody
-            v-model="project.endTime"
+            v-model="currentTask.endTime"
             lang="en" 
             format="DD/MMM/YYYY" 
             width="100%"
@@ -60,6 +60,7 @@
           </div>
           <div class="button-set">
             <button>Apply</button>
+            <button @click="breakTask(currentTask)">Break</button>
           </div>
         </div>        
       </div>  
@@ -77,24 +78,28 @@ export default {
   },
   data() {
     return {
-      project: ''
+      currentTask: ''
     }
   },
   shortcuts: [{
       onClick: () => {
-        this.project.startDate = [ new Date(), new Date() ]
+        this.currentTask.startDate = [ new Date(), new Date() ]
       }
     }
   ],
   methods: {
     beforeOpen(event) {
       // console.log(event.params.data)
-      this.project = event.params.data
-      this.project.myAttribute = this.project.myAttribute / 86400000
+      this.currentTask = event.params.data
+      this.currentTask.myAttribute = this.currentTask.myAttribute / 86400000
     },
     beforeClose() {
-      this.project.startTime = this.project.start.valueOf()
-      this.project.myAttribute = this.project.myAttribute * 86400000
+      this.currentTask.startTime = this.currentTask.start.valueOf()
+      this.currentTask.myAttribute = this.currentTask.myAttribute * 86400000
+    },
+    breakTask(currentTask) {
+      this.$emit('clicked', currentTask)
+      this.$modal.hide('taskModal')
     }
   }
 }
