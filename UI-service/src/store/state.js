@@ -91,53 +91,6 @@ export default {
             ]
         }
     },
-    testTask: [{
-            id: 1,
-            label: 'Test break task',
-            user: 'Cat boss',
-            start: 1567962000000,
-            duration: 5 * 24 * 60 * 60 * 1000,
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#f75c4c',
-                    stroke: '#f75c4c'
-                }
-            },
-            progress: 100
-        },
-        {
-            id: 2,
-            label: 'Test break task',
-            user: 'Cat boss',
-            start: 1567962000000,
-            duration: 10 * 24 * 60 * 60 * 1000,
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#f75c4c',
-                    stroke: '#f75c4c'
-                }
-            },
-            progress: 0
-        }
-        // {
-        //     id: 2,
-        //     label: 'Test break task',
-        //     user: 'Cat boss',
-        //     start: 1567962000000 + 86400000 * 8,
-        //     duration: 2 * 24 * 60 * 60 * 1000,
-        //     type: 'task',
-        //     style: {
-        //         base: {
-        //             fill: '#f75c4c',
-        //             stroke: '#f75c4c'
-        //         }
-        //     },
-        //     dependentOn: [1],
-        //     progress: 100
-        // }
-    ],
     // task default preloading
     tasks: [{
             id: 939145,
@@ -225,6 +178,46 @@ export default {
                     stroke: '#f75c4c'
                 }
             },
+            progress: 0
+        }
+    ],
+    tasksTest: [{
+            id: 9,
+            label: 'Phan tich va thiet ke',
+            user: 'Thang Pham',
+            start: 1567530000000,
+            duration: 259200000,
+            type: 'task',
+            progress: 0
+        },
+        {
+            id: 10,
+            label: 'Make some noise',
+            user: 'John Doe',
+            start: 1567875600000,
+            duration: 864000000,
+            type: 'task',
+            progress: 0
+        },
+        {
+            id: 11,
+            label: 'With great power comes great responsibility',
+            user: 'Peter Parker',
+            parentId: 10,
+            start: 1567875600000,
+            duration: 345600000,
+            collapsed: true,
+            type: 'task',
+            progress: 0
+        },
+        {
+            id: 12,
+            label: 'Courage is being scared to death, but saddling up anyway.',
+            user: 'John Wayne',
+            parentId: 10,
+            start: 1568307600000,
+            duration: 172800000,
+            type: 'task',
             progress: 0
         }
     ],
