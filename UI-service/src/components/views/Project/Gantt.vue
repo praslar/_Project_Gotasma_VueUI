@@ -16,7 +16,7 @@
     <gantt-elastic
       v-if="project.tasks && exceptionDays.length > 0"
       :options="options"
-      :tasks="project.tasks"
+      :tasks="tasksTest"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
@@ -171,7 +171,8 @@ export default {
       'tasks',
       'project',
       'exceptions',
-      'resources'
+      'resources',
+      'tasksTest'
     ]),
     ...mapGetters([
       'exceptionDays'

@@ -166,6 +166,47 @@ export default {
             progress: 0
         }
     ],
+    tasksTest: [
+        {
+            id: 9,
+            label: 'Phan tich va thiet ke',
+            user: 'Thang Pham',
+            start: 1567530000000,
+            duration: 259200000,
+            type: 'task',
+            progress: 0
+          },
+          {
+            id: 10,
+            label: 'Make some noise',
+            user: 'John Doe',
+            start: 1567875600000,
+            duration: 864000000,
+            type: 'task',
+            progress: 0
+          },
+          {
+            id: 11,
+            label: 'With great power comes great responsibility',
+            user: 'Peter Parker',
+            parentId: 10,
+            start: 1567875600000,
+            duration: 345600000,
+            collapsed: true,
+            type: 'task',
+            progress: 0
+          },
+          {
+            id: 12,
+            label: 'Courage is being scared to death, but saddling up anyway.',
+            user: 'John Wayne',
+            parentId: 10,
+            start: 1568307600000,
+            duration: 172800000,
+            type: 'task',
+            progress: 0
+          }
+    ],
     resources: [],
     users: [],
     projects: [],
