@@ -1,12 +1,14 @@
 <template>
   <header class="main-header">
+          <add-task-modal pivotX="1.0" ></add-task-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <buttonAddMember :id="id" :users="users"></buttonAddMember>
-          <buttonHistory></buttonHistory>
-          <buttonFilter></buttonFilter>
-          <buttonSetting></buttonSetting>
-          <buttonSave></buttonSave>
+          <button-add-task></button-add-task>
+          <button-add-member :id="id" :users="users"></button-add-member>
+          <button-history></button-history>
+          <button-filter></button-filter>
+          <button-setting></button-setting>
+          <button-save></button-save>
         </ul>
       </div>
       <v-dialog/>
@@ -14,12 +16,13 @@
 </template>
 
 <script>
+import AddTaskModal from './Modals/AddTask'
 import ButtonHistory from './Buttons/ButtonHistory'
 import ButtonSave from './Buttons/ButtonSave'
 import ButtonSetting from './Buttons/ButtonSetting'
 import ButtonFilter from './Buttons/ButtonFilter'
-import buttonAddMember from './Buttons/ButtonAddMember'
-
+import ButtonAddMember from './Buttons/ButtonAddMember'
+import ButtonAddTask from './Buttons/ButtonAddTask'
 export default {
   name: 'DashHeader',
   components: {
@@ -27,7 +30,9 @@ export default {
     ButtonSave,
     ButtonSetting,
     ButtonFilter,
-    buttonAddMember
+    ButtonAddMember,
+    ButtonAddTask,
+    AddTaskModal
   },
   props: ['id', 'users']
 }

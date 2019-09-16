@@ -1,4 +1,5 @@
 <template>
+
   <div class="main">
     <project-header :id="id" :users="project.users"></project-header>
     <div class="info-box">
@@ -10,13 +11,13 @@
         <p class="info-box-text" v-if="project.tasks">{{project.tasks | count}} tasks</p>
       </div>
     </div>
-    <!-- <setting-modal :id="id"></setting-modal> -->
+    <!-- <setting-modal :id="id"><  /setting-modal> -->
      <v-dialog></v-dialog>
      <filter-modal></filter-modal>
     <gantt-elastic
-      v-if="testTask && exceptionDays.length > 0"
+      v-if="project.tasks && exceptionDays.length > 0"
       :options="options"
-      :tasks="testTask"
+      :tasks="project.tasks"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
@@ -32,6 +33,7 @@
   </div>
 </template>
 <script>
+import AddTaskModal from '../../layout/Headers/ProjectHeader/Modals/AddTask'
 import SettingModal from '../../layout/Headers/ProjectHeader/Modals/SettingModal'
 import FilterModal from '../../layout/Headers/ProjectHeader/Modals/FilterModal'
 import ProjectHeader from '../../layout/Headers/ProjectHeader/ProjectHeader'
@@ -50,7 +52,8 @@ export default {
     ProjectHeader,
     taskModal,
     SettingModal,
-    FilterModal
+    FilterModal,
+    AddTaskModal
   },
   data() {
     return {
@@ -140,6 +143,19 @@ export default {
                               this.showTaskModal(data)
                           }
                       }
+                  }, {
+                      id: 5,
+                      label: 'Function',
+                      value: task => `<button>Add</button>`,
+                      html: true,
+                      // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
+                      width: 78,
+                        events: {
+                          click: ({ data }) => {
+                              console.log(data.label, data)
+                              this.showTaskModal(data)
+                          }
+                      }
                   }
               ]
           }
@@ -191,31 +207,25 @@ export default {
     },
     showTaskModal(data) {
       this.$modal.show('taskModal', { data: data })
-    },
-    breakTask(currentTask, lastTask) {
-          let tempStart = 0
-          let tempDuration = 0
-       for (let i = 0; i < 2; i++) {
-             this.testTask.push({
-              id: 99 + i,
-              label: currentTask.label,
-              user: currentTask.user,
-              start: currentTask.start + tempStart,
-              duration: 86400000 * 3 + tempDuration,
-              progress: 100,
-              type: 'task',
-              parentId: currentTask.id,
-              style: {
-                  base: {
-                      fill: '#1EBC61',
-                      stroke: '#0EAC51'
-                  }
-              }
-            })
-          tempStart = 86400000 * 3
-          tempDuration = -86400000
-          }
-        }
+    }
+    // addTask(currentTask){
+    //     this.testTask.push({
+    //         id: this.testTask[this.testTask.length-1].id,
+    //         label: currentTask.label,
+    //         user: currentTask.user,
+    //         start: currentTask.start + tempStart,
+    //         duration: 86400000 * 3 + tempDuration,
+    //         progress: 100,
+    //         type: 'task',
+    //         parentId: currentTask.id,
+    //         style: {
+    //             base: {
+    //                 fill: '#1EBC61',
+    //                 stroke: '#0EAC51'
+    //             }
+    //         }
+    //     })
+    // }
   }
 
 }
