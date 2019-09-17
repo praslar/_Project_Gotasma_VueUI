@@ -32,6 +32,8 @@ Vue.filter('count', count)
 Vue.filter('momentNormalDate', momentNormalDate)
 Vue.filter('momentDetailDate', momentDetailDate)
 
+export const EventBus = new Vue()
+
 new Vue({
     router,
     store,

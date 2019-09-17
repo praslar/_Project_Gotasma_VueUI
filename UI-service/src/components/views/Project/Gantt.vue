@@ -15,7 +15,7 @@
      <v-dialog></v-dialog>
      <filter-modal></filter-modal>
     <gantt-elastic
-      v-if="project.tasks && exceptionDays.length > 0"
+      v-if="tasksTest && exceptionDays.length > 0"
       :options="options"
       :tasks="tasksTest"
       :exceptionDays="exceptionDays"
@@ -24,12 +24,12 @@
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
     <taskModal  v-on:clicked ="breakTask($event)"></taskModal>
-    <gantt-elastic
+    <!-- <gantt-elastic
       v-if="tasks"
       :options="workloadOptions"
       :tasks="tasks"
       :exceptionDays="exceptionDays">
-    </gantt-elastic>
+    </gantt-elastic> -->
   </div>
 </template>
 <script>
@@ -42,6 +42,7 @@ import dayjs from 'dayjs'
 import GanttElastic from 'gantt-elastic'
 import GanttHeader from 'gantt-elastic-header'
 import { mapState, mapGetters, mapActions } from 'vuex'
+import { EventBus } from '@/main.js'
 
 export default {
   name: 'Gantt',
@@ -57,8 +58,7 @@ export default {
   },
   data() {
     return {
-        options:
-         {
+        options: {
           scope: {
               before: 1,
               after: 80
@@ -159,12 +159,15 @@ export default {
                   }
               ]
           }
-      }
+        }
     }
+  },
+  mounted() {
+     EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
   },
   created() {
     this.getProject(this.id)
-    if (this.project === 'undefine' || this.project === {}) {
+    if (this.project === 'undefined' || this.project === {}) {
       this.$modal.show('dialog', {
         title: 'frick',
         text: 'frick u too'
@@ -207,27 +210,37 @@ export default {
     },
     showTaskModal(data) {
       this.$modal.show('taskModal', { data: data })
+    },
+    addSumTask(newTaskInfo) {
+      let users = ''
+      let checkExistId = false
+      newTaskInfo.users.forEach(element => {
+        users += element.name + ', '
+      })
+      for (let i = 0; i < this.tasksTest.length; i++) {
+         if (this.tasksTest[i].id === newTaskInfo.id) {
+            checkExistId = true
+            break
+          }
+      }
+      if (checkExistId === false) {
+        this.tasksTest.push({
+            id: newTaskInfo.id,
+            label: newTaskInfo.label,
+            user: users,
+            start: (newTaskInfo.start).valueOf(),
+            duration: newTaskInfo.duration * 86400000,
+            progress: newTaskInfo.progress,
+            type: newTaskInfo.type
+        })
+      } else {
+                this.$modal.show('dialog', {
+          title: 'Error',
+          text: 'Add failed, ID already exist!'
+        })
+      }
     }
-    // addTask(currentTask){
-    //     this.testTask.push({
-    //         id: this.testTask[this.testTask.length-1].id,
-    //         label: currentTask.label,
-    //         user: currentTask.user,
-    //         start: currentTask.start + tempStart,
-    //         duration: 86400000 * 3 + tempDuration,
-    //         progress: 100,
-    //         type: 'task',
-    //         parentId: currentTask.id,
-    //         style: {
-    //             base: {
-    //                 fill: '#1EBC61',
-    //                 stroke: '#0EAC51'
-    //             }
-    //         }
-    //     })
-    // }
   }
-
 }
 </script>
 <style>

@@ -14,7 +14,6 @@
 <script>
 import GanttHistory from './GanttHistory'
 import SnapshotList from './SnapshotList'
-import * as Services from '../../../services'
 
 export default {
   name: 'history',
@@ -28,16 +27,6 @@ export default {
       snapshotHistoryID: ''
     }
   },
-  created() {
-    //  getMemberInfo by ID project
-      Services.getProjectSnapshotByIDProject()
-      .then((response) => {
-        this.ProjectHistory = response.snapshots
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    },
   methods: {
     eventChild(snapshotID) {
       this.snapshotHistoryID = snapshotID

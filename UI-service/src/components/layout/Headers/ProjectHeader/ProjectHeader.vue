@@ -1,6 +1,6 @@
 <template>
   <header class="main-header">
-          <add-task-modal pivotX="1.0" ></add-task-modal>
+          <add-task-modal pivotX="1.0" :users="users" ></add-task-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <button-add-task></button-add-task>
@@ -24,7 +24,7 @@ import ButtonFilter from './Buttons/ButtonFilter'
 import ButtonAddMember from './Buttons/ButtonAddMember'
 import ButtonAddTask from './Buttons/ButtonAddTask'
 export default {
-  name: 'DashHeader',
+  name: 'ProjectHeader',
   components: {
     ButtonHistory,
     ButtonSave,

@@ -5,7 +5,6 @@
 <script>
 import GanttElastic from 'gantt-elastic'
 import dayjs from 'dayjs'
-import * as Services from '../../../services'
 // just helper to get current dates
 
 let options = {
@@ -121,26 +120,6 @@ export default {
   },
   mounted() {
     this.getTask()
-  },
-  methods: {
-    getTask() {
-      Services.getTaskBySnapshotId()
-      .then((response) => {
-        this.task1 = response.tasks
-        this.task1ID = response.snapshotID
-      })
-      .catch(error => {
-        console.log(error)
-      })
-      Services.getTaskBySnapshotId2()
-      .then((response) => {
-        this.task2 = response.tasks
-        this.task2ID = response.snapshotID
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    }
   }
 }
 </script>

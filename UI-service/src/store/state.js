@@ -196,7 +196,7 @@ export default {
             user: 'John Doe',
             start: 1567875600000,
             duration: 864000000,
-            type: 'task',
+            type: 'project',
             progress: 0
         },
         {
