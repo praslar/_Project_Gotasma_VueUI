@@ -1,6 +1,7 @@
 <template>
   <header class="main-header">
           <add-task-modal pivotX="1.0" ></add-task-modal>
+          <filter-modal></filter-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <button-add-task></button-add-task>
@@ -16,6 +17,8 @@
 </template>
 
 <script>
+import FilterModal from './Modals/FilterModal'
+import SettingModal from './Modals/SettingModal'
 import AddTaskModal from './Modals/AddTask'
 import ButtonHistory from './Buttons/ButtonHistory'
 import ButtonSave from './Buttons/ButtonSave'
@@ -32,7 +35,9 @@ export default {
     ButtonFilter,
     ButtonAddMember,
     ButtonAddTask,
-    AddTaskModal
+    AddTaskModal,
+    SettingModal,
+    FilterModal
   },
   props: ['id', 'users']
 }
