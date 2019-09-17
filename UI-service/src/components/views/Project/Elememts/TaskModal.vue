@@ -5,7 +5,7 @@
       :reset="true" 
       @before-open="beforeOpen" 
       @before-close="beforeClose" >
-    <form @submit.prevent="testEdit(currentTask)">
+    <form @submit.prevent="applyEdit(currentTask)">
       <div class="modal-box">
       <div class="partition">
         <div class="partition-title"><i class="fa fa-fw fa-edit"></i> Task info</div>
@@ -123,7 +123,7 @@ export default {
       this.$emit('clicked', currentTask)
       this.$modal.hide('taskModal')
     },
-    testEdit(task) {
+    applyEdit(task) {
       this.$modal.hide('taskModal')
         {
           console.log('attribute', task.myAttribute)

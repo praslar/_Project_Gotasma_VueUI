@@ -187,7 +187,7 @@ export default {
             user: 'Thang Pham',
             start: 1567530000000,
             duration: 259200000,
-            type: 'task',
+            type: 'project',
             progress: 0
         },
         {
