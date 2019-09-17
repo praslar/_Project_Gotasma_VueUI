@@ -28,7 +28,7 @@
 import AdminMenu from './AdminMenu'
 
 export default {
-  name: 'dash-header-history',
+  name: 'dash-header',
   components: { AdminMenu },
   props: ['admin'],
   data() {
