@@ -10,6 +10,10 @@ export function count(arr) {
     return arr.length
 }
 
+export function changeDate(value) {
+    return (value / 86400000)
+}
+
 export function prettyDate(date) {
     var a = new Date(date)
     return a.toDateString()

@@ -1,6 +1,11 @@
   <template>
-  <modal name="taskModal" transition="pop-out" :height=620 :width=500 :draggable="true" :reset="true" @before-open="beforeOpen" @before-close="beforeClose" >
-    <!-- <form submite.prevent> -->
+  <modal name="taskModal" transition="pop-out" 
+      :height=700 :width=500 
+      :draggable="true" 
+      :reset="true" 
+      @before-open="beforeOpen" 
+      @before-close="beforeClose" >
+    <form @submit.prevent="testEdit(currentTask)">
       <div class="modal-box">
       <div class="partition">
         <div class="partition-title"><i class="fa fa-fw fa-edit"></i> Task info</div>
@@ -42,9 +47,19 @@
             <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-3"></i></span>
               <input
                 class="form-control" 
-                placeholder="Duration" 
-                type="text"
-                v-model="currentTask.myAttribute ">
+                placeholder="Duration"
+                type="number"
+                min="0"
+                v-model.number="currentTask.myAttribute">
+            </div>
+
+          <h4 class="myheading">Duration (real-time)</h4>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-fw fa-hourglass"></i></span>
+              <input
+                class="form-control" 
+                disabled
+                v-model="currentTask.duration">
             </div>
 
           <h4 class="myheading">End date</h4>
@@ -59,23 +74,28 @@
             </datepicker>
           </div>
           <div class="button-set">
+            <!-- <button @click="testEdit(currentTask)">Apply</button> -->
             <button>Apply</button>
             <button @click="breakTask(currentTask)">Break</button>
           </div>
         </div>        
       </div>  
     </div>
-    <!-- </form> -->
+    </form>
   </modal>
 </template>
 <script>
 // import moment from 'moment'
 import datepicker from 'vue2-datepicker'
+// import GanttElastic from 'gantt-elastic'
+import dayjs from 'dayjs'
 export default {
   name: 'taskModal',
   components: {
     datepicker
+    // GanttElastic
   },
+  props: ['exceptionDays'],
   data() {
     return {
       currentTask: ''
@@ -92,14 +112,77 @@ export default {
       // console.log(event.params.data)
       this.currentTask = event.params.data
       this.currentTask.myAttribute = this.currentTask.myAttribute / 86400000
+      this.currentTask.duration = this.currentTask.duration / 86400000
     },
     beforeClose() {
-      this.currentTask.startTime = this.currentTask.start.valueOf()
+      this.currentTask.startTime = (this.currentTask.start).valueOf()
       this.currentTask.myAttribute = this.currentTask.myAttribute * 86400000
+      this.currentTask.duration = this.currentTask.duration * 86400000
     },
     breakTask(currentTask) {
       this.$emit('clicked', currentTask)
       this.$modal.hide('taskModal')
+    },
+    testEdit(task) {
+      this.$modal.hide('taskModal')
+        {
+          console.log('attribute', task.myAttribute)
+          task.duration = task.myAttribute
+          console.log('duration', task.duration)
+          let timeStart = new Date(task.startTime)
+          console.log('time start', timeStart)
+          let calculateTimeChart = task.startTime
+          let dayofWeek = (timeStart.getDay())
+          let durationDays = task.duration / 86400000
+          let actualDuration = task.duration
+          console.log('actual', actualDuration)
+          console.log('startTime: ' + dayjs(task.startTime).format('DD-MM-YYYY'))
+          console.log('duration: ' + durationDays)
+          console.log('dateofweeks ' + dayofWeek)
+          let isHoliday = false
+          for (let i = 0; i < durationDays; i++) {
+            for (let j = 0; j < this.exceptionDays.length; j++) {
+              if (calculateTimeChart === this.exceptionDays[j]) {
+                isHoliday = true
+                break
+              }
+            }
+            // console.log('lập lần', i , 'durationDays', durationDays)
+            if (isHoliday) {
+              // console.log('La holiday')
+              // console.log('ngay trong tuan', dayofWeek)
+              actualDuration += 86400000
+              console.log('actual', actualDuration)
+              isHoliday = false
+              durationDays++
+              if (dayofWeek === 6) {
+                dayofWeek = 0
+              } else {
+                dayofWeek += 1
+              }
+            } else if (dayofWeek === 6) {
+              // console.log('la T7')
+              dayofWeek = 0
+              actualDuration += 86400000
+              console.log('actual', actualDuration)
+              durationDays++
+            } else if (dayofWeek === 0) {
+              // console.log('la CN')
+              dayofWeek += 1
+              actualDuration += 86400000
+              console.log('actual', actualDuration)
+              durationDays++
+            } else {
+              // console.log('la ngay thuong')
+              dayofWeek += 1
+            }
+          calculateTimeChart += 86400000
+          }
+        console.log('actual after', actualDuration)
+        task.duration = actualDuration
+        task.endTime = task.startTime + (task.duration - 1)
+        }
+      return task
     }
   }
 }
@@ -114,7 +197,7 @@ export default {
 
 .modal-box .partition .partition-title {
       box-sizing: border-box;
-      padding: 30px;
+      padding: 20px;
       width: 100%;
       text-align: center;
       letter-spacing: 1px;

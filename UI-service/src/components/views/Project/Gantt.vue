@@ -1,5 +1,4 @@
 <template>
-
   <div class="main">
     <project-header :id="id" :users="project.users"></project-header>
     <div class="info-box">
@@ -13,7 +12,7 @@
     </div>
     <!-- <setting-modal :id="id"><  /setting-modal> -->
      <v-dialog></v-dialog>
-     <filter-modal></filter-modal>
+
     <gantt-elastic
       v-if="tasksTest && exceptionDays.length > 0"
       :options="options"
@@ -33,9 +32,6 @@
   </div>
 </template>
 <script>
-import AddTaskModal from '../../layout/Headers/ProjectHeader/Modals/AddTask'
-import SettingModal from '../../layout/Headers/ProjectHeader/Modals/SettingModal'
-import FilterModal from '../../layout/Headers/ProjectHeader/Modals/FilterModal'
 import ProjectHeader from '../../layout/Headers/ProjectHeader/ProjectHeader'
 import taskModal from './Elememts/TaskModal'
 import dayjs from 'dayjs'
@@ -51,10 +47,7 @@ export default {
     GanttElastic,
     GanttHeader,
     ProjectHeader,
-    taskModal,
-    SettingModal,
-    FilterModal,
-    AddTaskModal
+    taskModal
   },
   data() {
     return {
@@ -111,7 +104,7 @@ export default {
                       id: 3,
                       label: 'Assignee',
                       value: 'user',
-                      width: 80,
+                      width: 90,
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
@@ -133,18 +126,26 @@ export default {
                   },
                   {
                       id: 4,
-                      label: 'Duration (planning)',
-                      value: task => task.duration / 86400000,
+                      label: 'Duration (estimated)',
+                      value: task => task.myAttribute / 86400000,
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
-                      width: 78,
+                      width: 80,
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
                               this.showTaskModal(data)
                           }
                       }
-                  }, {
+                  },
+                  {
                       id: 5,
+                      label: 'Duration (real-time)',
+                      value: task => task.duration / 86400000,
+                      // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
+                      width: 78
+                  },
+                  {
+                      id: 6,
                       label: 'Function',
                       value: task => `<button>Add</button>`,
                       html: true,
