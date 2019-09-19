@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <project-header :id="id" :users="project.users"></project-header>
+    <project-header :id="id" :users="project.users" :exceptionDays="exceptionDays"></project-header>
     <div class="info-box">
       <span class="info-box-icon bg-yellow">
         <i class="fa fa-files-o"></i>
@@ -11,8 +11,6 @@
       </div>
     </div>
     <!-- <setting-modal :id="id"><  /setting-modal> -->
-     <v-dialog></v-dialog>
-
     <gantt-elastic
       v-if="tasksTest && exceptionDays.length > 0"
       :options="options"
@@ -22,7 +20,7 @@
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
-    <taskModal  v-on:clicked ="breakTask($event)"></taskModal>
+
     <!-- <gantt-elastic
       v-if="tasks"
       :options="workloadOptions"
@@ -33,7 +31,6 @@
 </template>
 <script>
 import ProjectHeader from '../../layout/Headers/ProjectHeader/ProjectHeader'
-import taskModal from './Elememts/TaskModal'
 import dayjs from 'dayjs'
 import GanttElastic from 'gantt-elastic'
 import GanttHeader from 'gantt-elastic-header'
@@ -46,8 +43,7 @@ export default {
   components: {
     GanttElastic,
     GanttHeader,
-    ProjectHeader,
-    taskModal
+    ProjectHeader
   },
   data() {
     return {
@@ -93,6 +89,9 @@ export default {
                       value: 'label',
                       width: 200,
                       expander: true,
+                      style: {
+                        'task-list-item-value-container': { 'font-weight': 'bold' }
+                      },
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
@@ -127,7 +126,7 @@ export default {
                   {
                       id: 4,
                       label: 'Duration (estimated)',
-                      value: task => task.myAttribute / 86400000,
+                      value: task => (task.myAttribute / 86400000) + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 80,
                       events: {
@@ -140,7 +139,7 @@ export default {
                   {
                       id: 5,
                       label: 'Duration (real-time)',
-                      value: task => task.duration / 86400000,
+                      value: task => task.duration / 86400000 + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 78
                   },
@@ -155,6 +154,7 @@ export default {
                           click: ({ data }) => {
                               console.log(data.label, data)
                               this.showTaskModal(data)
+                              console.log(this.tasksTest)
                           }
                       }
                   }
@@ -165,6 +165,7 @@ export default {
   },
   mounted() {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
+     EventBus.$on('deleteThisTask', (idTask) => { this.deleteThisTask(idTask) })
   },
   created() {
     this.getProject(this.id)
@@ -235,11 +236,29 @@ export default {
             type: newTaskInfo.type
         })
       } else {
-                this.$modal.show('dialog', {
+        this.$modal.show('dialog', {
           title: 'Error',
           text: 'Add failed, ID already exist!'
         })
       }
+    },
+    deleteThisTask(idTask) {
+      console.log('id xoa', idTask)
+      this.tasksTest.forEach(element => {
+        if (element.id === idTask) {
+          if (element.children.length === 0) {
+            console.log('no child, delete one')
+            this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTask), 1)
+          } else {
+            console.log('has child, delete multiple')
+            this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTask), 1)
+            element.children.forEach(child => {
+              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
+            })
+          }
+        }
+      })
+      console.log(this.tasksTest)
     }
   }
 }

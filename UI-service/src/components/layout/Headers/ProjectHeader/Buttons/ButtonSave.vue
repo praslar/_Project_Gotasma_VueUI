@@ -1,8 +1,8 @@
 <template>
   <li>
-    <a @click="showDialog ">
+    <a @click="showConfirm">
       <span class="fa fa-download" id="myIcon" />
-      <span class="hidden-xs myIcon">{{ "SAVE" }}</span>
+      <span class="hidden-xs myIcon">SAVE</span>
     </a>
   </li>
 </template>
@@ -11,7 +11,7 @@
 export default {
   name: 'buttonSave',
   methods: {
-    showDialog() {
+    showConfirm() {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
         text: 'Do you wish to save?',

@@ -219,6 +219,24 @@ export default {
             duration: 172800000,
             type: 'task',
             progress: 0
+        },
+        {
+            id: 13,
+            label: 'being scared to death',
+            user: 'John Wayne',
+            start: 1568307600000,
+            duration: 172800000,
+            type: 'task',
+            progress: 0
+        },
+        {
+            id: 14,
+            label: 'anyway',
+            user: 'John Wayne',
+            start: 1568307600000,
+            duration: 172800000,
+            type: 'task',
+            progress: 0
         }
     ],
     resources: [],

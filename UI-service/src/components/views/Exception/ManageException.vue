@@ -96,7 +96,7 @@ export default {
           this.$store.dispatch('getExceptions')
           break
         case 'DELETE_EXCEPTION':
-          this.$store.dispatch('getExceptions')
+          this.$store.dispatch('deleteExceptions')
          break
       }
     })
