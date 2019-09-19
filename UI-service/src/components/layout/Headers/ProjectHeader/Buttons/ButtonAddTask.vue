@@ -9,7 +9,7 @@
 export default {
   methods: {
     showModal() {
-        this.$modal.show('add-task')
+        this.$modal.show('AddSumTaskModal')
     }
   }
 }

@@ -187,7 +187,7 @@ export default {
             user: 'Thang Pham',
             start: 1567530000000,
             duration: 259200000,
-            type: 'task',
+            type: 'project',
             progress: 0
         },
         {
@@ -208,7 +208,14 @@ export default {
             duration: 345600000,
             collapsed: true,
             type: 'task',
-            progress: 0
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         },
         {
             id: 12,
@@ -218,7 +225,21 @@ export default {
             start: 1568307600000,
             duration: 172800000,
             type: 'task',
-            progress: 0
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                },
+                'tree-row-bar': {
+                    fill: '#1EBC61',
+                    stroke: '#0EAC51'
+                },
+                'tree-row-bar-polygon': {
+                    stroke: '#0EAC51'
+                }
+            }
         }
     ],
     resources: [],

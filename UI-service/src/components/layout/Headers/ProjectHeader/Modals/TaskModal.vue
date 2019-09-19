@@ -1,5 +1,5 @@
   <template>
-  <modal name="taskModal" transition="pop-out" 
+  <modal name="TaskModal" transition="pop-out" 
       :height=700 :width=500 
       :draggable="true" 
       :reset="true" 
@@ -33,7 +33,7 @@
 
           <h4 class="myheading">Start date</h4>
           <div>
-            <datepicker appendToBody
+            <datepicker
             v-model="currentTask.start"
             lang="en" 
             format="DD/MMM/YYYY" 
@@ -64,7 +64,7 @@
 
           <h4 class="myheading">End date</h4>
           <div>
-            <datepicker appendToBody
+            <datepicker
             v-model="currentTask.endTime"
             lang="en" 
             format="DD/MMM/YYYY" 
@@ -90,7 +90,7 @@ import datepicker from 'vue2-datepicker'
 // import GanttElastic from 'gantt-elastic'
 import dayjs from 'dayjs'
 export default {
-  name: 'taskModal',
+  name: 'TaskModal',
   components: {
     datepicker
     // GanttElastic

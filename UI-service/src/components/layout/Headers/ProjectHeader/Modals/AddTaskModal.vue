@@ -1,0 +1,254 @@
+<template>
+    <modal name="AddTask" transition="nice-modal-fade" 
+        :draggable="true" 
+        :reset="true"
+        :height=500
+        :resizable="true"
+        @before-open="beforeOpen"
+    >
+      <div class="box box-group">
+        <div class="box-header with-border dark">
+          <h3 class="box-title">Add new task</h3>
+        </div>
+        <div class="box-body">
+          <div class="row">
+             <div class="col-xs-6"> 
+                <h4 class="title" >Parent task ID</h4>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-shield"></i>
+                  </span>
+                  <input
+                    class="form-control"
+                    v-model="currentTask.id"
+                    disabled
+                  />
+                </div>
+            </div>
+            <div class="col-xs-6">
+              <h4 class="title" >Task ID</h4>
+              <div class="input-group ">
+                <span class="input-group-addon">
+                  <i class="fa fa-sun-o"></i>
+                </span>
+                <input
+                  type="number"
+                  min=0
+                  id="id"
+                  v-validate="'required'"
+                  v-model.number="newTaskInfo.id"
+                  class="form-control"
+                  placeholder="Enter task id"
+                  name="id"
+                  :class="{ 'is-invalid':submitted &&  errors.has('id') }"
+                />
+                <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+                  <div v-if="submitted && errors.has('id')" class="invalid-feedback">{{ errors.first('id') }}</div> 
+                </transition>
+              </div>
+            </div>
+          </div>
+
+
+          <h4 class="title col-xs-12" >Task label</h4>
+          <div class="input-group col-xs-12">
+            <span class="input-group-addon">
+              <i class="fa fa-tag"></i>
+            </span>
+            <input
+              type="text"
+              id="sum-task-label"
+              v-validate="'required|min:3'"
+              v-model="newTaskInfo.label"
+              class="form-control"
+              placeholder="Enter task label"
+              name="sum-task-label"
+              :class="{ 'is-invalid':submitted &&  errors.has('sum-task-label') }"
+           
+            />
+            <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+              <div v-if="submitted && errors.has('sum-task-label')" class="invalid-feedback">{{ errors.first('sum-task-label') }}</div> 
+            </transition>
+          </div>
+          <h4 class="title col-xs-12" >Member</h4>
+          <div class="input-group col-xs-12">
+            <span class="input-group-addon">
+              <i class="fa fa-group"></i>
+            </span>
+           <multiselect 
+              class="specialtext"
+              id="users"
+              name="users"
+              :class="{ 'is-invalid':submitted &&  errors.has('users') }"
+              v-model="newTaskInfo.users" 
+              :options="users"
+              placeholder="Add member to task" 
+              :allow-empty="false"
+              :multiple="true"
+              :close-on-select="false"
+              :clear-on-select="false"
+              :preserve-search="true"
+              label="name"
+              track-by="name"
+              :preselect-first="true"
+             >
+          </multiselect>
+          </div>     
+          
+          <div class="row">
+            <div class="col-xs-6"> 
+              <h4 class="title" >Start date</h4>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </span>
+                <div>
+                <datepicker    
+                  lang="en" 
+                  v-model="newTaskInfo.start"
+                  format="DD/MMM/YYYY"
+                  width="100%"
+                  data-vv-name="start"
+                  v-validate="'required'"
+                  :class="{ 'is-invalid': submitted &&  errors.has('start') }"
+                  >
+                </datepicker>
+                <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+                  <div v-if="submitted && errors.has('start')" class="invalid-feedback sitLenMotTi">{{ errors.first('start') }}</div> 
+                </transition>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-6"> 
+              <h4 class="title" >Estimate duration</h4>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-hourglass-half"></i>
+                </span>
+                <div>
+                <input
+                  type="number"
+                  min = 0
+                  id="estimate-duraion"            
+                  v-validate="'required'"
+                  v-model.number="newTaskInfo.duration"
+                  class="form-control"
+                  placeholder="Enter estimated duration"
+                  name="estimate-duraion"
+                  :class="{ 'is-invalid': submitted &&  errors.has('estimate-duraion') }"
+                />
+                <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+                  <div v-if="submitted && errors.has('estimate-duraion')" class="invalid-feedback">{{ errors.first('estimate-duraion') }}</div> 
+                </transition>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+
+
+
+        </div>
+        <div class="box-footer">
+          <button class="btn-create button-modal pull-right" @click="handleSubmit(newTaskInfo)"> Add task</button>
+          <button class="btn-close button-modal" @click="closeModal"> Cancel</button>
+        </div>
+      </div>
+    </modal>
+</template>
+<script>
+import Multiselect from 'vue-multiselect'
+import datepicker from 'vue2-datepicker'
+import { EventBus } from '@/main.js'
+
+export default {
+    data() {
+      return {
+        currentTask: {},
+        submitted: false,
+        newTaskInfo: {
+          parentId: '',
+          id: '',
+          label: '',
+          users: [],
+          start: '',
+          duration: 1,
+          type: 'task',
+          progress: 100,
+          collapse: true,
+          style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+          }
+        }
+      }
+    },
+    props: ['users'],
+    components: { Multiselect, datepicker },
+    shortcuts: [{
+      onClick: () => {
+        this.values = [ new Date(), new Date() ]
+        }
+      }
+      ],
+    methods: {
+      closeModal() {
+          this.$modal.hide('AddTask')
+      },
+      handleSubmit(newTaskInfo) {
+      this.submitted = true
+      this.$validator.validate().then(valid => {
+                if (valid) {
+                  if ((newTaskInfo.start).valueOf() >= this.currentTask.start) {
+                      console.log(this.newTaskInfo)
+                      EventBus.$emit('addTask', newTaskInfo)
+                      this.$modal.hide('AddTask')
+                  } else {
+                    this.$modal.show('dialog', {
+                      title: 'Error',
+                      text: 'Invalid start day!' })
+                  }
+                } else {
+                  this.$modal.show('dialog', {
+                  title: 'Error',
+                  text: 'Invalid input' })
+                }
+            })
+      },
+      beforeOpen(event) {
+          this.currentTask = event.params.data
+          this.newTaskInfo.parentId = this.currentTask.id
+          this.newTaskInfo.start = this.currentTask.start
+      }
+    },
+    beforeDestroy() {
+      EventBus.$off('addTask')
+    }
+}
+</script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css">
+</style>
+<style scoped>
+.box-title {
+  padding: 5px;
+  letter-spacing: 1px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #313233;
+  text-transform: uppercase;
+  transition: 0.1s all;
+  font-size: 16px;
+  cursor: pointer;
+}
+.title {
+  padding: 6px 6px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 0px;
+  padding-left: 0px 
+}
+</style>
