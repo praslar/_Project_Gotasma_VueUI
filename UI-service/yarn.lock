@@ -3560,6 +3560,14 @@ gantt-elastic-header@^0.1.11:
     resize-observer-polyfill "^1.5.1"
     vue "^2.6.10"
 
+"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/e5e0f984":
+  version "1.0.6"
+  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/e5e0f984#d2108ecf9e6b5ef7f8a0f6900072156767af78e2"
+  dependencies:
+    dayjs "^1.8.16"
+    resize-observer-polyfill "^1.5.1"
+    vue "^2.6.10"
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
