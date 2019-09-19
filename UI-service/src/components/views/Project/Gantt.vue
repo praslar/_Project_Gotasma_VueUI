@@ -20,7 +20,6 @@
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
-
     <!-- <gantt-elastic
       v-if="tasks"
       :options="workloadOptions"
@@ -128,7 +127,7 @@ export default {
                       label: 'Duration (estimated)',
                       value: task => (task.myAttribute / 86400000) + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
-                      width: 80,
+                      width: 45,
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
@@ -138,23 +137,23 @@ export default {
                   },
                   {
                       id: 5,
-                      label: 'Duration (real-time)',
+                      label: 'Duration (real)',
                       value: task => task.duration / 86400000 + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
-                      width: 78
+                      width: 45
                   },
                   {
                       id: 6,
-                      label: 'Function',
-                      value: task => `<button>Add</button>`,
+                      label: 'Add Task',
+                      value: task => `<button>+</button>`,
                       html: true,
-                      // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
-                      width: 78,
+                      width: 45,
                         events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
                               this.showTaskModal(data)
                               console.log(this.tasksTest)
+                              this.showAddTaskModal(data)
                           }
                       }
                   }
@@ -166,13 +165,14 @@ export default {
   mounted() {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
      EventBus.$on('deleteThisTask', (idTask) => { this.deleteThisTask(idTask) })
+     EventBus.$on('addTask', (newTaskInfo) => { this.addTask(newTaskInfo) })
   },
   created() {
     this.getProject(this.id)
     if (this.project === 'undefined' || this.project === {}) {
       this.$modal.show('dialog', {
-        title: 'frick',
-        text: 'frick u too'
+        title: 'Error',
+        text: 'No data available'
       })
     }
     if (this.exceptions.length === 0) {
@@ -213,12 +213,11 @@ export default {
     showTaskModal(data) {
       this.$modal.show('taskModal', { data: data })
     },
+    showAddTaskModal(data) {
+      this.$modal.show('AddTask', { data: data })
+    },
     addSumTask(newTaskInfo) {
-      let users = ''
       let checkExistId = false
-      newTaskInfo.users.forEach(element => {
-        users += element.name + ', '
-      })
       for (let i = 0; i < this.tasksTest.length; i++) {
          if (this.tasksTest[i].id === newTaskInfo.id) {
             checkExistId = true
@@ -229,7 +228,6 @@ export default {
         this.tasksTest.push({
             id: newTaskInfo.id,
             label: newTaskInfo.label,
-            user: users,
             start: (newTaskInfo.start).valueOf(),
             duration: newTaskInfo.duration * 86400000,
             progress: newTaskInfo.progress,
@@ -259,6 +257,42 @@ export default {
         }
       })
       console.log(this.tasksTest)
+    },
+    addTask(newTaskInfo) {
+      let checkExistId = false
+      for (let i = 0; i < this.tasksTest.length; i++) {
+         if (this.tasksTest[i].id === newTaskInfo.id) {
+            checkExistId = true
+            break
+          }
+      }
+
+      if (checkExistId === false) {
+          for (let j = 0; j < newTaskInfo.users.length; j++) {
+            for (let i = 0; i < this.tasksTest.length; i++) {
+                if (this.tasksTest[i].id === newTaskInfo.id + j) {
+                  newTaskInfo.id += Math.round(Math.random() * 10)
+                  break
+                }
+            }
+            this.tasksTest.push({
+            parentId: newTaskInfo.parentId,
+            id: (newTaskInfo.id + j),
+            label: newTaskInfo.label,
+            user: newTaskInfo.users[j].name,
+            start: (newTaskInfo.start).valueOf(),
+            duration: newTaskInfo.duration * 86400000,
+            progress: newTaskInfo.progress,
+            type: newTaskInfo.type,
+            style: newTaskInfo.style
+          })
+        }
+        } else {
+            this.$modal.show('dialog', {
+            title: 'Error',
+            text: 'Add failed, task ID already exist!'
+          })
+        }
     }
   }
 }

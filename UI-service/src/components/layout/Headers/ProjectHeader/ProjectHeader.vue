@@ -1,7 +1,8 @@
 <template>
   <header class="main-header">
-          <add-task-modal pivotX="1.0" :users="users" ></add-task-modal>
-          <taskModal :exceptionDays="exceptionDays"></taskModal>
+          <add-sum-task-modal pivotX="1.0"></add-sum-task-modal>
+          <add-task-modal :users="users"></add-task-modal>
+          <task-modal :exceptionDays="exceptionDays"></task-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <button-add-task></button-add-task>
@@ -19,7 +20,6 @@
 <script>
 import FilterModal from './Modals/FilterModal'
 import SettingModal from './Modals/SettingModal'
-import AddTaskModal from './Modals/AddTask'
 import ButtonHistory from './Buttons/ButtonHistory'
 import ButtonSave from './Buttons/ButtonSave'
 import ButtonSetting from './Buttons/ButtonSetting'
@@ -27,6 +27,9 @@ import ButtonFilter from './Buttons/ButtonFilter'
 import ButtonAddMember from './Buttons/ButtonAddMember'
 import ButtonAddTask from './Buttons/ButtonAddTask'
 import TaskModal from './Modals/TaskModal'
+import AddSumTaskModal from './Modals/AddSumTaskModal'
+import AddTaskModal from './Modals/AddTaskModal'
+
 export default {
   name: 'ProjectHeader',
   components: {
@@ -36,10 +39,11 @@ export default {
     ButtonFilter,
     ButtonAddMember,
     ButtonAddTask,
-    AddTaskModal,
+    AddSumTaskModal,
     SettingModal,
     FilterModal,
-    TaskModal
+    TaskModal,
+    AddTaskModal
   },
   props: ['id', 'users', 'exceptionDays']
 }

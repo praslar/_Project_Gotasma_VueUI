@@ -79,7 +79,7 @@
 
           <h4 class="myheading">End date</h4>
           <div>
-            <datepicker appendToBody
+            <datepicker
             v-model="currentTask.endTime"
             lang="en" 
             format="DD/MMM/YYYY" 
@@ -103,7 +103,7 @@ import datepicker from 'vue2-datepicker'
 import dayjs from 'dayjs'
 import { EventBus } from '@/main.js'
 export default {
-  name: 'taskModal',
+  name: 'TaskModal',
   components: {
     datepicker
   },
@@ -204,7 +204,6 @@ export default {
       this.$modal.hide('taskModal')
     },
     cancelEdit() {
-      console.log('run?')
       Object.assign(this.currentTask, this.userBeforeEdit)
       this.$modal.hide('taskModal')
     }
