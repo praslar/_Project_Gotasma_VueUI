@@ -3,8 +3,10 @@
           <add-sum-task-modal pivotX="1.0"></add-sum-task-modal>
           <add-task-modal></add-task-modal>
           <task-modal :exceptionDays="exceptionDays"></task-modal>
+          <add-milestone-modal></add-milestone-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <button-add-milestone></button-add-milestone>
           <button-add-task></button-add-task>
           <button-add-member :id="id" :users="users"></button-add-member>
           <button-history></button-history>
@@ -24,11 +26,13 @@ import ButtonHistory from './Buttons/ButtonHistory'
 import ButtonSave from './Buttons/ButtonSave'
 import ButtonSetting from './Buttons/ButtonSetting'
 import ButtonFilter from './Buttons/ButtonFilter'
+import ButtonAddMilestone from './Buttons/ButtonAddMilestone'
 import ButtonAddMember from './Buttons/ButtonAddMember'
 import ButtonAddTask from './Buttons/ButtonAddTask'
 import TaskModal from './Modals/TaskModal'
 import AddSumTaskModal from './Modals/AddSumTaskModal'
 import AddTaskModal from './Modals/AddTaskModal'
+import AddMilestoneModal from './Modals/AddMilestoneModal'
 
 export default {
   name: 'ProjectHeader',
@@ -43,7 +47,9 @@ export default {
     SettingModal,
     FilterModal,
     TaskModal,
-    AddTaskModal
+    AddTaskModal,
+    ButtonAddMilestone,
+    AddMilestoneModal
   },
   props: ['id', 'users', 'exceptionDays']
 }

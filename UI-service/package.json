@@ -19,7 +19,7 @@
         "babel-runtime": "^5.8.0",
         "datatables.net": "^1.10.19",
         "datatables.net-bs": "^1.10.19",
-        "gantt-elastic": "https://github.com/praslar/gantt-elastic-vue/tarball/master/bb5d3b2a",
+        "gantt-elastic": "https://github.com/praslar/gantt-elastic-vue/tarball/master/e5e0f984",
         "gantt-elastic-header": "^0.1.11",
         "hideseek": "^0.7.0",
         "http-server": "^0.9.0",

@@ -89,6 +89,8 @@ export default {
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
+                              console.log(this.tasksTest)
+                              // console.log(this.project.tasks)
                               this.showTaskModal(data)
                           }
                       }
@@ -162,6 +164,7 @@ export default {
         this.addTaskVuex(newTaskInfo)
         this.getNewTaskInfo(newTaskInfo)
      })
+     EventBus.$on('addMilestone', (newMilestone) => { this.addMilestone(newMilestone) })
   },
   created() {
     this.getProject(this.id)
@@ -237,29 +240,27 @@ export default {
     addSumTask(newTaskInfo) {
         this.$store.dispatch('addSumTask', newTaskInfo)
     },
-    deleteThisTask(idTask) {
-      console.log('id xoa', idTask)
-      this.tasksTest.forEach(element => {
-        if (element.id === idTask) {
-          if (element.children.length === 0) {
-            console.log('no child, delete one')
-            this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTask), 1)
-          } else {
-            console.log('has child, delete multiple')
-            this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTask), 1)
-            element.children.forEach(child => {
-              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
-            })
+    deleteThisTask(idTaskDelete) {
+      console.log('id xoa', idTaskDelete)
+      if (this.tasksTest.length !== 1) {
+        for (let i = 0; i < this.tasksTest.length; i++) {
+          if (this.tasksTest[i].id === idTaskDelete) {
+            if (this.tasksTest[i].children.length === 0) {
+              console.log('NO child, delete one')
+              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+            } else {
+              console.log('has child, delete multiple')
+              this.tasksTest[i].allChildren.forEach(child => {
+                this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
+                })
+              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+            }
+            break
           }
         }
-          // update parent task
-          // for (let i = 0; i < this.tasksTest.length; i++) {
-          //   if (this.tasksTest[i].id === idTask) {
-          //     if(this.tasksTest[i].parentId !== null) {
-          //       }
-          //   }
-          // }
-      })
+      } else {
+        alert('cannot delete anymore')
+      }
       console.log(this.tasksTest)
     },
     addTask(newTaskInfo) {
@@ -371,6 +372,18 @@ export default {
     getNewTaskInfo(newTaskInfo) {
       this.newTaskInfo.exist = true
       this.newTaskInfo.id = newTaskInfo.id
+    },
+    addMilestone(newMilestone) {
+      console.log(newMilestone)
+      this.tasksTest.push({
+        id: newMilestone.id,
+        label: newMilestone.label,
+        start: (newMilestone.start).valueOf(),
+        duration: newMilestone.duration,
+        progress: newMilestone.progress,
+        type: newMilestone.type,
+        style: newMilestone.style
+      })
     }
   }
 }

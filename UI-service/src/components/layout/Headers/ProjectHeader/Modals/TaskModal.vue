@@ -1,6 +1,8 @@
   <template>
   <modal name="taskModal" transition="pop-out" 
-      :height=700 :width=500 
+      height="auto" 
+      :scrollable="true"
+      :width=500 
       :draggable="true" 
       :reset="true"
       :clickToClose="false"
@@ -9,91 +11,151 @@
       <a class="pull-right exit-btn" @click="cancelEdit"><i class="fa fa-close"/></a>
     <!-- <form @submit.prevent="applyEdit(currentTask)"> -->
       <div class="modal-box">
-      <div class="partition">
-        <div class="partition-title"><i class="fa fa-fw fa-edit"></i> Task info</div>
-        <div class="partition-form">
-
-          <h4 class="myheading">Name of Task: </h4>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span>
-              <input
-                class="form-control" 
-                placeholder="Name of task" 
-                type="text"
-                v-model="currentTask.label"
-                >
+        <div class="title"><i class="fa fa-fw fa-edit"></i> Task info</div>
+        
+          <div class="col-xs-12">
+            <h4 class="myheading">Name of Task: </h4>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span>
+                <input
+                  class="form-control" 
+                  placeholder="Name of task" 
+                  type="text"
+                  v-model="currentTask.label"
+                  >
             </div>
-
-          <h4 class="myheading">Asignee: </h4>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-child"></i></span>
-              <input
-                class="form-control" 
-                placeholder="Asignee" 
-                type="text"
-                v-model="currentTask.user">
-            </div>
-
-          <h4 class="myheading">Start date</h4>
-          <div class="myPicker">
-            <datepicker
-            v-model="currentTask.start"
-            lang="en" 
-            format="DD/MMM/YYYY"
-            width="100%"
-            :editable="false">
-            </datepicker>
           </div>
 
-          <h4 class="myheading">Duration (estimated)</h4>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-3"></i></span>
-              <input
-                class="form-control" 
-                placeholder="Duration"
-                type="number"
-                min="0"
-                v-model.number="currentTask.myAttribute">
+          <div class="col-xs-12" v-if="currentTask.type === 'task'">
+            <h4 class="myheading">Assignee: </h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon"><i class="fa fa-fw fa-child"></i></span>
+                <input
+                  class="form-control" 
+                  placeholder="Assignee"
+                  type="text"
+                  v-model="currentTask.user">
             </div>
-
-          <h4 class="myheading">Effort</h4>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-check-square-o"></i></span>
-              <input
-                class="form-control" 
-                placeholder="Effort"
-                type="number"
-                min="0"
-                max="100"
-                v-model.number="currentTask.effort">
-            </div>
-
-          <h4 class="myheading">Duration (real-time)</h4>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-fw fa-hourglass"></i></span>
-              <input
-                class="form-control" 
-                disabled
-                v-model="currentTask.duration">
-            </div>
-
-          <h4 class="myheading">End date</h4>
-          <div>
-            <datepicker
-            v-model="currentTask.endTime"
-            lang="en" 
-            format="DD/MMM/YYYY" 
-            width="100%"
-            :editable="false"
-            disabled>
-            </datepicker>
           </div>
-          <div class="button-set">
-            <button @click="applyEdit(currentTask)">Apply</button>
-            <button @click="deleteTask(currentTask.id)">POP</button>
+          <div class="col-xs-12" v-else hidden>
+            <h4 class="myheading">Assignee: </h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon"><i class="fa fa-fw fa-child"></i></span>
+            </div>
           </div>
-        </div>        
-      </div>  
+
+          <div class="col-xs-12" v-if="currentTask.type === 'task'">
+            <h4 class="myheading">Start date</h4>
+            <div class="myPicker">
+              <datepicker
+              v-model="currentTask.start"
+              lang="en" 
+              format="DD/MMM/YYYY"
+              width="100%"
+              :editable="false">
+              </datepicker>
+            </div>
+          </div>
+          <div class="col-xs-12" v-else hidden>
+            <h4 class="myheading">Start date</h4>
+            <div class="myPicker">
+              <datepicker>
+              </datepicker>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <h4 class="myheading">Duration (estimated)</h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-3"></i></span>
+                <input
+                  v-if="currentTask.type === 'task'"
+                  class="form-control" 
+                  placeholder="Duration"
+                  type="number"
+                  min="0"
+                  v-model.number="currentTask.myAttribute">
+                <input
+                  v-else
+                  disabled
+                  class="form-control"
+                  v-model.number="currentTask.myAttribute">
+            </div>
+          </div>
+
+          <div class="col-xs-12" v-if="currentTask.type === 'task'">
+            <h4 class="myheading">Effort</h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon"><i class="fa fa-fw fa-check-square-o"></i></span>
+                <input
+                  class="form-control" 
+                  placeholder="Effort"
+                  type="number"
+                  min="0"
+                  max="100"
+                  v-model.number="currentTask.effort">
+              </div>
+          </div>
+          <div class="col-xs-12" v-else hidden>
+            <h4 class="myheading">Effort</h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon"><i class="fa fa-fw fa-check-square-o"></i></span>
+                <input
+                  class="form-control" 
+                  placeholder="Effort"
+                  type="number"
+                  min="0"
+                  max="100"
+                  v-model.number="currentTask.effort">
+              </div>
+          </div>
+
+          <div class="col-xs-12">
+            <h4 class="myheading">Type</h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon">
+                <i class="fa fa-fw fa-hand-pointer-o"></i>
+              </span>
+              <select
+              disabled
+              class="form-control"
+              v-model="currentTask.type">
+                <option v-for="type in taskType" :value="type.value" :key="type">
+                    {{ type.text }}
+                </option>
+              </select>
+            </div>          
+          </div>
+
+          <div class="col-xs-6">
+              <h4 class="myheading">Duration (real-time)</h4>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-fw fa-hourglass"></i></span>
+                  <input
+                    class="form-control" 
+                    disabled
+                    v-model="currentTask.duration">
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <h4 class="myheading">End date</h4>
+              <div>
+                <datepicker
+                v-model="currentTask.endTime"
+                lang="en" 
+                format="DD/MMM/YYYY" 
+                width="100%"
+                :editable="false"
+                disabled>
+                </datepicker>
+              </div>
+            </div>
+
+          <div class="button-set col-xs-12">
+            <button class="button-modal pull-right" @click="applyEdit(currentTask)">Apply</button>
+            <button class="btn-close button-modal" @click="deleteTask(currentTask.id)">Delete</button>
+          </div>
     </div>
     <!-- </form> -->
   </modal>
@@ -111,7 +173,12 @@ export default {
   data() {
     return {
       currentTask: '',
-      userBeforeEdit: ''
+      beforeEdit: '',
+      taskType: [
+        { text: 'Parent Task', value: 'project' },
+        { text: 'Task', value: 'task' },
+        { text: 'Milestone', value: 'milestone' }
+      ]
     }
   },
   shortcuts: [{
@@ -124,10 +191,10 @@ export default {
     beforeOpen(event) {
       // console.log(event.params.data)
       this.currentTask = event.params.data
-      console.log('hello this first')
       this.currentTask.myAttribute = this.currentTask.myAttribute / 86400000
       this.currentTask.duration = this.currentTask.duration / 86400000
-      this.userBeforeEdit = Object.assign({}, this.currentTask)
+      this.beforeEdit = Object.assign({}, this.currentTask)
+      this.myType = this.currentTask.type
     },
     beforeClose() {
       this.currentTask.startTime = (this.currentTask.start).valueOf()
@@ -200,13 +267,36 @@ export default {
       return task
     },
     deleteTask(idTask) {
-      EventBus.$emit('deleteThisTask', idTask)
-      this.$modal.hide('taskModal')
+      this.$modal.show('dialog', {
+        title: 'Are you sure?',
+        text: 'This task will be deleted permanantly',
+        buttons: [
+          {
+            title: 'OK',
+            default: true,
+            handler: () => {
+              EventBus.$emit('deleteThisTask', idTask)
+              this.$modal.hide('dialog')
+              this.$modal.hide('taskModal')
+            }
+          },
+          {
+            title: 'CANCEL',
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          }
+        ]
+      })
     },
     cancelEdit() {
-      Object.assign(this.currentTask, this.userBeforeEdit)
+      Object.assign(this.currentTask, this.beforeEdit)
       this.$modal.hide('taskModal')
     }
+  },
+  beforeDestroy() {
+    console.log('destroyed delete task')
+    EventBus.$off('deleteThisTask')
   }
 }
 </script>
@@ -218,21 +308,18 @@ export default {
   font-size: 0;
 }
 
-.modal-box .partition .partition-title {
-      box-sizing: border-box;
-      padding: 20px;
-      width: 100%;
-      text-align: center;
-      letter-spacing: 1px;
-      font-size: 23px;
-      font-weight: 300;
-}
-.modal-box .partition .partition-form {
-      padding: 0 20px;
+.modal-box .title {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 23px;
+  font-weight: 300;
 }
 
-.modal-box .partition .partition-form .input-group{
-      padding-bottom: 10px;
+.modal-box .input-group{
+  padding-bottom: 10px
 }
 
 .modal-box button {
@@ -243,7 +330,6 @@ export default {
     letter-spacing: 1px;
     font-family: "Open Sans", sans-serif;
     font-weight: 6  00;
-    min-width: 100%;
     margin-top: 8px;
     color: #313233;
     cursor: pointer;
@@ -253,13 +339,17 @@ export default {
     font-size: 13px;
     outline: none;
   }
-  .modal-box .partition-form .button-set :hover {
+  .modal-box .button-set :hover {
       border-color: #3fb0ac;
       color: #3fb0ac;
+  }
 
+  .modal-box .button-set .btn-close:hover {
+    border-color: #eb4b4b; 
+    color: #eb4b4b
   }
   .modal-box .button-set {
-    margin-top: 40px;
+    margin: 15px 0 15px 0;
   }
   .myheading {
     margin: 5px 0 !important
@@ -272,6 +362,7 @@ export default {
   .exit-btn:hover{
     color: #3fb0ac
   }
+
   .myPicker {
     padding-bottom: 10px
   }
