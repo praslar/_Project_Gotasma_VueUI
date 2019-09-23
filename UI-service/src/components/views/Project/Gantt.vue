@@ -76,12 +76,7 @@ export default {
               expander: {
                   straight: true
               },
-              columns: [{
-                      id: 1,
-                      label: 'ID',
-                      value: 'id',
-                      width: 35
-                  },
+              columns: [
                   {
                       id: 2,
                       label: 'Description',
@@ -101,39 +96,33 @@ export default {
                   {
                       id: 3,
                       label: 'Assignee',
-                      value: 'user',
+                      value: task => `<a>${task.user}</a>`,
                       width: 90,
+                      html: true,
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
                               this.showTaskModal(data)
                           }
+                      },
+                      style: {
+                        'task-list-item-value-container': {
+                          'cursor': 'pointer'
+                        }
                       }
                   },
                   {
                       id: 3,
                       label: 'Start',
                       value: task => dayjs(task.start).format('DD-MM-YYYY'),
-                      width: 78,
-                      events: {
-                          click: ({ data }) => {
-                              console.log(data.label, data)
-                              this.showTaskModal(data)
-                          }
-                      }
+                      width: 78
                   },
                   {
                       id: 4,
                       label: 'Duration (estimated)',
                       value: task => (task.myAttribute / 86400000) + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
-                      width: 45,
-                      events: {
-                          click: ({ data }) => {
-                              console.log(data.label, data)
-                              this.showTaskModal(data)
-                          }
-                      }
+                      width: 45
                   },
                   {
                       id: 5,
@@ -145,27 +134,34 @@ export default {
                   {
                       id: 6,
                       label: 'Add Task',
-                      value: task => `<button>+</button>`,
+                      value: task => `<a><i class="fa fa-plus" style="font-size:20px; margin-left:8px"></i></a>`,
                       html: true,
                       width: 45,
                         events: {
                           click: ({ data }) => {
-                              console.log(data.label, data)
-                              this.showTaskModal(data)
-                              console.log(this.tasksTest)
                               this.showAddTaskModal(data)
                           }
+                      },
+                      style: {
+                        'task-list-item-value-container': { 'text-align': 'center' }
                       }
                   }
               ]
           }
+        },
+        newTaskInfo: {
+          exist: false,
+          id: ''
         }
     }
   },
   mounted() {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
      EventBus.$on('deleteThisTask', (idTask) => { this.deleteThisTask(idTask) })
-     EventBus.$on('addTask', (newTaskInfo) => { this.addTask(newTaskInfo) })
+     EventBus.$on('addTask', (newTaskInfo) => {
+        this.addTaskVuex(newTaskInfo)
+        this.getNewTaskInfo(newTaskInfo)
+     })
   },
   created() {
     this.getProject(this.id)
@@ -205,7 +201,29 @@ export default {
       getExceptions: 'getExceptions'
     }),
     tasksUpdate(tasks) {
-      this.tasks = tasks
+      this.tasksTest = tasks
+      if (this.newTaskInfo.exist) {
+        for (let i = 0; i < this.tasksTest.length; i++) {
+          if (this.newTaskInfo.id === this.tasksTest[i].id) {
+            this.newTaskInfo = this.tasksTest[i]
+            console.log(this.newTaskInfo)
+            break
+          }
+        }
+        for (let i = 0; i < this.tasksTest.length; i++) {
+          for (let j = 0; j < this.newTaskInfo.parents.length; j++) {
+            if (this.tasksTest[i].id === this.newTaskInfo.parents[j]) {
+              if (this.newTaskInfo.endTime > this.tasksTest[i].endTime) {
+                this.tasksTest[i].duration = (this.newTaskInfo.endTime - this.tasksTest[i].start)
+                this.tasksTest[i].endTime = this.tasksTest[i].start + this.tasksTest[i].duration
+              }
+            }
+          }
+        }
+      }
+    this.newTaskInfo = {}
+    this.newTaskInfo.exist = false
+    this.newTaskInfo.id = ''
     },
     optionsUpdate(options) {
       this.options = options
@@ -217,28 +235,7 @@ export default {
       this.$modal.show('AddTask', { data: data })
     },
     addSumTask(newTaskInfo) {
-      let checkExistId = false
-      for (let i = 0; i < this.tasksTest.length; i++) {
-         if (this.tasksTest[i].id === newTaskInfo.id) {
-            checkExistId = true
-            break
-          }
-      }
-      if (checkExistId === false) {
-        this.tasksTest.push({
-            id: newTaskInfo.id,
-            label: newTaskInfo.label,
-            start: (newTaskInfo.start).valueOf(),
-            duration: newTaskInfo.duration * 86400000,
-            progress: newTaskInfo.progress,
-            type: newTaskInfo.type
-        })
-      } else {
-        this.$modal.show('dialog', {
-          title: 'Error',
-          text: 'Add failed, ID already exist!'
-        })
-      }
+        this.$store.dispatch('addSumTask', newTaskInfo)
     },
     deleteThisTask(idTask) {
       console.log('id xoa', idTask)
@@ -255,6 +252,13 @@ export default {
             })
           }
         }
+          // update parent task
+          // for (let i = 0; i < this.tasksTest.length; i++) {
+          //   if (this.tasksTest[i].id === idTask) {
+          //     if(this.tasksTest[i].parentId !== null) {
+          //       }
+          //   }
+          // }
       })
       console.log(this.tasksTest)
     },
@@ -266,33 +270,107 @@ export default {
             break
           }
       }
-
       if (checkExistId === false) {
-          for (let j = 0; j < newTaskInfo.users.length; j++) {
-            for (let i = 0; i < this.tasksTest.length; i++) {
-                if (this.tasksTest[i].id === newTaskInfo.id + j) {
-                  newTaskInfo.id += Math.round(Math.random() * 10)
-                  break
-                }
-            }
+          // for (let j = 0; j < newTaskInfo.users.length; j++) {
+          //   for (let i = 0; i < this.tasksTest.length; i++) {
+          //       if (this.tasksTest[i].id === newTaskInfo.id + j) {
+          //         newTaskInfo.id += Math.round(Math.random() * 10)
+          //         break
+          //       }
+          //   }
+          //   this.tasksTest.push({
+          //   parentId: newTaskInfo.parentId,
+          //   id: (newTaskInfo.id + j),
+          //   label: newTaskInfo.label,
+          //   user: newTaskInfo.users[j].name,
+          //   start: (newTaskInfo.start).valueOf(),
+          //   duration: newTaskInfo.duration * 86400000,
+          //   progress: newTaskInfo.progress,
+          //   type: newTaskInfo.type,
+          //   style: {
+          //         base: {
+          //             fill: '#3fb0ac',
+          //             'stroke-width': 2,
+          //             stroke: '#173e43'
+          //           }
+          //     }
+          //   })
+          // }
             this.tasksTest.push({
             parentId: newTaskInfo.parentId,
-            id: (newTaskInfo.id + j),
+            id: newTaskInfo.id,
             label: newTaskInfo.label,
-            user: newTaskInfo.users[j].name,
             start: (newTaskInfo.start).valueOf(),
             duration: newTaskInfo.duration * 86400000,
             progress: newTaskInfo.progress,
             type: newTaskInfo.type,
-            style: newTaskInfo.style
-          })
-        }
+            style: {
+                  base: {
+                      fill: '#3fb0ac',
+                      'stroke-width': 2,
+                      stroke: '#173e43'
+                    }
+              }
+            })
+        //   // Recalculate duration (add sunday, sat, and exceptions day)
+        //   let timeStart = new Date(newTaskInfo.start)
+        //   let calculateTimeChart = (newTaskInfo.start).valueOf()
+        //   let dayofWeek = (timeStart.getDay())
+        //   let durationDays = newTaskInfo.duration
+        //   let actualDuration = newTaskInfo.duration * 86400000
+        //   let isHoliday = false
+        //   for (let i = 0; i < durationDays; i++) {
+        //     for (let j = 0; j < this.exceptionDays.length; j++) {
+        //       if (calculateTimeChart === this.exceptionDays[j]) {
+        //         isHoliday = true
+        //         break
+        //       }
+        //     }
+        //     if (isHoliday) {
+        //       actualDuration += 86400000
+        //       isHoliday = false
+        //       durationDays++
+        //       // if holiday la t7 hoac cn
+        //       if (dayofWeek === 6) {
+        //         dayofWeek = 0
+        //       } else { dayofWeek += 1 }
+        //     } else if (dayofWeek === 6) {
+        //       dayofWeek = 0
+        //       actualDuration += 86400000
+        //       durationDays++
+        //     } else if (dayofWeek === 0) {
+        //       dayofWeek += 1
+        //       actualDuration += 86400000
+        //       durationDays++
+        //     } else { dayofWeek += 1 }
+        //     calculateTimeChart += 86400000
+        //   }
+        //       // new day after added (sunday, sat and exceptions)
+        //   newTaskInfo.duration = actualDuration
+        //   newTaskInfo.endTime = ((newTaskInfo.start).valueOf()) + actualDuration
+
+        //  // LAY ID PARENT VA ID CHILDREM DE SO SANH
+        //   for (let i = 0; i < this.tasksTest.length; i++) {
+        //   if (this.tasksTest[i].id === newTaskInfo.parentId) {
+        //       if (newTaskInfo.endTime > this.tasksTest[i].endTime) {
+        //             this.tasksTest[i].duration = (newTaskInfo.endTime - this.tasksTest[i].start)
+        //             break
+        //       }
+        //     }
+        //   }
         } else {
             this.$modal.show('dialog', {
             title: 'Error',
             text: 'Add failed, task ID already exist!'
           })
         }
+    },
+    addTaskVuex(newTaskInfo) {
+      this.$store.dispatch('addTask', newTaskInfo)
+    },
+    getNewTaskInfo(newTaskInfo) {
+      this.newTaskInfo.exist = true
+      this.newTaskInfo.id = newTaskInfo.id
     }
   }
 }

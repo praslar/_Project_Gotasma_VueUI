@@ -13,5 +13,6 @@ export default {
             }
         })
         return arr
-    }
+    },
+    getChange: state => state.tasksTest
 }

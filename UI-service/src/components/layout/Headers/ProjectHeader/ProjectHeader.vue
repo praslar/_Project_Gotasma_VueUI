@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
           <add-sum-task-modal pivotX="1.0"></add-sum-task-modal>
-          <add-task-modal :users="users"></add-task-modal>
+          <add-task-modal></add-task-modal>
           <task-modal :exceptionDays="exceptionDays"></task-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">

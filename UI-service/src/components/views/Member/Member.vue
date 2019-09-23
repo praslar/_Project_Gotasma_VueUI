@@ -10,7 +10,7 @@
       </div> 
       <member-table :users="project.users"></member-table>  
       <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">     
-          <resources-table :showTableResources="showTableResources"></resources-table>
+          <resources-table :showTableResources="showTableResources" :users="project.users" :idProject="id"></resources-table>
       </transition> 
     
     </div>

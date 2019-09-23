@@ -25,6 +25,9 @@ export default {
     GET_PROJECT_BY_ID(state, project) {
         state.project = project
     },
+    ADD_USER_TO_PROJECT() {
+        console.log('added one user to project')
+    },
     // =============================EXCEPTIONS===========================
     GET_EXCEPTIONS(state, exceptions) {
         state.exceptions = exceptions
@@ -34,6 +37,35 @@ export default {
     },
     DELETE_EXCEPTION() {
         console.log('delete exception done')
+    },
+    // ===========local action=====
+    addTask: (state, newTaskInfo) => {
+        state.tasksTest.push({
+            parentId: newTaskInfo.parentId,
+            id: newTaskInfo.id,
+            label: newTaskInfo.label,
+            start: (newTaskInfo.start).valueOf(),
+            duration: newTaskInfo.duration * 86400000,
+            progress: newTaskInfo.progress,
+            type: newTaskInfo.type,
+            parents: newTaskInfo.parents,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
+        })
+    },
+    addSumTask: (state, newTaskInfo) => {
+        state.tasksTest.push({
+            id: newTaskInfo.id,
+            label: newTaskInfo.label,
+            start: (newTaskInfo.start).valueOf(),
+            duration: newTaskInfo.duration * 86400000,
+            progress: newTaskInfo.progress,
+            type: newTaskInfo.type
+        })
     }
-
 }

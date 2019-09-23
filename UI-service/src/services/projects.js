@@ -15,3 +15,7 @@ export const deleteProject = async(id) => {
 export const getProjectByID = async(id) => {
     return await NetworkHelper.requestGet('/projects/' + id)
 }
+
+export const addUserToProject = async(payload) => {
+    return await NetworkHelper.requestPost('/projects/' + payload.id, payload.user)
+}

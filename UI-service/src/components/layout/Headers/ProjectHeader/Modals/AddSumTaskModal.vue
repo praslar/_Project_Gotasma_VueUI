@@ -2,7 +2,8 @@
     <modal name="AddSumTaskModal" transition="nice-modal-fade" 
         :draggable="true" 
         :reset="true"
-        :height=400
+        :height=420
+         @before-open="beforeOpen"
     >
       <div class="box box-group">
         <div class="box-header with-border dark">
@@ -10,26 +11,18 @@
         </div>
         <div class="box-body">
           <!--Input section-->
-          <h4 class="title col-xs-12" >Task ID</h4>
+          <h4 class="title col-xs-12" >Sum task ID</h4>
           <div class="input-group col-xs-12">
             <span class="input-group-addon">
               <i class="fa fa-sun-o"></i>
             </span>
             <input
               type="number"
-              min=0
-              id="id"
-              v-validate="'required'"
-              v-model.number="newTaskInfo.id"
-              class="form-control"
-              placeholder="Enter task id"
-              name="id"
-              :class="{ 'is-invalid':submitted &&  errors.has('id') }"
-           
+              v-model.number="newTaskInfo.id"   
+              width="100%"
+               class="form-control"
+               disabled
             />
-            <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <div v-if="submitted && errors.has('id')" class="invalid-feedback">{{ errors.first('id') }}</div> 
-            </transition>
           </div>
            <h4 class="title col-xs-12" >Task label</h4>
           <div class="input-group col-xs-12">
@@ -51,7 +44,7 @@
               <div v-if="submitted && errors.has('sum-task-label')" class="invalid-feedback">{{ errors.first('sum-task-label') }}</div> 
             </transition>
           </div>
-           <h4 class="title col-xs-12" >Start day</h4>
+            <h4 class="title col-xs-12" >Start day</h4>
           <div class="input-group col-xs-12">
               <span class="input-group-addon">
                 <i class="fa fa-calendar"></i>
@@ -112,21 +105,26 @@ export default {
           this.$modal.hide('AddSumTaskModal')
       },
       handleSubmit(newTaskInfo) {
-      this.submitted = true
-      this.$validator.validate().then(valid => {
-                if (valid) {
-                  EventBus.$emit('addSumTask', newTaskInfo)
-                  this.$modal.hide('AddSumTaskModal')
-                } else {
-                    this.$modal.show('dialog', {
-                      title: 'Error',
-                      text: 'Invalid input!'})
-                }
-            })
-       }
+        this.submitted = true
+        this.$validator.validate().then(valid => {
+                  if (valid) {
+                    EventBus.$emit('addSumTask', newTaskInfo)
+                    this.$modal.hide('AddSumTaskModal')
+                  } else {
+                      this.$modal.show('dialog', {
+                        title: 'Error',
+                        text: 'Invalid input!'})
+                  }
+              })
+      },
+      beforeOpen() {
+          var d = new Date()
+          var n = d.valueOf()
+          this.newTaskInfo.id = n
+      }
     },
     beforeDestroy() {
-      this.EventBus.$off('addSumTask')
+      EventBus.$off('addSumTask')
     }
 }
 </script>
@@ -184,6 +182,9 @@ export default {
   }
 </style>
 <style scoped>
+.box-footer {
+  margin-top: 30px
+}
 .box-title {
   padding: 5px;
   letter-spacing: 1px;

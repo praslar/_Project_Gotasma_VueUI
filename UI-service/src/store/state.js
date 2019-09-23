@@ -184,7 +184,6 @@ export default {
     tasksTest: [{
             id: 9,
             label: 'Phan tich va thiet ke',
-            user: 'Thang Pham',
             start: 1567530000000,
             duration: 259200000,
             type: 'project',
@@ -193,9 +192,8 @@ export default {
         {
             id: 10,
             label: 'Make some noise',
-            user: 'John Doe',
             start: 1567875600000,
-            duration: 864000000,
+            duration: 518400000,
             type: 'project',
             progress: 0
         },
@@ -225,39 +223,30 @@ export default {
             start: 1568307600000,
             duration: 172800000,
             type: 'task',
-            progress: 0
-        },
-        {
-            id: 13,
-            label: 'being scared to death',
-            user: 'John Wayne',
-            start: 1568307600000,
-            duration: 172800000,
-            type: 'task',
-            progress: 0
-        },
-        {
-            id: 14,
-            label: 'anyway',
-            user: 'John Wayne',
-            start: 1568307600000,
-            duration: 172800000,
-            type: 'task',
             progress: 100,
             style: {
                 base: {
                     fill: '#3fb0ac',
                     'stroke-width': 2,
                     stroke: '#173e43'
-                },
-                'tree-row-bar': {
-                    fill: '#1EBC61',
-                    stroke: '#0EAC51'
-                },
-                'tree-row-bar-polygon': {
-                    stroke: '#0EAC51'
                 }
             }
+        },
+        {
+            id: 13,
+            label: 'being scared to death',
+            start: 1568307600000,
+            duration: 172800000,
+            type: 'project',
+            progress: 0
+        },
+        {
+            id: 14,
+            label: 'anyway',
+            start: 1568307600000,
+            duration: 172800000,
+            type: 'project',
+            progress: 0
         }
     ],
     resources: [],

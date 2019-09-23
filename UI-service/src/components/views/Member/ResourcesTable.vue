@@ -47,32 +47,46 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="resource of resources" :key="resource.badgeID">
+                  <tr class="even" role="row" v-for="resource of resourcesCanChoose" :key="resource.badgeID">
                     <td>{{resource.name}}</td>
                                       <td>{{resource.email}}</td>
                     <td>
                     <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
                     <td >
-                        <a class="btn" @click="showDialogAddresource(resource.id)" ><i class="fa fa-level-down special"></i></a>           
+                        <a class="btn" @click="showDialogAddresource(resource, idProject)" ><i class="fa fa-user-plus special"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
               </table>
+              <i class="notice">If data in table wasn't available, please go back to the project dashboard to load the data</i>
                 <v-dialog/>
             </div>
   </template>
 <script>
 import $ from 'jquery'
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 require('datatables.net-bs')
 
 export default {
   name: 'resource-table',
-  props: ['showTableResources'],
+  props: ['showTableResources', 'users', 'idProject'],
+  data() {
+    return {
+      resourcesCanChoose: {}
+    }
+  },
   methods: {
-    showDialogAddresource(id) {
+    showDialogAddresource(resource, ad) {
+      let info = {
+        id: ad,
+        resource: {
+          badgeId: resource.badgeID,
+          name: resource.name,
+          email: resource.email
+        }
+      }
       this.$modal.show('dialog', {
         title: 'Are you sure?',
         text: 'Do you wish to add this member project?',
@@ -81,6 +95,8 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
+              console.log(info)
+              this.$store.dispatch('addUserToProject', info)
               this.$modal.hide('dialog')
             }
           },
@@ -102,14 +118,18 @@ export default {
   computed: {
    ...mapState([
      'resources'
-   ]),
-   ...mapGetters({
-      chooseResources: 'chooseResources'
-    })
+   ])
   },
   created() {
+    let usersId = []
     if (this.resources.length === 0) {
        this.$store.dispatch('getResources')
+    }
+    if (this.users !== undefined) {
+      this.users.forEach(element => {
+        usersId.push(element.id)
+      })
+        this.resourcesCanChoose = this.resources.filter(resource => { return usersId.indexOf(resource.id) === -1 })
     }
   }
 }
@@ -117,9 +137,13 @@ export default {
 <style scoped>
 .special{
     font-size: 20px !important;
-    color:green
+    color:green;
+    margin-left: 30px
 }
 table{
   font-size: 16px !important
+}
+.notice {
+  color: red;
 }
 </style>

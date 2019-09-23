@@ -76,6 +76,15 @@ export default {
                 console.log(error)
             })
     },
+    addUserToProject({ commit }, payload) {
+        Services.addUserToProject(payload)
+            .then((response) => {
+                commit('ADD_USER_TO_PROJECT', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     // Exception actions
     getExceptions({ commit }) {
         Services.getExceptions()
@@ -103,5 +112,12 @@ export default {
             .catch(error => {
                 console.log(error)
             })
+    },
+    // LOCAL ACTIONS
+    addTask({ commit }, payload) {
+        commit('addTask', payload)
+    },
+    addSumTask({ commit }, payload) {
+        commit('addSumTask', payload)
     }
 }

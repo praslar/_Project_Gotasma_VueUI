@@ -2,7 +2,7 @@
     <modal name="AddTask" transition="nice-modal-fade" 
         :draggable="true" 
         :reset="true"
-        :height=500
+        :height=400
         :resizable="true"
         @before-open="beforeOpen"
     >
@@ -12,7 +12,7 @@
         </div>
         <div class="box-body">
           <div class="row">
-             <div class="col-xs-6"> 
+             <div class="col-xs-12"> 
                 <h4 class="title" >Parent task ID</h4>
                 <div class="input-group">
                   <span class="input-group-addon">
@@ -25,7 +25,7 @@
                   />
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-6" hidden>
               <h4 class="title" >Task ID</h4>
               <div class="input-group ">
                 <span class="input-group-addon">
@@ -33,22 +33,13 @@
                 </span>
                 <input
                   type="number"
-                  min=0
-                  id="id"
-                  v-validate="'required'"
                   v-model.number="newTaskInfo.id"
                   class="form-control"
-                  placeholder="Enter task id"
-                  name="id"
-                  :class="{ 'is-invalid':submitted &&  errors.has('id') }"
+                  disabled
                 />
-                <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div v-if="submitted && errors.has('id')" class="invalid-feedback">{{ errors.first('id') }}</div> 
-                </transition>
               </div>
             </div>
           </div>
-
 
           <h4 class="title col-xs-12" >Task label</h4>
           <div class="input-group col-xs-12">
@@ -70,7 +61,7 @@
               <div v-if="submitted && errors.has('sum-task-label')" class="invalid-feedback">{{ errors.first('sum-task-label') }}</div> 
             </transition>
           </div>
-          <h4 class="title col-xs-12" >Member</h4>
+          <!-- <h4 class="title col-xs-12" >Member</h4>
           <div class="input-group col-xs-12">
             <span class="input-group-addon">
               <i class="fa fa-group"></i>
@@ -93,7 +84,7 @@
               :preselect-first="true"
              >
           </multiselect>
-          </div>     
+          </div>      -->
           
           <div class="row">
             <div class="col-xs-6"> 
@@ -145,9 +136,6 @@
               </div>
             </div>
           </div>
-  
-
-
 
         </div>
         <div class="box-footer">
@@ -171,23 +159,16 @@ export default {
           parentId: '',
           id: '',
           label: '',
-          users: [],
+          parents: [],
           start: '',
           duration: 1,
           type: 'task',
           progress: 100,
           collapse: true,
-          style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-          }
+          endTime: 0
         }
       }
     },
-    props: ['users'],
     components: { Multiselect, datepicker },
     shortcuts: [{
       onClick: () => {
@@ -204,7 +185,6 @@ export default {
       this.$validator.validate().then(valid => {
                 if (valid) {
                   if ((newTaskInfo.start).valueOf() >= this.currentTask.start) {
-                      console.log(this.newTaskInfo)
                       EventBus.$emit('addTask', newTaskInfo)
                       this.$modal.hide('AddTask')
                   } else {
@@ -220,7 +200,11 @@ export default {
             })
       },
       beforeOpen(event) {
+          var d = new Date()
+          var n = d.valueOf()
           this.currentTask = event.params.data
+          this.newTaskInfo.id = n
+          this.newTaskInfo.duration = d
           this.newTaskInfo.parentId = this.currentTask.id
           this.newTaskInfo.start = this.currentTask.start
       }
