@@ -126,7 +126,7 @@ export default {
        }
     },
     beforeDestroy() {
-      this.EventBus.$off('addSumTask')
+      EventBus.$off('addSumTask')
     }
 }
 </script>
@@ -158,12 +158,10 @@ export default {
   .btn-create:hover {
   border-color: #3fb0ac;
   color: #3fb0ac;
-  margin: -0px;
   }
   .btn-close:hover {
     border-color:  hsl(350, 47%, 47%);
     color: hsl(350, 47%, 47%);
-    margin: -0px;
   }
   .invalid-feedback{
   font-size: 12px;

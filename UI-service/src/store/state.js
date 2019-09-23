@@ -12,7 +12,7 @@ export default {
     // gantt chart header default options
     headerOptions: {
         title: {
-            label: 'Coffee Cat ',
+            label: 'Project',
             html: false
         },
         locale: {
@@ -184,18 +184,34 @@ export default {
     tasksTest: [{
             id: 9,
             label: 'Phan tich va thiet ke',
-            user: 'Thang Pham',
-            start: 1567530000000,
+            start: 1568826000000,
             duration: 259200000,
             type: 'project',
-            progress: 0
+            progress: 0,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
+        },
+        {
+            id: 90,
+            label: 'Phan tich va thiet ke',
+            user: 'Thang Pham',
+            start: 1568826000000,
+            duration: 259200000,
+            parentId: 9,
+            collapsed: true,
+            type: 'task',
+            progress: 100
         },
         {
             id: 10,
             label: 'Make some noise',
-            user: 'John Doe',
             start: 1567875600000,
-            duration: 864000000,
+            duration: 518400000,
             type: 'project',
             progress: 0
         },
@@ -208,14 +224,7 @@ export default {
             duration: 345600000,
             collapsed: true,
             type: 'task',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
+            progress: 100
         },
         {
             id: 12,
@@ -225,40 +234,122 @@ export default {
             start: 1568307600000,
             duration: 172800000,
             type: 'task',
-            progress: 0
+            progress: 100
         },
         {
             id: 13,
             label: 'being scared to death',
-            user: 'John Wayne',
-            start: 1568307600000,
-            duration: 172800000,
-            type: 'task',
-            progress: 0
+            start: 1568653200000,
+            duration: 86400000,
+            type: 'milestone',
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#de3131',
+                    'stroke-width': 2,
+                    stroke: '#de3131'
+                }
+            }
         },
         {
-            id: 14,
-            label: 'anyway',
-            user: 'John Wayne',
-            start: 1568307600000,
-            duration: 172800000,
-            type: 'task',
-            progress: 100,
+            id: 17,
+            label: 'Make some noise',
+            start: 1567875600000,
+            duration: 691200000,
+            type: 'project',
+            progress: 0,
             style: {
                 base: {
                     fill: '#3fb0ac',
                     'stroke-width': 2,
                     stroke: '#173e43'
-                },
-                'tree-row-bar': {
-                    fill: '#1EBC61',
-                    stroke: '#0EAC51'
-                },
-                'tree-row-bar-polygon': {
-                    stroke: '#0EAC51'
                 }
             }
+        },
+        {
+            id: 18,
+            label: 'With great power comes great responsibility',
+            user: 'Peter Parker',
+            parentId: 17,
+            start: 1567875600000,
+            duration: 345600000,
+            collapsed: true,
+            type: 'task',
+            progress: 100
+        },
+        {
+            id: 19,
+            label: 'Courage is being scared to death, but saddling up anyway.',
+            user: 'John Wayne',
+            parentId: 17,
+            start: 1568307600000,
+            duration: 172800000,
+            type: 'task',
+            progress: 100
+        },
+        {
+            id: 20,
+            label: 'Courage is being scared to death, but saddling up anyway.',
+            user: 'John Wayne',
+            parentId: 17,
+            start: 1568653200000,
+            duration: 172800000,
+            type: 'task',
+            progress: 100
         }
+        // {
+        //     id: 14,
+        //     label: 'anyway',
+        //     user: 'John Wayne',
+        //     start: 1568307600000,
+        //     duration: 172800000,
+        //     type: 'project',
+        //     progress: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#3fb0ac',
+        //             'stroke-width': 2,
+        //             stroke: '#173e43'
+        //         },
+        //         'tree-row-bar': {
+        //             fill: '#1EBC61',
+        //             stroke: '#0EAC51'
+        //         },
+        //         'tree-row-bar-polygon': {
+        //             stroke: '#0EAC51'
+        //         }
+        //     }
+        // },
+        // {
+        //     id: 182,
+        //     label: 'being scared to death',
+        //     user: 'John Wayne',
+        //     parentId: 14,
+        //     start: 1568307600000,
+        //     duration: 172800000,
+        //     type: 'task',
+        //     progress: 0
+        // },
+        // {
+        //     id: 172,
+        //     label: 'being fucked',
+        //     user: 'John Wayne',
+        //     parentId: 14,
+        //     start: 1568307600000,
+        //     duration: 172800000,
+        //     type: 'task',
+        //     progress: 0
+        // },
+        // {
+        //     id: 170,
+        //     label: 'yucked',
+        //     user: 'John Wayne',
+        //     start: 1568653200000,
+        //     duration: 86400000,
+        //     type: 'milestone',
+        //     dependentOn: [14],
+        //     progress: 0
+        // }
     ],
     resources: [],
     users: [],

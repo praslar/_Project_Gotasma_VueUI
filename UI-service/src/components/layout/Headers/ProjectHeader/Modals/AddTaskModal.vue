@@ -178,11 +178,11 @@ export default {
           progress: 100,
           collapse: true,
           style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
+            base: {
+                fill: '#3fb0ac',
+                'stroke-width': 2,
+                stroke: '#173e43'
+            }
           }
         }
       }

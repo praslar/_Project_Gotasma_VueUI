@@ -94,6 +94,8 @@ export default {
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
+                              console.log(this.tasksTest)
+                              // console.log(this.project.tasks)
                               this.showTaskModal(data)
                           }
                       }
@@ -102,7 +104,7 @@ export default {
                       id: 3,
                       label: 'Assignee',
                       value: 'user',
-                      width: 90,
+                      width: 80,
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
@@ -114,7 +116,7 @@ export default {
                       id: 3,
                       label: 'Start',
                       value: task => dayjs(task.start).format('DD-MM-YYYY'),
-                      width: 78,
+                      width: 75,
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
@@ -151,8 +153,6 @@ export default {
                         events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
-                              this.showTaskModal(data)
-                              console.log(this.tasksTest)
                               this.showAddTaskModal(data)
                           }
                       }
@@ -166,6 +166,7 @@ export default {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
      EventBus.$on('deleteThisTask', (idTask) => { this.deleteThisTask(idTask) })
      EventBus.$on('addTask', (newTaskInfo) => { this.addTask(newTaskInfo) })
+     EventBus.$on('addMilestone', (newMilestone) => { this.addMilestone(newMilestone) })
   },
   created() {
     this.getProject(this.id)
@@ -240,22 +241,27 @@ export default {
         })
       }
     },
-    deleteThisTask(idTask) {
-      console.log('id xoa', idTask)
-      this.tasksTest.forEach(element => {
-        if (element.id === idTask) {
-          if (element.children.length === 0) {
-            console.log('no child, delete one')
-            this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTask), 1)
-          } else {
-            console.log('has child, delete multiple')
-            this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTask), 1)
-            element.children.forEach(child => {
-              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
-            })
+    deleteThisTask(idTaskDelete) {
+      console.log('id xoa', idTaskDelete)
+      if (this.tasksTest.length !== 1) {
+        for (let i = 0; i < this.tasksTest.length; i++) {
+          if (this.tasksTest[i].id === idTaskDelete) {
+            if (this.tasksTest[i].children.length === 0) {
+              console.log('NO child, delete one')
+              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+            } else {
+              console.log('has child, delete multiple')
+              this.tasksTest[i].allChildren.forEach(child => {
+                this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
+                })
+              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+            }
+            break
           }
         }
-      })
+      } else {
+        alert('cannot delete anymore')
+      }
       console.log(this.tasksTest)
     },
     addTask(newTaskInfo) {
@@ -293,6 +299,18 @@ export default {
             text: 'Add failed, task ID already exist!'
           })
         }
+    },
+    addMilestone(newMilestone) {
+      console.log(newMilestone)
+      this.tasksTest.push({
+        id: newMilestone.id,
+        label: newMilestone.label,
+        start: (newMilestone.start).valueOf(),
+        duration: newMilestone.duration,
+        progress: newMilestone.progress,
+        type: newMilestone.type,
+        style: newMilestone.style
+      })
     }
   }
 }
