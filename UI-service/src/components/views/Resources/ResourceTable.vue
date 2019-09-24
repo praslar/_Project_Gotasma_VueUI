@@ -106,7 +106,7 @@ export default {
     showDialogMember(id) {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
-        text: 'Do you wish to delete this project',
+        text: 'Do you wish to delete resource',
         buttons: [
           {
             title: 'OK',

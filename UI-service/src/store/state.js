@@ -187,14 +187,7 @@ export default {
             start: 1568826000000,
             duration: 259200000,
             type: 'project',
-            progress: 0,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
+            progress: 0
         },
         {
             id: 90,
@@ -205,7 +198,14 @@ export default {
             parentId: 9,
             collapsed: true,
             type: 'task',
-            progress: 100
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         },
         {
             id: 10,
@@ -224,7 +224,14 @@ export default {
             duration: 345600000,
             collapsed: true,
             type: 'task',
-            progress: 100
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         },
         {
             id: 12,
@@ -234,7 +241,14 @@ export default {
             start: 1568307600000,
             duration: 172800000,
             type: 'task',
-            progress: 100
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         },
         {
             id: 13,
@@ -257,14 +271,7 @@ export default {
             start: 1567875600000,
             duration: 691200000,
             type: 'project',
-            progress: 0,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
+            progress: 0
         },
         {
             id: 18,
@@ -275,7 +282,14 @@ export default {
             duration: 345600000,
             collapsed: true,
             type: 'task',
-            progress: 100
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         },
         {
             id: 19,
@@ -285,7 +299,14 @@ export default {
             start: 1568307600000,
             duration: 172800000,
             type: 'task',
-            progress: 100
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         },
         {
             id: 20,
@@ -295,7 +316,14 @@ export default {
             start: 1568653200000,
             duration: 172800000,
             type: 'task',
-            progress: 100
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         }
         // {
         //     id: 14,

@@ -17,5 +17,5 @@ export const getProjectByID = async(id) => {
 }
 
 export const addUserToProject = async(payload) => {
-    return await NetworkHelper.requestPost('/projects/' + payload.id, payload.user)
+    return await NetworkHelper.requestPut('/projects/' + payload.id + '?_embed=tasks', payload.user)
 }

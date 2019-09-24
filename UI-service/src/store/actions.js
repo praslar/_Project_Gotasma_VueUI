@@ -119,5 +119,8 @@ export default {
     },
     addSumTask({ commit }, payload) {
         commit('addSumTask', payload)
+    },
+    deleteThisTask({ commit }, payload) {
+        commit('deleteThisTask', payload)
     }
 }

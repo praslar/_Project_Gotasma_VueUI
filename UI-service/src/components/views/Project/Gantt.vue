@@ -52,12 +52,12 @@ export default {
               after: 80
           },
           maxRows: 1000,
-          maxHeight: 400,
+          maxHeight: 480,
           times: {
               timeZoom: 21
           },
           row: {
-              height: 20
+              height: 15
           },
           calendar: {
               hour: {
@@ -69,7 +69,7 @@ export default {
                   display: false
               },
               expander: {
-                  display: false
+                  display: true
               }
           },
           taskList: {
@@ -89,8 +89,6 @@ export default {
                       events: {
                           click: ({ data }) => {
                               console.log(data.label, data)
-                              console.log(this.tasksTest)
-                              // console.log(this.project.tasks)
                               this.showTaskModal(data)
                           }
                       }
@@ -151,19 +149,22 @@ export default {
               ]
           }
         },
-        newTaskInfo: {
-          exist: false,
+        status: {
+          type: '',
+          action: false,
           id: ''
         }
     }
   },
   mounted() {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
-     EventBus.$on('deleteThisTask', (idTask) => { this.deleteThisTask(idTask) })
+     EventBus.$on('deleteThisTask', (idTask) => {
+        this.getStatus(idTask, 'delete')
+      })
      EventBus.$on('addTask', (newTaskInfo) => {
-        this.addTaskVuex(newTaskInfo)
-        this.getNewTaskInfo(newTaskInfo)
-     })
+        this.addTask(newTaskInfo)
+        this.getStatus(newTaskInfo.id)
+      })
      EventBus.$on('addMilestone', (newMilestone) => { this.addMilestone(newMilestone) })
   },
   created() {
@@ -205,28 +206,61 @@ export default {
     }),
     tasksUpdate(tasks) {
       this.tasksTest = tasks
-      if (this.newTaskInfo.exist) {
+      // Sync children with parent tasks when added
+      if (this.status.action) {
+        let currentParents = []
+        let minStart = 0
+        let maxEnd = 0
+        let currentChild = []
+        let now = new Date()
         for (let i = 0; i < this.tasksTest.length; i++) {
-          if (this.newTaskInfo.id === this.tasksTest[i].id) {
-            this.newTaskInfo = this.tasksTest[i]
-            console.log(this.newTaskInfo)
+          if (this.status.id === this.tasksTest[i].id) {
+            currentParents = this.tasksTest[i].parents
             break
           }
-        }
-        for (let i = 0; i < this.tasksTest.length; i++) {
-          for (let j = 0; j < this.newTaskInfo.parents.length; j++) {
-            if (this.tasksTest[i].id === this.newTaskInfo.parents[j]) {
-              if (this.newTaskInfo.endTime > this.tasksTest[i].endTime) {
-                this.tasksTest[i].duration = (this.newTaskInfo.endTime - this.tasksTest[i].start)
-                this.tasksTest[i].endTime = this.tasksTest[i].start + this.tasksTest[i].duration
+          }
+        if (this.status.type === 'delete') {
+          this.deleteThisTask(this.status.id)
+          }
+        for (let i = this.tasksTest.length - 1; i >= 0; i--) {
+          let current = this.tasksTest[i]
+          for (let j = 0; j < currentParents.length; j++) {
+            if (current.id === currentParents[j]) {
+              currentChild = current.allChildren
+              minStart = 9999997200000
+              console.log('this is him', current.label)
+              for (let k = 0; k < this.tasksTest.length; k++) {
+                current = this.tasksTest[k]
+                for (let h = 0; h < currentChild.length; h++) {
+                  if (current.id === currentChild[h]) {
+                    console.log('this is childer', current.label)
+                    if (minStart > current.start) {
+                      minStart = current.start
+                    }
+                    if (maxEnd < current.endTime) {
+                      maxEnd = current.endTime
+                    }
+                    break
+                  }
+                }
+              }
+              this.tasksTest[i].startTime = minStart
+              this.tasksTest[i].start = minStart
+              this.tasksTest[i].endTime = maxEnd
+              this.tasksTest[i].duration = maxEnd - this.tasksTest[i].start
+              if (this.tasksTest[i].start === 9999997200000) {
+                this.tasksTest[i].start = now.valueOf()
+                this.tasksTest[i].startTime = now.valueOf()
+                this.tasksTest[i].duration = 0
+                this.tasksTest[i].myAttribute = 0
               }
             }
           }
-        }
+          }
       }
-    this.newTaskInfo = {}
-    this.newTaskInfo.exist = false
-    this.newTaskInfo.id = ''
+      // reset status of new task info
+      this.status.action = false
+      this.status.id = ''
     },
     optionsUpdate(options) {
       this.options = options
@@ -237,41 +271,19 @@ export default {
     showAddTaskModal(data) {
       this.$modal.show('AddTask', { data: data })
     },
+    // tasksUpdate method status
+    getStatus(id, type) {
+      this.status.type = type
+      this.status.action = true
+      this.status.id = id
+    },
     addSumTask(newTaskInfo) {
-        this.$store.dispatch('addSumTask', newTaskInfo)
+      this.$store.dispatch('addSumTask', newTaskInfo)
     },
     deleteThisTask(idTaskDelete) {
-      console.log('id xoa', idTaskDelete)
-      if (this.tasksTest.length !== 1) {
-        for (let i = 0; i < this.tasksTest.length; i++) {
-          if (this.tasksTest[i].id === idTaskDelete) {
-            if (this.tasksTest[i].children.length === 0) {
-              console.log('NO child, delete one')
-              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
-            } else {
-              console.log('has child, delete multiple')
-              this.tasksTest[i].allChildren.forEach(child => {
-                this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
-                })
-              this.tasksTest.splice(this.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
-            }
-            break
-          }
-        }
-      } else {
-        alert('cannot delete anymore')
-      }
-      console.log(this.tasksTest)
+      this.$store.dispatch('deleteThisTask', idTaskDelete)
     },
     addTask(newTaskInfo) {
-      let checkExistId = false
-      for (let i = 0; i < this.tasksTest.length; i++) {
-         if (this.tasksTest[i].id === newTaskInfo.id) {
-            checkExistId = true
-            break
-          }
-      }
-      if (checkExistId === false) {
           // for (let j = 0; j < newTaskInfo.users.length; j++) {
           //   for (let i = 0; i < this.tasksTest.length; i++) {
           //       if (this.tasksTest[i].id === newTaskInfo.id + j) {
@@ -297,81 +309,7 @@ export default {
           //     }
           //   })
           // }
-            this.tasksTest.push({
-            parentId: newTaskInfo.parentId,
-            id: newTaskInfo.id,
-            label: newTaskInfo.label,
-            start: (newTaskInfo.start).valueOf(),
-            duration: newTaskInfo.duration * 86400000,
-            progress: newTaskInfo.progress,
-            type: newTaskInfo.type,
-            style: {
-                  base: {
-                      fill: '#3fb0ac',
-                      'stroke-width': 2,
-                      stroke: '#173e43'
-                    }
-              }
-            })
-        //   // Recalculate duration (add sunday, sat, and exceptions day)
-        //   let timeStart = new Date(newTaskInfo.start)
-        //   let calculateTimeChart = (newTaskInfo.start).valueOf()
-        //   let dayofWeek = (timeStart.getDay())
-        //   let durationDays = newTaskInfo.duration
-        //   let actualDuration = newTaskInfo.duration * 86400000
-        //   let isHoliday = false
-        //   for (let i = 0; i < durationDays; i++) {
-        //     for (let j = 0; j < this.exceptionDays.length; j++) {
-        //       if (calculateTimeChart === this.exceptionDays[j]) {
-        //         isHoliday = true
-        //         break
-        //       }
-        //     }
-        //     if (isHoliday) {
-        //       actualDuration += 86400000
-        //       isHoliday = false
-        //       durationDays++
-        //       // if holiday la t7 hoac cn
-        //       if (dayofWeek === 6) {
-        //         dayofWeek = 0
-        //       } else { dayofWeek += 1 }
-        //     } else if (dayofWeek === 6) {
-        //       dayofWeek = 0
-        //       actualDuration += 86400000
-        //       durationDays++
-        //     } else if (dayofWeek === 0) {
-        //       dayofWeek += 1
-        //       actualDuration += 86400000
-        //       durationDays++
-        //     } else { dayofWeek += 1 }
-        //     calculateTimeChart += 86400000
-        //   }
-        //       // new day after added (sunday, sat and exceptions)
-        //   newTaskInfo.duration = actualDuration
-        //   newTaskInfo.endTime = ((newTaskInfo.start).valueOf()) + actualDuration
-
-        //  // LAY ID PARENT VA ID CHILDREM DE SO SANH
-        //   for (let i = 0; i < this.tasksTest.length; i++) {
-        //   if (this.tasksTest[i].id === newTaskInfo.parentId) {
-        //       if (newTaskInfo.endTime > this.tasksTest[i].endTime) {
-        //             this.tasksTest[i].duration = (newTaskInfo.endTime - this.tasksTest[i].start)
-        //             break
-        //       }
-        //     }
-        //   }
-        } else {
-            this.$modal.show('dialog', {
-            title: 'Error',
-            text: 'Add failed, task ID already exist!'
-          })
-        }
-    },
-    addTaskVuex(newTaskInfo) {
       this.$store.dispatch('addTask', newTaskInfo)
-    },
-    getNewTaskInfo(newTaskInfo) {
-      this.newTaskInfo.exist = true
-      this.newTaskInfo.id = newTaskInfo.id
     },
     addMilestone(newMilestone) {
       console.log(newMilestone)

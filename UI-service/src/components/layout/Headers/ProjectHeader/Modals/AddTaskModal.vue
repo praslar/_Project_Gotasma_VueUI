@@ -47,45 +47,17 @@
               <i class="fa fa-tag"></i>
             </span>
             <input
-              type="text"
-              id="sum-task-label"
               v-validate="'required|min:3'"
               v-model="newTaskInfo.label"
               class="form-control"
               placeholder="Enter task label"
               name="sum-task-label"
-              :class="{ 'is-invalid':submitted &&  errors.has('sum-task-label') }"
-           
+              :class="{ 'is-invalid':submitted &&  errors.has('sum-task-label') }"     
             />
             <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
               <div v-if="submitted && errors.has('sum-task-label')" class="invalid-feedback">{{ errors.first('sum-task-label') }}</div> 
             </transition>
           </div>
-          <!-- <h4 class="title col-xs-12" >Member</h4>
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon">
-              <i class="fa fa-group"></i>
-            </span>
-           <multiselect 
-              class="specialtext"
-              id="users"
-              name="users"
-              :class="{ 'is-invalid':submitted &&  errors.has('users') }"
-              v-model="newTaskInfo.users" 
-              :options="users"
-              placeholder="Add member to task" 
-              :allow-empty="false"
-              :multiple="true"
-              :close-on-select="false"
-              :clear-on-select="false"
-              :preserve-search="true"
-              label="name"
-              track-by="name"
-              :preselect-first="true"
-             >
-          </multiselect>
-          </div>      -->
-          
           <div class="row">
             <div class="col-xs-6"> 
               <h4 class="title" >Start date</h4>
@@ -120,8 +92,7 @@
                 <div>
                 <input
                   type="number"
-                  min = 0
-                  id="estimate-duraion"            
+                  min = 0         
                   v-validate="'required'"
                   v-model.number="newTaskInfo.duration"
                   class="form-control"
@@ -184,14 +155,8 @@ export default {
       this.submitted = true
       this.$validator.validate().then(valid => {
                 if (valid) {
-                  if ((newTaskInfo.start).valueOf() >= this.currentTask.start) {
-                      EventBus.$emit('addTask', newTaskInfo)
-                      this.$modal.hide('AddTask')
-                  } else {
-                    this.$modal.show('dialog', {
-                      title: 'Error',
-                      text: 'Invalid start day!' })
-                  }
+                    EventBus.$emit('addTask', newTaskInfo)
+                    this.$modal.hide('AddTask')
                 } else {
                   this.$modal.show('dialog', {
                   title: 'Error',
@@ -204,7 +169,6 @@ export default {
           var n = d.valueOf()
           this.currentTask = event.params.data
           this.newTaskInfo.id = n
-          this.newTaskInfo.duration = d
           this.newTaskInfo.parentId = this.currentTask.id
           this.newTaskInfo.start = this.currentTask.start
       }
