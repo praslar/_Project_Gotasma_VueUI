@@ -47,7 +47,6 @@
               <i class="fa fa-tag"></i>
             </span>
             <input
-              type="text"
               v-validate="'required|min:3'"
               v-model="newTaskInfo.label"
               class="form-control"

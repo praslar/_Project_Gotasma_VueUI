@@ -94,7 +94,27 @@ export default {
             start: breakTaskInfo.start,
             duration: breakTaskInfo.duration,
             progress: breakTaskInfo.progress,
-            type: breakTaskInfo.type
+            type: breakTaskInfo.type,
+            style: breakTaskInfo.style
         })
+    },
+    deleteThisTask(state, idTaskDelete) {
+        if (state.tasksTest.length !== 1) {
+            for (let i = 0; i < state.tasksTest.length; i++) {
+                if (state.tasksTest[i].id === idTaskDelete) {
+                    if (state.tasksTest[i].children.length === 0) {
+                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+                    } else {
+                        state.tasksTest[i].allChildren.forEach(child => {
+                            state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
+                        })
+                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+                    }
+                    break
+                }
+            }
+        } else {
+            alert('cannot delete anymore')
+        }
     }
 }

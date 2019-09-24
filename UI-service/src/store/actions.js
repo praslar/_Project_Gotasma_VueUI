@@ -125,5 +125,8 @@ export default {
     },
     breakTask({ commit }, payload) {
         commit('breakTask', payload)
+    },
+    deleteThisTask({ commit }, payload) {
+        commit('deleteThisTask', payload)
     }
 }

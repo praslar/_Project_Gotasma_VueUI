@@ -121,7 +121,14 @@ export default {
         duration: '',
         type: 'task',
         progress: 100,
-        collapse: true
+        collapse: true,
+        style: {
+          base: {
+            fill: '#3fb0ac',
+            'stroke-width': 2,
+            stroke: '#173e43'
+          }
+        }
       }
     }
   },

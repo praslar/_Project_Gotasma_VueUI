@@ -198,6 +198,7 @@ export default {
     },
     beforeClose() {
       this.currentTask.startTime = (this.currentTask.start).valueOf()
+      this.currentTask.start = (this.currentTask.start).valueOf()
       this.currentTask.myAttribute = this.currentTask.myAttribute * 86400000
       this.currentTask.duration = this.currentTask.duration * 86400000
     },
