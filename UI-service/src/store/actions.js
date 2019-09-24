@@ -119,5 +119,11 @@ export default {
     },
     addSumTask({ commit }, payload) {
         commit('addSumTask', payload)
+    },
+    addMilestone({ commit }, payload) {
+        commit('addMilestone', payload)
+    },
+    breakTask({ commit }, payload) {
+        commit('breakTask', payload)
     }
 }

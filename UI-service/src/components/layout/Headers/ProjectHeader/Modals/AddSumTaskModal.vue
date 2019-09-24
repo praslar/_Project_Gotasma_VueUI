@@ -1,5 +1,5 @@
 <template>
-    <modal name="AddSumTaskModal" transition="nice-modal-fade" 
+    <modal name="AddParentTaskModal" transition="nice-modal-fade" 
         :draggable="true" 
         :reset="true"
         :height=420
@@ -7,11 +7,11 @@
     >
       <div class="box box-group">
         <div class="box-header with-border dark">
-          <h3 class="box-title">Add new sum task</h3>
+          <h3 class="box-title">Add new Parent Task</h3>
         </div>
         <div class="box-body">
           <!--Input section-->
-          <h4 class="title col-xs-12" >Sum task ID</h4>
+          <h4 class="title col-xs-12" >Parent Task ID</h4>
           <div class="input-group col-xs-12">
             <span class="input-group-addon">
               <i class="fa fa-sun-o"></i>
@@ -31,17 +31,16 @@
             </span>
             <input
               type="text"
-              id="sum-task-label"
               v-validate="'required|min:3'"
               v-model="newTaskInfo.label"
               class="form-control"
               placeholder="Enter task label"
-              name="sum-task-label"
-              :class="{ 'is-invalid':submitted &&  errors.has('sum-task-label') }"
+              name="Parent Task label"
+              :class="{ 'is-invalid':submitted &&  errors.has('Parent Task label') }"
            
             />
             <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <div v-if="submitted && errors.has('sum-task-label')" class="invalid-feedback">{{ errors.first('sum-task-label') }}</div> 
+              <div v-if="submitted && errors.has('Parent Task label')" class="invalid-feedback">{{ errors.first('Parent Task label') }}</div> 
             </transition>
           </div>
             <h4 class="title col-xs-12" >Start day</h4>
@@ -67,7 +66,7 @@
           </div>
         </div>
         <div class="box-footer">
-          <button class="btn-create button-modal pull-right" @click="handleSubmit(newTaskInfo)">Add sum task</button>
+          <button class="btn-create button-modal pull-right" @click="handleSubmit(newTaskInfo)">Add Parent Task</button>
           <button class="btn-close button-modal" @click="closeModal">Cancle</button>
         </div>
       </div>
@@ -102,14 +101,14 @@ export default {
       ],
     methods: {
       closeModal() {
-          this.$modal.hide('AddSumTaskModal')
+          this.$modal.hide('AddParentTaskModal')
       },
       handleSubmit(newTaskInfo) {
         this.submitted = true
         this.$validator.validate().then(valid => {
                   if (valid) {
                     EventBus.$emit('addSumTask', newTaskInfo)
-                    this.$modal.hide('AddSumTaskModal')
+                    this.$modal.hide('AddParentTaskModal')
                   } else {
                       this.$modal.show('dialog', {
                         title: 'Error',

@@ -2,7 +2,7 @@
     <modal name="AddTask" transition="nice-modal-fade" 
         :draggable="true" 
         :reset="true"
-        :height=400
+        height="auto"
         :resizable="true"
         @before-open="beforeOpen"
     >
@@ -48,46 +48,35 @@
             </span>
             <input
               type="text"
-              id="sum-task-label"
               v-validate="'required|min:3'"
               v-model="newTaskInfo.label"
               class="form-control"
               placeholder="Enter task label"
-              name="sum-task-label"
-              :class="{ 'is-invalid':submitted &&  errors.has('sum-task-label') }"
-           
+              name="Task label"
+              :class="{ 'is-invalid':submitted &&  errors.has('Task label') }"
             />
             <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <div v-if="submitted && errors.has('sum-task-label')" class="invalid-feedback">{{ errors.first('sum-task-label') }}</div> 
+              <div v-if="submitted && errors.has('Task label')" class="invalid-feedback">{{ errors.first('Task label') }}</div> 
             </transition>
           </div>
-          <!-- <h4 class="title col-xs-12" >Member</h4>
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon">
-              <i class="fa fa-group"></i>
-            </span>
-           <multiselect 
-              class="specialtext"
-              id="users"
-              name="users"
-              :class="{ 'is-invalid':submitted &&  errors.has('users') }"
-              v-model="newTaskInfo.users" 
-              :options="users"
-              placeholder="Add member to task" 
-              :allow-empty="false"
-              :multiple="true"
-              :close-on-select="false"
-              :clear-on-select="false"
-              :preserve-search="true"
-              label="name"
-              track-by="name"
-              :preselect-first="true"
-             >
-          </multiselect>
-          </div>      -->
+
+
+            <h4 class="title col-xs-12">Type</h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon">
+                <i class="fa fa-fw fa-hand-pointer-o"></i>
+              </span>
+              <select
+              class="form-control"
+              v-model="newTaskInfo.type">
+                <option v-for="type in taskType" :value="type.value" :key="type">
+                    {{ type.text }}
+                </option>
+              </select>
+            </div>
           
           <div class="row">
-            <div class="col-xs-6"> 
+            <div class="col-xs-6">
               <h4 class="title" >Start date</h4>
               <div class="input-group">
                 <span class="input-group-addon">
@@ -111,7 +100,7 @@
               </div>
             </div>
 
-            <div class="col-xs-6"> 
+            <div class="col-xs-6" v-if="newTaskInfo.type === 'task'"> 
               <h4 class="title" >Estimate duration</h4>
               <div class="input-group">
                 <span class="input-group-addon">
@@ -120,23 +109,33 @@
                 <div>
                 <input
                   type="number"
-                  min = 0
-                  id="estimate-duraion"            
+                  min = 0          
                   v-validate="'required'"
                   v-model.number="newTaskInfo.duration"
                   class="form-control"
                   placeholder="Enter estimated duration"
-                  name="estimate-duraion"
-                  :class="{ 'is-invalid': submitted &&  errors.has('estimate-duraion') }"
+                  name="Estimate duraion"
+                  :class="{ 'is-invalid': submitted &&  errors.has('Estimate duraion') }"
                 />
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div v-if="submitted && errors.has('estimate-duraion')" class="invalid-feedback">{{ errors.first('estimate-duraion') }}</div> 
+                  <div v-if="submitted && errors.has('Estimate duraion')" class="invalid-feedback">{{ errors.first('Estimate duraion') }}</div> 
                 </transition>
                 </div>
               </div>
             </div>
-          </div>
+            <div class="col-xs-6" v-else hidden> 
+              <h4 class="title" >Estimate duration</h4>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-hourglass-half"></i>
+                </span>
+                <div>
+                <input disabled/>
+                </div>
+              </div>
+            </div>
 
+          </div>
         </div>
         <div class="box-footer">
           <button class="btn-create button-modal pull-right" @click="handleSubmit(newTaskInfo)"> Add task</button>
@@ -146,7 +145,6 @@
     </modal>
 </template>
 <script>
-import Multiselect from 'vue-multiselect'
 import datepicker from 'vue2-datepicker'
 import { EventBus } from '@/main.js'
 
@@ -161,15 +159,18 @@ export default {
           label: '',
           parents: [],
           start: '',
-          duration: 1,
+          duration: '',
           type: 'task',
           progress: 100,
-          collapse: true,
-          endTime: 0
-        }
+          collapse: true
+        },
+        taskType: [
+          { text: 'Task', value: 'task' },
+          { text: 'Milestone', value: 'milestone' }
+        ]
       }
     },
-    components: { Multiselect, datepicker },
+    components: { datepicker },
     shortcuts: [{
       onClick: () => {
         this.values = [ new Date(), new Date() ]
@@ -185,7 +186,11 @@ export default {
       this.$validator.validate().then(valid => {
                 if (valid) {
                   if ((newTaskInfo.start).valueOf() >= this.currentTask.start) {
+                    if (newTaskInfo.type === 'milestone') {
+                      EventBus.$emit('addMilestone', newTaskInfo)
+                    } else {
                       EventBus.$emit('addTask', newTaskInfo)
+                    }
                       this.$modal.hide('AddTask')
                   } else {
                     this.$modal.show('dialog', {
@@ -204,13 +209,13 @@ export default {
           var n = d.valueOf()
           this.currentTask = event.params.data
           this.newTaskInfo.id = n
-          this.newTaskInfo.duration = d
           this.newTaskInfo.parentId = this.currentTask.id
           this.newTaskInfo.start = this.currentTask.start
       }
     },
     beforeDestroy() {
       EventBus.$off('addTask')
+      EventBus.$off('addMilestone')
     }
 }
 </script>

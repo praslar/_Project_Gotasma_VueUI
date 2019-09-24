@@ -67,5 +67,34 @@ export default {
             progress: newTaskInfo.progress,
             type: newTaskInfo.type
         })
+    },
+    addMilestone: (state, newTaskInfo) => {
+        state.tasksTest.push({
+        id: newTaskInfo.id,
+        parentId: newTaskInfo.parentId,
+        label: newTaskInfo.label,
+        start: (newTaskInfo.start).valueOf(),
+        duration: 86400000,
+        progress: 100,
+        type: 'milestone',
+        style: {
+            base: {
+                fill: '#de3131',
+                'stroke-width': 2,
+                stroke: '#de3131'
+            }
+        }
+      })
+    },
+    breakTask: (state, breakTaskInfo) => {
+        state.tasksTest.push({
+            parentId: breakTaskInfo.parentId,
+            id: breakTaskInfo.id,
+            label: breakTaskInfo.label,
+            start: breakTaskInfo.start,
+            duration: breakTaskInfo.duration,
+            progress: breakTaskInfo.progress,
+            type: breakTaskInfo.type
+        })
     }
 }

@@ -165,6 +165,7 @@ export default {
         this.getNewTaskInfo(newTaskInfo)
      })
      EventBus.$on('addMilestone', (newMilestone) => { this.addMilestone(newMilestone) })
+     EventBus.$on('breakTask', (breakTaskInfo) => { this.breakTask(breakTaskInfo) })
   },
   created() {
     this.getProject(this.id)
@@ -263,109 +264,6 @@ export default {
       }
       console.log(this.tasksTest)
     },
-    addTask(newTaskInfo) {
-      let checkExistId = false
-      for (let i = 0; i < this.tasksTest.length; i++) {
-         if (this.tasksTest[i].id === newTaskInfo.id) {
-            checkExistId = true
-            break
-          }
-      }
-      if (checkExistId === false) {
-          // for (let j = 0; j < newTaskInfo.users.length; j++) {
-          //   for (let i = 0; i < this.tasksTest.length; i++) {
-          //       if (this.tasksTest[i].id === newTaskInfo.id + j) {
-          //         newTaskInfo.id += Math.round(Math.random() * 10)
-          //         break
-          //       }
-          //   }
-          //   this.tasksTest.push({
-          //   parentId: newTaskInfo.parentId,
-          //   id: (newTaskInfo.id + j),
-          //   label: newTaskInfo.label,
-          //   user: newTaskInfo.users[j].name,
-          //   start: (newTaskInfo.start).valueOf(),
-          //   duration: newTaskInfo.duration * 86400000,
-          //   progress: newTaskInfo.progress,
-          //   type: newTaskInfo.type,
-          //   style: {
-          //         base: {
-          //             fill: '#3fb0ac',
-          //             'stroke-width': 2,
-          //             stroke: '#173e43'
-          //           }
-          //     }
-          //   })
-          // }
-            this.tasksTest.push({
-            parentId: newTaskInfo.parentId,
-            id: newTaskInfo.id,
-            label: newTaskInfo.label,
-            start: (newTaskInfo.start).valueOf(),
-            duration: newTaskInfo.duration * 86400000,
-            progress: newTaskInfo.progress,
-            type: newTaskInfo.type,
-            style: {
-                  base: {
-                      fill: '#3fb0ac',
-                      'stroke-width': 2,
-                      stroke: '#173e43'
-                    }
-              }
-            })
-        //   // Recalculate duration (add sunday, sat, and exceptions day)
-        //   let timeStart = new Date(newTaskInfo.start)
-        //   let calculateTimeChart = (newTaskInfo.start).valueOf()
-        //   let dayofWeek = (timeStart.getDay())
-        //   let durationDays = newTaskInfo.duration
-        //   let actualDuration = newTaskInfo.duration * 86400000
-        //   let isHoliday = false
-        //   for (let i = 0; i < durationDays; i++) {
-        //     for (let j = 0; j < this.exceptionDays.length; j++) {
-        //       if (calculateTimeChart === this.exceptionDays[j]) {
-        //         isHoliday = true
-        //         break
-        //       }
-        //     }
-        //     if (isHoliday) {
-        //       actualDuration += 86400000
-        //       isHoliday = false
-        //       durationDays++
-        //       // if holiday la t7 hoac cn
-        //       if (dayofWeek === 6) {
-        //         dayofWeek = 0
-        //       } else { dayofWeek += 1 }
-        //     } else if (dayofWeek === 6) {
-        //       dayofWeek = 0
-        //       actualDuration += 86400000
-        //       durationDays++
-        //     } else if (dayofWeek === 0) {
-        //       dayofWeek += 1
-        //       actualDuration += 86400000
-        //       durationDays++
-        //     } else { dayofWeek += 1 }
-        //     calculateTimeChart += 86400000
-        //   }
-        //       // new day after added (sunday, sat and exceptions)
-        //   newTaskInfo.duration = actualDuration
-        //   newTaskInfo.endTime = ((newTaskInfo.start).valueOf()) + actualDuration
-
-        //  // LAY ID PARENT VA ID CHILDREM DE SO SANH
-        //   for (let i = 0; i < this.tasksTest.length; i++) {
-        //   if (this.tasksTest[i].id === newTaskInfo.parentId) {
-        //       if (newTaskInfo.endTime > this.tasksTest[i].endTime) {
-        //             this.tasksTest[i].duration = (newTaskInfo.endTime - this.tasksTest[i].start)
-        //             break
-        //       }
-        //     }
-        //   }
-        } else {
-            this.$modal.show('dialog', {
-            title: 'Error',
-            text: 'Add failed, task ID already exist!'
-          })
-        }
-    },
     addTaskVuex(newTaskInfo) {
       this.$store.dispatch('addTask', newTaskInfo)
     },
@@ -374,16 +272,10 @@ export default {
       this.newTaskInfo.id = newTaskInfo.id
     },
     addMilestone(newMilestone) {
-      console.log(newMilestone)
-      this.tasksTest.push({
-        id: newMilestone.id,
-        label: newMilestone.label,
-        start: (newMilestone.start).valueOf(),
-        duration: newMilestone.duration,
-        progress: newMilestone.progress,
-        type: newMilestone.type,
-        style: newMilestone.style
-      })
+      this.$store.dispatch('addMilestone', newMilestone)
+    },
+    breakTask(breakTaskInfo) {
+      this.$store.dispatch('breakTask', breakTaskInfo)
     }
   }
 }

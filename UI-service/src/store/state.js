@@ -181,11 +181,12 @@ export default {
             progress: 0
         }
     ],
+
     tasksTest: [{
             id: 9,
             label: 'Phan tich va thiet ke',
-            start: 1568826000000,
-            duration: 259200000,
+            start: 1569171600000,
+            duration: 691200000,
             type: 'project',
             progress: 0,
             style: {
@@ -198,10 +199,10 @@ export default {
         },
         {
             id: 90,
-            label: 'Phan tich va thiet ke',
+            label: 'Phan cmn tich',
             user: 'Thang Pham',
-            start: 1568826000000,
-            duration: 259200000,
+            start: 1569171600000,
+            duration: 691200000,
             parentId: 9,
             collapsed: true,
             type: 'task',
@@ -241,6 +242,7 @@ export default {
             label: 'being scared to death',
             start: 1568653200000,
             duration: 86400000,
+            parentId: 10,
             type: 'milestone',
             progress: 100,
             style: {
@@ -296,7 +298,24 @@ export default {
             duration: 172800000,
             type: 'task',
             progress: 100
+        },
+        {
+            id: 222,
+            label: 'This one is a mile frcikin stone',
+            parentId: 17,
+            start: 1568826000000,
+            duration: 86400000,
+            type: 'milestone',
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#de3131',
+                    'stroke-width': 2,
+                    stroke: '#de3131'
+                }
+            }
         }
+
         // {
         //     id: 14,
         //     label: 'anyway',
