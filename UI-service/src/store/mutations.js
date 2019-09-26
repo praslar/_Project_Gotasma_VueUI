@@ -40,7 +40,7 @@ export default {
     },
     // ===========local action=====
     addTask: (state, newTaskInfo) => {
-        state.tasksTest.push({
+        state.project.tasks.push({
             parentId: newTaskInfo.parentId,
             id: newTaskInfo.id,
             label: newTaskInfo.label,
@@ -59,7 +59,7 @@ export default {
         })
     },
     addSumTask: (state, newTaskInfo) => {
-        state.tasksTest.push({
+        state.project.tasks.push({
             id: newTaskInfo.id,
             label: newTaskInfo.label,
             start: (newTaskInfo.start).valueOf(),
@@ -69,25 +69,25 @@ export default {
         })
     },
     addMilestone: (state, newTaskInfo) => {
-        state.tasksTest.push({
-        id: newTaskInfo.id,
-        parentId: newTaskInfo.parentId,
-        label: newTaskInfo.label,
-        start: (newTaskInfo.start).valueOf(),
-        duration: 86400000,
-        progress: 100,
-        type: 'milestone',
-        style: {
-            base: {
-                fill: '#de3131',
-                'stroke-width': 2,
-                stroke: '#de3131'
+        state.project.tasks.push({
+            id: newTaskInfo.id,
+            parentId: newTaskInfo.parentId,
+            label: newTaskInfo.label,
+            start: (newTaskInfo.start).valueOf(),
+            duration: 86400000,
+            progress: 100,
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#de3131',
+                    'stroke-width': 2,
+                    stroke: '#de3131'
+                }
             }
-        }
-      })
+        })
     },
     breakTask: (state, breakTaskInfo) => {
-        state.tasksTest.push({
+        state.project.tasks.push({
             parentId: breakTaskInfo.parentId,
             id: breakTaskInfo.id,
             label: breakTaskInfo.label,
@@ -99,22 +99,33 @@ export default {
         })
     },
     deleteThisTask(state, idTaskDelete) {
-        if (state.tasksTest.length !== 1) {
-            for (let i = 0; i < state.tasksTest.length; i++) {
-                if (state.tasksTest[i].id === idTaskDelete) {
-                    if (state.tasksTest[i].children.length === 0) {
-                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+        if (state.project.tasks.length !== 1) {
+            for (let i = 0; i < state.project.tasks.length; i++) {
+                if (state.project.tasks[i].id === idTaskDelete) {
+                    if (state.project.tasks[i].children.length === 0) {
+                        state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
                     } else {
-                        state.tasksTest[i].allChildren.forEach(child => {
-                            state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
+                        state.project.tasks[i].allChildren.forEach(child => {
+                            state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === child), 1)
                         })
-                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+                        state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
                     }
                     break
                 }
             }
         } else {
             alert('cannot delete anymore')
+        }
+    },
+    assignMember(state, info) {
+        console.log(info.newTaskInfo)
+        console.log(info.currentTask)
+        for (let i = 0; i < state.project.tasks.length; i++) {
+            if (state.project.tasks[i].id === info.currentTask.id) {
+                for (let j = 0; j < info.newTaskInfo.user.length; j++) {
+                    state.project.tasks[i].user += info.newTaskInfo.user[j].name + ', '
+                }
+            }
         }
     }
 }

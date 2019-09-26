@@ -2,8 +2,9 @@
   <header class="main-header">
           <add-sum-task-modal pivotX="1.0"></add-sum-task-modal>
           <add-task-modal></add-task-modal>
-          <task-modal :exceptionDays="exceptionDays"></task-modal>
+          <task-modal :exceptionDays="exceptionDays" :users="users"></task-modal>
           <break-task-modal :exceptionDays="exceptionDays"></break-task-modal>
+          <assign-member-modal :users="users"></assign-member-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <button-add-task></button-add-task>
@@ -30,6 +31,7 @@ import ButtonAddTask from './Buttons/ButtonAddTask'
 import TaskModal from './Modals/TaskModal'
 import AddSumTaskModal from './Modals/AddSumTaskModal'
 import AddTaskModal from './Modals/AddTaskModal'
+import AssignMemberModal from './Modals/AssignMemberModal'
 import BreakTaskModal from './Modals/BreakTaskModal'
 
 export default {
@@ -46,7 +48,8 @@ export default {
     FilterModal,
     TaskModal,
     AddTaskModal,
-    BreakTaskModal
+    BreakTaskModal,
+    AssignMemberModal
   },
   props: ['id', 'users', 'exceptionDays']
 }

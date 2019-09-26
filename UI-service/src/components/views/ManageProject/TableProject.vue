@@ -72,8 +72,10 @@
                       <router-link :to="'../project/' + project.id ">
                           <a>{{ project.name }}</a>
                       </router-link></td>
-                    <td>{{ project.users | count }}</td>
-                    <td>{{ project.effort }}</td>
+                    <td v-if="project.users">{{ project.users | count }}</td>
+                    <td v-else> 0 </td>
+                    <td v-if="project.workingDays">{{ project.workingDays.length * 8 }}</td>
+                    <td v-else>40</td>
                     <td>{{ project.startDate | momentNormalDate }}</td>
                     <td>{{ project.updateDate | momentDetailDate }}</td>
                     <td>
