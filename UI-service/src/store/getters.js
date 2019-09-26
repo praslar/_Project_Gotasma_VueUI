@@ -14,5 +14,5 @@ export default {
         })
         return arr
     },
-    getChange: state => state.tasksTest
+    getChange: state => state.project.tasks
 }

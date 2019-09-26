@@ -16,14 +16,15 @@ export const getProjectByID = async(id) => {
     return await NetworkHelper.requestGet('/projects/' + id)
 }
 
-export const addUserToProject = async(payload) => {
-    return await NetworkHelper.requestPut('/projects/' + payload.id + '?_embed=tasks', payload.user)
-}
-
 export const highlightProjects = async(payload) => {
     return await NetworkHelper.requestPatch('/projects/' + payload.id, { highlighted: payload.highlighted })
 }
 
 export const getHighlightedProjects = async() => {
     return await NetworkHelper.requestGet('/projects?highlighted=true')
+}
+
+export const addUserToProject = async(payload) => {
+    console.log(payload)
+    return await NetworkHelper.requestPatch('/projects/' + payload.projectId + '?_embed=tasks', { users: payload.users })
 }

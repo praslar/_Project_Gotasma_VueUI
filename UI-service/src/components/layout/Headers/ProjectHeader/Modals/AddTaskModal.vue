@@ -40,7 +40,6 @@
               </div>
             </div>
           </div>
-
           <h4 class="title col-xs-12" >Task label</h4>
           <div class="input-group col-xs-12">
             <span class="input-group-addon">
@@ -58,8 +57,6 @@
               <div v-if="submitted && errors.has('Task label')" class="invalid-feedback">{{ errors.first('Task label') }}</div> 
             </transition>
           </div>
-
-
             <h4 class="title col-xs-12">Type</h4>
             <div class="input-group col-xs-12">
               <span class="input-group-addon">
@@ -73,7 +70,7 @@
                 </option>
               </select>
             </div>
-          
+
           <div class="row">
             <div class="col-xs-6">
               <h4 class="title" >Start date</h4>
@@ -98,7 +95,6 @@
                 </div>
               </div>
             </div>
-
             <div class="col-xs-6" v-if="newTaskInfo.type === 'task'"> 
               <h4 class="title" >Estimate duration</h4>
               <div class="input-group">
@@ -133,11 +129,10 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <div class="box-footer">
-          <button class="btn-create button-modal pull-right" @click="handleSubmit(newTaskInfo)"> Add task</button>
+          <button class="btn-create button-modal pull-right" @click="handleSubmit(newTaskInfo, currentTask)"> Add task</button>
           <button class="btn-close button-modal" @click="closeModal"> Cancel</button>
         </div>
       </div>
@@ -146,7 +141,6 @@
 <script>
 import datepicker from 'vue2-datepicker'
 import { EventBus } from '@/main.js'
-
 export default {
     data() {
       return {
@@ -180,22 +174,17 @@ export default {
       closeModal() {
           this.$modal.hide('AddTask')
       },
-      handleSubmit(newTaskInfo) {
+      handleSubmit(newTaskInfo, currentTask) {
       this.submitted = true
       this.$validator.validate().then(valid => {
                 if (valid) {
-                  if ((newTaskInfo.start).valueOf() >= this.currentTask.start) {
                     if (newTaskInfo.type === 'milestone') {
                       EventBus.$emit('addMilestone', newTaskInfo)
                     } else {
                       EventBus.$emit('addTask', newTaskInfo)
+                      currentTask.user = ''
                     }
                       this.$modal.hide('AddTask')
-                  } else {
-                    this.$modal.show('dialog', {
-                      title: 'Error',
-                      text: 'Invalid start day!' })
-                  }
                 } else {
                   this.$modal.show('dialog', {
                   title: 'Error',

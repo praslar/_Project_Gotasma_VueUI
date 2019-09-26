@@ -76,21 +76,21 @@ export default {
     },
     addMilestone: (state, newTaskInfo) => {
         state.tasksTest.push({
-        id: newTaskInfo.id,
-        parentId: newTaskInfo.parentId,
-        label: newTaskInfo.label,
-        start: (newTaskInfo.start).valueOf(),
-        duration: 86400000,
-        progress: 100,
-        type: 'milestone',
-        style: {
-            base: {
-                fill: '#de3131',
-                'stroke-width': 2,
-                stroke: '#de3131'
+            id: newTaskInfo.id,
+            parentId: newTaskInfo.parentId,
+            label: newTaskInfo.label,
+            start: (newTaskInfo.start).valueOf(),
+            duration: 86400000,
+            progress: 100,
+            type: 'milestone',
+            style: {
+                base: {
+                    fill: '#de3131',
+                    'stroke-width': 2,
+                    stroke: '#de3131'
+                }
             }
-        }
-      })
+        })
     },
     breakTask: (state, breakTaskInfo) => {
         // console.log('lala2', breakTaskInfo.id)
@@ -122,6 +122,17 @@ export default {
             }
         } else {
             alert('cannot delete anymore')
+        }
+    },
+    assignMember(state, info) {
+        console.log(info.newTaskInfo)
+        console.log(info.currentTask)
+        for (let i = 0; i < state.tasksTest.length; i++) {
+            if (state.tasksTest[i].id === info.currentTask.id) {
+                for (let j = 0; j < info.newTaskInfo.user.length; j++) {
+                    state.tasksTest[i].user += info.newTaskInfo.user[j].name + '  '
+                }
+            }
         }
     }
 }

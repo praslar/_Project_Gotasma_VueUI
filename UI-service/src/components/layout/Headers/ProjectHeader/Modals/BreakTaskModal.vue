@@ -24,6 +24,7 @@
             <i class="fa fa-fw fa-pencil"></i>
           </span>
           <input
+            disabled
             class="form-control"
             placeholder="Name of task"
             type="text"
@@ -38,7 +39,7 @@
           <span class="input-group-addon">
             <i class="fa fa-fw fa-child"></i>
           </span>
-          <input class="form-control" placeholder="Assignee" type="text" v-model="currentTask.user" />
+          <input disabled class="form-control" placeholder="Assignee" type="text" v-model="currentTask.user" />
         </div>
       </div>
 
@@ -234,23 +235,6 @@ export default {
   padding-bottom: 20px;
 }
 
-.modal-box button {
-  background: white;
-  border-radius: 4px;
-  box-sizing: border-box;
-  padding: 10px;
-  letter-spacing: 1px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 6 00;
-  margin-top: 8px;
-  color: #313233;
-  cursor: pointer;
-  border: 2px solid #bbbbbb;
-  text-transform: uppercase;
-  transition: 0.1s all;
-  font-size: 13px;
-  outline: none;
-}
 .modal-box .button-set :hover {
   border-color: #3fb0ac;
   color: #3fb0ac;
@@ -267,7 +251,7 @@ export default {
   margin: 5px 0 !important;
 }
 .exit-btn {
-  font-size: 25px;
+  font-size: 15px;
   padding: 5px;
   color: #313233;
 }

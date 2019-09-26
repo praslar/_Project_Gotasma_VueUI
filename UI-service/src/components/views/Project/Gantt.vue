@@ -7,7 +7,7 @@
       </span>
       <div class="info-box-content">
         <p class="info-box-number">{{project.name}}</p>
-        <p class="info-box-text" v-if="project.tasks">{{project.tasks | count}} tasks</p>
+        <p class="info-box-text" v-if="tasksTest">{{tasksTest | count}} tasks</p>
       </div>
     </div>
     <!-- <setting-modal :id="id"><  /setting-modal> -->
@@ -20,12 +20,6 @@
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
-    <!-- <gantt-elastic
-      v-if="tasks"
-      :options="workloadOptions"
-      :tasks="tasks"
-      :exceptionDays="exceptionDays">
-    </gantt-elastic> -->
   </div>
 </template>
 <script>
@@ -57,12 +51,13 @@ export default {
               timeZoom: 21
           },
           row: {
-              height: 15
+              height: 30
           },
           calendar: {
-              hour: {
-                  display: false
-              }
+            hour: {
+                display: false
+            },
+            workingDays: [1, 2, 3, 4, 5]
           },
           chart: {
               text: {
@@ -84,7 +79,8 @@ export default {
                       width: 200,
                       expander: true,
                       style: {
-                        'task-list-item-value-container': { 'font-weight': 'bold' }
+                        'task-list-item-value-container': { 'font-weight': 'bold' },
+                         'cursor': 'pointer'
                       },
                       events: {
                           click: ({ data }) => {
@@ -96,20 +92,9 @@ export default {
                   {
                       id: 3,
                       label: 'Assignee',
-                      value: task => `<a>${task.user}</a>`,
+                      value: task => `${task.user}`,
                       width: 90,
-                      html: true,
-                      events: {
-                          click: ({ data }) => {
-                              console.log(data.label, data)
-                              this.showTaskModal(data)
-                          }
-                      },
-                      style: {
-                        'task-list-item-value-container': {
-                          'cursor': 'pointer'
-                        }
-                      }
+                      html: true
                   },
                   {
                       id: 3,
@@ -122,14 +107,20 @@ export default {
                       label: 'Duration (estimated)',
                       value: task => (task.estimateDuration / 86400000) + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
-                      width: 45
+                      width: 45,
+                      style: {
+                        'task-list-header-label': { 'text-align': 'center' }
+                      }
                   },
                   {
                       id: 5,
                       label: 'Duration (real)',
                       value: task => task.duration / 86400000 + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
-                      width: 45
+                      width: 45,
+                      style: {
+                        'task-list-header-label': { 'text-align': 'center' }
+                      }
                   },
                   {
                       id: 6,
@@ -143,7 +134,22 @@ export default {
                           }
                       },
                       style: {
-                        'task-list-item-value-container': { 'text-align': 'center' }
+                        'task-list-header-label': { 'text-align': 'center' }
+                      }
+                  },
+                  {
+                      id: 7,
+                      label: 'Assign member',
+                      value: task => `<a><i class="fa fa-child" style="font-size:20px; margin-left:15px; color: #65c16f"></i></a>`,
+                      html: true,
+                      width: 63,
+                        events: {
+                          click: ({ data }) => {
+                              this.showAssignModal(data)
+                          }
+                      },
+                      style: {
+                         'task-list-header-label': { 'text-align': 'center' }
                       }
                   }
               ]
@@ -158,15 +164,15 @@ export default {
   },
   mounted() {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
-     EventBus.$on('deleteThisTask', (idTask) => {
-        this.getStatus(idTask, 'delete')
-      })
+     EventBus.$on('deleteThisTask', (idTask) => { this.getStatus(idTask, 'delete') })
      EventBus.$on('addTask', (newTaskInfo) => {
         this.addTask(newTaskInfo)
         this.getStatus(newTaskInfo.id)
       })
      EventBus.$on('addMilestone', (newMilestone) => { this.addMilestone(newMilestone) })
      EventBus.$on('breakTask', (breakTaskInfo) => { this.breakTask(breakTaskInfo) })
+     EventBus.$on('editTask', (idTask) => { this.getStatus(idTask) })
+     EventBus.$on('assignMember', (newTaskInfo) => { this.assignMember(newTaskInfo) })
   },
   created() {
     this.getProject(this.id)
@@ -183,7 +189,7 @@ export default {
     if (this.resources.length === 0) {
         this.getResources()
     }
-  },
+   },
   computed: {
     ...mapState([
       'headerOptions',
@@ -198,13 +204,13 @@ export default {
     ...mapGetters([
       'exceptionDays'
     ])
-  },
+    },
   methods: {
     ...mapActions({
       getProject: 'getProjectById',
       getResources: 'getResources',
       getExceptions: 'getExceptions'
-    }),
+      }),
     tasksUpdate(tasks) {
       this.tasksTest = tasks
       // Sync children with parent tasks when added
@@ -262,28 +268,45 @@ export default {
       // reset status of new task info
       this.status.action = false
       this.status.id = ''
-    },
+      },
     optionsUpdate(options) {
       this.options = options
-    },
+      if (this.project.workingDays) {
+          let thisProjectWorkingDays = []
+          this.project.workingDays.forEach(element => {
+            thisProjectWorkingDays.push(parseInt(element.value))
+          })
+          this.options.calendar.workingDays = thisProjectWorkingDays
+      }
+     },
     showTaskModal(data) {
       this.$modal.show('taskModal', { data: data })
-    },
+      },
     showAddTaskModal(data) {
       this.$modal.show('AddTask', { data: data })
-    },
-    // tasksUpdate method status
+      },
+    showAssignModal(data) {
+      if (data.children.length <= 0 && data.type !== 'milestone') {
+        this.$modal.show('AssignMember', { data: data })
+      } else {
+         this.$modal.show('dialog', {
+           title: 'Warning',
+           text: 'Can not assign member to parent task or milestone'
+        })
+      }
+      },
+   // tasksUpdate method status
     getStatus(id, type) {
       this.status.type = type
       this.status.action = true
       this.status.id = id
-    },
+      },
     addSumTask(newTaskInfo) {
       this.$store.dispatch('addSumTask', newTaskInfo)
-    },
+        },
     deleteThisTask(idTaskDelete) {
       this.$store.dispatch('deleteThisTask', idTaskDelete)
-    },
+      },
     addTask(newTaskInfo) {
           // for (let j = 0; j < newTaskInfo.users.length; j++) {
           //   for (let i = 0; i < this.tasksTest.length; i++) {
@@ -311,17 +334,20 @@ export default {
           //   })
           // }
       this.$store.dispatch('addTask', newTaskInfo)
-    },
+      },
     addMilestone(newMilestone) {
       this.$store.dispatch('addMilestone', newMilestone)
-    },
+      },
     breakTask(breakTaskInfo) {
       this.$store.dispatch('breakTask', breakTaskInfo)
-    }
+      },
+    assignMember(newTaskInfo) {
+      this.$store.dispatch('assignMember', newTaskInfo)
+     }
   }
 }
 </script>
-<style>
+<style> 
 .gantt-elastic__chart-days-highlight-rect {
   fill: #ddd !important;
   z-index: 9999 !important;

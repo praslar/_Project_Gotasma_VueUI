@@ -92,7 +92,6 @@ export default {
         }
     },
     // task default preloading
-
     tasksTest: [{
             id: 9,
             label: 'Phan tich va thiet ke',
@@ -104,7 +103,8 @@ export default {
         {
             id: 90,
             label: 'Phan cmn tich',
-            user: 'Thang Pham',
+            user: ['John Wayne'],
+            usersId: [15],
             start: 1569171600000,
             duration: 691200000,
             parentId: 9,
@@ -123,14 +123,15 @@ export default {
             id: 10,
             label: 'Make some noise',
             start: 1567875600000,
-            duration: 518400000,
+            duration: 518400000 + 86400000,
             type: 'project',
             progress: 0
         },
         {
             id: 111,
             label: 'With great power comes great responsibility',
-            user: 'Peter Parker',
+            user: ['Peter Parker'],
+            usersId: [14],
             parentId: 10,
             start: 1567875600000,
             duration: 345600000,
@@ -148,7 +149,8 @@ export default {
         {
             id: 13,
             label: 'Courage is being scared to death, but saddling up anyway.',
-            user: 'John Wayne',
+            user: ['Clark Kent'],
+            usersId: [13],
             parentId: 10,
             start: 1568307600000,
             duration: 172800000,
@@ -182,14 +184,15 @@ export default {
             id: 17,
             label: 'Make some noise',
             start: 1567875600000,
-            duration: 691200000,
+            duration: 691200000 + 86400000,
             type: 'project',
             progress: 0
         },
         {
             id: 18,
             label: 'With great power comes great responsibility',
-            user: 'Peter Parker',
+            user: ['Clark Kent'],
+            usersId: [14],
             parentId: 17,
             start: 1567875600000,
             duration: 345600000,
@@ -207,7 +210,8 @@ export default {
         {
             id: 19,
             label: 'Courage is being scared to death, but saddling up anyway.',
-            user: 'John Wayne',
+            user: ['Thang Pham'],
+            usersId: [11],
             parentId: 17,
             start: 1568307600000,
             duration: 172800000,
@@ -224,7 +228,8 @@ export default {
         {
             id: 20,
             label: 'Courage is being scared to death, but saddling up anyway.',
-            user: 'John Wayne',
+            user: ['Peter Parker'],
+            usersId: [14],
             parentId: 17,
             start: 1568653200000,
             duration: 172800000,
@@ -280,60 +285,6 @@ export default {
                 }
             }
         }
-
-        // {
-        //     id: 14,
-        //     label: 'anyway',
-        //     user: 'John Wayne',
-        //     start: 1568307600000,
-        //     duration: 172800000,
-        //     type: 'project',
-        //     progress: 100,
-        //     style: {
-        //         base: {
-        //             fill: '#3fb0ac',
-        //             'stroke-width': 2,
-        //             stroke: '#173e43'
-        //         },
-        //         'tree-row-bar': {
-        //             fill: '#1EBC61',
-        //             stroke: '#0EAC51'
-        //         },
-        //         'tree-row-bar-polygon': {
-        //             stroke: '#0EAC51'
-        //         }
-        //     }
-        // },
-        // {
-        //     id: 182,
-        //     label: 'being scared to death',
-        //     user: 'John Wayne',
-        //     parentId: 14,
-        //     start: 1568307600000,
-        //     duration: 172800000,
-        //     type: 'task',
-        //     progress: 0
-        // },
-        // {
-        //     id: 172,
-        //     label: 'being fucked',
-        //     user: 'John Wayne',
-        //     parentId: 14,
-        //     start: 1568307600000,
-        //     duration: 172800000,
-        //     type: 'task',
-        //     progress: 0
-        // },
-        // {
-        //     id: 170,
-        //     label: 'yucked',
-        //     user: 'John Wayne',
-        //     start: 1568653200000,
-        //     duration: 86400000,
-        //     type: 'milestone',
-        //     dependentOn: [14],
-        //     progress: 0
-        // }
     ],
     resources: [],
     users: [],

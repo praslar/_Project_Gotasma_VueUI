@@ -146,5 +146,8 @@ export default {
     },
     deleteThisTask({ commit }, payload) {
         commit('deleteThisTask', payload)
+    },
+    assignMember({ commit }, payload) {
+        commit('assignMember', payload)
     }
 }

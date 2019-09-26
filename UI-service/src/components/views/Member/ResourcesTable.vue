@@ -1,5 +1,5 @@
 <template>
-            <div class="col-sm-12 table-responsive  " v-if="this.showTableResources">
+            <div class="col-sm-12 table-responsive  " v-if="this.showTableResources && resources">
               <table
                 aria-describedby="resourcesTable_info"
                 role="grid"
@@ -49,7 +49,7 @@
                 <tbody>
                   <tr class="even" role="row" v-for="resource of resourcesCanChoose" :key="resource.badgeID">
                     <td>{{resource.name}}</td>
-                                      <td>{{resource.email}}</td>
+                    <td>{{resource.email}}</td>
                     <td>
                     <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
                     </td>
@@ -78,14 +78,12 @@ export default {
     }
   },
   methods: {
-    showDialogAddresource(resource, ad) {
-      let info = {
-        id: ad,
-        resource: {
-          badgeId: resource.badgeID,
+    showDialogAddresource(resource, id) {
+      let pickedMember = {
+          id: resource.id,
+          badgeID: resource.badgeID,
           name: resource.name,
           email: resource.email
-        }
       }
       this.$modal.show('dialog', {
         title: 'Are you sure?',
@@ -95,7 +93,11 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-              console.log(info)
+              this.users.push(pickedMember)
+              let info = {
+                  projectId: id,
+                  users: this.users
+              }
               this.$store.dispatch('addUserToProject', info)
               this.$modal.hide('dialog')
             }

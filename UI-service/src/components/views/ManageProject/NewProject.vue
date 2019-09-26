@@ -1,5 +1,5 @@
 <template>
-  <modal name="createNewProj" transition="pop-out" :height=460 :width=600 
+  <modal name="createNewProj" transition="pop-out" height="500" :width=500 
   :draggable="true" 
   :reset="true" 
   :clickToClose="false" 
@@ -26,25 +26,31 @@
               <div class="invalid-feedback" v-if="submitted && errors.has('Project Name')">{{ errors.first('Project Name')}}</div>
             </transition>
 
-          <h4 class="myheading">Effort: (hours/week)</h4>
-          <div class="input-group">
-            <span class="input-group-addon">
-              <i class="fa fa-fw fa-calendar-check-o"></i>
-            </span>
-            <select class="form-control"
-            v-model="project.effort" 
-            name="Effort" 
-            v-validate="'required'" 
-            :class="{'is-invalid': errors.has('Effort')}" >
-              <option value="" disabled selected hidden>Select your option</option>
-              <option>40</option>
-              <option>42</option>
-              <option>38</option>
-              <option>36</option>
-              </select>
-          </div>
+  
+            <h4 class="myheading">Working day: </h4>
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
+                  <multiselect 
+                      name="workingDays"
+                      v-model="project.workingDays"
+                      :class="{ 'is-invalid': errors.has('workingDays') }" 
+                      :options="dayOfWeek"
+                      placeholder="Choose working day" 
+                      v-validate="'required'"
+                      :multiple="true"
+                      :close-on-select="false"
+                      :clear-on-select="false"
+                      :preserve-search="true"
+                      label="name"
+                      track-by="name"
+                      :preselect-first="true"
+                      :max-height="150"
+                    >
+                  </multiselect>
+            </div>
+          
           <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-              <div class="invalid-feedback" v-if="submitted && errors.has('Effort')">{{ errors.first('Effort')}}</div>
+              <div class="invalid-feedback" v-if="submitted && errors.has('workingDays')">{{ errors.first('workingDays')}}</div>
           </transition>
 
           <h4 class="myheading">Start date: (MMM/DD/YYYY)</h4>
@@ -75,11 +81,12 @@
 </template>
 <script>
 import datepicker from 'vue2-datepicker'
-import moment from 'moment'
+import Multiselect from 'vue-multiselect'
+
 export default {
   name: 'NewProject',
   components: {
-    datepicker
+    datepicker, Multiselect
   },
   data() {
     return {
@@ -89,9 +96,38 @@ export default {
         effort: '',
         startDate: '',
         updateDate: '',
+        tasks: [],
         users: [],
-        tasks: []
-      }
+        workingDays: []
+      },
+      dayOfWeek: [{
+          name: 'Monday',
+          value: '1'
+        },
+        {
+          name: 'Tuesday',
+          value: '2'
+        },
+        {
+          name: 'Wednesday',
+          value: '3'
+        },
+        {
+          name: 'Thursday',
+          value: '4'
+        },
+        {
+          name: 'Friday',
+          value: '5'
+        },
+        {
+          name: 'Staturday',
+          value: '6'
+        },
+        {
+          name: 'Sunday',
+          value: '0'
+        }]
     }
   },
   shortcuts: [{
@@ -106,7 +142,7 @@ export default {
       this.$validator.validateAll()
       .then(result => {
         if (result) {
-          this.project.startDate = moment(this.project.startDate).valueOf()
+          this.project.startDate = (this.project.startDate).valueOf()
           this.$store.dispatch('addProject', this.project)
           this.$modal.hide('createNewProj')
         } else {
@@ -118,12 +154,23 @@ export default {
       })
     },
     beforeOpen() {
+        let d = new Date()
+        d.setHours(0, 0, 0, 0)
+        let n = d.valueOf()
         this.project.name = ''
         this.project.effort = ''
         this.project.startDate = ''
-        this.project.updateDate = ''
+        this.project.updateDate = n
+        this.project.tasks = [{
+          id: 1,
+          label: 'Welcome the Coffee Cat Project',
+          user: 'Coffee Cat',
+          start: n,
+          duration: 0,
+          type: 'project',
+          progress: 0
+        }]
         this.project.users = []
-        this.project.tasks = []
     },
     cancelCreate() {
       this.$modal.hide('createNewProj')
@@ -145,7 +192,7 @@ export default {
       width: 100%;
       text-align: center;
       letter-spacing: 1px;
-      font-size: 23px;
+      font-size: 18px;
       font-weight: 300;
 }
 .modal-box .partition .partition-form {
@@ -180,14 +227,14 @@ export default {
 
   }
   .modal-box .button-set {
-    margin-top: 60px;
+    margin-top: 50px;
   }
   .myheading {
     margin: 5px 0 !important;
     padding-top: 8px !important
   }
   .exit-btn {
-    font-size: 25px;
+    font-size: 15px;
     padding: 5px;
     color: #313233
   }
