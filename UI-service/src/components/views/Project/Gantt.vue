@@ -120,7 +120,7 @@ export default {
                   {
                       id: 4,
                       label: 'Duration (estimated)',
-                      value: task => (task.myAttribute / 86400000) + 'd',
+                      value: task => (task.estimateDuration / 86400000) + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 45
                   },
@@ -253,7 +253,7 @@ export default {
                 this.tasksTest[i].start = now.valueOf()
                 this.tasksTest[i].startTime = now.valueOf()
                 this.tasksTest[i].duration = 0
-                this.tasksTest[i].myAttribute = 0
+                this.tasksTest[i].estimateDuration = 0
               }
             }
           }

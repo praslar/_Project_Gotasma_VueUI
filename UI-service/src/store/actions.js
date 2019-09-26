@@ -48,6 +48,24 @@ export default {
                 console.log(error)
             })
     },
+    getHighlightedProjects({ commit }) {
+        Services.getHighlightedProjects()
+            .then((response) => {
+                commit('GET_HIGHLIGHTED_PROJECTS', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    highlightProjects({ commit }, payload) {
+        Services.highlightProjects(payload)
+            .then((response) => {
+                commit('HIGHLIGHT_PROJECT', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     getProjectById({ commit }, payload) {
         console.log('payload', payload)
         Services.getProjectByID(payload)

@@ -16,6 +16,12 @@ export default {
     GET_PROJECTS(state, projects) {
         state.projects = projects
     },
+    GET_HIGHLIGHTED_PROJECTS(state, projects) {
+        state.highlightedProjects = projects
+    },
+    HIGHLIGHT_PROJECT() {
+        console.log('highlighted one project')
+    },
     ADD_PROJECT() {
         console.log('added one project')
     },
@@ -87,7 +93,8 @@ export default {
       })
     },
     breakTask: (state, breakTaskInfo) => {
-        state.tasksTest.push({
+        // console.log('lala2', breakTaskInfo.id)
+        state.tasksTest.splice(state.tasksTest.findIndex(task => task.id === breakTaskInfo.adjacentId) + 1, 0, {
             parentId: breakTaskInfo.parentId,
             id: breakTaskInfo.id,
             label: breakTaskInfo.label,

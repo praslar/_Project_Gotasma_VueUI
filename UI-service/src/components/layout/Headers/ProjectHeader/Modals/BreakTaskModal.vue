@@ -6,14 +6,12 @@
     :width="500"
     :draggable="true"
     :reset="true"
-    :clickToClose="false"
     @before-open="beforeOpen"
     @before-close="beforeClose"
   >
-    <a class="pull-right exit-btn" @click="cancelEdit">
-      <i class="fa fa-close" />
+    <a class="pull-right exit-btn">
+      <i class="fa fa-close" @click="$modal.hide('breakTaskModal')"/>
     </a>
-    <!-- <form @submit.prevent="applyEdit(currentTask)"> -->
     <div class="modal-box">
       <div class="title">
         <i class="fa fa-fw fa-edit"></i>Break Task
@@ -34,21 +32,13 @@
         </div>
       </div>
 
-      <div class="col-xs-12" v-if="currentTask.type === 'task'">
+      <div class="col-xs-12">
         <h4 class="myheading">Assignee:</h4>
         <div class="input-group col-xs-12">
           <span class="input-group-addon">
             <i class="fa fa-fw fa-child"></i>
           </span>
           <input class="form-control" placeholder="Assignee" type="text" v-model="currentTask.user" />
-        </div>
-      </div>
-      <div class="col-xs-12" v-else hidden>
-        <h4 class="myheading">Assignee:</h4>
-        <div class="input-group col-xs-12">
-          <span class="input-group-addon">
-            <i class="fa fa-fw fa-child"></i>
-          </span>
         </div>
       </div>
 
@@ -65,33 +55,6 @@
         </div>
       </div>
 
-      <!-- <div class="col-xs-12">
-            <h4 class="myheading">Duration (estimated)</h4>
-            <div class="input-group col-xs-12">
-              <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-3"></i></span>
-                <input
-                  class="form-control" 
-                  placeholder="Duration"    
-                  type="number"
-                  min="0"
-                  v-model.number="currentTask.myAttribute">
-            </div>
-          </div>
-
-          <div class="col-xs-12">
-            <h4 class="myheading">Effort</h4>
-            <div class="input-group col-xs-12">
-              <span class="input-group-addon"><i class="fa fa-fw fa-check-square-o"></i></span>
-                <input
-                  class="form-control" 
-                  placeholder="Effort"
-                  type="number"
-                  min="0"
-                  max="100"
-                  v-model.number="currentTask.effort">
-              </div>
-      </div>-->
-
       <div class="button-set col-xs-12">
         <button class="button-modal pull-right" @click="applyEdit(currentTask)">Apply</button>
       </div>
@@ -101,7 +64,6 @@
 </template>
 <script>
 import datepicker from 'vue2-datepicker'
-// import dayjs from 'dayjs'
 import { EventBus } from '@/main.js'
 export default {
   name: 'BreakTaskModal',
@@ -112,8 +74,8 @@ export default {
   data() {
     return {
       currentTask: '',
-      beforeEdit: '',
       breakTaskInfo: {
+        adjacentId: '',
         parentId: '',
         id: '',
         label: '',
@@ -147,42 +109,69 @@ export default {
         this.breakTaskInfo.parentId = this.currentTask.parentId
         this.breakTaskInfo.label = this.currentTask.label
         this.breakTaskInfo.id = number
-        this.beforeEdit = Object.assign({}, this.currentTask)
+        this.breakTaskInfo.adjacentId = this.currentTask.id // id task truoc no - de chen`
     },
     beforeClose() {
       this.breakTaskInfo.start = this.breakTaskInfo.start.valueOf()
     },
     applyEdit(task) {
-      this.$modal.hide('breakTaskModal')
-      if (this.breakTaskInfo.start > this.currentTask.start && this.breakTaskInfo.start < this.currentTask.endTime) {
-        let durFirstHalf = this.breakTaskInfo.start.valueOf() - this.currentTask.start
-        console.log('first half', durFirstHalf / 86400000)
-        let durSecondHalf = this.currentTask.myAttribute - durFirstHalf
-        console.log('2nd half', durSecondHalf / 86400000)
-        this.breakTaskInfo.duration = durSecondHalf
+      if (this.breakTaskInfo.start > task.start && this.breakTaskInfo.start < task.endTime) {
         this.$modal.hide('breakTaskModal')
-        {
-          task.duration = durFirstHalf
-          let timeStart = new Date(task.startTime)
-          let calculateTimeChart = task.startTime
-          let dayofWeek = timeStart.getDay()
-          let durationDays = task.duration / 86400000
-          let actualDuration = task.duration
-          if (task.effort === 50) {
-            actualDuration = actualDuration * 2
-          }
+        let durFirstHalf = (this.breakTaskInfo.start.valueOf() - task.start)
+        let durFirstHalfTemp = durFirstHalf
+        let loopOfFirst = durFirstHalf / 86400000
+
+        let timeStart = new Date(task.startTime)
+        let dayofWeek = timeStart.getDay()
+        let calculateTimeChart = task.startTime
+        // tinh ngay lam
+        for (let i = 0; i < loopOfFirst; i++) {
           let isHoliday = false
-          for (let i = 0; i < durationDays; i++) {
             for (let j = 0; j < this.exceptionDays.length; j++) {
               if (calculateTimeChart === this.exceptionDays[j]) {
                 isHoliday = true
                 break
               }
             }
-            // console.log('lập lần', i , 'durationDays', durationDays)
             if (isHoliday) {
-              // console.log('La holiday')
-              // console.log('ngay trong tuan', dayofWeek)
+              durFirstHalfTemp -= 86400000
+              isHoliday = false
+              if (dayofWeek === 6) {
+                dayofWeek = 0
+              } else {
+                dayofWeek += 1
+              }
+            } else if (dayofWeek === 6) {
+              dayofWeek = 0
+              durFirstHalfTemp -= 86400000
+            } else if (dayofWeek === 0) {
+              dayofWeek += 1
+              durFirstHalfTemp -= 86400000
+            } else {
+              dayofWeek += 1
+            }
+        }
+        let durSecondHalf = task.estimateDuration - durFirstHalfTemp
+
+        // tinh real duration
+        timeStart = new Date(task.startTime)
+        dayofWeek = timeStart.getDay()
+        calculateTimeChart = task.startTime
+
+        let durationDays = durFirstHalfTemp / 86400000
+        let actualDuration = durFirstHalfTemp
+          // if (task.effort === 50) {
+          //   actualDuration = actualDuration * 2
+          // }
+          for (let i = 0; i < durationDays; i++) {
+            let isHoliday = false
+            for (let j = 0; j < this.exceptionDays.length; j++) {
+              if (calculateTimeChart === this.exceptionDays[j]) {
+                isHoliday = true
+                break
+              }
+            }
+            if (isHoliday) {
               actualDuration += 86400000
               isHoliday = false
               durationDays++
@@ -192,36 +181,30 @@ export default {
                 dayofWeek += 1
               }
             } else if (dayofWeek === 6) {
-              // console.log('la T7')
               dayofWeek = 0
               actualDuration += 86400000
               durationDays++
             } else if (dayofWeek === 0) {
-              // console.log('la CN')
               dayofWeek += 1
               actualDuration += 86400000
-              console.log('actual', actualDuration)
               durationDays++
             } else {
-              // console.log('la ngay thuong')
               dayofWeek += 1
             }
             calculateTimeChart += 86400000
           }
-          console.log('actual after', actualDuration)
           task.duration = actualDuration
-          task.endTime = task.startTime + (task.duration)
+          task.estimateDuration = durFirstHalfTemp
+          this.breakTaskInfo.duration = durSecondHalf
           EventBus.$emit('breakTask', this.breakTaskInfo)
-          // console.log(this.breakTaskInfo)
-        }
-        return task
+
+        // console.log(this.breakTaskInfo)
       } else {
-        console.log('not ok')
+        this.$modal.show('dialog', {
+          title: 'Date invalid',
+          text: 'Date not in range of task'
+        })
       }
-    },
-    cancelEdit() {
-      Object.assign(this.currentTask, this.beforeEdit)
-      this.$modal.hide('breakTaskModal')
     }
   },
   beforeDestroy() {

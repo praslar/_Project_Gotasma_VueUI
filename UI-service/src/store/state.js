@@ -92,95 +92,6 @@ export default {
         }
     },
     // task default preloading
-    tasks: [{
-            id: 939145,
-            name: 'Clark Kent',
-            start: 1568566800000,
-            duration: 1 * 24 * 60 * 60 * 1000,
-            status: 'OVERLOAD',
-            type: 'task',
-            style: {
-                base: {
-                    fill: '#f75c4c',
-                    stroke: '#f75c4c'
-                }
-            },
-            progress: 0
-        },
-        {
-            id: 27,
-            name: 'Thang Pham',
-            start: 1568566800000 - 86400000,
-            duration: 3 * 24 * 60 * 60 * 1000,
-            status: 'NORMAL',
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#1EBC61',
-                    stroke: '#0EAC51'
-                }
-            },
-            progress: 0
-        }, {
-            id: 3,
-            email: 'johnnyboydoe@gmail.com',
-            name: 'John Wayne',
-            start: 1568566800000 + 86400000 * 5,
-            duration: 3 * 24 * 60 * 60 * 1000,
-            status: 'NORMAL',
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#1EBC61',
-                    stroke: '#0EAC51'
-                }
-            },
-            progress: 0
-        }, {
-            id: 4,
-            name: 'Peter Parker',
-            start: 1568566800000 + 86400000 * 2,
-            duration: 2 * 24 * 60 * 60 * 1000,
-            status: 'NORMAL',
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#1EBC61',
-                    stroke: '#0EAC51'
-                }
-            },
-            progress: 0
-        }, {
-            id: 5,
-            name: 'John Doe',
-            start: 1568566800000 + 86400000 * 6,
-            duration: 6 * 24 * 60 * 60 * 1000,
-            status: 'OVERLOAD',
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#f75c4c',
-                    stroke: '#f75c4c'
-                }
-            },
-            progress: 0
-        },
-        {
-            id: 6,
-            name: 'John Doe',
-            start: 1568566800000 + 86400000 * 6,
-            duration: 6 * 24 * 60 * 60 * 1000,
-            status: 'OVERLOAD',
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#f75c4c',
-                    stroke: '#f75c4c'
-                }
-            },
-            progress: 0
-        }
-    ],
 
     tasksTest: [{
             id: 9,
@@ -217,7 +128,7 @@ export default {
             progress: 0
         },
         {
-            id: 11,
+            id: 111,
             label: 'With great power comes great responsibility',
             user: 'Peter Parker',
             parentId: 10,
@@ -235,7 +146,7 @@ export default {
             }
         },
         {
-            id: 12,
+            id: 13,
             label: 'Courage is being scared to death, but saddling up anyway.',
             user: 'John Wayne',
             parentId: 10,
@@ -252,7 +163,7 @@ export default {
             }
         },
         {
-            id: 13,
+            id: 12,
             label: 'being scared to death',
             start: 1568653200000,
             duration: 86400000,
@@ -328,7 +239,7 @@ export default {
             }
         },
         {
-            id: 222,
+            id: 1,
             label: 'This one is a mile frcikin stone',
             parentId: 17,
             start: 1568826000000,
@@ -340,6 +251,32 @@ export default {
                     fill: '#de3131',
                     'stroke-width': 2,
                     stroke: '#de3131'
+                }
+            }
+        },
+        {
+            id: 2121,
+            label: 'break me u biactch',
+            start: 1569603600000,
+            duration: 259200000,
+            type: 'project',
+            progress: 0
+        },
+        {
+            id: 18889,
+            label: 'break me again u bitach',
+            user: 'Peter Parker',
+            parentId: 2121,
+            start: 1569603600000,
+            duration: 259200000,
+            collapsed: true,
+            type: 'task',
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
                 }
             }
         }
@@ -403,5 +340,6 @@ export default {
     projects: [],
     project: {},
     exceptions: [],
-    exceptionDatesList: []
+    exceptionDatesList: [],
+    highlightedProjects: []
 }

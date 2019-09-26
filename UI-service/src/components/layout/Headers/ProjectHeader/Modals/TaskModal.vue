@@ -74,12 +74,12 @@
                   placeholder="Duration"
                   type="number"
                   min="0"
-                  v-model.number="currentTask.myAttribute">
+                  v-model.number="currentTask.estimateDuration">
                 <input
                   v-else
                   disabled
                   class="form-control"
-                  v-model.number="currentTask.myAttribute">
+                  v-model.number="currentTask.estimateDuration">
             </div>
           </div>
 
@@ -191,7 +191,7 @@ export default {
     beforeOpen(event) {
       // console.log(event.params.data)
       this.currentTask = event.params.data
-      this.currentTask.myAttribute = this.currentTask.myAttribute / 86400000
+      this.currentTask.estimateDuration = this.currentTask.estimateDuration / 86400000
       this.currentTask.duration = this.currentTask.duration / 86400000
       this.beforeEdit = Object.assign({}, this.currentTask)
       this.myType = this.currentTask.type
@@ -199,14 +199,14 @@ export default {
     beforeClose() {
       this.currentTask.startTime = (this.currentTask.start).valueOf()
       this.currentTask.start = (this.currentTask.start).valueOf()
-      this.currentTask.myAttribute = this.currentTask.myAttribute * 86400000
+      this.currentTask.estimateDuration = this.currentTask.estimateDuration * 86400000
       this.currentTask.duration = this.currentTask.duration * 86400000
     },
     applyEdit(task) {
       this.$modal.hide('taskModal')
         {
-          console.log('attribute', task.myAttribute)
-          task.duration = task.myAttribute
+          console.log('attribute', task.estimateDuration)
+          task.duration = task.estimateDuration
           console.log('duration', task.duration)
           let timeStart = new Date(task.startTime)
           console.log('time start', timeStart)

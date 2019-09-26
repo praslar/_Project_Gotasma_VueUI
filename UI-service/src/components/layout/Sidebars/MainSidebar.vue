@@ -65,9 +65,6 @@ export default {
 #search-btn {
   width: 20%;
 }
-.sidebar{
-
-}
 .main-sidebar{
  margin-top: 5px;
   height: 100%; 

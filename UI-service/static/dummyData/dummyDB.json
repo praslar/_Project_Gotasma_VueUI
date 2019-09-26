@@ -404,6 +404,7 @@
       "effort": 40,
       "startDate": 1566925200000,
       "updateDate": 1566929200000,
+      "highlighted": true,
       "users": [
         {
           "id": 11,
@@ -1510,6 +1511,7 @@
       "effort": 40,
       "startDate": 1572625336782,
       "updateDate": 1575217336782,
+      "highlighted": true,
       "users": [
         {
           "id": 11,
@@ -1626,6 +1628,7 @@
       "effort": 38,
       "startDate": 1566950136782,
       "updateDate": 1569542136782,
+      "highlighted": true,
       "users": [
         {
           "id": 11,
@@ -1716,6 +1719,7 @@
       "effort": 40,
       "startDate": 1565191736782,
       "updateDate": 1566783736782,
+      "highlighted": false,
       "users": [
         {
           "id": 18,
@@ -1824,6 +1828,7 @@
       "effort": 40,
       "startDate": 1569857336782,
       "updateDate": 1566535736782,
+      "highlighted": false,
       "users": [
         {
           "id": 113,
@@ -1870,6 +1875,7 @@
       "effort": 36,
       "startDate": 1567372536782,
       "updateDate": 1569050936782,
+      "highlighted": false,
       "users": [
         {
           "id": 114,
@@ -1966,6 +1972,7 @@
       "effort": 40,
       "startDate": 1567055736782,
       "updateDate": 1572647736782,
+      "highlighted": false,
       "users": [
         {
           "id": 11,
@@ -2056,6 +2063,7 @@
       "effort": 36,
       "startDate": 1577143736782,
       "updateDate": 1577748536782,
+      "highlighted": false,
       "users": [
         {
           "id": 114,
@@ -2217,6 +2225,7 @@
       "effort": 40,
       "startDate": 1559236536782,
       "updateDate": 1571655736782,
+      "highlighted": false,
       "users": [
         {
           "id": 124,
