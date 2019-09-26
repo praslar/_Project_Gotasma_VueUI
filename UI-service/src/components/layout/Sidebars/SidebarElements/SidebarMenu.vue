@@ -7,7 +7,24 @@
         <span class="page">View all project</span>
       </a>
     </router-link>
-
+    <!-- nho fix nhe -->
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-folder-o"></i>
+        <span class="treeview-title">Highlighted Projects</span>
+        <span class="pull-right-container pull-right">
+          <i class="fa fa-angle-left fa-fw"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" v-if="highlightedProjects.length">
+        <li v-for="hProj in highlightedProjects" :key="hProj">
+          <router-link tag="a" :to="'/project/' + hProj.id" >
+            <i class="fa fa-file"></i> {{ hProj.name }}
+          </router-link>
+        </li>
+      </ul>
+    </li>
+    <!--  -->
     <li class="header">Resources</li>
     <router-link tag="li" class="pageLink" to="/resources">
       <a>
@@ -27,8 +44,26 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'SidebarMenu'
+  name: 'SidebarMenu',
+  computed: {
+    ...mapState([ 'highlightedProjects' ])
+  },
+  created() {
+    if (this.highlightedProjects.length === 0) {
+      this.$store.dispatch('getHighlightedProjects')
+    }
+  },
+  mounted() {
+    this.$store.subscribe((mutation, state) => {
+      switch (mutation.type) {
+        case 'HIGHLIGHT_PROJECT':
+          this.$store.dispatch('getHighlightedProjects')
+          break
+      }
+    })
+  }
 }
 </script>
 

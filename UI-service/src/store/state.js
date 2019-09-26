@@ -128,7 +128,7 @@ export default {
             progress: 0
         },
         {
-            id: 11,
+            id: 111,
             label: 'With great power comes great responsibility',
             user: ['Peter Parker'],
             usersId: [14],
@@ -147,7 +147,7 @@ export default {
             }
         },
         {
-            id: 12,
+            id: 13,
             label: 'Courage is being scared to death, but saddling up anyway.',
             user: ['Clark Kent'],
             usersId: [13],
@@ -165,7 +165,7 @@ export default {
             }
         },
         {
-            id: 13,
+            id: 12,
             label: 'being scared to death',
             start: 1568653200000,
             duration: 86400000,
@@ -244,7 +244,7 @@ export default {
             }
         },
         {
-            id: 222,
+            id: 1,
             label: 'This one is a mile frcikin stone',
             parentId: 17,
             start: 1568826000000,
@@ -258,6 +258,32 @@ export default {
                     stroke: '#de3131'
                 }
             }
+        },
+        {
+            id: 2121,
+            label: 'break me u biactch',
+            start: 1569603600000,
+            duration: 259200000,
+            type: 'project',
+            progress: 0
+        },
+        {
+            id: 18889,
+            label: 'break me again u bitach',
+            user: 'Peter Parker',
+            parentId: 2121,
+            start: 1569603600000,
+            duration: 259200000,
+            collapsed: true,
+            type: 'task',
+            progress: 100,
+            style: {
+                base: {
+                    fill: '#3fb0ac',
+                    'stroke-width': 2,
+                    stroke: '#173e43'
+                }
+            }
         }
     ],
     resources: [],
@@ -265,5 +291,6 @@ export default {
     projects: [],
     project: {},
     exceptions: [],
-    exceptionDatesList: []
+    exceptionDatesList: [],
+    highlightedProjects: []
 }

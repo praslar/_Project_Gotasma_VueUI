@@ -16,6 +16,12 @@ export default {
     GET_PROJECTS(state, projects) {
         state.projects = projects
     },
+    GET_HIGHLIGHTED_PROJECTS(state, projects) {
+        state.highlightedProjects = projects
+    },
+    HIGHLIGHT_PROJECT() {
+        console.log('highlighted one project')
+    },
     ADD_PROJECT() {
         console.log('added one project')
     },
@@ -40,7 +46,7 @@ export default {
     },
     // ===========local action=====
     addTask: (state, newTaskInfo) => {
-        state.project.tasks.push({
+        state.tasksTest.push({
             parentId: newTaskInfo.parentId,
             id: newTaskInfo.id,
             label: newTaskInfo.label,
@@ -59,7 +65,7 @@ export default {
         })
     },
     addSumTask: (state, newTaskInfo) => {
-        state.project.tasks.push({
+        state.tasksTest.push({
             id: newTaskInfo.id,
             label: newTaskInfo.label,
             start: (newTaskInfo.start).valueOf(),
@@ -69,7 +75,7 @@ export default {
         })
     },
     addMilestone: (state, newTaskInfo) => {
-        state.project.tasks.push({
+        state.tasksTest.push({
             id: newTaskInfo.id,
             parentId: newTaskInfo.parentId,
             label: newTaskInfo.label,
@@ -87,7 +93,8 @@ export default {
         })
     },
     breakTask: (state, breakTaskInfo) => {
-        state.project.tasks.push({
+        // console.log('lala2', breakTaskInfo.id)
+        state.tasksTest.splice(state.tasksTest.findIndex(task => task.id === breakTaskInfo.adjacentId) + 1, 0, {
             parentId: breakTaskInfo.parentId,
             id: breakTaskInfo.id,
             label: breakTaskInfo.label,
@@ -99,16 +106,16 @@ export default {
         })
     },
     deleteThisTask(state, idTaskDelete) {
-        if (state.project.tasks.length !== 1) {
-            for (let i = 0; i < state.project.tasks.length; i++) {
-                if (state.project.tasks[i].id === idTaskDelete) {
-                    if (state.project.tasks[i].children.length === 0) {
-                        state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+        if (state.tasksTest.length !== 1) {
+            for (let i = 0; i < state.tasksTest.length; i++) {
+                if (state.tasksTest[i].id === idTaskDelete) {
+                    if (state.tasksTest[i].children.length === 0) {
+                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
                     } else {
-                        state.project.tasks[i].allChildren.forEach(child => {
-                            state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === child), 1)
+                        state.tasksTest[i].allChildren.forEach(child => {
+                            state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
                         })
-                        state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
                     }
                     break
                 }
@@ -120,10 +127,10 @@ export default {
     assignMember(state, info) {
         console.log(info.newTaskInfo)
         console.log(info.currentTask)
-        for (let i = 0; i < state.project.tasks.length; i++) {
-            if (state.project.tasks[i].id === info.currentTask.id) {
+        for (let i = 0; i < state.tasksTest.length; i++) {
+            if (state.tasksTest[i].id === info.currentTask.id) {
                 for (let j = 0; j < info.newTaskInfo.user.length; j++) {
-                    state.project.tasks[i].user += info.newTaskInfo.user[j].name + ', '
+                    state.tasksTest[i].user += info.newTaskInfo.user[j].name + '  '
                 }
             }
         }

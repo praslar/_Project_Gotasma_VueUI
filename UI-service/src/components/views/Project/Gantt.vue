@@ -7,14 +7,14 @@
       </span>
       <div class="info-box-content">
         <p class="info-box-number">{{project.name}}</p>
-        <p class="info-box-text" v-if="project.tasks">{{project.tasks | count}} tasks</p>
+        <p class="info-box-text" v-if="tasksTest">{{tasksTest | count}} tasks</p>
       </div>
     </div>
     <!-- <setting-modal :id="id"><  /setting-modal> -->
     <gantt-elastic
-      v-if="project.tasks && exceptionDays.length > 0"
+      v-if="tasksTest && exceptionDays.length > 0"
       :options="options"
-      :tasks="project.tasks"
+      :tasks="tasksTest"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
@@ -105,7 +105,7 @@ export default {
                   {
                       id: 4,
                       label: 'Duration (estimated)',
-                      value: task => (task.myAttribute / 86400000) + 'd',
+                      value: task => (task.estimateDuration / 86400000) + 'd',
                       // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
                       width: 45,
                       style: {
@@ -199,7 +199,7 @@ export default {
       'project',
       'exceptions',
       'resources',
-      'tasksTests'
+      'tasksTest'
     ]),
     ...mapGetters([
       'exceptionDays'
@@ -212,7 +212,7 @@ export default {
       getExceptions: 'getExceptions'
       }),
     tasksUpdate(tasks) {
-      this.project.tasks = tasks
+      this.tasksTest = tasks
       // Sync children with parent tasks when added
       if (this.status.action) {
         let currentParents = []
@@ -220,24 +220,24 @@ export default {
         let maxEnd = 0
         let currentChild = []
         let now = new Date()
-        for (let i = 0; i < this.project.tasks.length; i++) {
-          if (this.status.id === this.project.tasks[i].id) {
-            currentParents = this.project.tasks[i].parents
+        for (let i = 0; i < this.tasksTest.length; i++) {
+          if (this.status.id === this.tasksTest[i].id) {
+            currentParents = this.tasksTest[i].parents
             break
           }
           }
         if (this.status.type === 'delete') {
           this.deleteThisTask(this.status.id)
           }
-        for (let i = this.project.tasks.length - 1; i >= 0; i--) {
-          let current = this.project.tasks[i]
+        for (let i = this.tasksTest.length - 1; i >= 0; i--) {
+          let current = this.tasksTest[i]
           for (let j = 0; j < currentParents.length; j++) {
             if (current.id === currentParents[j]) {
               currentChild = current.allChildren
               minStart = 9999997200000
               console.log('this is him', current.label)
-              for (let k = 0; k < this.project.tasks.length; k++) {
-                current = this.project.tasks[k]
+              for (let k = 0; k < this.tasksTest.length; k++) {
+                current = this.tasksTest[k]
                 for (let h = 0; h < currentChild.length; h++) {
                   if (current.id === currentChild[h]) {
                     console.log('this is childer', current.label)
@@ -251,18 +251,15 @@ export default {
                   }
                 }
               }
-              console.log('parent min start', minStart)
-              console.log('parent end Time', maxEnd)
-               console.log('parent duration', this.project.tasks[i].duration)
-              this.project.tasks[i].startTime = minStart
-              this.project.tasks[i].start = minStart
-              this.project.tasks[i].endTime = maxEnd
-              this.project.tasks[i].duration = maxEnd - this.project.tasks[i].start
-              if (this.project.tasks[i].start === 9999997200000) {
-                this.project.tasks[i].start = now.valueOf()
-                this.project.tasks[i].startTime = now.valueOf()
-                this.project.tasks[i].duration = 0
-                this.project.tasks[i].myAttribute = 0
+              this.tasksTest[i].startTime = minStart
+              this.tasksTest[i].start = minStart
+              this.tasksTest[i].endTime = maxEnd
+              this.tasksTest[i].duration = maxEnd - this.tasksTest[i].start
+              if (this.tasksTest[i].start === 9999997200000) {
+                this.tasksTest[i].start = now.valueOf()
+                this.tasksTest[i].startTime = now.valueOf()
+                this.tasksTest[i].duration = 0
+                this.tasksTest[i].estimateDuration = 0
               }
             }
           }
@@ -312,13 +309,13 @@ export default {
       },
     addTask(newTaskInfo) {
           // for (let j = 0; j < newTaskInfo.users.length; j++) {
-          //   for (let i = 0; i < this.project.tasks.length; i++) {
-          //       if (this.project.tasks[i].id === newTaskInfo.id + j) {
+          //   for (let i = 0; i < this.tasksTest.length; i++) {
+          //       if (this.tasksTest[i].id === newTaskInfo.id + j) {
           //         newTaskInfo.id += Math.round(Math.random() * 10)
           //         break
           //       }
           //   }
-          //   this.project.tasks.push({
+          //   this.tasksTest.push({
           //   parentId: newTaskInfo.parentId,
           //   id: (newTaskInfo.id + j),
           //   label: newTaskInfo.label,

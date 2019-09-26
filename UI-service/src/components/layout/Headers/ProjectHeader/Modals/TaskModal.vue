@@ -78,17 +78,7 @@
                   placeholder="Duration"
                   type="number"
                   min="0"
-                  v-model.number="currentTask.myAttribute">
-            </div>
-          </div>
-          <div class="col-xs-12" v-else>
-            <h4 class="myheading">Duration (estimated)</h4>
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-3"></i></span>
-                <input
-                  class="form-control" 
-                  disabled
-                  v-model.number="currentTask.myAttribute">
+                  v-model.number="currentTask.estimateDuration">
             </div>
           </div>
 
@@ -201,7 +191,7 @@ export default {
     beforeOpen(event) {
       // console.log(event.params.data)
       this.currentTask = event.params.data
-      this.currentTask.myAttribute = this.currentTask.myAttribute / 86400000
+      this.currentTask.estimateDuration = this.currentTask.estimateDuration / 86400000
       this.currentTask.duration = this.currentTask.duration / 86400000
       this.beforeEdit = Object.assign({}, this.currentTask)
       this.myType = this.currentTask.type
@@ -213,12 +203,15 @@ export default {
     beforeClose() {
       this.currentTask.startTime = (this.currentTask.start).valueOf()
       this.currentTask.start = (this.currentTask.start).valueOf()
-      this.currentTask.myAttribute = this.currentTask.myAttribute * 86400000
+      this.currentTask.estimateDuration = this.currentTask.estimateDuration * 86400000
       this.currentTask.duration = this.currentTask.duration * 86400000
       // this.currentTask.user = this.currentTask.user[0].name
     },
     applyEdit(task) {
-          task.duration = task.myAttribute
+      this.$modal.hide('taskModal')
+          console.log('attribute', task.estimateDuration)
+          task.duration = task.estimateDuration
+          console.log('duration', task.duration)
           let timeStart = new Date(task.startTime)
           let calculateTimeChart = task.startTime
           let dayofWeek = (timeStart.getDay())
