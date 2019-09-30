@@ -92,7 +92,7 @@ export default {
                   {
                       id: 3,
                       label: 'Assignee',
-                      value: task => `${task.user}`,
+                      value: task => `${task.user.name}`,
                       width: 90,
                       html: true
                   },
@@ -164,7 +164,10 @@ export default {
   },
   mounted() {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
-     EventBus.$on('deleteThisTask', (idTask) => { this.getStatus(idTask, 'delete') })
+     EventBus.$on('deleteThisTask', (idTask) => {
+        this.getStatus(idTask, 'delete')
+        this.tasksUpdate(this.project.tasks)
+     })
      EventBus.$on('addTask', (newTaskInfo) => {
         this.addTask(newTaskInfo)
         this.getStatus(newTaskInfo.id)
@@ -255,6 +258,7 @@ export default {
               this.tasksTest[i].start = minStart
               this.tasksTest[i].endTime = maxEnd
               this.tasksTest[i].duration = maxEnd - this.tasksTest[i].start
+              this.tasksTest[i].estimateDuration = this.tasksTest[i].duration
               if (this.tasksTest[i].start === 9999997200000) {
                 this.tasksTest[i].start = now.valueOf()
                 this.tasksTest[i].startTime = now.valueOf()
@@ -308,31 +312,6 @@ export default {
       this.$store.dispatch('deleteThisTask', idTaskDelete)
       },
     addTask(newTaskInfo) {
-          // for (let j = 0; j < newTaskInfo.users.length; j++) {
-          //   for (let i = 0; i < this.tasksTest.length; i++) {
-          //       if (this.tasksTest[i].id === newTaskInfo.id + j) {
-          //         newTaskInfo.id += Math.round(Math.random() * 10)
-          //         break
-          //       }
-          //   }
-          //   this.tasksTest.push({
-          //   parentId: newTaskInfo.parentId,
-          //   id: (newTaskInfo.id + j),
-          //   label: newTaskInfo.label,
-          //   user: newTaskInfo.users[j].name,
-          //   start: (newTaskInfo.start).valueOf(),
-          //   duration: newTaskInfo.duration * 86400000,
-          //   progress: newTaskInfo.progress,
-          //   type: newTaskInfo.type,
-          //   style: {
-          //         base: {
-          //             fill: '#3fb0ac',
-          //             'stroke-width': 2,
-          //             stroke: '#173e43'
-          //           }
-          //     }
-          //   })
-          // }
       this.$store.dispatch('addTask', newTaskInfo)
       },
     addMilestone(newMilestone) {

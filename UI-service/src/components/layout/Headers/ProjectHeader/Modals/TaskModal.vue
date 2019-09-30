@@ -205,21 +205,22 @@ export default {
       this.currentTask.start = (this.currentTask.start).valueOf()
       this.currentTask.estimateDuration = this.currentTask.estimateDuration * 86400000
       this.currentTask.duration = this.currentTask.duration * 86400000
-      // this.currentTask.user = this.currentTask.user[0].name
     },
     applyEdit(task) {
       this.$modal.hide('taskModal')
-          console.log('attribute', task.estimateDuration)
-          task.duration = task.estimateDuration
-          console.log('duration', task.duration)
+          // task.duration = task.estimateDuration
+          if (task.effort === 50) {
+            task.duration = task.estimateDuration
+            task.duration = task.duration * 2
+          } else {
+            task.duration = task.estimateDuration
+          }
           let timeStart = new Date(task.startTime)
           let calculateTimeChart = task.startTime
           let dayofWeek = (timeStart.getDay())
           let durationDays = task.duration / 86400000
           let actualDuration = task.duration
-          if (task.effort === 50) {
-            actualDuration = actualDuration * 2
-          }
+
           let isHoliday = false
           for (let i = 0; i < durationDays; i++) {
             for (let j = 0; j < this.exceptionDays.length; j++) {
@@ -232,7 +233,7 @@ export default {
               actualDuration += 86400000
               isHoliday = false
               durationDays++
-              // if holiday is weekend
+              // if holiday is in weekend
               if (dayofWeek === 6) {
                 dayofWeek = 0
               } else {
@@ -253,8 +254,8 @@ export default {
           }
         task.duration = actualDuration
         task.endTime = task.startTime + task.duration
+
         EventBus.$emit('editTask', task.id)
-        this.$modal.hide('taskModal')
     },
     deleteTask(idTask) {
       this.$modal.show('dialog', {

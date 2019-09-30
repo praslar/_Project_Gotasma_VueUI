@@ -60,7 +60,6 @@
         <button class="button-modal pull-right" @click="applyEdit(currentTask)">Apply</button>
       </div>
     </div>
-    <!-- </form> -->
   </modal>
 </template>
 <script>
@@ -76,7 +75,7 @@ export default {
     return {
       currentTask: '',
       breakTaskInfo: {
-        adjacentId: '',
+        adjacentId: '', // ip lien truoc
         parentId: '',
         id: '',
         label: '',
@@ -84,6 +83,7 @@ export default {
         duration: '',
         type: 'task',
         progress: 100,
+        effort: '',
         collapse: true,
         style: {
           base: {
@@ -110,7 +110,9 @@ export default {
         this.breakTaskInfo.parentId = this.currentTask.parentId
         this.breakTaskInfo.label = this.currentTask.label
         this.breakTaskInfo.id = number
-        this.breakTaskInfo.adjacentId = this.currentTask.id // id task truoc no - de chen`
+        this.breakTaskInfo.effort = this.currentTask.effort
+        this.breakTaskInfo.adjacentId = this.currentTask.id // id task truoc no - de chen
+        console.log(this.currentTask)
     },
     beforeClose() {
       this.breakTaskInfo.start = this.breakTaskInfo.start.valueOf()
@@ -153,6 +155,8 @@ export default {
             }
         }
         let durSecondHalf = task.estimateDuration - durFirstHalfTemp
+        this.breakTaskInfo.duration = durSecondHalf
+        EventBus.$emit('breakTask', this.breakTaskInfo)
 
         // tinh real duration
         timeStart = new Date(task.startTime)
@@ -161,9 +165,6 @@ export default {
 
         let durationDays = durFirstHalfTemp / 86400000
         let actualDuration = durFirstHalfTemp
-          // if (task.effort === 50) {
-          //   actualDuration = actualDuration * 2
-          // }
           for (let i = 0; i < durationDays; i++) {
             let isHoliday = false
             for (let j = 0; j < this.exceptionDays.length; j++) {
@@ -196,10 +197,7 @@ export default {
           }
           task.duration = actualDuration
           task.estimateDuration = durFirstHalfTemp
-          this.breakTaskInfo.duration = durSecondHalf
-          EventBus.$emit('breakTask', this.breakTaskInfo)
-
-        // console.log(this.breakTaskInfo)
+          // console.log(this.breakTaskInfo)
       } else {
         this.$modal.show('dialog', {
           title: 'Date invalid',

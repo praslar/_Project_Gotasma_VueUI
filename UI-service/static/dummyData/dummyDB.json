@@ -405,44 +405,7 @@
       "startDate": 1572625336782,
       "updateDate": 1575217336782,
       "highlighted": true,
-      "users": [
-        {
-          "id": 11,
-          "badgeID": "batch-27",
-          "name": "Thang Pham",
-          "email": "praslar@gmail.com"
-        },
-        {
-          "id": 16,
-          "badgeID": "455654",
-          "name": "Cat",
-          "email": "wannabeDog@gmail.com"
-        },
-        {
-          "id": 14,
-          "badgeID": "456789",
-          "name": "Peter Parker",
-          "email": "peterspiderboi@gmail.com"
-        },
-        {
-          "id": 17,
-          "badgeID": "908713",
-          "name": "Davie",
-          "email": "davie504@gmail.com"
-        },
-        {
-          "id": 12,
-          "badgeID": "batch-27",
-          "name": "Quan Vo",
-          "email": "vnmquan@gmail.com"
-        },
-        {
-          "id": 13,
-          "badgeID": "939145",
-          "name": "Clark Kent",
-          "email": "clarkfrickinKent@gmail.com"
-        }
-      ],
+      "users": [ 11, 16, 14, 17, 12, 13 ],
       "tasks": [
         {
           "id": 1,

@@ -93,7 +93,6 @@ export default {
         })
     },
     breakTask: (state, breakTaskInfo) => {
-        // console.log('lala2', breakTaskInfo.id)
         state.tasksTest.splice(state.tasksTest.findIndex(task => task.id === breakTaskInfo.adjacentId) + 1, 0, {
             parentId: breakTaskInfo.parentId,
             id: breakTaskInfo.id,
@@ -102,10 +101,12 @@ export default {
             duration: breakTaskInfo.duration,
             progress: breakTaskInfo.progress,
             type: breakTaskInfo.type,
-            style: breakTaskInfo.style
+            style: breakTaskInfo.style,
+            effort: breakTaskInfo.effort
         })
     },
     deleteThisTask(state, idTaskDelete) {
+        console.log('frick me task', state.project.tasks)
         if (state.tasksTest.length !== 1) {
             for (let i = 0; i < state.tasksTest.length; i++) {
                 if (state.tasksTest[i].id === idTaskDelete) {

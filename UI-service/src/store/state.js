@@ -92,7 +92,8 @@ export default {
         }
     },
     // task default preloading
-    tasksTest: [{
+    tasksTest: [
+        {
             id: 9,
             label: 'Phan tich va thiet ke',
             start: 1569171600000,
@@ -103,13 +104,17 @@ export default {
         {
             id: 90,
             label: 'Phan cmn tich',
-            user: ['John Wayne'],
+            user: {
+                id: 15,
+                name: 'John Wayne'
+            },
             usersId: [15],
             start: 1569171600000,
-            duration: 691200000,
-            parentId: 9,
+            duration: 345600000,
             collapsed: true,
+            parentId: 9,
             type: 'task',
+            effort: 50,
             progress: 100,
             style: {
                 base: {
@@ -125,6 +130,7 @@ export default {
             start: 1567875600000,
             duration: 518400000 + 86400000,
             type: 'project',
+            effort: 100,
             progress: 0
         },
         {
@@ -137,145 +143,7 @@ export default {
             duration: 345600000,
             collapsed: true,
             type: 'task',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
-        },
-        {
-            id: 13,
-            label: 'Courage is being scared to death, but saddling up anyway.',
-            user: ['Clark Kent'],
-            usersId: [13],
-            parentId: 10,
-            start: 1568307600000,
-            duration: 172800000,
-            type: 'task',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
-        },
-        {
-            id: 12,
-            label: 'being scared to death',
-            start: 1568653200000,
-            duration: 86400000,
-            parentId: 10,
-            type: 'milestone',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#de3131',
-                    'stroke-width': 2,
-                    stroke: '#de3131'
-                }
-            }
-        },
-        {
-            id: 17,
-            label: 'Make some noise',
-            start: 1567875600000,
-            duration: 691200000 + 86400000,
-            type: 'project',
-            progress: 0
-        },
-        {
-            id: 18,
-            label: 'With great power comes great responsibility',
-            user: ['Clark Kent'],
-            usersId: [14],
-            parentId: 17,
-            start: 1567875600000,
-            duration: 345600000,
-            collapsed: true,
-            type: 'task',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
-        },
-        {
-            id: 19,
-            label: 'Courage is being scared to death, but saddling up anyway.',
-            user: ['Thang Pham'],
-            usersId: [11],
-            parentId: 17,
-            start: 1568307600000,
-            duration: 172800000,
-            type: 'task',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
-        },
-        {
-            id: 20,
-            label: 'Courage is being scared to death, but saddling up anyway.',
-            user: ['Peter Parker'],
-            usersId: [14],
-            parentId: 17,
-            start: 1568653200000,
-            duration: 172800000,
-            type: 'task',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
-        },
-        {
-            id: 1,
-            label: 'This one is a mile frcikin stone',
-            parentId: 17,
-            start: 1568826000000,
-            duration: 86400000,
-            type: 'milestone',
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#de3131',
-                    'stroke-width': 2,
-                    stroke: '#de3131'
-                }
-            }
-        },
-        {
-            id: 2121,
-            label: 'break me u biactch',
-            start: 1569603600000,
-            duration: 259200000,
-            type: 'project',
-            progress: 0
-        },
-        {
-            id: 18889,
-            label: 'break me again u bitach',
-            user: 'Peter Parker',
-            parentId: 2121,
-            start: 1569603600000,
-            duration: 259200000,
-            collapsed: true,
-            type: 'task',
+            effort: 100,
             progress: 100,
             style: {
                 base: {
@@ -285,6 +153,154 @@ export default {
                 }
             }
         }
+        // {
+        //     id: 13,
+        //     label: 'Courage is being scared to death, but saddling up anyway.',
+        //     user: ['Clark Kent'],
+        //     usersId: [13],
+        //     parentId: 10,
+        //     start: 1568307600000,
+        //     duration: 172800000,
+        //     type: 'task',
+        //     effort: 100,
+        //     progress: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#3fb0ac',
+        //             'stroke-width': 2,
+        //             stroke: '#173e43'
+        //         }
+        //     }
+        // },
+        // {
+        //     id: 12,
+        //     label: 'being scared to death',
+        //     start: 1568653200000,
+        //     duration: 86400000,
+        //     parentId: 10,
+        //     type: 'milestone',
+        //     effort: 100,
+        //     progress: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#de3131',
+        //             'stroke-width': 2,
+        //             stroke: '#de3131'
+        //         }
+        //     }
+        // },
+        // {
+        //     id: 17,
+        //     label: 'Make some noise',
+        //     start: 1567875600000,
+        //     duration: 691200000 + 86400000,
+        //     type: 'project',
+        //     effort: 100,
+        //     progress: 0
+        // },
+        // {
+        //     id: 18,
+        //     label: 'With great power comes great responsibility',
+        //     user: ['Clark Kent'],
+        //     usersId: [14],
+        //     parentId: 17,
+        //     start: 1567875600000,
+        //     duration: 345600000,
+        //     collapsed: true,
+        //     type: 'task',
+        //     effort: 100,
+        //     progress: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#3fb0ac',
+        //             'stroke-width': 2,
+        //             stroke: '#173e43'
+        //         }
+        //     }
+        // },
+        // {
+        //     id: 19,
+        //     label: 'Courage is being scared to death, but saddling up anyway.',
+        //     user: ['Thang Pham'],
+        //     usersId: [11],
+        //     parentId: 17,
+        //     start: 1568307600000,
+        //     duration: 172800000,
+        //     type: 'task',
+        //     effort: 100,
+        //     progress: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#3fb0ac',
+        //             'stroke-width': 2,
+        //             stroke: '#173e43'
+        //         }
+        //     }
+        // },
+        // {
+        //     id: 20,
+        //     label: 'Courage is being scared to death, but saddling up anyway.',
+        //     user: ['Peter Parker'],
+        //     usersId: [14],
+        //     parentId: 17,
+        //     start: 1568653200000,
+        //     duration: 172800000,
+        //     type: 'task',
+        //     effort: 100,
+        //     progress: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#3fb0ac',
+        //             'stroke-width': 2,
+        //             stroke: '#173e43'
+        //         }
+        //     }
+        // },
+        // {
+        //     id: 1,
+        //     label: 'This one is a mile frcikin stone',
+        //     parentId: 17,
+        //     start: 1568826000000,
+        //     duration: 86400000,
+        //     type: 'milestone',
+        //     progress: 100,
+        //     effort: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#de3131',
+        //             'stroke-width': 2,
+        //             stroke: '#de3131'
+        //         }
+        //     }
+        // },
+        // {
+        //     id: 2121,
+        //     label: 'break me u biactch',
+        //     start: 1569603600000,
+        //     duration: 259200000,
+        //     type: 'project',
+        //     effort: 100,
+        //     progress: 0
+        // },
+        // {
+        //     id: 18889,
+        //     label: 'break me again u bitach',
+        //     user: 'Peter Parker',
+        //     parentId: 2121,
+        //     start: 1569603600000,
+        //     duration: 259200000,
+        //     collapsed: true,
+        //     type: 'task',
+        //     effort: 100,
+        //     progress: 100,
+        //     style: {
+        //         base: {
+        //             fill: '#3fb0ac',
+        //             'stroke-width': 2,
+        //             stroke: '#173e43'
+        //         }
+        //     }
+        // }
     ],
     resources: [],
     users: [],

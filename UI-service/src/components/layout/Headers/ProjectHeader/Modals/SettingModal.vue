@@ -1,6 +1,6 @@
 <template>
   <div>
-    <modal name="someSetting" 
+    <modal name="settingModal" 
         transition="nice-modal-fade" 
         :height=600 
         :width=400 
