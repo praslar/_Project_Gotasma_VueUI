@@ -38,6 +38,24 @@ export default {
                 console.log(error)
             })
     },
+    addProjectToResource({ commit }, payload) {
+        Services.addProjectToResource(payload)
+            .then((response) => {
+                commit('ADD_PROJECT_TO_RESOURCE')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    deleteProjectofResource({ commit }, payload) {
+        Services.deleteProjectofResource(payload)
+            .then((response) => {
+                commit('DELETE_PROJECT_TO_RESOURCE')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     // Project actions
     getProjects({ commit }) {
         Services.getProjects()
@@ -94,10 +112,19 @@ export default {
                 console.log(error)
             })
     },
-    addUserToProject({ commit }, payload) {
-        Services.addUserToProject(payload)
+    addResourceToProject({ commit }, payload) {
+        Services.addResourceToProject(payload)
             .then((response) => {
-                commit('ADD_USER_TO_PROJECT', response)
+                commit('ADD_USER_TO_PROJECT', payload)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    deleteUserToProject({ commit }, payload) {
+        Services.deleteUserToProject(payload)
+            .then((response) => {
+                commit('DELETE_USER_TO_PROJECT', response)
             })
             .catch(error => {
                 console.log(error)
@@ -149,5 +176,8 @@ export default {
     },
     assignMember({ commit }, payload) {
         commit('assignMember', payload)
+    },
+    editTask({ commit }, payload) {
+        commit('editTask', payload)
     }
 }

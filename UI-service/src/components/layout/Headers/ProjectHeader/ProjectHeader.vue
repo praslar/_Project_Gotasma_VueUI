@@ -2,7 +2,7 @@
   <header class="main-header">
           <add-sum-task-modal pivotX="1.0"></add-sum-task-modal>
           <add-task-modal></add-task-modal>
-          <task-modal :exceptionDays="exceptionDays" :users="users"></task-modal>
+          <task-modal :exceptionDays="exceptionDays"></task-modal>
           <break-task-modal :exceptionDays="exceptionDays"></break-task-modal>
           <assign-member-modal :users="users"></assign-member-modal>
       <div class="navbar-custom-menu">

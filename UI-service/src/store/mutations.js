@@ -12,6 +12,12 @@ export default {
     EDIT_RESOURCE() {
         console.log('edit resource done')
     },
+    ADD_PROJECT_TO_RESOURCE() {
+        console.log('add project to resource')
+    },
+    DELETE_PROJECT_TO_RESOURCE() {
+        console.log('delete project to resource')
+    },
     // ==========================PROJECTs=============================
     GET_PROJECTS(state, projects) {
         state.projects = projects
@@ -31,8 +37,11 @@ export default {
     GET_PROJECT_BY_ID(state, project) {
         state.project = project
     },
-    ADD_USER_TO_PROJECT() {
-        console.log('added one user to project')
+    ADD_USER_TO_PROJECT(state, payload) {
+        console.log(payload)
+    },
+    DELETE_USER_TO_PROJECT() {
+        console.log('delete one user to project')
     },
     // =============================EXCEPTIONS===========================
     GET_EXCEPTIONS(state, exceptions) {
@@ -46,7 +55,7 @@ export default {
     },
     // ===========local action=====
     addTask: (state, newTaskInfo) => {
-        state.tasksTest.push({
+        state.project.tasks.push({
             parentId: newTaskInfo.parentId,
             id: newTaskInfo.id,
             label: newTaskInfo.label,
@@ -54,18 +63,11 @@ export default {
             duration: newTaskInfo.duration * 86400000,
             progress: newTaskInfo.progress,
             type: newTaskInfo.type,
-            parents: newTaskInfo.parents,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
+            parents: newTaskInfo.parents
         })
     },
     addSumTask: (state, newTaskInfo) => {
-        state.tasksTest.push({
+        state.project.tasks.push({
             id: newTaskInfo.id,
             label: newTaskInfo.label,
             start: (newTaskInfo.start).valueOf(),
@@ -75,26 +77,19 @@ export default {
         })
     },
     addMilestone: (state, newTaskInfo) => {
-        state.tasksTest.push({
+        state.project.tasks.push({
             id: newTaskInfo.id,
             parentId: newTaskInfo.parentId,
             label: newTaskInfo.label,
             start: (newTaskInfo.start).valueOf(),
             duration: 86400000,
             progress: 100,
-            type: 'milestone',
-            style: {
-                base: {
-                    fill: '#de3131',
-                    'stroke-width': 2,
-                    stroke: '#de3131'
-                }
-            }
+            type: 'milestone'
         })
     },
     breakTask: (state, breakTaskInfo) => {
         // console.log('lala2', breakTaskInfo.id)
-        state.tasksTest.splice(state.tasksTest.findIndex(task => task.id === breakTaskInfo.adjacentId) + 1, 0, {
+        state.project.tasks.splice(state.project.tasks.findIndex(task => task.id === breakTaskInfo.adjacentId) + 1, 0, {
             parentId: breakTaskInfo.parentId,
             id: breakTaskInfo.id,
             label: breakTaskInfo.label,
@@ -106,32 +101,77 @@ export default {
         })
     },
     deleteThisTask(state, idTaskDelete) {
-        if (state.tasksTest.length !== 1) {
-            for (let i = 0; i < state.tasksTest.length; i++) {
-                if (state.tasksTest[i].id === idTaskDelete) {
-                    if (state.tasksTest[i].children.length === 0) {
-                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
-                    } else {
-                        state.tasksTest[i].allChildren.forEach(child => {
-                            state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === child), 1)
-                        })
-                        state.tasksTest.splice(state.tasksTest.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
-                    }
-                    break
+        for (let i = 0; i < state.project.tasks.length; i++) {
+            if (state.project.tasks[i].id === idTaskDelete) {
+                if (state.project.tasks[i].children.length === 0) {
+                    state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
+                } else {
+                    state.project.tasks[i].allChildren.forEach(child => {
+                        state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === child), 1)
+                    })
+                    state.project.tasks.splice(state.project.tasks.findIndex(deleteTask => deleteTask.id === idTaskDelete), 1)
                 }
+                break
             }
-        } else {
-            alert('cannot delete anymore')
         }
     },
     assignMember(state, info) {
-        console.log(info.newTaskInfo)
-        console.log(info.currentTask)
-        for (let i = 0; i < state.tasksTest.length; i++) {
-            if (state.tasksTest[i].id === info.currentTask.id) {
+        for (let i = 0; i < state.project.tasks.length; i++) {
+            if (state.project.tasks[i].id === info.currentTask.id) {
                 for (let j = 0; j < info.newTaskInfo.user.length; j++) {
-                    state.tasksTest[i].user += info.newTaskInfo.user[j].name + '  '
+                    state.project.tasks[i].user += info.newTaskInfo.user[j].name + '  '
                 }
+            }
+        }
+    },
+    editTask(state, newTaskInfo) {
+        for (let i = 0; i < state.project.tasks.length; i++) {
+            let task = state.project.tasks[i]
+            if (task.id === newTaskInfo.id) {
+                task.label = newTaskInfo.label
+                task.startTime = newTaskInfo.start.valueOf()
+                task.start = newTaskInfo.start.valueOf()
+                task.duration = newTaskInfo.estimateDuration * 86400000
+                task.effort = newTaskInfo.effort
+
+                task.estimateDuration = task.duration
+                let timeStart = new Date(task.startTime)
+                let calculateTimeChart = task.startTime
+                let dayofWeek = (timeStart.getDay())
+                let durationDays = task.duration / 86400000
+                let isHoliday = false
+
+                for (let i = 0; i < durationDays; i++) {
+                    for (let j = 0; j < state.exceptionDays.length; j++) {
+                        if (calculateTimeChart === state.exceptionDays[j]) {
+                            isHoliday = true
+                            break
+                        }
+                    }
+                    if (isHoliday) {
+                        task.duration += 86400000
+                        isHoliday = false
+                        durationDays++
+                        if (dayofWeek === 6) {
+                            dayofWeek = 0
+                        } else {
+                            dayofWeek += 1
+                        }
+                    } else if (dayofWeek === 6) {
+                        dayofWeek = 0
+                        task.duration += 86400000
+                        durationDays++
+                    } else if (dayofWeek === 0) {
+                        dayofWeek += 1
+                        task.duration += 86400000
+                        durationDays++
+                    } else {
+                        dayofWeek += 1
+                    }
+                    calculateTimeChart += 86400000
+                }
+                task.duration = task.duration
+                task.endTime = task.startTime + task.duration
             }
         }
     }

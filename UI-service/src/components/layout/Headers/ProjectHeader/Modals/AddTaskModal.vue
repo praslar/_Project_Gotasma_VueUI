@@ -79,7 +79,7 @@
                   <i class="fa fa-calendar"></i>
                 </span>
                 <div>
-                <datepicker    
+                <datepicker v-if="newTaskInfo.type === 'task'"   
                   lang="en" 
                   v-model="newTaskInfo.start"
                   format="DD/MMM/YYYY"
@@ -87,6 +87,15 @@
                   data-vv-name="start"
                   v-validate="'required'"
                   :class="{ 'is-invalid': submitted &&  errors.has('start') }"
+                  >
+                </datepicker>
+                 <datepicker v-else 
+                  lang="en" 
+                  v-model="currentTask.endTime"
+                  format="DD/MMM/YYYY"
+                  width="100%"
+                  data-vv-name="start"
+                  disabled
                   >
                 </datepicker>
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
@@ -115,17 +124,6 @@
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
                   <div v-if="submitted && errors.has('Estimate duraion')" class="invalid-feedback">{{ errors.first('Estimate duraion') }}</div> 
                 </transition>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-6" v-else hidden> 
-              <h4 class="title" >Estimate duration</h4>
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <i class="fa fa-hourglass-half"></i>
-                </span>
-                <div>
-                <input disabled/>
                 </div>
               </div>
             </div>
@@ -183,6 +181,8 @@ export default {
                     } else {
                       EventBus.$emit('addTask', newTaskInfo)
                       currentTask.user = ''
+                      currentTask.type = 'project'
+                      currentTask.progress = 0
                     }
                       this.$modal.hide('AddTask')
                 } else {
@@ -208,24 +208,4 @@ export default {
 }
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css">
-</style>
-<style scoped>
-.box-title {
-  padding: 5px;
-  letter-spacing: 1px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  color: #313233;
-  text-transform: uppercase;
-  transition: 0.1s all;
-  font-size: 16px;
-  cursor: pointer;
-}
-.title {
-  padding: 6px 6px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-left: 0px;
-  padding-left: 0px 
-}
 </style>

@@ -167,7 +167,17 @@ export default {
   position: absolute;
   margin-top: 35px;
   }
-
+  .box-title {
+    padding: 5px;
+    letter-spacing: 1px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: #313233;
+    text-transform: uppercase;
+    transition: 0.1s all;
+    font-size: 16px;
+    cursor: pointer;
+  }
   .alert-in-enter-active {
     animation: bounce-in .5s;
   }
@@ -177,6 +187,13 @@ export default {
   .sitLenMotTi{
     margin-top: 0px;
   }
+  .title {
+  padding: 6px 6px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 0px;
+  padding-left: 0px 
+}
 </style>
 <style scoped>
 .box-footer {
@@ -192,13 +209,6 @@ export default {
   transition: 0.1s all;
   font-size: 16px;
   cursor: pointer;
-}
-.title {
-  padding: 6px 6px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-left: 0px;
-  padding-left: 0px 
 }
 
 </style>

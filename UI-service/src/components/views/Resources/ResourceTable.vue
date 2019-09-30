@@ -76,7 +76,7 @@
                     <td>{{resource.name}}</td>
                     <td>{{resource.email}}</td>
                     <td>
-                    <div class="external-event bg-red" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
+                      <div class="external-event bg-red" v-for="project in getProjectsOfResource(resource.id)" :key="project">{{project}}</div>
                     </td>
                     <td ><a class="btn btn-app" @click="$modal.show('newresource', {resource})"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-app" style="color:#c70707c2" @click="showDialogMember(resource.id)"><i class="fa fa-remove"></i></a>           
@@ -124,6 +124,19 @@ export default {
           }
         ]
       })
+    },
+    getProjectsOfResource(idResource) {
+     let projectsName = []
+     for (let i = 0; i < this.projects.length; i++) {
+      let current = this.projects[i]
+        for (let j = 0; j < current.users.length; j++) {
+          if (idResource === current.users[j]) {
+            projectsName.push(current.name)
+            break
+          }
+        }
+     }
+     return projectsName
     }
   },
   updated() {
@@ -133,10 +146,12 @@ export default {
   },
   created() {
     this.$store.dispatch('getResources')
+    this.$store.dispatch('getProjects')
   },
   computed: {
    ...mapState([
-     'resources'
+     'resources',
+     'projects'
    ])
   },
   mounted() {

@@ -27,7 +27,7 @@
                       aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting"
-                    >Number of members</th>
+                    >Members</th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
                       style="width: 10px;"
@@ -36,7 +36,7 @@
                       aria-controls="tableProjects"
                       tabindex="0"
                       class="sorting"
-                    >Max effort (hours/week)</th>
+                    >Tasks</th>
                     <th
                       aria-label="Browser: activate to sort column ascending"
                       style="width: 150px;"
@@ -74,8 +74,7 @@
                       </router-link></td>
                     <td v-if="project.users">{{ project.users | count }}</td>
                     <td v-else> 0 </td>
-                    <td v-if="project.workingDays">{{ project.workingDays.length * 8 }}</td>
-                    <td v-else>40</td>
+                    <td v-if="project.tasks">{{ project.tasks | count }}</td>
                     <td>{{ project.startDate | momentNormalDate }}</td>
                     <td>{{ project.updateDate | momentDetailDate }}</td>
                     <td>

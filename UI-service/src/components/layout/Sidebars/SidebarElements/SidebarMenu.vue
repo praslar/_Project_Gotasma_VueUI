@@ -10,7 +10,7 @@
     <!-- nho fix nhe -->
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-folder-o"></i>
+        <i class="fa fa-star-o"></i>
         <span class="treeview-title">Highlighted Projects</span>
         <span class="pull-right-container pull-right">
           <i class="fa fa-angle-left fa-fw"></i>
