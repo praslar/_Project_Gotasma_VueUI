@@ -7,9 +7,10 @@
           <assign-member-modal :users="users"></assign-member-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <button-text></button-text>
           <button-add-task></button-add-task>
           <button-add-member :id="id" :users="users"></button-add-member>
-          <button-history></button-history>
+          <button-history :id="id"></button-history>
           <button-filter></button-filter>
           <button-setting></button-setting>
           <button-save></button-save>
@@ -20,14 +21,17 @@
 </template>
 
 <script>
-import FilterModal from './Modals/FilterModal'
-import SettingModal from './Modals/SettingModal'
+// Buttons
 import ButtonHistory from './Buttons/ButtonHistory'
 import ButtonSave from './Buttons/ButtonSave'
 import ButtonSetting from './Buttons/ButtonSetting'
 import ButtonFilter from './Buttons/ButtonFilter'
 import ButtonAddMember from './Buttons/ButtonAddMember'
 import ButtonAddTask from './Buttons/ButtonAddTask'
+import ButtonText from './Buttons/ButtonText'
+// Modals
+import FilterModal from './Modals/FilterModal'
+import SettingModal from './Modals/SettingModal'
 import TaskModal from './Modals/TaskModal'
 import AddSumTaskModal from './Modals/AddSumTaskModal'
 import AddTaskModal from './Modals/AddTaskModal'
@@ -49,7 +53,8 @@ export default {
     TaskModal,
     AddTaskModal,
     BreakTaskModal,
-    AssignMemberModal
+    AssignMemberModal,
+    ButtonText
   },
   props: ['id', 'users', 'exceptionDays']
 }
