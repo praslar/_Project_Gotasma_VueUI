@@ -187,10 +187,7 @@ export default {
   created() {
     this.getResources()
     this.getProject(this.id)
-    if (this.exceptions.length === 0) {
-      console.log('timelog')
-      this.getExceptions()
-    }
+    this.getExceptions()
    },
   computed: {
     ...mapState([

@@ -5,41 +5,28 @@
       "badgeID": "batch-27",
       "name": "Thang Pham",
       "email": "praslar@gmail.com",
-      "projects": [
-        2
-      ]
+      "projects": []
     },
     {
       "id": 12,
       "badgeID": "batch-27",
       "name": "Quan Vo",
       "email": "vnmquan@gmail.com",
-      "projects": [
-        2
-      ]
-    },
-    {
-      "id": 16,
-      "badgeID": "455654",
-      "name": "Cat",
-      "email": "wannabeDog@gmail.com",
-      "projects": [
-        2
-      ]
+      "projects": []
     },
     {
       "project": [],
-      "badgeID": "testforboss",
+      "badgeID": "151621",
+      "name": "testforboss",
+      "email": "wannabeBruce@gmail.com",
+      "id": 13
+    },
+    {
+      "project": [],
+      "badgeID": "151621",
       "name": "Trung Huynh",
-      "email": "httrung@gmail.com",
-      "id": 17
-    },
-    {
-      "project": [],
-      "badgeID": "boss2",
-      "name": "nhandaica",
-      "email": "nhandeptrai@gmail.com",
-      "id": 18
+      "email": "asdzxzczxc@zxczx.com",
+      "id": 14
     }
   ],
   "exceptions": [
@@ -86,9 +73,8 @@
       "users": [
         11,
         12,
-        16,
-        17,
-        19
+        13,
+        14
       ],
       "tasks": [
         {
@@ -136,11 +122,10 @@
       "updateDate": 1569776400000,
       "tasks": [],
       "users": [
-        11,
-        18,
-        16,
         12,
-        17
+        13,
+        11,
+        14
       ],
       "effort": "",
       "id": 3

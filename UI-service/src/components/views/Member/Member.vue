@@ -17,7 +17,7 @@
         <button type="button" @click="showTableResources = false" class="btn btn-info pull-right special">Hide table</button>
         <i> Here you manage all your project members. You can choose from the already invited team members.</i>
       </div> 
-      <member-table :resources="getResourceOfProject" :projectId="id"></member-table>  
+      <member-table :resources="getResourceOfProject" :currentProject="project"></member-table>  
       <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">     
           <resources-table :showTableResources="showTableResources" :availableResources="availableResources" :projects="projects" :currentProject="project"></resources-table>
       </transition> 

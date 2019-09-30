@@ -8,8 +8,7 @@
           class="btn btn-info pull-right special"
           @click="$modal.show('createNewProj')">
           Create New Project</button>
-        <i>Here you can manage all your projects. You can also create new project by clicking a single button.</i>
-        
+        <i> Here you can manage all your projects. You can also create new project by clicking a single button.</i>
       </div>
     </div>
     <tableProject :projects="projects" ></tableProject>

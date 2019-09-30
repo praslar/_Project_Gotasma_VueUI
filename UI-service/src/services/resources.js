@@ -21,5 +21,5 @@ export const addProjectToResource = async(payload) => {
 }
 
 export const deleteProjectofResource = async(payload) => {
-    return await NetworkHelper.requestPatch('/resources/' + payload.id, { projects: payload.projects })
+    return await NetworkHelper.requestPatch('/resources/' + payload.id, { projects: payload.info })
 }

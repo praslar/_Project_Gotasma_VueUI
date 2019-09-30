@@ -8,7 +8,7 @@
     >
       <div class="box box-group">
         <div class="box-header with-border dark">
-          <h3 class="box-title">Assign member</h3>
+          <h3 class="box-title2">Assign member</h3>
         </div>
 
         <div class="box-body">
