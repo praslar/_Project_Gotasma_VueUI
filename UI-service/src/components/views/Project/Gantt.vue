@@ -183,6 +183,7 @@ export default {
         this.getStatus(newTaskInfo.id)
         })
      EventBus.$on('assignMember', (userInfo) => { this.assignMember(userInfo) })
+     EventBus.$on('chartText', (chartText) => { this.displayChartText(chartText) })
   },
   created() {
     this.getResources()
@@ -195,7 +196,8 @@ export default {
       'headerOptions',
       'project',
       'exceptions',
-      'resources'
+      'resources',
+      'chartText'
     ]),
     ...mapGetters([
       'exceptionDays',
@@ -318,6 +320,15 @@ export default {
         }
       }
       return arrName
+    },
+    displayChartText(chartTextStatus) {
+      if (chartTextStatus) {
+        this.options.chart.text.display = false
+        this.$store.state.chartText = false
+      } else {
+        this.options.chart.text.display = true
+        this.$store.state.chartText = true
+      }
     }
   }
 }

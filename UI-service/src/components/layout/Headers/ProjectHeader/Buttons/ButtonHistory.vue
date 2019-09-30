@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link :to="'/project/' + idProject + '/history'">
+    <router-link :to="'/project/' + id + '/history'">
         <a title="History (snapshots list)" @click="hide">
           <span class="fa fa-history myIcon"></span>
         </a>
@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'buttonHistory',
-  props: ['idProject'],
+  props: ['id'],
   methods: {
     hide() {
       this.$modal.hide('someFilter')
