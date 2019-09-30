@@ -94,7 +94,6 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-                console.log(project.users)
                 project.users.push(resource.id)
                 let addInfo = {
                     id: project.id,

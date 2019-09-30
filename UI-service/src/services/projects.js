@@ -29,5 +29,5 @@ export const addResourceToProject = async(payload) => {
 }
 
 export const deleteUserToProject = async(payload) => {
-    return await NetworkHelper.requestPatch('/projects/' + payload.id, { users: payload.newInfo })
+    return await NetworkHelper.requestPatch('/projects/' + payload.id, { users: payload.info })
 }

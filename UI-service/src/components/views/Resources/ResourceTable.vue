@@ -126,18 +126,18 @@ export default {
       })
     },
     getProjectsOfResource(idResource) {
-     let projectsName = []
-     for (let i = 0; i < this.projects.length; i++) {
-      let current = this.projects[i]
-        for (let j = 0; j < current.users.length; j++) {
-          if (idResource === current.users[j]) {
-            projectsName.push(current.name)
-            break
+      let projectsName = []
+      for (let i = 0; i < this.projects.length; i++) {
+        let current = this.projects[i]
+          for (let j = 0; j < current.users.length; j++) {
+            if (idResource === current.users[j]) {
+              projectsName.push(current.name)
+              break
+            }
           }
-        }
-     }
-     return projectsName
-    }
+      }
+      return projectsName
+      }
   },
   updated() {
       this.$nextTick(() => {

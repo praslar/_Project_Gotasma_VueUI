@@ -7,7 +7,7 @@
     >
       <div class="box box-group">
         <div class="box-header with-border dark">
-          <h3 class="box-title">Add new Parent Task</h3>
+          <h3 class="box-title2">Add new Parent Task</h3>
         </div>
         <div class="box-body">
           <!--Input section-->
@@ -166,7 +166,7 @@ export default {
   position: absolute;
   margin-top: 35px;
   }
-  .box-title {
+  .box-title2 {
     padding: 5px;
     letter-spacing: 1px;
     font-family: "Open Sans", sans-serif;

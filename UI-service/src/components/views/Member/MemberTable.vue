@@ -16,7 +16,7 @@
                     <td>{{resource.badgeID}}</td>
                     <td>{{resource.name}}</td>
                     <td>{{resource.email}}</td>
-                    <td> <a class="btn-remove" @click="showDialogModal(resource.id, projectId)">remove</a></td>
+                    <td> <a class="btn-remove" @click="showDialogModal(resource)">remove</a></td>
                 </tr>
             </tbody>
             <tbody v-else>
@@ -33,39 +33,30 @@ import Avatar from 'vue-avatar'
 
 export default {
     name: 'team-table',
-    props: ['resources'],
+    props: ['resources', 'currentProject'],
     components: { Avatar },
     methods: {
-    showDialogModal(userId, projectId) {
-      // let resourceCurrentProjects = []
+    showDialogModal(resource) {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
         text: 'Do you want to remove this user?',
         buttons: [
           {
-            // title: 'OK',
-            // default: true,
-            // handler: () => {
-            //   this.users.splice(this.users.findIndex(deleteUsers => deleteUsers.id === userId), 1)
-            //   let info = {
-            //       projectId: this.projectId,
-            //       users: this.users
-            //   }
-            //   for (let i = 0; i < this.resources.length; i++) {
-            //       if (this.resources[i].id === userId) {
-            //         resourceCurrentProjects = this.resources[i].projects
-            //         break
-            //       }
-            //   }
-            //   resourceCurrentProjects.splice(resourceCurrentProjects.findIndex(deleteProject => deleteProject.id === projectId), 1)
-            //   let projectOfResourceInfo = {
-            //       resourceId: userId,
-            //       projects: resourceCurrentProjects
-            //   }
-            //   this.$store.dispatch('deleteProjectofResource', projectOfResourceInfo)
-            //   this.$store.dispatch('deleteUserToProject', info)
-            //   this.$modal.hide('dialog')
-            // }
+            title: 'OK',
+            default: true,
+            handler: () => {
+              this.currentProject.users.splice(this.currentProject.users.findIndex(deleteUser => deleteUser === resource.id), 1)
+              let info = {
+                  id: this.currentProject.id,
+                  info: this.currentProject.users
+              }
+              this.$store.dispatch('deleteUserToProject', info)
+              resource.project.splice(resource.project.findIndex(deleteProject => deleteProject === this.currentProject.id), 1)
+              info.id = resource.id
+              info.info = resource.projects
+              this.$store.dispatch('deleteProjectofResource', info)
+              this.$modal.hide('dialog')
+            }
           },
           {
             title: 'CANCEL',
