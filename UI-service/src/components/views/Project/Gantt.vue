@@ -96,7 +96,7 @@ export default {
                   {
                       id: 3,
                       label: 'Assignee',
-                      value: task => `${task.user.name}`,
+                      value: task => `${task.user}`,
                       width: 90,
                       html: true
                   },

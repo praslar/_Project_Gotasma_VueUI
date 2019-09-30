@@ -82,16 +82,8 @@ export default {
         start: '',
         duration: '',
         type: 'task',
-        progress: 100,
         effort: '',
-        collapse: true,
-        style: {
-          base: {
-            fill: '#3fb0ac',
-            'stroke-width': 2,
-            stroke: '#173e43'
-          }
-        }
+        collapse: true
       }
     }
   },
@@ -112,7 +104,6 @@ export default {
         this.breakTaskInfo.id = number
         this.breakTaskInfo.effort = this.currentTask.effort
         this.breakTaskInfo.adjacentId = this.currentTask.id // id task truoc no - de chen
-        console.log(this.currentTask)
     },
     beforeClose() {
       this.breakTaskInfo.start = this.breakTaskInfo.start.valueOf()
@@ -153,9 +144,10 @@ export default {
             } else {
               dayofWeek += 1
             }
+            calculateTimeChart += 86400000
         }
-        let durSecondHalf = task.estimateDuration - durFirstHalfTemp
-        this.breakTaskInfo.duration = durSecondHalf
+        // duration of SecondHalf
+        this.breakTaskInfo.duration = task.estimateDuration - durFirstHalfTemp
         EventBus.$emit('breakTask', this.breakTaskInfo)
 
         // tinh real duration
@@ -164,7 +156,7 @@ export default {
         calculateTimeChart = task.startTime
 
         let durationDays = durFirstHalfTemp / 86400000
-        let actualDuration = durFirstHalfTemp
+        task.duration = durFirstHalfTemp
           for (let i = 0; i < durationDays; i++) {
             let isHoliday = false
             for (let j = 0; j < this.exceptionDays.length; j++) {
@@ -174,7 +166,7 @@ export default {
               }
             }
             if (isHoliday) {
-              actualDuration += 86400000
+              task.duration += 86400000
               isHoliday = false
               durationDays++
               if (dayofWeek === 6) {
@@ -184,20 +176,18 @@ export default {
               }
             } else if (dayofWeek === 6) {
               dayofWeek = 0
-              actualDuration += 86400000
+              task.duration += 86400000
               durationDays++
             } else if (dayofWeek === 0) {
               dayofWeek += 1
-              actualDuration += 86400000
+              task.duration += 86400000
               durationDays++
             } else {
               dayofWeek += 1
             }
             calculateTimeChart += 86400000
           }
-          task.duration = actualDuration
           task.estimateDuration = durFirstHalfTemp
-          // console.log(this.breakTaskInfo)
       } else {
         this.$modal.show('dialog', {
           title: 'Date invalid',
