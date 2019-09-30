@@ -24,7 +24,10 @@ export const getHighlightedProjects = async() => {
     return await NetworkHelper.requestGet('/projects?highlighted=true')
 }
 
-export const addUserToProject = async(payload) => {
-    console.log(payload)
-    return await NetworkHelper.requestPatch('/projects/' + payload.projectId + '?_embed=tasks', { users: payload.users })
+export const addResourceToProject = async(payload) => {
+    return await NetworkHelper.requestPatch('/projects/' + payload.id, { users: payload.newInfo })
+}
+
+export const deleteUserToProject = async(payload) => {
+    return await NetworkHelper.requestPatch('/projects/' + payload.id, { users: payload.newInfo })
 }

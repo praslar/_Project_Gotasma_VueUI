@@ -15,3 +15,11 @@ export const deleteResource = async(id) => {
 export const editResource = async(resource) => {
     return await NetworkHelper.requestPut('/resources/' + resource.id, resource)
 }
+
+export const addProjectToResource = async(payload) => {
+    return await NetworkHelper.requestPatch('/resources/' + payload.id, { projects: payload.projects })
+}
+
+export const deleteProjectofResource = async(payload) => {
+    return await NetworkHelper.requestPatch('/resources/' + payload.id, { projects: payload.projects })
+}

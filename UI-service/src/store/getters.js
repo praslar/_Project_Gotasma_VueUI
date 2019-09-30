@@ -12,7 +12,13 @@ export default {
                 } while (exception.date[0] < exception.date[1])
             }
         })
+        state.exceptionDays = arr
         return arr
     },
-    getChange: state => state.project.tasks
+    getResourceOfProject: (state) => {
+        return state.resources.filter(resource => { return state.project.users.indexOf(resource.id) >= 0 })
+    },
+    availableResources: (state) => {
+        return state.resources.filter(resource => { return state.project.users.indexOf(resource.id) === -1 })
+    }
 }

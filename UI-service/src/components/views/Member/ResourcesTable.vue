@@ -1,5 +1,5 @@
 <template>
-            <div class="col-sm-12 table-responsive  " v-if="this.showTableResources && resources">
+            <div class="col-sm-12 table-responsive" v-if="this.showTableResources && availableResources">
               <table
                 aria-describedby="resourcesTable_info"
                 role="grid"
@@ -47,14 +47,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="even" role="row" v-for="resource of resourcesCanChoose" :key="resource.badgeID">
+                  <tr class="even" role="row" v-for="resource of availableResources" :key="resource.id">
                     <td>{{resource.name}}</td>
                     <td>{{resource.email}}</td>
                     <td>
-                    <div class="external-event bg-yellow" v-for="project in resource.projects" :key="project.projectID">{{project.name}}</div>
+                    <div class="external-event bg-yellow" v-for="project in getProjectsOfResource(resource.id)" :key="project.projectID">{{project.name}}</div>
                     </td>
                     <td >
-                        <a class="btn" @click="showDialogAddresource(resource, idProject)" ><i class="fa fa-user-plus special"></i></a>           
+                        <a class="btn" @click="addResource(resource)" ><i class="fa fa-user-plus special"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
@@ -65,26 +65,27 @@
   </template>
 <script>
 import $ from 'jquery'
-import { mapState } from 'vuex'
 
 require('datatables.net-bs')
 
 export default {
   name: 'resource-table',
-  props: ['showTableResources', 'users', 'idProject'],
-  data() {
-    return {
-      resourcesCanChoose: {}
-    }
-  },
+  props: ['showTableResources', 'availableResources', 'projects', 'currentProject'],
   methods: {
-    showDialogAddresource(resource, id) {
-      let pickedMember = {
-          id: resource.id,
-          badgeID: resource.badgeID,
-          name: resource.name,
-          email: resource.email
+    getProjectsOfResource(idResource) {
+      let projectsName = []
+      for (let i = 0; i < this.projects.length; i++) {
+        let current = this.projects[i]
+          for (let j = 0; j < current.users.length; j++) {
+            if (idResource === current.users[j]) {
+              projectsName.push(current.name)
+              break
+            }
+          }
       }
+      return projectsName
+    },
+    addResource(resource) {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
         text: 'Do you wish to add this member project?',
@@ -93,13 +94,18 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-              this.users.push(pickedMember)
-              let info = {
-                  projectId: id,
-                  users: this.users
-              }
-              this.$store.dispatch('addUserToProject', info)
-              this.$modal.hide('dialog')
+                this.currentProject.users.push(resource.id)
+                let addInfo = {
+                    id: this.currentProject.id,
+                    newInfo: this.currentProject.users
+                }
+                resource.projects.push(this.currentProject.id)
+                // this.$store.dispatch('addResourceToProject', addInfo)
+                    addInfo.id = resource.id
+                    addInfo.newInfo = resource.projects
+                    console.log(addInfo)
+                // this.$store.dispatch('addProjectToResource', addInfo)
+                this.$modal.hide('dialog')
             }
           },
           {
@@ -116,23 +122,6 @@ export default {
       this.$nextTick(() => {
         $('#resourcesTable').DataTable()
       })
-  },
-  computed: {
-   ...mapState([
-     'resources'
-   ])
-  },
-  created() {
-    let usersId = []
-    if (this.resources.length === 0) {
-       this.$store.dispatch('getResources')
-    }
-    if (this.users !== undefined) {
-      this.users.forEach(element => {
-        usersId.push(element.id)
-      })
-        this.resourcesCanChoose = this.resources.filter(resource => { return usersId.indexOf(resource.id) === -1 })
-    }
   }
 }
 </script>
@@ -140,7 +129,6 @@ export default {
 .special{
     font-size: 20px !important;
     color:green;
-    margin-left: 30px
 }
 table{
   font-size: 16px !important

@@ -1,23 +1,23 @@
 <template>
-  <li class="dropdown messages-menu" v-if="this.users">
+  <li class="dropdown messages-menu" v-if="users">
     <a href="javascript:;" title="Add members to project" class="dropdown-toggle" data-toggle="dropdown">
       <span class="fa  fa-street-view myIcon"></span>
-      <span class="label special" >{{ this.users | count}}</span>
+      <span class="label special" >{{ users | count}}</span>
     </a>
      <ul class="dropdown-menu">
       <li class="header">
-         There are {{ this.users | count }} member(s) in your project
+         There are {{ users | count }} member(s) in your project
       </li>
       <li>
         <ul class="menu">
           <member-modal v-for="user in users" :key="user.id" :user="user"></member-modal>
-          <li v-if=" this.users.length == 0">
+          <li v-if=" users.length == 0">
             <span class="center-block text-center alert-error">Please assign member to your project</span>
           </li>
         </ul>
       </li>
       <li class="footer">
-        <router-link :to="'/project/' + this.id + '/member'">
+        <router-link :to="'/project/' + id + '/member'">
         <a >
           <i class="fa fa-users"></i>
           See all member of project

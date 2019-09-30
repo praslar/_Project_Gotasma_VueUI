@@ -25,134 +25,68 @@ export default {
             'Display task list': 'Hide Task'
         }
     },
-    workloadHeaderOptions: {
-        title: {
-            label: 'Work Load ',
-            html: false
-        },
-        locale: {
-            name: 'fr',
-            Now: 'Now',
-            'X-Scale': 'Width',
-            'Y-Scale': 'Height'
-        }
-    },
-    workloadOptions: {
-        scope: {
-            before: 1,
-            after: 80
-        },
-        maxRows: 500,
-        maxHeight: 1000,
-        times: {
-            timeZoom: 21
-        },
-        row: {
-            height: 20
-        },
-        calendar: {
-            hour: {
-                display: false
-            }
-        },
-        chart: {
-            progress: {
-                bar: false
-            },
-            text: {
-                display: true
-            },
-            expander: {
-                display: false
-            }
-        },
-        taskList: {
-            expander: {
-                straight: true
-            },
-            columns: [{
-                    id: 7,
-                    label: 'ID',
-                    value: 'id',
-                    width: 35
-                },
-                {
-                    id: 8,
-                    label: 'Member',
-                    value: 'name',
-                    width: 180
-                },
-                {
-                    id: 10,
-                    label: 'Status',
-                    value: 'status',
-                    width: 158
-                }
-            ]
-        }
-    },
     // task default preloading
-    tasksTest: [
-        {
-            id: 9,
-            label: 'Phan tich va thiet ke',
-            start: 1569171600000,
-            duration: 691200000,
-            type: 'project',
-            progress: 0
-        },
-        {
-            id: 90,
-            label: 'Phan cmn tich',
-            user: {
-                id: 15,
-                name: 'John Wayne'
-            },
-            usersId: [15],
-            start: 1569171600000,
-            duration: 345600000,
-            collapsed: true,
-            parentId: 9,
-            type: 'task',
-            effort: 50,
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
-        },
-        {
-            id: 10,
-            label: 'Make some noise',
-            start: 1567875600000,
-            duration: 518400000 + 86400000,
-            type: 'project',
-            effort: 100,
-            progress: 0
-        },
-        {
-            id: 111,
-            label: 'With great power comes great responsibility',
-            user: ['Peter Parker'],
-            usersId: [14],
-            parentId: 10,
-            start: 1567875600000,
-            duration: 345600000,
-            collapsed: true,
-            type: 'task',
-            effort: 100,
-            progress: 100,
-            style: {
-                base: {
-                    fill: '#3fb0ac',
-                    'stroke-width': 2,
-                    stroke: '#173e43'
-                }
-            }
-        }
+    // tasksTest: [
+    //     {
+    //         id: 9,
+    //         label: 'Phan tich va thiet ke',
+    //         start: 1569171600000,
+    //         duration: 691200000,
+    //         type: 'project',
+    //         progress: 0
+    //     },
+    //     {
+    //         id: 90,
+    //         label: 'Phan cmn tich',
+    //         user: {
+    //             id: 15,
+    //             name: 'John Wayne'
+    //         },
+    //         usersId: [15],
+    //         start: 1569171600000,
+    //         duration: 345600000,
+    //         collapsed: true,
+    //         parentId: 9,
+    //         type: 'task',
+    //         effort: 50,
+    //         progress: 100,
+    //         style: {
+    //             base: {
+    //                 fill: '#3fb0ac',
+    //                 'stroke-width': 2,
+    //                 stroke: '#173e43'
+    //             }
+    //         }
+    //     },
+    //     {
+    //         id: 10,
+    //         label: 'Make some noise',
+    //         start: 1567875600000,
+    //         duration: 518400000 + 86400000,
+    //         type: 'project',
+    //         effort: 100,
+    //         progress: 0
+    //     },
+    //     {
+    //         id: 111,
+    //         label: 'With great power comes great responsibility',
+    //         user: ['Peter Parker'],
+    //         usersId: [14],
+    //         parentId: 10,
+    //         start: 1567875600000,
+    //         duration: 345600000,
+    //         collapsed: true,
+    //         type: 'task',
+    //         effort: 100,
+    //         progress: 100,
+    //         style: {
+    //             base: {
+    //                 fill: '#3fb0ac',
+    //                 'stroke-width': 2,
+    //                 stroke: '#173e43'
+    //             }
+    //         }
+    //     },
         // {
         //     id: 13,
         //     label: 'Courage is being scared to death, but saddling up anyway.',
@@ -301,12 +235,12 @@ export default {
         //         }
         //     }
         // }
-    ],
+        // ],
     resources: [],
     users: [],
     projects: [],
     project: {},
     exceptions: [],
-    exceptionDatesList: [],
-    highlightedProjects: []
+    highlightedProjects: [],
+    exceptionDays: []
 }

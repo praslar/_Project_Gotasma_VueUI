@@ -1,25 +1,29 @@
 <template>
   <div class="main">
-    <project-header :id="id" :users="project.users" :exceptionDays="exceptionDays"></project-header>
+    <project-header :id="id" :users="getResourceOfProject" :exceptionDays="exceptionDays"  v-if="project.users"></project-header>
     <div class="info-box">
       <span class="info-box-icon bg-yellow">
         <i class="fa fa-files-o"></i>
       </span>
       <div class="info-box-content">
         <p class="info-box-number">{{project.name}}</p>
-        <p class="info-box-text" v-if="tasksTest">{{tasksTest | count}} tasks</p>
+        <p class="info-box-text" v-if="project.tasks">{{project.tasks | count}} tasks</p>
       </div>
     </div>
     <!-- <setting-modal :id="id"><  /setting-modal> -->
     <gantt-elastic
-      v-if="tasksTest && exceptionDays.length > 0"
+      v-if="project.tasks && exceptionDays.length > 0 && project.tasks.length > 0"
       :options="options"
-      :tasks="tasksTest"
+      :tasks="project.tasks"
       :exceptionDays="exceptionDays"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
     </gantt-elastic>
+    <div v-else class="notice">
+      <img :src="this.adminInfo.avatar"/>
+      <h1>Empty project or exception days</h1>
+    </div>
   </div>
 </template>
 <script>
@@ -51,7 +55,7 @@ export default {
               timeZoom: 21
           },
           row: {
-              height: 30
+              height: 25
           },
           calendar: {
             hour: {
@@ -165,85 +169,75 @@ export default {
   mounted() {
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
      EventBus.$on('deleteThisTask', (idTask) => {
-        this.getStatus(idTask, 'delete')
+        this.getStatus(idTask, 'del')
         this.tasksUpdate(this.project.tasks)
-     })
+       })
      EventBus.$on('addTask', (newTaskInfo) => {
         this.addTask(newTaskInfo)
         this.getStatus(newTaskInfo.id)
       })
      EventBus.$on('addMilestone', (newMilestone) => { this.addMilestone(newMilestone) })
      EventBus.$on('breakTask', (breakTaskInfo) => { this.breakTask(breakTaskInfo) })
-     EventBus.$on('editTask', (idTask) => { this.getStatus(idTask) })
+     EventBus.$on('editTask', (newTaskInfo) => {
+        this.editTask(newTaskInfo)
+        this.getStatus(newTaskInfo.id)
+        })
      EventBus.$on('assignMember', (newTaskInfo) => { this.assignMember(newTaskInfo) })
   },
   created() {
+    this.getResources()
     this.getProject(this.id)
-    if (this.project === 'undefined' || this.project === {}) {
-      this.$modal.show('dialog', {
-        title: 'Error',
-        text: 'No data available'
-      })
-    }
     if (this.exceptions.length === 0) {
       console.log('timelog')
       this.getExceptions()
     }
-    if (this.resources.length === 0) {
-        this.getResources()
-    }
    },
   computed: {
     ...mapState([
+      'adminInfo',
       'headerOptions',
-      'workloadOptions',
-      'workloadHeaderOptions',
-      'tasks',
       'project',
       'exceptions',
-      'resources',
-      'tasksTest'
+      'resources'
     ]),
     ...mapGetters([
-      'exceptionDays'
+      'exceptionDays',
+      'getResourceOfProject'
     ])
     },
   methods: {
     ...mapActions({
-      getProject: 'getProjectById',
-      getResources: 'getResources',
-      getExceptions: 'getExceptions'
+        getResources: 'getResources',
+        getProject: 'getProjectById',
+        getExceptions: 'getExceptions'
       }),
     tasksUpdate(tasks) {
-      this.tasksTest = tasks
+      this.project.tasks = tasks
       // Sync children with parent tasks when added
-      if (this.status.action) {
+      if (this.status.action === true) {
         let currentParents = []
         let minStart = 0
         let maxEnd = 0
         let currentChild = []
-        let now = new Date()
-        for (let i = 0; i < this.tasksTest.length; i++) {
-          if (this.status.id === this.tasksTest[i].id) {
-            currentParents = this.tasksTest[i].parents
+        for (let i = 0; i < this.project.tasks.length; i++) {
+          if (this.status.id === this.project.tasks[i].id) {
+            currentParents = this.project.tasks[i].parents
             break
           }
           }
-        if (this.status.type === 'delete') {
+        if (this.status.type === 'del') {
           this.deleteThisTask(this.status.id)
-          }
-        for (let i = this.tasksTest.length - 1; i >= 0; i--) {
-          let current = this.tasksTest[i]
+        }
+        for (let i = this.project.tasks.length - 1; i >= 0; i--) {
+          let current = this.project.tasks[i]
           for (let j = 0; j < currentParents.length; j++) {
             if (current.id === currentParents[j]) {
               currentChild = current.allChildren
               minStart = 9999997200000
-              console.log('this is him', current.label)
-              for (let k = 0; k < this.tasksTest.length; k++) {
-                current = this.tasksTest[k]
+              for (let k = 0; k < this.project.tasks.length; k++) {
+                current = this.project.tasks[k]
                 for (let h = 0; h < currentChild.length; h++) {
                   if (current.id === currentChild[h]) {
-                    console.log('this is childer', current.label)
                     if (minStart > current.start) {
                       minStart = current.start
                     }
@@ -254,17 +248,15 @@ export default {
                   }
                 }
               }
-              this.tasksTest[i].startTime = minStart
-              this.tasksTest[i].start = minStart
-              this.tasksTest[i].endTime = maxEnd
-              this.tasksTest[i].duration = maxEnd - this.tasksTest[i].start
-              this.tasksTest[i].estimateDuration = this.tasksTest[i].duration
-              if (this.tasksTest[i].start === 9999997200000) {
-                this.tasksTest[i].start = now.valueOf()
-                this.tasksTest[i].startTime = now.valueOf()
-                this.tasksTest[i].duration = 0
-                this.tasksTest[i].estimateDuration = 0
+              if (minStart !== 9999997200000) {
+                this.project.tasks[i].startTime = minStart
+                this.project.tasks[i].start = minStart
               }
+              this.project.tasks[i].endTime = maxEnd
+              if (maxEnd !== 0) {
+                this.project.tasks[i].duration = maxEnd - this.project.tasks[i].start
+                }
+              this.project.tasks[i].estimateDuration = this.project.tasks[i].duration
             }
           }
           }
@@ -275,13 +267,6 @@ export default {
       },
     optionsUpdate(options) {
       this.options = options
-      if (this.project.workingDays) {
-          let thisProjectWorkingDays = []
-          this.project.workingDays.forEach(element => {
-            thisProjectWorkingDays.push(parseInt(element.value))
-          })
-          this.options.calendar.workingDays = thisProjectWorkingDays
-      }
      },
     showTaskModal(data) {
       this.$modal.show('taskModal', { data: data })
@@ -299,12 +284,12 @@ export default {
         })
       }
       },
-   // tasksUpdate method status
     getStatus(id, type) {
+      // access tasksUpdate() method
       this.status.type = type
       this.status.action = true
       this.status.id = id
-      },
+    },
     addSumTask(newTaskInfo) {
       this.$store.dispatch('addSumTask', newTaskInfo)
         },
@@ -322,7 +307,10 @@ export default {
       },
     assignMember(newTaskInfo) {
       this.$store.dispatch('assignMember', newTaskInfo)
-     }
+     },
+    editTask(newTaskInfo) {
+       this.$store.dispatch('editTask', newTaskInfo)
+    }
   }
 }
 </script>
@@ -339,6 +327,18 @@ export default {
 }
 </style>
 <style scoped>
+.notice {
+    text-align: center;
+    width: 50%;
+    color: rgb(73, 67, 67);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 50px auto
+}
+.notice img {
+  border-radius: 20px;
+  width: 50%;
+}
 .info-box-icon {
   height: 50px;
   font-size: 30px;
