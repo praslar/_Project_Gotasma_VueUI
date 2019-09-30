@@ -297,31 +297,6 @@ export default {
       this.$store.dispatch('deleteThisTask', idTaskDelete)
       },
     addTask(newTaskInfo) {
-          // for (let j = 0; j < newTaskInfo.users.length; j++) {
-          //   for (let i = 0; i < this.project.tasks.length; i++) {
-          //       if (this.project.tasks[i].id === newTaskInfo.id + j) {
-          //         newTaskInfo.id += Math.round(Math.random() * 10)
-          //         break
-          //       }
-          //   }
-          //   this.project.tasks.push({
-          //   parentId: newTaskInfo.parentId,
-          //   id: (newTaskInfo.id + j),
-          //   label: newTaskInfo.label,
-          //   user: newTaskInfo.users[j].name,
-          //   start: (newTaskInfo.start).valueOf(),
-          //   duration: newTaskInfo.duration * 86400000,
-          //   progress: newTaskInfo.progress,
-          //   type: newTaskInfo.type,
-          //   style: {
-          //         base: {
-          //             fill: '#3fb0ac',
-          //             'stroke-width': 2,
-          //             stroke: '#173e43'
-          //           }
-          //     }
-          //   })
-          // }
       this.$store.dispatch('addTask', newTaskInfo)
       },
     addMilestone(newMilestone) {

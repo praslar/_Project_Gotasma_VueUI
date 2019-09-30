@@ -19,7 +19,11 @@
         "babel-runtime": "^5.8.0",
         "datatables.net": "^1.10.19",
         "datatables.net-bs": "^1.10.19",
+<<<<<<< HEAD
         "gantt-elastic": "https://github.com/praslar/gantt-elastic-vue/tarball/master/merged",
+=======
+        "gantt-elastic": "https://github.com/praslar/gantt-elastic-vue/tarball/master/f27d340e",
+>>>>>>> 7139c1758664efd21e88b25670ccf903ae998356
         "gantt-elastic-header": "^0.1.11",
         "hideseek": "^0.7.0",
         "http-server": "^0.9.0",

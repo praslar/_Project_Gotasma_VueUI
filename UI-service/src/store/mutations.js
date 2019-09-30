@@ -85,7 +85,6 @@ export default {
         })
     },
     breakTask: (state, breakTaskInfo) => {
-        // console.log('lala2', breakTaskInfo.id)
         state.project.tasks.splice(state.project.tasks.findIndex(task => task.id === breakTaskInfo.adjacentId) + 1, 0, {
             parentId: breakTaskInfo.parentId,
             id: breakTaskInfo.id,
@@ -93,7 +92,7 @@ export default {
             start: breakTaskInfo.start,
             duration: breakTaskInfo.duration,
             type: breakTaskInfo.type,
-            style: breakTaskInfo.style
+            effort: breakTaskInfo.effort
         })
     },
     deleteThisTask(state, idTaskDelete) {
@@ -139,7 +138,6 @@ export default {
                 let dayofWeek = (timeStart.getDay())
                 let durationDays = task.duration / 86400000
                 let isHoliday = false
-
                 for (let i = 0; i < durationDays; i++) {
                     for (let j = 0; j < state.exceptionDays.length; j++) {
                         if (calculateTimeChart === state.exceptionDays[j]) {
@@ -169,7 +167,7 @@ export default {
                     }
                     calculateTimeChart += 86400000
                 }
-                task.duration = task.duration
+                // task.duration = task.duration
                 task.endTime = task.startTime + task.duration
             }
         }
