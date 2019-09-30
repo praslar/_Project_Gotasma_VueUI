@@ -83,7 +83,6 @@ export default {
         start: '',
         duration: '',
         type: 'task',
-        progress: 100,
         collapse: true,
         style: {
           base: {

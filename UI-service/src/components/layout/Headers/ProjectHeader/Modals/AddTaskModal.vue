@@ -152,7 +152,6 @@ export default {
           start: '',
           duration: '',
           type: 'task',
-          progress: 100,
           collapse: true
         },
         taskType: [
@@ -182,7 +181,6 @@ export default {
                       EventBus.$emit('addTask', newTaskInfo)
                       currentTask.user = ''
                       currentTask.type = 'project'
-                      currentTask.progress = 0
                     }
                       this.$modal.hide('AddTask')
                 } else {

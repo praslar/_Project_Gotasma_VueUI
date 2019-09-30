@@ -17,10 +17,9 @@ import { count, momentNormalDate, momentDetailDate } from './Utils/filter'
 var router = new VueRouter({
     routes: routes,
     mode: 'history',
-    linkExactActiveClass: 'active'
-        // scrollBehavior: function(to, from, savedPosition) {
-        //     return savedPosition || { x: 0, y: 0 }
-        // }
+    scrollBehavior: function(to, from, savedPosition) {
+        return savedPosition || { x: 0, y: 0 }
+    }
 })
 
 Vue.use(VueRouter)

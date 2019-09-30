@@ -3560,9 +3560,9 @@ gantt-elastic-header@^0.1.11:
     resize-observer-polyfill "^1.5.1"
     vue "^2.6.10"
 
-"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/merged-done":
+"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/merged":
   version "1.0.6"
-  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/merged-done#8f5835d853454654abc2cda11b13062a4df6451b"
+  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/merged#351e7180aff195ebf9e7c22542d30d20b28c531a"
   dependencies:
     dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"

@@ -96,7 +96,7 @@ export default {
                   {
                       id: 3,
                       label: 'Assignee',
-                      value: task => `${task.user}`,
+                      value: task => `${this.getMember(task)}`,
                       width: 90,
                       html: true
                   },
@@ -182,7 +182,7 @@ export default {
         this.editTask(newTaskInfo)
         this.getStatus(newTaskInfo.id)
         })
-     EventBus.$on('assignMember', (newTaskInfo) => { this.assignMember(newTaskInfo) })
+     EventBus.$on('assignMember', (userInfo) => { this.assignMember(userInfo) })
   },
   created() {
     this.getResources()
@@ -330,11 +330,22 @@ export default {
     breakTask(breakTaskInfo) {
       this.$store.dispatch('breakTask', breakTaskInfo)
       },
-    assignMember(newTaskInfo) {
-      this.$store.dispatch('assignMember', newTaskInfo)
+    assignMember(userInfo) {
+      this.$store.dispatch('assignMember', userInfo)
      },
     editTask(newTaskInfo) {
        this.$store.dispatch('editTask', newTaskInfo)
+    },
+    getMember(task) {
+      let arrName = []
+      for (let i = 0; i < this.resources.length; i++) {
+        for (let j = 0; j < task.user.length; j++) {
+          if (this.resources[i].id === task.user[j]) {
+            arrName.push(this.resources[i].name)
+          }
+        }
+      }
+      return arrName
     }
   }
 }

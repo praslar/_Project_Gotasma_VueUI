@@ -1,5 +1,5 @@
 <template>
-            <div class="col-sm-12 table-responsive" v-if="this.showTableResources && availableResources">
+            <div class="col-sm-12 table-responsive" v-if="this.showTableResources && availableResources && currentProject">
               <table
                 aria-describedby="resourcesTable_info"
                 role="grid"
@@ -51,15 +51,15 @@
                     <td>{{resource.name}}</td>
                     <td>{{resource.email}}</td>
                     <td>
-                    <div class="external-event bg-yellow" v-for="project in getProjectsOfResource(resource.id)" :key="project.projectID">{{project.name}}</div>
+                    <div class="external-event bg-yellow" v-for="project in getProjectsOfResource(resource.id)" :key="project">{{project}}</div>
                     </td>
                     <td >
-                        <a class="btn" @click="addResource(resource)" ><i class="fa fa-user-plus special"></i></a>           
+                        <a class="btn" @click="addResource(resource, currentProject)" ><i class="fa fa-user-plus special"></i></a>           
                     </td> 
                   </tr>                        
                 </tbody>
               </table>
-              <i class="notice">If data in table wasn't available, please go back to the project dashboard to load the data</i>
+              <i class="notice" v-if="availableResources.length === 0">No availabe resources</i>
                 <v-dialog/>
             </div>
   </template>
@@ -85,7 +85,7 @@ export default {
       }
       return projectsName
     },
-    addResource(resource) {
+    addResource(resource, project) {
       this.$modal.show('dialog', {
         title: 'Are you sure?',
         text: 'Do you wish to add this member project?',
@@ -94,17 +94,20 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-                this.currentProject.users.push(resource.id)
+                console.log(project.users)
+                project.users.push(resource.id)
                 let addInfo = {
-                    id: this.currentProject.id,
-                    newInfo: this.currentProject.users
+                    id: project.id,
+                    newInfo: project.users
                 }
-                resource.projects.push(this.currentProject.id)
-                // this.$store.dispatch('addResourceToProject', addInfo)
+                if (typeof resource.projects === 'undefined') {
+                  resource.projects = []
+                }
+                resource.projects.push(project.id)
+                this.$store.dispatch('addResourceToProject', addInfo)
                     addInfo.id = resource.id
                     addInfo.newInfo = resource.projects
-                    console.log(addInfo)
-                // this.$store.dispatch('addProjectToResource', addInfo)
+                this.$store.dispatch('addProjectToResource', addInfo)
                 this.$modal.hide('dialog')
             }
           },

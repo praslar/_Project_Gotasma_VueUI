@@ -18,7 +18,7 @@
                 <span class="input-group-addon"><i class="fa fa-fw fa-child"></i></span>
                     <multiselect 
                         name="users"
-                        v-model="newTaskInfo.user"
+                        v-model="user"
                         :class="{ 'is-invalid': errors.has('users') }" 
                         :options="users"
                          placeholder="Add member to task"
@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="box-footer">
-          <button class="btn-create button-modal pull-right" @click="handleSubmit(newTaskInfo, currentTask)">Assign Member</button>
+          <button class="btn-create button-modal pull-right" @click="handleSubmit()">Assign Member</button>
           <button class="btn-close button-modal" @click="closeModal">Cancle</button>
         </div>
       </div>
@@ -85,39 +85,25 @@ export default {
     data() {
         return {
           currentTask: {},
-          newTaskInfo: {
-            collapse: true,
-            user: []
-          },
+          user: [],
           beforeEdit: ''
         }
     },
     methods: {
         beforeOpen(event) {
-          let currentUserId = []
           this.currentTask = event.params.data
-          currentUserId = this.currentTask.usersId
-          console.log(currentUserId)
-          for (let i = 0; i < this.users.length; i++) {
-            for (let j = 0; j < currentUserId.length; j++) {
-              if (this.users[i].id === currentUserId[j]) {
-                this.newTaskInfo.user.push(this.users[i])
-              }
-            }
-          }
-          console.log(this.newTaskInfo.user)
           this.beforeEdit = Object.assign({}, this.currentTask)
         },
         closeModal() {
             Object.assign(this.currentTask, this.beforeEdit)
             this.$modal.hide('AssignMember')
         },
-        handleSubmit(newTaskInfo, currentTask) {
+        handleSubmit() {
           this.$validator.validate().then(valid => {
                   if (valid) {
                       let info = {
-                        newTaskInfo: newTaskInfo,
-                        currentTask: currentTask
+                        user: this.user,
+                        taskId: this.currentTask.id
                       }
                       EventBus.$emit('assignMember', info)
                       this.$modal.hide('AssignMember')
@@ -137,17 +123,6 @@ export default {
 <style scoped>
 .box-footer {
   margin-top: 80px
-}
-.box-title {
-  padding: 5px;
-  letter-spacing: 1px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  color: #313233;
-  text-transform: uppercase;
-  transition: 0.1s all;
-  font-size: 16px;
-  cursor: pointer;
 }
 .title {
   padding: 6px 6px;

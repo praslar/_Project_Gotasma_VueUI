@@ -1,131 +1,146 @@
 {
-  "resources": [
-    {
-      "id": 11,
-      "badgeID": "batch-27",
-      "name": "Thang Pham",
-      "email": "praslar@gmail.com",
-      "projects": [
-        2
-      ]
-    },
-    {
-      "id": 12,
-      "badgeID": "batch-27",
-      "name": "Quan Vo",
-      "email": "vnmquan@gmail.com",
-      "projects": [
-        2
-      ]
-    },
-    {
-      "id": 16,
-      "badgeID": "455654",
-      "name": "Cat",
-      "email": "wannabeDog@gmail.com",
-      "projects": [
-        2
-      ]
-    },
-    {
-      "project": [],
-      "badgeID": "151621",
-      "name": "Boss Cat",
-      "email": "catcoss@boss.com",
-      "id": 17
-    }
-  ],
-  "exceptions": [
-    {
-      "title": "frickthisman",
-      "date": [
-        1567616400000,
-        1567789200000
-      ],
-      "id": 17
-    },
-    {
-      "title": "Independence day",
-      "date": [
-        1567357200000,
-        1567443600000
-      ],
-      "id": 19
-    },
-    {
-      "title": "Hom nay nghi di nhe ",
-      "date": [
-        1568826000000,
-        1568998800000
-      ],
-      "id": 20
-    },
-    {
-      "title": "Day of 14",
-      "date": [
-        1568394000000,
-        1568480400000
-      ],
-      "id": 21
-    }
-  ],
-  "projects": [
-    {
-      "id": 2,
-      "name": "Coffee Cat",
-      "startDate": 1572625336782,
-      "updateDate": 1575217336782,
-      "highlighted": true,
-      "users": [
-        11,
-        12,
-        16
-      ],
-      "tasks": [
-        {
-          "id": 1,
-          "label": "Phan tich va Thiet ke va Design",
-          "user": [
-            11
-          ],
-          "start": 1567011600000,
-          "duration": 259200000,
-          "type": "project"
+    "resources": [{
+            "id": 11,
+            "badgeID": "batch-27",
+            "name": "Thang Pham",
+            "email": "praslar@gmail.com",
+            "projects": [
+                2
+            ]
         },
         {
-          "id": 5,
-          "label": "Slap like now",
-          "user": [
-            12,
-            11
-          ],
-          "start": 1568739600000,
-          "duration": 172800000,
-          "type": "project"
+            "id": 12,
+            "badgeID": "batch-27",
+            "name": "Quan Vo",
+            "email": "vnmquan@gmail.com",
+            "projects": [
+                2
+            ]
         },
         {
-          "id": 6,
-          "label": "Frick this",
-          "user": [
-            11
-          ],
-          "start": 1568739600000,
-          "parentId": 5,
-          "duration": 172800000,
-          "type": "task"
+            "id": 16,
+            "badgeID": "455654",
+            "name": "Cat",
+            "email": "wannabeDog@gmail.com",
+            "projects": [
+                2
+            ]
         },
         {
-          "id": 7,
-          "label": "Bass is bass, slap the bass!!!",
-          "user": [
-            12
-          ],
-          "start": 1568739600000,
-          "parentId": 5,
-          "duration": 172800000,
-          "type": "task"
+            "project": [],
+            "badgeID": "testforboss",
+            "name": "Trung Huynh",
+            "email": "httrung@gmail.com",
+            "id": 17
+        },
+        {
+            "project": [],
+            "badgeID": "boss2",
+            "name": "nhandaica",
+            "email": "nhandeptrai@gmail.com",
+            "id": 18
         }
-      ]
-    }
-  ]
+    ],
+    "exceptions": [{
+            "title": "frickthisman",
+            "date": [
+                1567616400000,
+                1567789200000
+            ],
+            "id": 17
+        },
+        {
+            "title": "Independence day",
+            "date": [
+                1567357200000,
+                1567443600000
+            ],
+            "id": 19
+        },
+        {
+            "title": "Hom nay nghi di nhe ",
+            "date": [
+                1568826000000,
+                1568998800000
+            ],
+            "id": 20
+        },
+        {
+            "title": "Day of 14",
+            "date": [
+                1568394000000,
+                1568480400000
+            ],
+            "id": 21
+        }
+    ],
+    "projects": [{
+            "id": 2,
+            "name": "Coffee Cat",
+            "startDate": 1572625336782,
+            "updateDate": 1575217336782,
+            "highlighted": true,
+            "users": [
+                11,
+                12,
+                16,
+                17
+            ],
+            "tasks": [{
+                    "id": 1,
+                    "label": "Phan tich va Thiet ke va Design",
+                    "user": [17],
+                    "start": 1567011600000,
+                    "duration": 259200000,
+                    "type": "project"
+                },
+                {
+                    "id": 5,
+                    "label": "Slap like now",
+                    "user": [11, 12],
+                    "start": 1568739600000,
+                    "duration": 172800000,
+                    "type": "project"
+                },
+                {
+                    "id": 6,
+                    "label": "Frick this",
+                    "user": [
+                        11
+                    ],
+                    "start": 1568739600000,
+                    "parentId": 5,
+                    "duration": 172800000,
+                    "type": "task"
+                },
+                {
+                    "id": 7,
+                    "label": "Bass is bass, slap the bass!!!",
+                    "user": [
+                        12
+                    ],
+                    "start": 1568739600000,
+                    "parentId": 5,
+                    "duration": 172800000,
+                    "type": "task"
+                }
+            ]
+        },
+        {
+            "highlighted": true,
+            "name": "batch-27",
+            "startDate": 1566234000000,
+            "updateDate": 1569776400000,
+            "tasks": [],
+            "users": [
+                11,
+                18,
+                16,
+                12,
+                17
+            ],
+            "effort": "",
+            "id": 3
+        }
+    ]
 }

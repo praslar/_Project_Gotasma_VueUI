@@ -61,7 +61,6 @@ export default {
             label: newTaskInfo.label,
             start: (newTaskInfo.start).valueOf(),
             duration: newTaskInfo.duration * 86400000,
-            progress: newTaskInfo.progress,
             type: newTaskInfo.type,
             parents: newTaskInfo.parents
         })
@@ -72,7 +71,6 @@ export default {
             label: newTaskInfo.label,
             start: (newTaskInfo.start).valueOf(),
             duration: newTaskInfo.duration * 86400000,
-            progress: newTaskInfo.progress,
             type: newTaskInfo.type
         })
     },
@@ -83,7 +81,6 @@ export default {
             label: newTaskInfo.label,
             start: (newTaskInfo.start).valueOf(),
             duration: 86400000,
-            progress: 100,
             type: 'milestone'
         })
     },
@@ -95,7 +92,6 @@ export default {
             label: breakTaskInfo.label,
             start: breakTaskInfo.start,
             duration: breakTaskInfo.duration,
-            progress: breakTaskInfo.progress,
             type: breakTaskInfo.type,
             style: breakTaskInfo.style
         })
@@ -115,12 +111,15 @@ export default {
             }
         }
     },
-    assignMember(state, info) {
+    assignMember(state, userInfo) {
+        let newUser = []
+        userInfo.user.forEach(element => {
+            newUser.push(element.id)
+        })
         for (let i = 0; i < state.project.tasks.length; i++) {
-            if (state.project.tasks[i].id === info.currentTask.id) {
-                for (let j = 0; j < info.newTaskInfo.user.length; j++) {
-                    state.project.tasks[i].user += info.newTaskInfo.user[j].name + '  '
-                }
+            if (state.project.tasks[i].id === userInfo.taskId) {
+                state.project.tasks[i].user = newUser
+                break
             }
         }
     },

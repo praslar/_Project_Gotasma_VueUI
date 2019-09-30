@@ -18,9 +18,9 @@
       </a>
       <ul class="treeview-menu" v-if="highlightedProjects.length">
         <li v-for="hProj in highlightedProjects" :key="hProj">
-          <router-link tag="a" :to="'/project/' + hProj.id" >
+          <a :href="'/project/' + hProj.id + '/'" >
             <i class="fa fa-file"></i> {{ hProj.name }}
-          </router-link>
+          </a>
         </li>
       </ul>
     </li>

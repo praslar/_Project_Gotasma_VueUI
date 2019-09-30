@@ -1,6 +1,6 @@
 <template>
   <section class="content">
-    <div class="row center-block">
+    <div class="row center-block" v-if="project">
       <div class="header col-md-12">
          <ol class="breadcrumb">
           <li>
@@ -19,9 +19,8 @@
       </div> 
       <member-table :resources="getResourceOfProject" :projectId="id"></member-table>  
       <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">     
-          <resources-table :showTableResources="showTableResources" :availableResources="availableResources" :projects="projects" :currentProject="project" v-if="project"></resources-table>
+          <resources-table :showTableResources="showTableResources" :availableResources="availableResources" :projects="projects" :currentProject="project"></resources-table>
       </transition> 
-    
     </div>
   </section>
 </template>

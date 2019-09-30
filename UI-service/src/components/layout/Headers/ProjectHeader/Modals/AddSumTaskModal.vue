@@ -88,8 +88,7 @@ export default {
           label: '',
           start: '',
           duration: '',
-          type: 'project',
-          progress: 0
+          type: 'project'
         }
       }
     },
