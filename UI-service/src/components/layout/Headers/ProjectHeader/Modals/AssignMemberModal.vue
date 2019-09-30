@@ -1,37 +1,36 @@
 <template>
     <modal name="AssignMember" transition="nice-modal-fade" 
-        :draggable="true" 
-        :reset="true"
-        :height="500"
-        :clickToClose="false"
-        @before-open="beforeOpen"
+      :draggable="true" 
+      :reset="true"
+      height="auto"
+      :clickToClose="false"
+      @before-open="beforeOpen"
     >
       <div class="box box-group">
         <div class="box-header with-border dark">
           <h3 class="box-title">Assign member</h3>
         </div>
+
         <div class="box-body">
-            <div class="row" >
-              <div class="col-xs-12">
-                <h4 class="title">Assignee: </h4>
-                <div class="input-group">
+          <div class="row" >
+            <div class="col-xs-12">
+              <h4 class="title">Assignee: </h4>
+              <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-fw fa-child"></i></span>
-                    <multiselect 
-                        name="users"
-                        v-model="user"
-                        :class="{ 'is-invalid': errors.has('users') }" 
-                        :options="users"
-                         placeholder="Add member to task"
-                        :multiple="true"
-                        :close-on-select="false"
-                        :clear-on-select="false"
-                        :preserve-search="true"
-                        label="name"
-                        track-by="name"
-                    >
-                    </multiselect>
-                </div>
-            </div>
+                  <multiselect 
+                      name="users"
+                      v-model="user"
+                      :class="{ 'is-invalid': errors.has('users') }" 
+                      :options="users"
+                      :multiple="true"
+                      :close-on-select="true"
+                      :clear-on-select="false"
+                      label="name"
+                      track-by="name"
+                      :max-height=200>
+                  </multiselect>
+              </div>
+          </div>
           </div>
           <!--Input section-->
           <div class="row">
@@ -122,7 +121,7 @@ export default {
 </script>
 <style scoped>
 .box-footer {
-  margin-top: 80px
+  margin-top: 40px
 }
 .title {
   padding: 6px 6px;
