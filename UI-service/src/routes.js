@@ -28,7 +28,7 @@ const routes = [{
             path: 'exception',
             component: Exception,
             name: 'Exception',
-            meta: { description: 'View Excluded Holiday and day-off' }
+            meta: { description: 'View Excluded Holidays and day-off' }
         },
         {
             path: 'project/:id/',

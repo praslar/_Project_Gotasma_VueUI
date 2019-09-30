@@ -30,7 +30,8 @@ export default {
   margin-bottom: 10px;
 }
 .content {
-  padding: 60px;
+  margin: 20px !important;
+  min-height: 1102px !important
 }
 .header span {
   font-size: 24px;

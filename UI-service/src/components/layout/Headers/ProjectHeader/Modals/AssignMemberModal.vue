@@ -130,5 +130,4 @@ export default {
   margin-left: 0px;
   padding-left: 0px 
 }
-
 </style>

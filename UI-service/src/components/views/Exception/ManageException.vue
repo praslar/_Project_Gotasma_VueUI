@@ -3,7 +3,7 @@
     <div class="row center-block">
       <div class="header col-md-12">
         <div class="mySpacing">
-          <span>Exceptions</span>
+          <span>Holidays, Exceptions Management</span>
           <button
           type="submit"
           class="btn btn-lg btn-info pull-right special">

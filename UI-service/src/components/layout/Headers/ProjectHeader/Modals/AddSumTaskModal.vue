@@ -7,7 +7,7 @@
     >
       <div class="box box-group">
         <div class="box-header with-border dark">
-          <h3 class="box-title2">Add new Parent Task</h3>
+          <h3 class="box-title">Add new Parent Task</h3>
         </div>
         <div class="box-body">
           <!--Input section-->
@@ -193,21 +193,4 @@ export default {
   margin-left: 0px;
   padding-left: 0px 
 }
-</style>
-<style scoped>
-.box-footer {
-  margin-top: 30px
-}
-.box-title {
-  padding: 5px;
-  letter-spacing: 1px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  color: #313233;
-  text-transform: uppercase;
-  transition: 0.1s all;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 </style>
