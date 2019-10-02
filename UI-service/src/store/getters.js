@@ -1,4 +1,4 @@
-// let arr = ''
+import dayjs from 'dayjs'
 export default {
     exceptionDays: (state) => {
         let arr = []
@@ -20,5 +20,8 @@ export default {
     },
     availableResources: (state) => {
         return state.resources.filter(resource => { return state.project.users.indexOf(resource.id) === -1 })
+    },
+    getStatus(state) {
+        return dayjs(state.project.updateDate).format('DD-MM-YYYY hh:mm:ss')
     }
 }

@@ -79,7 +79,7 @@
                   <i class="fa fa-calendar"></i>
                 </span>
                 <div>
-                <datepicker v-if="newTaskInfo.type === 'task'"   
+                <datepicker   
                   lang="en" 
                   v-model="newTaskInfo.start"
                   format="DD/MMM/YYYY"
@@ -87,15 +87,6 @@
                   data-vv-name="start"
                   v-validate="'required'"
                   :class="{ 'is-invalid': submitted &&  errors.has('start') }"
-                  >
-                </datepicker>
-                 <datepicker v-else 
-                  lang="en" 
-                  v-model="currentTask.endTime"
-                  format="DD/MMM/YYYY"
-                  width="100%"
-                  data-vv-name="start"
-                  disabled
                   >
                 </datepicker>
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
@@ -152,7 +143,8 @@ export default {
           start: '',
           duration: '',
           type: 'task',
-          collapse: true
+          collapse: true,
+          endTime: ''
         },
         taskType: [
           { text: 'Task', value: 'task' },
@@ -197,6 +189,7 @@ export default {
           this.newTaskInfo.id = n
           this.newTaskInfo.parentId = this.currentTask.id
           this.newTaskInfo.start = this.currentTask.start
+          this.newTaskInfo.endTime = this.currentTask.endTime
       }
     },
     beforeDestroy() {

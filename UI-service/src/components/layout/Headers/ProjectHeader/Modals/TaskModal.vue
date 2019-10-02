@@ -24,7 +24,7 @@
                   >
             </div>
           </div>
-          <div class="col-xs-12" v-if="currentTask.type === 'task'">
+          <div class="col-xs-12" v-if="currentTask.type === 'task' ||currentTask.type === 'milestone' ">
             <h4 class="myheading">Start date</h4>
             <div class="myPicker">
               <datepicker
@@ -36,14 +36,6 @@
               </datepicker>
             </div>
           </div>
-          <div class="col-xs-12" v-else hidden>
-            <h4 class="myheading">Start date</h4>
-            <div class="myPicker">
-              <datepicker>
-              </datepicker>
-            </div>
-          </div>
-             
           <div class="col-xs-6" v-if="currentTask.type === 'task'">
             <h4 class="myheading">Duration (estimated)</h4>
             <div class="input-group">
@@ -139,7 +131,8 @@ export default {
           start: '',
           duration: '',
           estimateDuration: '',
-          effort: ''
+          effort: '',
+          type: ''
       },
       beforeEdit: '',
       taskType: [
@@ -158,6 +151,7 @@ export default {
   methods: {
     beforeOpen(event) {
       this.currentTask = event.params.data
+      this.newTaskInfo.type = this.currentTask.type
       this.newTaskInfo.label = this.currentTask.label
       this.newTaskInfo.start = this.currentTask.start
       this.newTaskInfo.duration = this.currentTask.duration / 86400000

@@ -7,6 +7,7 @@
           <assign-member-modal :users="users"></assign-member-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <status></status>
           <button-text></button-text>
           <button-add-task></button-add-task>
           <button-add-member :id="id" :users="users"></button-add-member>
@@ -37,6 +38,7 @@ import AddSumTaskModal from './Modals/AddSumTaskModal'
 import AddTaskModal from './Modals/AddTaskModal'
 import AssignMemberModal from './Modals/AssignMemberModal'
 import BreakTaskModal from './Modals/BreakTaskModal'
+import Status from './Modals/Status'
 
 export default {
   name: 'ProjectHeader',
@@ -54,7 +56,8 @@ export default {
     AddTaskModal,
     BreakTaskModal,
     AssignMemberModal,
-    ButtonText
+    ButtonText,
+    Status
   },
   props: ['id', 'users', 'exceptionDays']
 }

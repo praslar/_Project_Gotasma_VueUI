@@ -13,7 +13,6 @@ export default {
   methods: {
     showText() {
       EventBus.$emit('chartText', this.chartText)
-      console.log(this.chartText)
     }
   },
   computed: {
