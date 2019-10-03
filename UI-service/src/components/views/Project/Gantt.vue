@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <project-header :id="id" :users="getResourceOfProject" :exceptionDays="exceptionDays"  v-if="project.users"></project-header>
+    <project-header :id="id" :users="getResourceOfProject" :exceptionDays="exceptionDays"  v-if="project.users" ></project-header>
     <div class="info-box">
       <span class="info-box-icon bg-yellow">
         <i class="fa fa-files-o"></i>
@@ -41,7 +41,7 @@ export default {
     GanttElastic,
     GanttHeader,
     ProjectHeader
-  },
+   },
   data() {
     return {
         options: {
@@ -165,8 +165,9 @@ export default {
           id: ''
         }
     }
-  },
+   },
   mounted() {
+     EventBus.$on('saveProject', () => { this.saveProject(this.project) })
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
      EventBus.$on('deleteThisTask', (idTask) => {
         this.getStatus(idTask, 'del')
@@ -176,15 +177,24 @@ export default {
         this.addTask(newTaskInfo)
         this.getStatus(newTaskInfo.id)
       })
-     EventBus.$on('addMilestone', (newMilestone) => { this.addMilestone(newMilestone) })
+     EventBus.$on('addMilestone', (newMilestone) => {
+        this.addMilestone(newMilestone)
+        })
      EventBus.$on('breakTask', (breakTaskInfo) => { this.breakTask(breakTaskInfo) })
      EventBus.$on('editTask', (newTaskInfo) => {
         this.editTask(newTaskInfo)
-        this.getStatus(newTaskInfo.id)
+        this.getStatus(newTaskInfo.id, newTaskInfo.type)
         })
      EventBus.$on('assignMember', (userInfo) => { this.assignMember(userInfo) })
      EventBus.$on('chartText', (chartText) => { this.displayChartText(chartText) })
-  },
+      this.$store.subscribe((mutation, state) => {
+        switch (mutation.type) {
+          case 'SAVE_PROJECT':
+            this.getProject(this.id)
+            break
+        }
+      })
+    },
   created() {
     this.getResources()
     this.getProject(this.id)
@@ -213,16 +223,16 @@ export default {
     tasksUpdate(tasks) {
       this.project.tasks = tasks
       // Sync children with parent tasks when added
-      if (this.status.action === true) {
+      if (this.status.action === true && this.status.type !== 'milestone') {
         let currentParents = []
         let minStart = 0
         let maxEnd = 0
         let currentChild = []
         for (let i = 0; i < this.project.tasks.length; i++) {
-          if (this.status.id === this.project.tasks[i].id) {
-            currentParents = this.project.tasks[i].parents
-            break
-          }
+            if (this.status.id === this.project.tasks[i].id) {
+              currentParents = this.project.tasks[i].parents
+              break
+            }
           }
         if (this.status.type === 'del') {
           this.deleteThisTask(this.status.id)
@@ -285,31 +295,32 @@ export default {
       },
     getStatus(id, type) {
       // access tasksUpdate() method
+      console.log(type)
       this.status.type = type
       this.status.action = true
       this.status.id = id
-    },
+     },
     addSumTask(newTaskInfo) {
       this.$store.dispatch('addSumTask', newTaskInfo)
         },
     deleteThisTask(idTaskDelete) {
       this.$store.dispatch('deleteThisTask', idTaskDelete)
-      },
+        },
     addTask(newTaskInfo) {
       this.$store.dispatch('addTask', newTaskInfo)
-      },
+        },
     addMilestone(newMilestone) {
       this.$store.dispatch('addMilestone', newMilestone)
-      },
+        },
     breakTask(breakTaskInfo) {
       this.$store.dispatch('breakTask', breakTaskInfo)
-      },
+        },
     assignMember(userInfo) {
       this.$store.dispatch('assignMember', userInfo)
-     },
+       },
     editTask(newTaskInfo) {
        this.$store.dispatch('editTask', newTaskInfo)
-    },
+          },
     getMember(task) {
       let arrName = []
       for (let i = 0; i < this.resources.length; i++) {
@@ -320,7 +331,7 @@ export default {
         }
       }
       return arrName
-    },
+     },
     displayChartText(chartTextStatus) {
       if (chartTextStatus) {
         this.options.chart.text.display = false
@@ -329,8 +340,11 @@ export default {
         this.options.chart.text.display = true
         this.$store.state.chartText = true
       }
+     },
+    saveProject(project) {
+       this.$store.dispatch('saveProject', project)
+      }
     }
-  }
 }
 </script>
 <style> 

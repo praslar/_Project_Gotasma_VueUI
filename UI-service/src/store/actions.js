@@ -57,6 +57,15 @@ export default {
             })
     },
     // Project actions
+    saveProject({ commit }, payload) {
+        Services.saveProject(payload)
+            .then((response) => {
+                commit('SAVE_PROJECT', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     getProjects({ commit }) {
         Services.getProjects()
             .then((response) => {

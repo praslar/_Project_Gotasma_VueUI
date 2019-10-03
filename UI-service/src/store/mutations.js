@@ -19,6 +19,9 @@ export default {
         console.log('delete project to resource')
     },
     // ==========================PROJECTs=============================
+    SAVE_PROJECT() {
+        console.log('Saved')
+    },
     GET_PROJECTS(state, projects) {
         state.projects = projects
     },

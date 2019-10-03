@@ -28,6 +28,17 @@ export const addResourceToProject = async(payload) => {
     return await NetworkHelper.requestPatch('/projects/' + payload.id, { users: payload.newInfo })
 }
 
+export const saveProject = async(payload) => {
+    let d = new Date()
+    let n = d.valueOf()
+    return await NetworkHelper.requestPut('/projects/' + payload.id, {
+        name: payload.name,
+        tasks: payload.tasks,
+        updateDate: n,
+        users: payload.users
+    })
+}
+
 export const deleteUserToProject = async(payload) => {
     return await NetworkHelper.requestPatch('/projects/' + payload.id, { users: payload.info })
 }

@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { EventBus } from '@/main.js'
 export default {
   name: 'buttonSave',
   methods: {
@@ -20,7 +21,7 @@ export default {
             title: 'OK',
             default: true,
             handler: () => {
-              alert('OK You have saved')
+              EventBus.$emit('saveProject')
               this.$modal.hide('dialog')
             }
           },
@@ -33,6 +34,9 @@ export default {
         ]
       })
     }
+  },
+  beforeDestroy() {
+    EventBus.$off('saveProject')
   }
 }
 </script>
