@@ -196,7 +196,8 @@ export default {
           this.currentTask = event.params.data
           this.newTaskInfo.id = n
           this.newTaskInfo.parentId = this.currentTask.id
-          this.newTaskInfo.start = this.currentTask.start
+          console.log(this.currentTask.endTime)
+          this.newTaskInfo.start = this.currentTask.endTime
       }
     },
     beforeDestroy() {
