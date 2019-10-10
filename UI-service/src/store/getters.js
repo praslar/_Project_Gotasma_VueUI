@@ -23,5 +23,12 @@ export default {
     },
     getStatus(state) {
         return dayjs(state.project.updateDate).format('DD-MM-YYYY hh:mm:ss')
+    },
+    getHistoryById: (state) => (id) => {
+        for (let i = 0; i < state.history.length; i++) {
+            if (id === state.history[i].id) {
+                return state.history[i]
+            }
+        }
     }
 }

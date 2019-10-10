@@ -23,13 +23,23 @@
       </form>
       <div class="tab-home" id="control-sidebar-home-tab">
         <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li v-for="snapshot in ProjectHistory" :key="snapshot.snapshotID">
-            <a class="cursor" @click="sendSnapshotID(snapshot.snapshotID)">
+        <ul class="control-sidebar-menu" v-if="history.length > 0">
+          <li v-for="snapshot in history" :key="snapshot">
+            <a class="cursor" @click="sendSnapshotID(snapshot.id)">
               <i class="menu-icon fa fa-book bg-green"></i>
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">{{snapshot.description}}</h4>
-                <p>{{snapshot.time | momentDetailDate}}</p>
+                <p>{{snapshot.updateDate | momentDetailDate}}</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="control-sidebar-menu" v-else>
+          <li>
+            <a>
+              <i class="menu-icon fa fa-bug"></i>
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Empty history</h4>
               </div>
             </a>
           </li>
@@ -43,7 +53,7 @@
 <script>
 export default {
     name: 'SnapshotList',
-    props: ['ProjectHistory'],
+    props: ['history'],
     components: {
         day: new Date(),
         date: new Date()

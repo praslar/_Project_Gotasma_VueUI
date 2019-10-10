@@ -96,7 +96,7 @@ export default {
           this.$store.dispatch('getExceptions')
           break
         case 'DELETE_EXCEPTION':
-          this.$store.dispatch('deleteExceptions')
+          this.$store.dispatch('getExceptions')
          break
       }
     })
@@ -109,7 +109,6 @@ export default {
           this.exceptDate.date[0] = moment(this.exceptDate.date[0]).valueOf()
           this.exceptDate.date[1] = moment(this.exceptDate.date[1]).valueOf()
           this.$store.dispatch('addExceptions', this.exceptDate)
-          // console.log('clear')
           this.exceptDate.title = ''
           this.exceptDate.date = ''
         }

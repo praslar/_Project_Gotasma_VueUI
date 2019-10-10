@@ -3552,23 +3552,17 @@ gantt-elastic-header@^0.1.11:
     vue-slider-component "^3.0.31"
     vue-switches "^2.0.1"
 
-"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/4e73801e5":
+"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/WorkLoad":
   version "1.0.6"
-  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/4e73801e5#bf90beef564b1896bed49be3bb87ed1ea17d9b37"
+  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/WorkLoad#6f6976c6ae1d546b4a68349971c28952faa18945"
   dependencies:
     dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"
     vue "^2.6.10"
 
-<<<<<<< HEAD
 "gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/merged":
   version "1.0.6"
   resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/merged#351e7180aff195ebf9e7c22542d30d20b28c531a"
-=======
-"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/f27d340e":
-  version "1.0.6"
-  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/f27d340e#351e7180aff195ebf9e7c22542d30d20b28c531a"
->>>>>>> 7139c1758664efd21e88b25670ccf903ae998356
   dependencies:
     dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"
@@ -8568,6 +8562,13 @@ vue-date-now@^1.1.1:
   resolved "https://registry.yarnpkg.com/vue-date-now/-/vue-date-now-1.1.1.tgz#fb232b76658252e6661e3a9e8195fb09a2ace2dc"
   integrity sha512-8zlNq9GhJ1qxfonQj2AvCZibQhLZSRL0/HbxvSpMZrjMrASmNGMr/I0BHGDlPyIKU0Q4KEN2p4vyNA0R3sDh1A==
 
+vue-full-loading@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/vue-full-loading/-/vue-full-loading-1.2.1.tgz#14371ba7b4c858a75c6d8f72f2d1aeeaf02f95a8"
+  integrity sha512-zD5bi2zsmrowQJIg8pF6NThNvnmzDeCg9gtfAH9c+lC3nCHlrxmpYHhi75TQmS3m0myKK17M/Lk25kgZEfgswQ==
+  dependencies:
+    vue "^2.2.1"
+
 vue-hot-reload-api@^2.0.11:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
@@ -8655,14 +8656,14 @@ vue2-datepicker@^2.12.0:
   dependencies:
     fecha "^2.3.3"
 
-vue@^2.2.2:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
-
-vue@^2.2.6, vue@^2.6.10:
+vue@^2.2.1, vue@^2.2.6, vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
+
+vue@^2.2.2:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
 
 vuex-router-sync@^4.1.2:
   version "4.1.2"

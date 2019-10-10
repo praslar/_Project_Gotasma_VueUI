@@ -56,6 +56,25 @@ export default {
                 console.log(error)
             })
     },
+    // History actions
+    addHistory({ commit }, payload) {
+        Services.addHistory(payload)
+            .then((response) => {
+                commit('ADD_HISTORY', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    getHistoryById({ commit }, payload) {
+        Services.getHistoryByID(payload)
+            .then((response) => {
+                commit('GET_HISTORY_BY_ID', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     // Project actions
     saveProject({ commit }, payload) {
         Services.saveProject(payload)
@@ -94,7 +113,6 @@ export default {
             })
     },
     getProjectById({ commit }, payload) {
-        console.log('payload', payload)
         Services.getProjectByID(payload)
             .then((response) => {
                 commit('GET_PROJECT_BY_ID', response)

@@ -44,6 +44,7 @@ export default {
           {
             title: 'OK',
             handler: () => {
+              console.log(id)
               this.$store.dispatch('deleteExceptions', id)
               this.$modal.hide('dialog')
             }

@@ -8,35 +8,12 @@
 </template>
 
 <script>
-import { EventBus } from '@/main.js'
 export default {
   name: 'buttonSave',
   methods: {
     showConfirm() {
-      this.$modal.show('dialog', {
-        title: 'Are you sure?',
-        text: 'Do you wish to save?',
-        buttons: [
-          {
-            title: 'OK',
-            default: true,
-            handler: () => {
-              EventBus.$emit('saveProject')
-              this.$modal.hide('dialog')
-            }
-          },
-          {
-            title: 'CANCEL',
-            handler: () => {
-              this.$modal.hide('dialog')
-            }
-          }
-        ]
-      })
+      this.$modal.show('SaveModal')
     }
-  },
-  beforeDestroy() {
-    EventBus.$off('saveProject')
   }
 }
 </script>

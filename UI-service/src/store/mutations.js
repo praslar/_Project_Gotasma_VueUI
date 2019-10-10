@@ -18,6 +18,13 @@ export default {
     DELETE_PROJECT_TO_RESOURCE() {
         console.log('delete project to resource')
     },
+    // === HIstory ===
+    ADD_HISTORY() {
+        console.log('History updated')
+    },
+    GET_HISTORY_BY_ID(state, history) {
+        state.history = history
+    },
     // ==========================PROJECTs=============================
     SAVE_PROJECT() {
         console.log('Saved')

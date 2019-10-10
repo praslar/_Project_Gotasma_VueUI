@@ -32,5 +32,6 @@ export default {
     exceptions: [],
     highlightedProjects: [],
     exceptionDays: [],
-    chartText: false
+    chartText: false,
+    history: []
 }

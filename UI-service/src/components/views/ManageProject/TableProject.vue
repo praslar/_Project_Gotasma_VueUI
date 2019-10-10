@@ -79,16 +79,18 @@
                     <td>{{ project.updateDate | momentDetailDate }}</td>
                     <td>
                       <a class="btn btn-app del-btn" title="Delete project" @click="showDialog(project.id)"><i class="fa fa-remove"></i></a>
-                      <a v-if="project.highlighted === true"
-                      class="btn btn-app star-btn" 
-                      title="Highlight project" 
-                      @click="highlightProject(project)">
-                      <i class="fa fa-star"></i></a>
+                      <a 
+                          v-if="project.highlighted === true"
+                          class="btn btn-app star-btn" 
+                          title="Highlight project" 
+                          @click="highlightProject(project)">
+                          <i class="fa fa-star"></i>
+                      </a>
                       <a v-else
-                      class="btn btn-app star-btn" 
-                      title="Highlight project"
-                      @click="highlightProject(project)">
-                      <i class="fa fa-star-o"></i></a>
+                          class="btn btn-app star-btn" 
+                          title="Highlight project"
+                          @click="highlightProject(project)">
+                          <i class="fa fa-star-o"></i></a>
                     </td>
                   </tr>
                 </tbody>  
@@ -155,14 +157,12 @@ export default {
         project.highlighted = true
         this.$store.dispatch('highlightProjects', project)
       } else {
-      project.highlighted = false
-      this.$store.dispatch('highlightProjects', project)
-      console.log(project)
+        project.highlighted = false
+        this.$store.dispatch('highlightProjects', project)
       }
     }
   },
-  updated() {
-    console.log('update')
+  beforeUpdate() {
       this.$nextTick(() => {
         $('#tableProjects').DataTable()
       })

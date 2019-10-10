@@ -12,10 +12,11 @@
     </div>
     <!-- <setting-modal :id="id"><  /setting-modal> -->
     <gantt-elastic
-      v-if="project.tasks && exceptionDays.length > 0 && project.tasks.length > 0"
+      v-if="project.tasks && exceptionDays.length > 0 && project.tasks.length > 0 && getResourceOfProject"
       :options="options"
       :tasks="project.tasks"
       :exceptionDays="exceptionDays"
+      :memberList="getResourceOfProject"
       @tasks-changed="tasksUpdate"
       @options-changed="optionsUpdate">
       <gantt-header slot="header" :options="headerOptions"></gantt-header>
@@ -23,7 +24,12 @@
     <div v-else class="notice">
       <img :src="this.adminInfo.avatar"/>
       <h1>Empty project or exception days</h1>
-    </div>
+      </div>
+            <loading
+            :show="show"
+            label="Loading..."
+            overlay=true>
+      </loading>
   </div>
 </template>
 <script>
@@ -33,14 +39,15 @@ import GanttElastic from 'gantt-elastic'
 import GanttHeader from 'gantt-elastic-header'
 import { mapState, mapGetters, mapActions } from 'vuex'
 import { EventBus } from '@/main.js'
-
+import Loading from 'vue-full-loading'
 export default {
   name: 'Gantt',
   props: ['id'],
   components: {
     GanttElastic,
     GanttHeader,
-    ProjectHeader
+    ProjectHeader,
+    Loading
    },
   data() {
     return {
@@ -103,14 +110,21 @@ export default {
                   {
                       id: 3,
                       label: 'Start',
-                      value: task => dayjs(task.start).format('DD-MM-YYYY'),
+                      value: (task) => {
+                          if (task.start !== 'null') {
+                            return dayjs(task.start).format('DD-MM-YYYY')
+                          }
+                        },
                       width: 78
                   },
                   {
                       id: 4,
                       label: 'Duration (estimated)',
-                      value: task => (task.estimateDuration / 86400000) + 'd',
-                      // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
+                      value: (task) => {
+                          if (task.estimateDuration !== 'null') {
+                            return (task.estimateDuration / 86400000) + 'd'
+                          }
+                        },
                       width: 45,
                       style: {
                         'task-list-header-label': { 'text-align': 'center' }
@@ -119,8 +133,11 @@ export default {
                   {
                       id: 5,
                       label: 'Duration (real)',
-                      value: task => task.duration / 86400000 + 'd',
-                      // value: task => dayjs(task.endTime).format('DD-MM-YYYY'),
+                      value: (task) => {
+                          if (task.duration !== 'null') {
+                            return (task.duration / 86400000) + 'd'
+                          }
+                        },
                       width: 45,
                       style: {
                         'task-list-header-label': { 'text-align': 'center' }
@@ -163,11 +180,14 @@ export default {
           type: '',
           action: false,
           id: ''
-        }
-    }
+        },
+        show: false
+      }
    },
   mounted() {
-     EventBus.$on('saveProject', () => { this.saveProject(this.project) })
+     EventBus.$on('saveProject', (snapshot) => {
+       this.saveProject(this.project, snapshot)
+      })
      EventBus.$on('addSumTask', (newTaskInfo) => { this.addSumTask(newTaskInfo) })
      EventBus.$on('deleteThisTask', (idTask) => {
         this.getStatus(idTask, 'del')
@@ -323,14 +343,16 @@ export default {
           },
     getMember(task) {
       let arrName = []
-      for (let i = 0; i < this.resources.length; i++) {
-        for (let j = 0; j < task.user.length; j++) {
-          if (this.resources[i].id === task.user[j]) {
-            arrName.push(this.resources[i].name)
+      if (typeof task.user !== 'undefined') {
+        for (let i = 0; i < this.resources.length; i++) {
+          for (let j = 0; j < task.user.length; j++) {
+            if (this.resources[i].id === task.user[j]) {
+              arrName.push(this.resources[i].name)
+            }
           }
         }
+        return arrName
       }
-      return arrName
      },
     displayChartText(chartTextStatus) {
       if (chartTextStatus) {
@@ -341,10 +363,75 @@ export default {
         this.$store.state.chartText = true
       }
      },
-    saveProject(project) {
+    saveProject(project, snapshot) {
+        let tasks = []
+        project.tasks.forEach(element => {
+          let taskInfo = {
+            id: 0,
+            label: '',
+            start: 0,
+            duration: 0,
+            type: project,
+            endTime: 0,
+            allChildren: [],
+            children: [],
+            effort: 0,
+            estimateDuration: 0,
+            parent: 0,
+            parentId: 0,
+            parents: [],
+            startTime: 0,
+            user: []
+          }
+          taskInfo.id = element.id
+          taskInfo.label = element.label
+          taskInfo.start = element.start
+          taskInfo.duration = element.duration
+          taskInfo.type = element.type
+          taskInfo.endTime = element.endTime
+          taskInfo.allChildren = element.allChildren
+          taskInfo.children = element.children
+          taskInfo.effort = element.effort
+          taskInfo.estimateDuration = element.estimateDuration
+          taskInfo.parent = element.parent
+          taskInfo.parentId = element.parentId
+          taskInfo.parents = element.parents
+          taskInfo.startTime = element.startTime
+          taskInfo.user = element.user
+          tasks.push(taskInfo)
+        })
+        project.tasks = tasks
+        snapshot.tasks = tasks
        this.$store.dispatch('saveProject', project)
+       this.$store.dispatch('addHistory', snapshot)
+       this.show = true
+        setTimeout(() => {
+            this.show = false
+        }, 1000)
       }
-    }
+     },
+  beforeRouteLeave (to, from, next) {
+      this.$modal.show('dialog', {
+      title: 'Are you sure?',
+      text: 'Do you really want to leave? you have unsaved changes!?',
+      buttons: [
+        {
+          title: 'LEAVE',
+          handler: () => {
+            this.$modal.hide('dialog')
+            next()
+          }
+        },
+        {
+          title: 'CANCEL',
+          handler: () => {
+            next(false)
+            this.$modal.hide('dialog')
+          }
+        }
+      ]
+    })
+ }
 }
 </script>
 <style> 

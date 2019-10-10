@@ -5,6 +5,7 @@
           <task-modal :exceptionDays="exceptionDays"></task-modal>
           <break-task-modal :exceptionDays="exceptionDays"></break-task-modal>
           <assign-member-modal :users="users"></assign-member-modal>
+          <save-modal :projectId="id"></save-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <status></status>
@@ -31,6 +32,7 @@ import ButtonAddMember from './Buttons/ButtonAddMember'
 import ButtonAddTask from './Buttons/ButtonAddTask'
 import ButtonText from './Buttons/ButtonText'
 // Modals
+import SaveModal from './Modals/SaveModal'
 import FilterModal from './Modals/FilterModal'
 import SettingModal from './Modals/SettingModal'
 import TaskModal from './Modals/TaskModal'
@@ -57,7 +59,8 @@ export default {
     BreakTaskModal,
     AssignMemberModal,
     ButtonText,
-    Status
+    Status,
+    SaveModal
   },
   props: ['id', 'users', 'exceptionDays']
 }

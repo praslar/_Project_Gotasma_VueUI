@@ -27,6 +27,13 @@
       "name": "Trung Huynh",
       "email": "asdzxzczxc@zxczx.com",
       "id": 14
+    },
+    {
+      "project": [],
+      "badgeID": "New inter",
+      "name": "Interjavalost",
+      "email": "sdc@gmail.com",
+      "id": 15
     }
   ],
   "exceptions": [
@@ -57,8 +64,8 @@
     {
       "title": "Day of 14",
       "date": [
-        1568394000000,
-        1568480400000
+        1572368400000,
+        1572454800000
       ],
       "id": 21
     }
@@ -68,136 +75,189 @@
       "name": "Coffee Cat",
       "tasks": [
         {
-          "id": 1,
-          "label": "Phan tich va Thiet ke va Design",
-          "start": 1567011600000,
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570554000000,
           "duration": 518400000,
           "type": "project",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": [],
-          "x": 30.282298314285395,
-          "y": 6,
-          "width": 180.69378988571236,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "parentId": null,
-          "children": [],
-          "allChildren": [],
-          "parents": [],
-          "parent": null,
-          "estimateDuration": 259200000,
-          "effort": 100,
-          "startTime": 1567011600000,
-          "endTime": 1567530000000,
-          "dependencyLines": []
-        },
-        {
-          "id": 5,
-          "label": "Slap like now",
-          "start": 1568739600000,
-          "duration": 518400000,
-          "type": "project",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": [],
-          "x": 635.9282645999933,
-          "y": 43,
-          "width": 180.69378988571236,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "parentId": null,
-          "children": [
-            6,
-            7
-          ],
+          "endTime": 1571072400000,
           "allChildren": [
-            6,
-            7
+            1570525993588,
+            1570616446350,
+            1570616451302,
+            1570616458046,
+            1570616461870
           ],
-          "parents": [],
+          "children": [
+            1570525993588,
+            1570616458046,
+            1570616461870
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
           "parent": null,
-          "estimateDuration": 172800000,
-          "effort": 100,
-          "startTime": 1568739600000,
-          "endTime": 1569258000000,
-          "dependencyLines": []
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570554000000,
+          "user": ""
         },
         {
-          "id": 6,
-          "label": "Frick this",
-          "user": [
-            11
-          ],
-          "start": 1568739600000,
-          "parentId": 5,
+          "id": 1570525993588,
+          "label": "frickk majn",
+          "start": 1570554000000,
           "duration": 518400000,
-          "type": "task",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "x": 635.9282645999933,
-          "y": 80,
-          "width": 180.69378988571236,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "children": [],
-          "allChildren": [],
-          "parents": [
-            5
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616446350,
+            1570616451302
           ],
-          "parent": 5,
-          "estimateDuration": 172800000,
+          "children": [
+            1570616446350
+          ],
           "effort": 100,
-          "startTime": 1568739600000,
-          "endTime": 1569258000000,
-          "dependencyLines": []
+          "estimateDuration": 518400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": ""
         },
         {
-          "id": 7,
-          "label": "Bass is bass, slap the bass!!!",
-          "user": [
-            12
+          "id": 1570616446350,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616451302
           ],
-          "start": 1568739600000,
-          "parentId": 5,
+          "children": [
+            1570616451302
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525993588,
+          "parentId": 1570525993588,
+          "parents": [
+            1570525851358,
+            1570525993588
+          ],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570616451302,
+          "label": "asda",
+          "start": 1570554000000,
           "duration": 518400000,
           "type": "task",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "x": 635.9282645999933,
-          "y": 117,
-          "width": 180.69378988571236,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "children": [],
+          "endTime": 1571072400000,
           "allChildren": [],
-          "parents": [
-            5
-          ],
-          "parent": 5,
-          "estimateDuration": 172800000,
+          "children": [],
           "effort": 100,
-          "startTime": 1568739600000,
-          "endTime": 1569258000000,
-          "dependencyLines": []
+          "estimateDuration": 345600000,
+          "parent": 1570616446350,
+          "parentId": 1570616446350,
+          "parents": [
+            1570525851358,
+            1570525993588,
+            1570616446350
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616458046,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 172800000,
+          "type": "task",
+          "endTime": 1570726800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 172800000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616461870,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 86400000,
+          "type": "task",
+          "endTime": 1570640400000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 86400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616470261,
+          "label": "heello",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1572541200000,
+          "allChildren": [
+            1570616477574
+          ],
+          "children": [
+            1570616477574
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1572195600000,
+          "user": ""
+        },
+        {
+          "id": 1570616477574,
+          "label": "asda",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1572541200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 259200000,
+          "parent": 1570616470261,
+          "parentId": 1570616470261,
+          "parents": [
+            1570616470261
+          ],
+          "startTime": 1572195600000,
+          "user": []
         }
       ],
-      "updateDate": 1569983870173,
+      "updateDate": 1570683137960,
       "users": [
         11,
         12,
-        13,
-        14
+        14,
+        13
       ],
-      "id": 2
+      "id": 2,
+      "highlighted": true
     },
     {
       "name": "batch-27",
@@ -205,214 +265,1761 @@
         {
           "id": 1569939132822,
           "label": "Test test alo alo",
-          "start": 1569862800000,
-          "duration": 345600000,
+          "start": 1570640400000,
+          "duration": 604800000,
           "type": "project",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": "",
-          "x": 30.282298314285395,
-          "y": 6,
-          "width": 120.12919325714158,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "parentId": null,
-          "children": [
-            1569939417257
-          ],
-          "allChildren": [
-            1569939417257
-          ],
-          "parents": [],
-          "parent": null,
-          "estimateDuration": 345600000,
+          "endTime": 1571245200000,
+          "allChildren": [],
+          "children": [],
           "effort": 100,
-          "startTime": 1569862800000,
-          "endTime": 0,
-          "dependencyLines": []
+          "estimateDuration": null,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570640400000,
+          "user": []
         },
         {
-          "id": 1569939417257,
-          "parentId": 1569939132822,
-          "label": "5asdas",
-          "start": 1570381200000,
+          "id": 1570013157262,
+          "label": "task 3",
+          "start": 1570640400000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1571245200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": null,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570640400000,
+          "user": []
+        },
+        {
+          "id": 1570500952089,
+          "label": "Test Sae",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1570813200000,
+          "allChildren": [
+            1570500969185
+          ],
+          "children": [
+            1570500969185
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570467600000,
+          "user": ""
+        },
+        {
+          "id": 1570500969185,
+          "label": "Save sasve",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1570813200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570500952089,
+          "parentId": 1570500952089,
+          "parents": [
+            1570500952089
+          ],
+          "startTime": 1570467600000,
+          "user": []
+        },
+        {
+          "id": 1570503104244,
+          "label": "Gaga",
+          "start": 1570813200000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1571158800000,
+          "allChildren": [
+            1570503122220,
+            1570505802109
+          ],
+          "children": [
+            1570503122220,
+            1570505802109
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570813200000,
+          "user": ""
+        },
+        {
+          "id": 1570503122220,
+          "label": "tasgh2",
+          "start": 1570813200000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1571158800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 172800000,
+          "parent": 1570503104244,
+          "parentId": 1570503104244,
+          "parents": [
+            1570503104244
+          ],
+          "startTime": 1570813200000,
+          "user": []
+        },
+        {
+          "id": 1570505802109,
+          "label": "Final demo",
+          "start": 1571158800000,
           "duration": 86400000,
           "type": "milestone",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": [],
-          "x": 211.97608819999775,
-          "y": 43,
-          "width": 29.282298314285395,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "children": [],
+          "endTime": 1571245200000,
           "allChildren": [],
-          "parents": [
-            1569939132822
-          ],
-          "parent": 1569939132822,
-          "estimateDuration": 86400000,
+          "children": [],
           "effort": 100,
-          "startTime": 1570381200000,
-          "endTime": 1570467600000,
-          "dependencyLines": []
+          "estimateDuration": 86400000,
+          "parent": 1570503104244,
+          "parentId": 1570503104244,
+          "parents": [
+            1570503104244
+          ],
+          "startTime": 1571158800000,
+          "user": []
         }
       ],
-      "updateDate": 1569939446884,
+      "updateDate": 1570523466586,
       "users": [
         12,
-        11
+        11,
+        14
       ],
+      "id": 3,
+      "highlighted": true
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "projectId": 2,
+      "description": "Add new tassk Coffee cat",
+      "tasks": [
+        {
+          "id": 1570013949164,
+          "label": "What the hell",
+          "start": 1571850000000,
+          "duration": 1209600000,
+          "type": "project",
+          "endTime": 1573059600000,
+          "allChildren": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "children": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "effort": 100,
+          "estimateDuration": 1209600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1571850000000,
+          "user": []
+        },
+        {
+          "id": 1570013951516,
+          "label": "Hell the what is this",
+          "start": 1571850000000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1572454800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1571850000000,
+          "user": []
+        },
+        {
+          "id": 1570013965533,
+          "label": "Hell the what is this",
+          "start": 1572022800000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1572627600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572022800000,
+          "user": []
+        },
+        {
+          "id": 1570014016454,
+          "label": "Hell the what is this",
+          "start": 1572454800000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1573059600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572454800000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570014034390
+    },
+    {
+      "id": 2,
+      "projectId": 2,
+      "description": "Add first task",
+      "tasks": [
+        {
+          "id": 1570013949164,
+          "label": "What the hell",
+          "start": 1571850000000,
+          "duration": 1209600000,
+          "type": "project",
+          "endTime": 1573059600000,
+          "allChildren": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "children": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "effort": 100,
+          "estimateDuration": 1209600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1571850000000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570010000000
+    },
+    {
+      "description": "Save three",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570013949164,
+          "label": "What the hell",
+          "start": 1571850000000,
+          "duration": 1209600000,
+          "type": "project",
+          "endTime": 1573059600000,
+          "allChildren": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "children": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "effort": 100,
+          "estimateDuration": 1209600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1571850000000,
+          "user": ""
+        },
+        {
+          "id": 1570013951516,
+          "label": "Hell the what is this",
+          "start": 1571850000000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1572454800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1571850000000,
+          "user": [
+            12
+          ]
+        },
+        {
+          "id": 1570013965533,
+          "label": "Hell the what is this",
+          "start": 1572022800000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1572627600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572022800000,
+          "user": [
+            14
+          ]
+        },
+        {
+          "id": 1570014016454,
+          "label": "Hell the what is this",
+          "start": 1572454800000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1573059600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572454800000,
+          "user": [
+            14,
+            12,
+            11
+          ]
+        }
+      ],
+      "updateDate": 1570522461565,
       "id": 3
     },
     {
-      "highlighted": false,
-      "name": "My road to Thai Land",
-      "startDate": 1569862800000,
-      "updateDate": 1569862800000,
-      "tasks": [],
-      "users": [],
-      "effort": "",
+      "description": "First",
+      "projectId": "3",
+      "tasks": [
+        {
+          "id": 1569939132822,
+          "label": "Test test alo alo",
+          "start": 1570640400000,
+          "duration": 604800000,
+          "type": "project",
+          "endTime": 1571245200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": null,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570640400000,
+          "user": []
+        },
+        {
+          "id": 1570013157262,
+          "label": "task 3",
+          "start": 1570640400000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1571245200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": null,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570640400000,
+          "user": []
+        },
+        {
+          "id": 1570500952089,
+          "label": "Test Sae",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1570813200000,
+          "allChildren": [
+            1570500969185
+          ],
+          "children": [
+            1570500969185
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570467600000,
+          "user": ""
+        },
+        {
+          "id": 1570500969185,
+          "label": "Save sasve",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1570813200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570500952089,
+          "parentId": 1570500952089,
+          "parents": [
+            1570500952089
+          ],
+          "startTime": 1570467600000,
+          "user": []
+        },
+        {
+          "id": 1570503104244,
+          "label": "Gaga",
+          "start": 1570813200000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1571158800000,
+          "allChildren": [
+            1570503122220,
+            1570505802109
+          ],
+          "children": [
+            1570503122220,
+            1570505802109
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570813200000,
+          "user": ""
+        },
+        {
+          "id": 1570503122220,
+          "label": "tasgh2",
+          "start": 1570813200000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1571158800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 172800000,
+          "parent": 1570503104244,
+          "parentId": 1570503104244,
+          "parents": [
+            1570503104244
+          ],
+          "startTime": 1570813200000,
+          "user": []
+        },
+        {
+          "id": 1570505802109,
+          "label": "Final demo",
+          "start": 1571158800000,
+          "duration": 86400000,
+          "type": "milestone",
+          "endTime": 1571245200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 86400000,
+          "parent": 1570503104244,
+          "parentId": 1570503104244,
+          "parents": [
+            1570503104244
+          ],
+          "startTime": 1571158800000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570523084059,
       "id": 4
     },
     {
-      "name": "MMQ56",
+      "description": "whay",
+      "projectId": "3",
       "tasks": [
         {
-          "id": 1569984036973,
-          "label": "task",
-          "start": 1572800400000,
-          "duration": 1036800000,
+          "id": 1569939132822,
+          "label": "Test test alo alo",
+          "start": 1570640400000,
+          "duration": 604800000,
           "type": "project",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": "",
-          "x": 30.282298314285395,
-          "y": 6,
-          "width": 362.3875797714247,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "parentId": null,
-          "children": [
-            1569984347706,
-            1569984352305
-          ],
-          "allChildren": [
-            1569984347706,
-            1569984352305,
-            1569999452872
-          ],
-          "parents": [],
-          "parent": null,
-          "estimateDuration": 1036800000,
-          "effort": 100,
-          "startTime": 1572800400000,
-          "endTime": 1573837200000,
-          "dependencyLines": []
-        },
-        {
-          "parentId": 1569984036973,
-          "id": 1569984347706,
-          "label": "Save function",
-          "start": 1572800400000,
-          "duration": 950400000,
-          "type": "task",
-          "parents": [
-            1569984036973
-          ],
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": [],
-          "x": 30.282298314285395,
-          "y": 43,
-          "width": 332.1052814571393,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "children": [],
+          "endTime": 1571245200000,
           "allChildren": [],
-          "parent": 1569984036973,
-          "estimateDuration": 777600000,
+          "children": [],
           "effort": 100,
-          "startTime": 1572800400000,
-          "endTime": 1573750800000,
-          "dependencyLines": []
+          "estimateDuration": null,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570640400000,
+          "user": []
         },
         {
-          "parentId": 1569984036973,
-          "id": 1569984352305,
-          "label": "Save function",
-          "start": 1572800400000,
-          "duration": 259200000,
+          "id": 1570013157262,
+          "label": "task 3",
+          "start": 1570640400000,
+          "duration": 604800000,
           "type": "task",
-          "parents": [
-            1569984036973
-          ],
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": [],
-          "x": 30.282298314285395,
-          "y": 80,
-          "width": 89.84689494285618,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "children": [
-            1569999452872
-          ],
-          "allChildren": [
-            1569999452872
-          ],
-          "parent": 1569984036973,
-          "estimateDuration": 259200000,
+          "endTime": 1571245200000,
+          "allChildren": [],
+          "children": [],
           "effort": 100,
-          "startTime": 1572800400000,
-          "endTime": 1573059600000,
-          "dependencyLines": []
+          "estimateDuration": null,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570640400000,
+          "user": []
         },
         {
-          "id": 1569999452872,
-          "parentId": 1569984352305,
-          "label": "thas",
-          "start": 1573750800000,
+          "id": 1570500952089,
+          "label": "Test Sae",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1570813200000,
+          "allChildren": [
+            1570500969185
+          ],
+          "children": [
+            1570500969185
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570467600000,
+          "user": ""
+        },
+        {
+          "id": 1570500969185,
+          "label": "Save sasve",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1570813200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570500952089,
+          "parentId": 1570500952089,
+          "parents": [
+            1570500952089
+          ],
+          "startTime": 1570467600000,
+          "user": []
+        },
+        {
+          "id": 1570503104244,
+          "label": "Gaga",
+          "start": 1570813200000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1571158800000,
+          "allChildren": [
+            1570503122220,
+            1570505802109
+          ],
+          "children": [
+            1570503122220,
+            1570505802109
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570813200000,
+          "user": ""
+        },
+        {
+          "id": 1570503122220,
+          "label": "tasgh2",
+          "start": 1570813200000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1571158800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 172800000,
+          "parent": 1570503104244,
+          "parentId": 1570503104244,
+          "parents": [
+            1570503104244
+          ],
+          "startTime": 1570813200000,
+          "user": []
+        },
+        {
+          "id": 1570505802109,
+          "label": "Final demo",
+          "start": 1571158800000,
           "duration": 86400000,
           "type": "milestone",
-          "progress": 100,
-          "style": {},
-          "collapsed": false,
-          "user": [],
-          "x": 363.3875797714247,
-          "y": 117,
-          "width": 29.282298314285395,
-          "height": 25,
-          "mouseOver": false,
-          "dependentOn": [],
-          "children": [],
+          "endTime": 1571245200000,
           "allChildren": [],
-          "parents": [
-            1569984036973,
-            1569984352305
-          ],
-          "parent": 1569984352305,
-          "estimateDuration": 86400000,
+          "children": [],
           "effort": 100,
-          "startTime": 1573750800000,
-          "endTime": 1573837200000,
-          "dependencyLines": []
+          "estimateDuration": 86400000,
+          "parent": 1570503104244,
+          "parentId": 1570503104244,
+          "parents": [
+            1570503104244
+          ],
+          "startTime": 1571158800000,
+          "user": []
         }
       ],
-      "updateDate": 1569999943479,
-      "users": [],
+      "updateDate": 1570523466585,
       "id": 5
+    },
+    {
+      "description": "fix duration",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570013949164,
+          "label": "What the hell",
+          "start": 1571850000000,
+          "duration": 1209600000,
+          "type": "project",
+          "endTime": 1573059600000,
+          "allChildren": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "children": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "effort": 100,
+          "estimateDuration": 1209600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1571850000000,
+          "user": ""
+        },
+        {
+          "id": 1570013951516,
+          "label": "Hell the what is this",
+          "start": 1571850000000,
+          "duration": 691200000,
+          "type": "task",
+          "endTime": 1572541200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1571850000000,
+          "user": [
+            12
+          ]
+        },
+        {
+          "id": 1570013965533,
+          "label": "Hell the what is this",
+          "start": 1572022800000,
+          "duration": 864000000,
+          "type": "task",
+          "endTime": 1572886800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572022800000,
+          "user": [
+            14
+          ]
+        },
+        {
+          "id": 1570014016454,
+          "label": "Hell the what is this",
+          "start": 1572454800000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1573059600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572454800000,
+          "user": [
+            14,
+            12,
+            11
+          ]
+        }
+      ],
+      "updateDate": 1570524029995,
+      "id": 6
+    },
+    {
+      "description": "hello",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570013949164,
+          "label": "What the hell",
+          "start": 1571850000000,
+          "duration": 1209600000,
+          "type": "project",
+          "endTime": 1573059600000,
+          "allChildren": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "children": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "effort": 100,
+          "estimateDuration": 1209600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1571850000000,
+          "user": ""
+        },
+        {
+          "id": 1570013951516,
+          "label": "Hell the what is this",
+          "start": 1571850000000,
+          "duration": 691200000,
+          "type": "task",
+          "endTime": 1572541200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1571850000000,
+          "user": [
+            12
+          ]
+        },
+        {
+          "id": 1570013965533,
+          "label": "Hell the what is this",
+          "start": 1572022800000,
+          "duration": 864000000,
+          "type": "task",
+          "endTime": 1572886800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572022800000,
+          "user": [
+            14
+          ]
+        },
+        {
+          "id": 1570014016454,
+          "label": "Hell the what is this",
+          "start": 1572454800000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1573059600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572454800000,
+          "user": [
+            14,
+            12,
+            11
+          ]
+        }
+      ],
+      "updateDate": 1570525021078,
+      "id": 7
+    },
+    {
+      "description": "jaajaj",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570013949164,
+          "label": "What the hell",
+          "start": 1571850000000,
+          "duration": 1209600000,
+          "type": "project",
+          "endTime": 1573059600000,
+          "allChildren": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "children": [
+            1570013951516,
+            1570013965533,
+            1570014016454
+          ],
+          "effort": 100,
+          "estimateDuration": 1209600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1571850000000,
+          "user": ""
+        },
+        {
+          "id": 1570013951516,
+          "label": "Hell the what is this",
+          "start": 1571850000000,
+          "duration": 691200000,
+          "type": "task",
+          "endTime": 1572541200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1571850000000,
+          "user": [
+            12
+          ]
+        },
+        {
+          "id": 1570013965533,
+          "label": "Hell the what is this",
+          "start": 1572022800000,
+          "duration": 864000000,
+          "type": "task",
+          "endTime": 1572886800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572022800000,
+          "user": [
+            14
+          ]
+        },
+        {
+          "id": 1570014016454,
+          "label": "Hell the what is this",
+          "start": 1572454800000,
+          "duration": 604800000,
+          "type": "task",
+          "endTime": 1573059600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 432000000,
+          "parent": 1570013949164,
+          "parentId": 1570013949164,
+          "parents": [
+            1570013949164
+          ],
+          "startTime": 1572454800000,
+          "user": [
+            14,
+            12,
+            11
+          ]
+        }
+      ],
+      "updateDate": 1570525301117,
+      "id": 8
+    },
+    {
+      "description": "hello",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570467600000,
+          "duration": 691200000,
+          "type": "project",
+          "endTime": 1571158800000,
+          "allChildren": [
+            1570525860022
+          ],
+          "children": [
+            1570525860022
+          ],
+          "effort": 100,
+          "estimateDuration": 691200000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570467600000,
+          "user": ""
+        },
+        {
+          "id": 1570525860022,
+          "label": "olleh",
+          "start": 1570467600000,
+          "duration": 691200000,
+          "type": "task",
+          "endTime": 1571158800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570467600000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570525886832,
+      "id": 9
+    },
+    {
+      "description": "dm nung",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1570813200000,
+          "allChildren": [
+            1570525860022,
+            1570525927126
+          ],
+          "children": [
+            1570525860022
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570467600000,
+          "user": ""
+        },
+        {
+          "id": 1570525860022,
+          "label": "olleh",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1570813200000,
+          "allChildren": [
+            1570525927126
+          ],
+          "children": [
+            1570525927126
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570467600000,
+          "user": []
+        },
+        {
+          "id": 1570525927126,
+          "label": "d m ",
+          "start": 1570467600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1570813200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570525860022,
+          "parentId": 1570525860022,
+          "parents": [
+            1570525851358,
+            1570525860022
+          ],
+          "startTime": 1570467600000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570525951738,
+      "id": 10
+    },
+    {
+      "description": "frick",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570467600000,
+          "duration": 691200000,
+          "type": "project",
+          "endTime": 1571158800000,
+          "allChildren": [
+            1570525993588
+          ],
+          "children": [
+            1570525993588
+          ],
+          "effort": 100,
+          "estimateDuration": 691200000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570467600000,
+          "user": ""
+        },
+        {
+          "id": 1570525993588,
+          "label": "frickk majn",
+          "start": 1570467600000,
+          "duration": 691200000,
+          "type": "task",
+          "endTime": 1571158800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570467600000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570526007319,
+      "id": 11
+    },
+    {
+      "description": "hello",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1761843600000,
+          "duration": 950400000,
+          "type": "project",
+          "endTime": 1762794000000,
+          "allChildren": [
+            1570525993588
+          ],
+          "children": [
+            1570525993588
+          ],
+          "effort": 100,
+          "estimateDuration": 950400000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1761843600000,
+          "user": ""
+        },
+        {
+          "id": 1570525993588,
+          "label": "frickk majn",
+          "start": 1761843600000,
+          "duration": 950400000,
+          "type": "task",
+          "endTime": 1762794000000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 604800000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1761843600000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570616181796,
+      "id": 12
+    },
+    {
+      "description": "hello",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570554000000,
+          "duration": 777600000,
+          "type": "project",
+          "endTime": 1571331600000,
+          "allChildren": [
+            1570525993588
+          ],
+          "children": [
+            1570525993588
+          ],
+          "effort": 100,
+          "estimateDuration": 777600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570525993588,
+          "label": "frickk majn",
+          "start": 1570554000000,
+          "duration": 777600000,
+          "type": "task",
+          "endTime": 1571331600000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 604800000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570616209214,
+      "id": 13
+    },
+    {
+      "description": "hello",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570525993588,
+            1570616446350,
+            1570616451302,
+            1570616458046,
+            1570616461870
+          ],
+          "children": [
+            1570525993588,
+            1570616458046,
+            1570616461870
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570525993588,
+          "label": "frickk majn",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616446350,
+            1570616451302
+          ],
+          "children": [
+            1570616446350
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570616446350,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616451302
+          ],
+          "children": [
+            1570616451302
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525993588,
+          "parentId": 1570525993588,
+          "parents": [
+            1570525851358,
+            1570525993588
+          ],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570616451302,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "task",
+          "endTime": 1571072400000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570616446350,
+          "parentId": 1570616446350,
+          "parents": [
+            1570525851358,
+            1570525993588,
+            1570616446350
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616458046,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 172800000,
+          "type": "task",
+          "endTime": 1570726800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 172800000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616461870,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 86400000,
+          "type": "task",
+          "endTime": 1570640400000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 86400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616470261,
+          "label": "heello",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1572541200000,
+          "allChildren": [
+            1570616477574
+          ],
+          "children": [
+            1570616477574
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1572195600000,
+          "user": ""
+        },
+        {
+          "id": 1570616477574,
+          "label": "asda",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1572541200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 259200000,
+          "parent": 1570616470261,
+          "parentId": 1570616470261,
+          "parents": [
+            1570616470261
+          ],
+          "startTime": 1572195600000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570616485898,
+      "id": 14
+    },
+    {
+      "description": "avc",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570525993588,
+            1570616446350,
+            1570616451302,
+            1570616458046,
+            1570616461870
+          ],
+          "children": [
+            1570525993588,
+            1570616458046,
+            1570616461870
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570525993588,
+          "label": "frickk majn",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616446350,
+            1570616451302
+          ],
+          "children": [
+            1570616446350
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570616446350,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616451302
+          ],
+          "children": [
+            1570616451302
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525993588,
+          "parentId": 1570525993588,
+          "parents": [
+            1570525851358,
+            1570525993588
+          ],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570616451302,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "task",
+          "endTime": 1571072400000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570616446350,
+          "parentId": 1570616446350,
+          "parents": [
+            1570525851358,
+            1570525993588,
+            1570616446350
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616458046,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 172800000,
+          "type": "task",
+          "endTime": 1570726800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 172800000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616461870,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 86400000,
+          "type": "task",
+          "endTime": 1570640400000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 86400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616470261,
+          "label": "heello",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1572541200000,
+          "allChildren": [
+            1570616477574
+          ],
+          "children": [
+            1570616477574
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1572195600000,
+          "user": ""
+        },
+        {
+          "id": 1570616477574,
+          "label": "asda",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1572541200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 259200000,
+          "parent": 1570616470261,
+          "parentId": 1570616470261,
+          "parents": [
+            1570616470261
+          ],
+          "startTime": 1572195600000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570681735690,
+      "id": 15
+    },
+    {
+      "description": "hello",
+      "projectId": "2",
+      "tasks": [
+        {
+          "id": 1570525851358,
+          "label": "hello ",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570525993588,
+            1570616446350,
+            1570616451302,
+            1570616458046,
+            1570616461870
+          ],
+          "children": [
+            1570525993588,
+            1570616458046,
+            1570616461870
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570525993588,
+          "label": "frickk majn",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616446350,
+            1570616451302
+          ],
+          "children": [
+            1570616446350
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570616446350,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "project",
+          "endTime": 1571072400000,
+          "allChildren": [
+            1570616451302
+          ],
+          "children": [
+            1570616451302
+          ],
+          "effort": 100,
+          "estimateDuration": 518400000,
+          "parent": 1570525993588,
+          "parentId": 1570525993588,
+          "parents": [
+            1570525851358,
+            1570525993588
+          ],
+          "startTime": 1570554000000,
+          "user": ""
+        },
+        {
+          "id": 1570616451302,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 518400000,
+          "type": "task",
+          "endTime": 1571072400000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": 1570616446350,
+          "parentId": 1570616446350,
+          "parents": [
+            1570525851358,
+            1570525993588,
+            1570616446350
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616458046,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 172800000,
+          "type": "task",
+          "endTime": 1570726800000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 172800000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616461870,
+          "label": "asda",
+          "start": 1570554000000,
+          "duration": 86400000,
+          "type": "task",
+          "endTime": 1570640400000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 86400000,
+          "parent": 1570525851358,
+          "parentId": 1570525851358,
+          "parents": [
+            1570525851358
+          ],
+          "startTime": 1570554000000,
+          "user": []
+        },
+        {
+          "id": 1570616470261,
+          "label": "heello",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "project",
+          "endTime": 1572541200000,
+          "allChildren": [
+            1570616477574
+          ],
+          "children": [
+            1570616477574
+          ],
+          "effort": 100,
+          "estimateDuration": 345600000,
+          "parent": null,
+          "parentId": null,
+          "parents": [],
+          "startTime": 1572195600000,
+          "user": ""
+        },
+        {
+          "id": 1570616477574,
+          "label": "asda",
+          "start": 1572195600000,
+          "duration": 345600000,
+          "type": "task",
+          "endTime": 1572541200000,
+          "allChildren": [],
+          "children": [],
+          "effort": 100,
+          "estimateDuration": 259200000,
+          "parent": 1570616470261,
+          "parentId": 1570616470261,
+          "parents": [
+            1570616470261
+          ],
+          "startTime": 1572195600000,
+          "user": []
+        }
+      ],
+      "updateDate": 1570683137956,
+      "id": 16
     }
   ]
 }
