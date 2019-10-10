@@ -17,7 +17,6 @@
           </div>
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" @submit.prevent="addException">
             <div class="box-body">
               <div class="form-group">
                 <label for="excepttitle">Title</label>
@@ -29,10 +28,10 @@
                   name="Title"
                   v-validate="'required|min:5'" 
                   v-model="exceptDate.title"
-                  :class="{ 'is-invalid': errors.has('Title') }"
+                  :class="{ 'is-invalid':submitted &&  errors.has('Title') }"
                 />
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback" v-if="errors.has('Title')">{{ errors.first('Title')}}</div>
+                  <div class="invalid-feedback special" v-if="submitted && errors.has('Title')">{{ errors.first('Title')}}</div>
                 </transition>
               </div>
               
@@ -43,24 +42,22 @@
                   v-model="exceptDate.date"
                   :editable="false"
                   range
-                  appendToBody
                   lang="en"
                   format="DD/MMM/YYYY"
                   width="100%"
                   data-vv-name="Date"
                   v-validate="'required'"
-                  :class="{ 'is-invalid': errors.has('Date') }"></datepicker>
+                  :class="{ 'is-invalid':submitted &&  errors.has('Date') }"></datepicker>
                 <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                  <div class="invalid-feedback ontop special" v-if="errors.has('Date')">{{ errors.first('Date')}}</div>
+                  <div class="invalid-feedback special" v-if="submitted && errors.has('Date')">{{ errors.first('Date')}}</div>
                 </transition>
               </div>
             </div>
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="submit" class="btn btn-info">Submit</button>
+              <button type="submit" class="btn btn-info" @click="addException">Submit</button>
             </div>
-          </form>
         </div>
         <h2>Exceptions</h2>
         <exception-item></exception-item>
@@ -83,6 +80,7 @@ export default {
   },
   data() {
     return {
+         submitted: false,
       exceptDate: {
         title: '',
         date: ''
@@ -103,17 +101,16 @@ export default {
   },
   methods: {
     addException() {
-      if (this.exceptDate.date[0] != null && this.exceptDate.date[1] != null) {
-        this.$validator.validateAll().then(result => {
-        if (result) {
-          this.exceptDate.date[0] = moment(this.exceptDate.date[0]).valueOf()
-          this.exceptDate.date[1] = moment(this.exceptDate.date[1]).valueOf()
-          this.$store.dispatch('addExceptions', this.exceptDate)
-          this.exceptDate.title = ''
-          this.exceptDate.date = ''
-        }
+      this.submitted = true
+      this.$validator.validateAll().then(result => {
+          if (result) {
+            this.exceptDate.date[0] = moment(this.exceptDate.date[0]).valueOf()
+            this.exceptDate.date[1] = moment(this.exceptDate.date[1]).valueOf()
+            this.$store.dispatch('addExceptions', this.exceptDate)
+            this.exceptDate.title = ''
+            this.exceptDate.date = ''
+          }
       })
-    }
   },
   shortcuts: [
     {
@@ -138,22 +135,7 @@ span {
 .form-group {
   margin-bottom: 25px !important
 }
-
-.invalid-feedback{
-  font-size: 12px;
-  color: red;
-  display: inline-block;
-  z-index: 9;
-  position: absolute;
-}
-.alert-in-enter-active {
-  animation: bounce-in .5s;
-}
-.alert-in-leave-active {
-  animation: bounce-in .5s reverse;
-}
-.special{
-  position: static;
-  margin: 0px !important
+.special {
+  margin-top: 0px
 }
 </style>

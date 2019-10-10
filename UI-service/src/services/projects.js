@@ -5,6 +5,7 @@ export const getProjects = async() => {
 }
 
 export const addProject = async(project) => {
+    console.log(project)
     return await NetworkHelper.requestPost('/projects', project)
 }
 

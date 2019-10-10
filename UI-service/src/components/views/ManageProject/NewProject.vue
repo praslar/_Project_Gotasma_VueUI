@@ -52,7 +52,7 @@
               :editable="false">
             </datepicker>
             <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
-                <div class="invalid-feedback ontop" v-if="submitted && errors.has('Start Date')">{{ errors.first('Start Date')}}</div>
+                <div class="invalid-feedback specialalala" v-if="submitted && errors.has('Start Date')">{{ errors.first('Start Date')}}</div>
             </transition>
           </div>
         </div>
@@ -120,8 +120,6 @@ export default {
           this.project.startDate = (this.project.startDate).valueOf()
           this.$store.dispatch('addProject', this.project)
           this.$modal.hide('createNewProj')
-        } else {
-          alert('invalid Input')
         }
       })
       .catch(error => {
@@ -147,6 +145,9 @@ export default {
 </script>
 
 <style scoped>
+.specialalala {
+  margin-top: 0
+}
 .box-title {
   padding: 5px;
   letter-spacing: 1px;

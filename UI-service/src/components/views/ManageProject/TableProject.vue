@@ -80,17 +80,19 @@
                     <td>
                       <a class="btn btn-app del-btn" title="Delete project" @click="showDialog(project.id)"><i class="fa fa-remove"></i></a>
                       <a 
-                          v-if="project.highlighted === true"
+                          v-if="project.highlighted === false"
                           class="btn btn-app star-btn" 
                           title="Highlight project" 
                           @click="highlightProject(project)">
-                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star-o"></i>
                       </a>
-                      <a v-else
+                      <a  
+                          v-else
                           class="btn btn-app star-btn" 
                           title="Highlight project"
                           @click="highlightProject(project)">
-                          <i class="fa fa-star-o"></i></a>
+                          <i class="fa fa-star"></i>
+                      </a>
                     </td>
                   </tr>
                 </tbody>  
