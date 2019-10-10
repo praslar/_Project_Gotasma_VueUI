@@ -46,6 +46,9 @@ export default {
     DELETE_USER_TO_PROJECT() {
         console.log('delete one user to project')
     },
+    EDIT_PROJECT() {
+        console.log('project edited')
+    },
     // =============================EXCEPTIONS===========================
     GET_EXCEPTIONS(state, exceptions) {
         state.exceptions = exceptions

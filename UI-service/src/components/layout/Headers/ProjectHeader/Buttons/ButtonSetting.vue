@@ -12,11 +12,10 @@ export default {
   props: ['id'],
   methods: {
   show () {
-    this.$modal.show('someSetting')
-    this.$modal.hide('someFilter')
+    this.$modal.show('settingModal')
   },
   hide () {
-    this.$modal.hide('someSetting')
+    this.$modal.hide('settingModal')
   }
 }
 }

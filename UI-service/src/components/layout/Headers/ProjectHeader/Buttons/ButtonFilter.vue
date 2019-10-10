@@ -12,7 +12,6 @@ export default {
   methods: {
   show () {
     this.$modal.show('someFilter')
-    this.$modal.hide('someSetting')
   },
   hide () {
     this.$modal.hide('someFilter')

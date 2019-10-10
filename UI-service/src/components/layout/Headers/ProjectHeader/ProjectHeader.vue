@@ -5,6 +5,8 @@
           <task-modal :exceptionDays="exceptionDays"></task-modal>
           <break-task-modal :exceptionDays="exceptionDays"></break-task-modal>
           <assign-member-modal :users="users"></assign-member-modal>
+          <filter-modal></filter-modal>
+          <setting-modal :project="project"></setting-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <status></status>
@@ -59,7 +61,7 @@ export default {
     ButtonText,
     Status
   },
-  props: ['id', 'users', 'exceptionDays']
+  props: ['id', 'users', 'exceptionDays', 'project']
 }
 </script>
 
