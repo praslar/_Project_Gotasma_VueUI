@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <project-header :id="id" :users="getResourceOfProject" :exceptionDays="exceptionDays"  v-if="project.users" ></project-header>
+    <project-header :id="id" :users="getResourceOfProject" :exceptionDays="exceptionDays"  v-if="project.users" :project="project"></project-header>
     <div class="info-box">
       <span class="info-box-icon bg-yellow">
         <i class="fa fa-files-o"></i>
@@ -66,7 +66,7 @@ export default {
           },
           calendar: {
             hour: {
-                display: false
+              display: false
             },
             workingDays: [1, 2, 3, 4, 5]
           },

@@ -5,7 +5,8 @@
         :width=400 
         :draggable="true" 
         :reset="true"
-        :pivotX=0.95>
+        :pivotX=0.95
+        :pivotY=0.4>
       <a class="pull-right exit-btn" @click="$modal.hide('someFilter')"><i class="fa fa-close"/></a>
       <div class="setting-content">
         <div>

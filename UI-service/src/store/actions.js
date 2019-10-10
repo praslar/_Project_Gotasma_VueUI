@@ -157,6 +157,15 @@ export default {
                 console.log(error)
             })
     },
+    editProject({ commit }, payload) {
+        Services.editProject(payload)
+            .then((response) => {
+                commit('EDIT_PROJECT', response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     // Exception actions
     getExceptions({ commit }) {
         Services.getExceptions()

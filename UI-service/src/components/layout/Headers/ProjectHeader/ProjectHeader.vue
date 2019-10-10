@@ -6,6 +6,8 @@
           <break-task-modal :exceptionDays="exceptionDays"></break-task-modal>
           <assign-member-modal :users="users"></assign-member-modal>
           <save-modal :projectId="id"></save-modal>
+          <filter-modal></filter-modal>
+          <setting-modal :project="project"></setting-modal>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <status></status>
@@ -62,7 +64,7 @@ export default {
     Status,
     SaveModal
   },
-  props: ['id', 'users', 'exceptionDays']
+  props: ['id', 'users', 'exceptionDays', 'project']
 }
 </script>
 

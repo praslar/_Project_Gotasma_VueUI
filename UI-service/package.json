@@ -13,7 +13,7 @@
         "test": "npm run unit && npm run e2e",
         "deploy": "netlify deploy dist",
         "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-        "json:server": "json-server --host localhost static/dummyData/dummyDB.json"
+        "json:server": "json-server --watch static/dummyData/dummyDB.json"
     },
     "dependencies": {
         "axios": "^0.19.0",

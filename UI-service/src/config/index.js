@@ -1,4 +1,4 @@
 export default {
-    serverURI: 'http://192.168.76.52:3000',
+    serverURI: 'http://localhost:3000',
     hideLogoOnMobile: false
 }

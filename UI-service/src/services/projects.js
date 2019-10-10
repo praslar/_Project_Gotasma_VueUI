@@ -12,6 +12,10 @@ export const deleteProject = async(id) => {
     return await NetworkHelper.requestDelete('/projects/' + id)
 }
 
+export const editProject = async(project) => {
+    return await NetworkHelper.requestPatch('/projects/' + project.id, { name: project.name })
+}
+
 export const getProjectByID = async(id) => {
     return await NetworkHelper.requestGet('/projects/' + id)
 }

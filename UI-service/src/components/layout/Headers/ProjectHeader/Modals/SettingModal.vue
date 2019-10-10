@@ -1,13 +1,16 @@
 <template>
-  <div>
+  <div v-if="project">
     <modal name="settingModal" 
         transition="nice-modal-fade" 
         :height=600 
         :width=400 
         :draggable="true" 
         :reset="true"
-        :pivotX=0.95>
-      <a class="pull-right exit-btn" @click="$modal.hide('someSetting')"><i class="fa fa-close"/></a>
+        @before-open="beforeOpen"
+        @before-close="beforeClose"
+        :pivotX=0.95
+        :pivotY=0.4>
+      <a class="pull-right exit-btn" @click="$modal.hide('settingModal')"><i class="fa fa-close"/></a>
       <div class="setting-content">
         <div>
           <h3 class="setting-heading">Project Setting</h3>
@@ -18,31 +21,16 @@
               <span class="input-group-addon"><i class="fa fa-fw fa-file-o"></i></span>
               <input
                 class="form-control" 
-                :value="project.name"
+                v-model="project.name"
                 type="text"/>
             </div>
         </div>
 
         <div class="form-group">
-          <label class="setting-subheading">Effort of this project</label>
-          <div class="input-group">
-            <span class="input-group-addon">
-              <i class="fa fa-fw fa-calendar-check-o"></i>
-            </span>
-            <select class="form-control">
-              <option selected>{{id}}</option>
-              <option>40</option>
-              <option>42</option>
-              <option>38</option>
-              <option>36</option>
-              </select>
-          </div>  
-        </div>
-
-        <div class="form-group">
-          <label class="setting-subheading">This project start at</label>
+          <label class="setting-subheading">Last update:</label>
           <div>
-            <datepicker v-model="project.startDate" appendToBody 
+            <datepicker v-model="project.updateDate" 
+            disabled
             lang="en" 
             format="MMM/DD/YYYY" 
             width="100%"
@@ -50,15 +38,10 @@
             </datepicker>
           </div>
         </div>
-
+        
         <div class="form-group">
-          <label class="setting-subheading">Last update at</label>
-
-          <p>view date</p>
-        </div>
-
-        <div>
-          <button class="btn btn-info btn-flat btn-lg">APPLY</button>
+          <button class="button-modal btn-create pull-right" 
+          @click="applyEdit(project)">APPLY</button>
         </div>
       </div>
 
@@ -68,39 +51,47 @@
 
 <script>
 import datepicker from 'vue2-datepicker'
-
 export default {
   name: 'settingModal',
-  props: ['id'],
+  props: ['id', 'project'],
   components: {
     datepicker
   },
-  shortcuts: [{
-    onClick: () => {
-      this.project.startDate = [ new Date(), new Date() ]
+  data() {
+    return {
+      beforeEdit: '',
+      isChanged: false
     }
-  }]
+  },
+  methods: {
+    applyEdit(project) {
+      this.isChanged = true
+      this.$store.dispatch('editProject', project)
+      this.$modal.hide('settingModal')
+    },
+    beforeOpen() {
+      this.beforeEdit = Object.assign({}, this.project)
+    },
+    beforeClose() {
+      if (this.isChanged === false) {
+        Object.assign(this.project, this.beforeEdit)
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
-.setting-content{
-  text-align: center
-}
 .setting-heading {
-  margin-bottom: 50px
+  margin-bottom: 50px;
+  text-align: center
 }
 .form-group {
   margin: 20px !important;
   padding: 5px
 }
 .exit-btn {
-    font-size: 15px;
-    padding: 5px;
-    color: #313233
-  }
-  .exit-btn:hover{
-    color: #3fb0ac
-  }
+  padding: 5px;
+}
 </style>
 
