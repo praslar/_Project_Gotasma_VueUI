@@ -1512,9 +1512,9 @@ chokidar@^2.0.2:
     fsevents "^1.2.7"
 
 chownr@^1.0.1, chownr@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.2.tgz#a18f1e0b269c8a6a5d3c86eb298beb14c3dd7bf6"
-  integrity sha512-GkfeAQh+QNy3wquu9oIZr6SS5x7wGdSgNQvD10X3r+AZr1Oys22HW8kAmDMvNg2+Dm0TeGaEuO8gFwdBXxwO8A==
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
+  integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
 
 chromedriver@^2.27.2:
   version "2.29.0"
@@ -3555,14 +3555,6 @@ gantt-elastic-header@^0.1.11:
 "gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/WorkLoad":
   version "1.0.6"
   resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/WorkLoad#6f6976c6ae1d546b4a68349971c28952faa18945"
-  dependencies:
-    dayjs "^1.8.16"
-    resize-observer-polyfill "^1.5.1"
-    vue "^2.6.10"
-
-"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/merged":
-  version "1.0.6"
-  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/merged#351e7180aff195ebf9e7c22542d30d20b28c531a"
   dependencies:
     dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"
