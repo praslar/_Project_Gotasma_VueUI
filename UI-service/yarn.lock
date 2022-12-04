@@ -2311,9 +2311,9 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 decompress-response@^3.3.0:
   version "3.3.0"
@@ -3555,14 +3555,6 @@ gantt-elastic-header@^0.1.11:
 "gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/WorkLoad":
   version "1.0.6"
   resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/WorkLoad#6f6976c6ae1d546b4a68349971c28952faa18945"
-  dependencies:
-    dayjs "^1.8.16"
-    resize-observer-polyfill "^1.5.1"
-    vue "^2.6.10"
-
-"gantt-elastic@https://github.com/praslar/gantt-elastic-vue/tarball/master/merged":
-  version "1.0.6"
-  resolved "https://github.com/praslar/gantt-elastic-vue/tarball/master/merged#351e7180aff195ebf9e7c22542d30d20b28c531a"
   dependencies:
     dayjs "^1.8.16"
     resize-observer-polyfill "^1.5.1"
